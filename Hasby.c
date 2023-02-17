@@ -1,4 +1,5 @@
 #include "Hasby.h"
+
 int Log(Angka1){
 	int Hasil;
 
