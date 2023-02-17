@@ -5,7 +5,7 @@
 #include "aryagara2.h"
 
 
-int main(int argc, char *argv[]) {
+int main() {
 	int operan1, operan2;
 	int operasi;
 	int hasil1;
@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
 	printf ("\n\t3. Pangkat");
 	printf ("\n\t4. Logaritma 10");
 	printf ("\n\t5. Logaritma Natural");
+	printf ("\n\t6. Matriks");
 	
 	printf ("\n\nPilih operasi yang akan dijalankan (berupa angka): ");
 	scanf  ("%d", &operasi);
@@ -26,7 +27,7 @@ int main(int argc, char *argv[]) {
 		case 1 :	
 			printf ("\nMasukkan operan pertama : ");
 			scanf  ("%d", &operan1);
-			hasil1 = NilaiMutlak (operan1);
+			hasil1 = HitungNilaiMutlak (operan1);
 			printf ("\nHasilnya adalah : %d", hasil1);
 			break;
 			
@@ -60,6 +61,8 @@ int main(int argc, char *argv[]) {
 			scanf  ("%lf", &operan);
 			hasil2 = hitungLog(operan);
 			break;
+		
+			
 	}
 	
 	return 0;

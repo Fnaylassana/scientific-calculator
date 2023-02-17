@@ -3,6 +3,6 @@
 #include <stdio.h>
 #include <math.h>
 
-int NilaiMutlak (int nilai);
+int HitungNilaiMutlak (int nilai);
 
 #endif
