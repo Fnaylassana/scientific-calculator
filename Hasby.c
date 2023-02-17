@@ -19,6 +19,7 @@ float ConCelFahr(float celc){
 	kelv = celc + 273.15;
 	return kelv;
 }
+
 float ConCelReam(float celc){
 	float ream;
 	 
@@ -26,3 +27,56 @@ float ConCelReam(float celc){
 	return ream;
 }
 
+float ConFahrCel(float fahr){
+	float celc; 
+	celc = (5.0/9.0) * (fahr - 32);
+	return celc;
+}
+ 
+float ConFahrKelv(float fahr){
+	float kelv;
+	kelv = (fahr - 32)* 5/9 + 273,15;
+	return kelv;
+}
+
+float ConFahrReam(float fahr){
+	float ream;
+	ream = (fahr - 32)* 4/9 ;
+	return ream;
+}
+
+float ConKelvCel(float kelv){
+	float celc; 
+	 celc = kelv - 273,15;
+	return celc;
+}
+ 
+float ConKelvFahr(float kelv){
+	float fahr;
+	fahr = kelv * 9/5 - 459,67;
+	return fahr;
+}
+
+float ConKelvReam(float kelv){
+	float ream;
+	ream = (kelv - 273) * 4/5;
+	return ream;
+}
+
+float ConReamCel(float ream){
+	float celc; 
+	celc = (5.0/4.0) * ream;
+	return celc;
+}
+ 
+float ConReamFahr(float ream){
+	float fahr;
+	fahr = ream * (9.0/4.0) + 32;
+	return fahr;
+}
+
+float ConReamKelv(float ream){
+	float kelv;
+	kelv = 273.15 + (5.0/4.0) * ream;
+	return kelv;
+}

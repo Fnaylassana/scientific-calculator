@@ -30,3 +30,26 @@ double cosNilai(double angka)
 	
 	return derajat;
 }
+<<<<<<< HEAD
+=======
+
+double cosInvers(double angka)
+{
+	double rad;
+	rad = acos(angka);
+	
+	return rad;
+}
+
+double cosInversNilai(double angka)
+{
+	float nilai, derajat;
+//	nilai = pi/180;
+//	derajat = acos(angka*nilai);
+	nilai = 180/pi;
+	derajat = ((acos(angka)) * nilai );
+
+	
+	return derajat;
+}
+>>>>>>> c3fdc276eceeed82cd30e5106980b68415325f10
