@@ -80,3 +80,27 @@ float ConReamKelv(float ream){
 	kelv = 273.15 + (5.0/4.0) * ream;
 	return kelv;
 }
+
+float Sigmai(float en){
+	int i,sig = 0;
+	for (i = 1; i <= en; i++) {
+        sig = sig + i;
+    }
+    	return sig; // operasi sigma i
+}
+
+float Sigmaidua(float en){
+	int i,sig = 0;
+	for (i = 1; i <= en; i++) {
+        sig += i*i; // operasi sigma i
+    }
+    return sig; // operasi sigma i kuadrat
+}
+
+float Sigmaitiga(float en){
+	int i,sig = 0;
+	for (i = 1; i <= en; i++) {
+        sig += i*i*i; // operasi sigma i
+    }
+    return sig; // operasi sigma i kubik
+}
