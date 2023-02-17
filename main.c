@@ -5,12 +5,13 @@
 #include "aryagara2.h"
 
 
-int main(int argc, char *argv[]) {
+int main() {
 	int operan1, operan2;
+	float operan3, operan4;
 	int operasi;
 	int hasil1;
-	float has1, op1, op2;
 	double operan, hasil2;
+	float hasil3;
 
 	
 	printf ("\nOperasi yang tersedia :");
@@ -20,8 +21,8 @@ int main(int argc, char *argv[]) {
 	printf ("\n\t4. Logaritma 10");
 	printf ("\n\t5. Logaritma Natural");
 	printf ("\n\t6. Kurang");
-	printf ("\n\t7. Perkalian");
-	printf ("\n\t8. Pembagian");
+	printf ("\n\t7. Kali");
+	printf ("\n\t8. Bagi");
 	
 	printf ("\n\nPilih operasi yang akan dijalankan (berupa angka): ");
 	scanf  ("%d", &operasi);
@@ -29,9 +30,9 @@ int main(int argc, char *argv[]) {
 	switch (operasi){
 		case 1 :	
 			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &operan1);
-			hasil1 = NilaiMutlak (operan1);
-			printf ("\nHasilnya adalah : %d", hasil1);
+			scanf  ("%f", &operan3);
+			hasil3 = HitungNilaiMutlak (operan3);
+			printf ("\nHasilnya adalah : %0.2f", hasil3);
 			break;
 			
 		case 2 :	
@@ -53,9 +54,9 @@ int main(int argc, char *argv[]) {
 			break;
 		
 		case 4 :	
-			printf ("\nMasukkan operan pertama : ");
+			printf ("\nMasukkan operan pertsama : ");
 			scanf  ("%d", &operan1);
-			hasil1 = log(operan1);
+			hasil1 = Log(operan1);
 			printf ("\nHasilnya adalah : %d", hasil1);
 			break;
 			
@@ -63,34 +64,37 @@ int main(int argc, char *argv[]) {
 			printf ("\nMasukkan operan pertama : ");
 			scanf  ("%lf", &operan);
 			hasil2 = hitungLog(operan);
+			printf ("\nHasilnya adalah : %lf", hasil2);
 			break;
-			
+		
 		case 6 :	
 			printf ("\nMasukkan operan pertama : ");
 			scanf  ("%d", &operan1);
 			printf ("\nMasukkan operan kedua : ");
 			scanf  ("%d", &operan2);
-			hasil1 = pengurangan(operan1, operan2);
+			hasil1 = pertambahan(operan1, operan2);
 			printf ("\nHasilnya adalah : %d", hasil1);
-			break;			
-
+			break;
+			
 		case 7 :	
 			printf ("\nMasukkan operan pertama : ");
 			scanf  ("%d", &operan1);
 			printf ("\nMasukkan operan kedua : ");
 			scanf  ("%d", &operan2);
-			hasil1 = perkalian(operan1, operan2);
+			hasil1 = pertambahan(operan1, operan2);
 			printf ("\nHasilnya adalah : %d", hasil1);
 			break;
-
+			
 		case 8 :	
 			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &op1);
+			scanf  ("%d", &operan1);
 			printf ("\nMasukkan operan kedua : ");
-			scanf  ("%d", &op2);
-			has1 = pembagian(op1, op2);
-			printf ("\nHasilnya adalah : %f", has1);
+			scanf  ("%d", &operan2);
+			hasil1 = pertambahan(operan1, operan2);
+			printf ("\nHasilnya adalah : %d", hasil1);
 			break;
+			
+		
 	}
 	
 	return 0;

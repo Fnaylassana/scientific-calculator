@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <math.h>
 
-int NilaiMutlak (int nilai);
+float HitungNilaiMutlak (float nilai);
+
+float HitungTan(float nilai);
 
 #endif
