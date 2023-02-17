@@ -2,7 +2,7 @@
 #include "naufal.h"
 #include "Hasby.h"
 #include "aulianf.h"
-#include "aryagara.h"
+#include "aryagara2.h"
 
 
 int main() {

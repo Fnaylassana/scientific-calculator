@@ -7,6 +7,7 @@ double hitungLog(double angka)
 	
     //Menghitung angka yang diiinput sebagai logaritma Natural
     hasil = log(angka);
+    printf("%lf", hasil);
     
     return hasil;
 }
