@@ -9,7 +9,6 @@ int main() {
 	int operan1, operan2;
 	int operasi;
 	int hasil1;
-	float has1, op1, op2;
 	double operan, hasil2;
 
 	
@@ -19,13 +18,6 @@ int main() {
 	printf ("\n\t3. Pangkat");
 	printf ("\n\t4. Logaritma 10");
 	printf ("\n\t5. Logaritma Natural");
-<<<<<<< HEAD
-	printf ("\n\t6. Matriks");
-=======
-	printf ("\n\t6. Kurang");
-	printf ("\n\t7. Perkalian");
-	printf ("\n\t8. Pembagian");
->>>>>>> 60deaf5eedef448c1358381eda4a54a05cef4b40
 	
 	printf ("\n\nPilih operasi yang akan dijalankan (berupa angka): ");
 	scanf  ("%d", &operasi);
@@ -57,9 +49,9 @@ int main() {
 			break;
 		
 		case 4 :	
-			printf ("\nMasukkan operan pertama : ");
+			printf ("\nMasukkan operan pertsama : ");
 			scanf  ("%d", &operan1);
-			hasil1 = log(operan1);
+			hasil1 = Log(operan1);
 			printf ("\nHasilnya adalah : %d", hasil1);
 			break;
 			
@@ -68,38 +60,6 @@ int main() {
 			scanf  ("%lf", &operan);
 			hasil2 = hitungLog(operan);
 			break;
-<<<<<<< HEAD
-		
-			
-=======
-			
-		case 6 :	
-			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &operan1);
-			printf ("\nMasukkan operan kedua : ");
-			scanf  ("%d", &operan2);
-			hasil1 = pengurangan(operan1, operan2);
-			printf ("\nHasilnya adalah : %d", hasil1);
-			break;			
-
-		case 7 :	
-			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &operan1);
-			printf ("\nMasukkan operan kedua : ");
-			scanf  ("%d", &operan2);
-			hasil1 = perkalian(operan1, operan2);
-			printf ("\nHasilnya adalah : %d", hasil1);
-			break;
-
-		case 8 :	
-			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &op1);
-			printf ("\nMasukkan operan kedua : ");
-			scanf  ("%d", &op2);
-			has1 = pembagian(op1, op2);
-			printf ("\nHasilnya adalah : %f", has1);
-			break;
->>>>>>> 60deaf5eedef448c1358381eda4a54a05cef4b40
 	}
 	
 	return 0;

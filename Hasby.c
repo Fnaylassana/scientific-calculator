@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 #include "Hasby.h"
-=======
-#include "Hasby.H"
->>>>>>> 60deaf5eedef448c1358381eda4a54a05cef4b40
 
 int Log(Angka1){
 	int Hasil;
