@@ -1,9 +1,18 @@
 #include "Fauza.h"
 
-int HitungNilaiMutlak (int nilai){
-	int temp;
-	temp = fabs (nilai);
-	return temp;
+float HitungNilaiMutlak (float nilai){
+	
+	if (nilai < 0){
+		nilai = nilai * -1;
+	}
+	
+	return nilai;
 }
 
-
+float HitungTan(float nilai){
+	float temp;
+	
+	temp = tanf (nilai);
+	
+	return temp;
+}

@@ -2,14 +2,16 @@
 #include "naufal.h"
 #include "Hasby.h"
 #include "aulianf.h"
-#include "aryagara2.h"
+#include "aryagara.h"
 
 
 int main() {
 	int operan1, operan2;
+	float operan3, operan4;
 	int operasi;
 	int hasil1;
 	double operan, hasil2;
+	float hasil3;
 
 	
 	printf ("\nOperasi yang tersedia :");
@@ -18,6 +20,9 @@ int main() {
 	printf ("\n\t3. Pangkat");
 	printf ("\n\t4. Logaritma 10");
 	printf ("\n\t5. Logaritma Natural");
+	printf ("\n\t6. Kurang");
+	printf ("\n\t7. Kali");
+	printf ("\n\t8. Bagi");
 	
 	printf ("\n\nPilih operasi yang akan dijalankan (berupa angka): ");
 	scanf  ("%d", &operasi);
@@ -25,9 +30,9 @@ int main() {
 	switch (operasi){
 		case 1 :	
 			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &operan1);
-			hasil1 = HitungNilaiMutlak (operan1);
-			printf ("\nHasilnya adalah : %d", hasil1);
+			scanf  ("%f", &operan3);
+			hasil3 = HitungNilaiMutlak (operan3);
+			printf ("\nHasilnya adalah : %0.2f", hasil3);
 			break;
 			
 		case 2 :	
@@ -59,7 +64,37 @@ int main() {
 			printf ("\nMasukkan operan pertama : ");
 			scanf  ("%lf", &operan);
 			hasil2 = hitungLog(operan);
+			printf ("\nHasilnya adalah : %lf", hasil2);
 			break;
+		
+		case 6 :	
+			printf ("\nMasukkan operan pertama : ");
+			scanf  ("%d", &operan1);
+			printf ("\nMasukkan operan kedua : ");
+			scanf  ("%d", &operan2);
+			hasil1 = pertambahan(operan1, operan2);
+			printf ("\nHasilnya adalah : %d", hasil1);
+			break;
+			
+		case 7 :	
+			printf ("\nMasukkan operan pertama : ");
+			scanf  ("%d", &operan1);
+			printf ("\nMasukkan operan kedua : ");
+			scanf  ("%d", &operan2);
+			hasil1 = pertambahan(operan1, operan2);
+			printf ("\nHasilnya adalah : %d", hasil1);
+			break;
+			
+		case 8 :	
+			printf ("\nMasukkan operan pertama : ");
+			scanf  ("%d", &operan1);
+			printf ("\nMasukkan operan kedua : ");
+			scanf  ("%d", &operan2);
+			hasil1 = pertambahan(operan1, operan2);
+			printf ("\nHasilnya adalah : %d", hasil1);
+			break;
+			
+		
 	}
 	
 	return 0;
