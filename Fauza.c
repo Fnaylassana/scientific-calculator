@@ -322,13 +322,13 @@ void FiturLain()
 					Modulus ();
 					break;
 
-//				case 6 :
-//					Kombinasi ();
-//					break;
-//				
-//				case 7 :
-//					Permutasi ();
-//					break;
+				case 6 :
+					Kombinasi ();
+					break;
+				
+				case 7 :
+					Permutasi ();
+					break;
 						
 				default :
 					printf ("\nFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
@@ -426,6 +426,7 @@ void Faktorial()
 	int angka1, hasil;
 	
 	do{
+		system ("cls");
 		Input1Int(&angka1);
 		hasil = faktorial (angka1);
 		printf ("\n%d! adalah %d", angka1, angka1);
@@ -450,6 +451,7 @@ void Modulus()
 	int angka1, angka2;
 	
 	do{
+		system ("cls");
 		Input2Int(&angka1, &angka2);
 		printf ("\nHasil dari %d mod %d adalah %d\n", angka1, angka2, modulus(angka1, angka2));
 
@@ -458,33 +460,34 @@ void Modulus()
 	}while (lagi == 'y' || lagi == 'Y');
 }
 
-//void Kombinasi()
-//{
-//	int lagi;
-//	int angka1, angka2;
-//	
-//	do{
-//		Input2Int(&angka1, &angka2);
-//		printf ("\nHasil dari %d mod %d adalah %d\n", angka1, angka2, modulus(angka1, angka2));
-//
-//	    printf ("\nApakah anda ingin menghitung modulus kembali? (y/t)");
-//	    lagi = getche();
-//	}while (lagi == 'y' || lagi == 'Y');
-//}
-//
-//void Permutasi()
-//{
-//	int lagi;
-//	int angka1, angka2;
-//	
-//	do{
-//		Input2Int(&angka1, &angka2);
-//		printf ("\nHasil dari %d mod %d adalah %d\n", angka1, angka2, modulus(angka1, angka2));
-//
-//	    printf ("\nApakah anda ingin menghitung modulus kembali? (y/t)");
-//	    lagi = getche();
-//	}while (lagi == 'y' || lagi == 'Y');
-//}
+void Kombinasi()
+{
+	int lagi;
+	int angka1, angka2;
+	
+	do{
+		system ("cls");
+		Input2Int(&angka1, &angka2);
+		printf ("\nHasil dari %d C %d adalah %d\n", angka1, angka2, kombinasi(angka1, angka2));
+
+	    printf ("\nApakah anda ingin menghitung kombinasi kembali? (y/t)");
+	    lagi = getche();
+	}while (lagi == 'y' || lagi == 'Y');
+}
+
+void Permutasi()
+{
+	int lagi;
+	int angka1, angka2;
+	
+	do{
+		Input2Int(&angka1, &angka2);
+		printf ("\nHasil dari %d P %d adalah %d\n", angka1, angka2, permutasi(angka1, angka2));
+
+	    printf ("\nApakah anda ingin menghitung permutasi kembali? (y/t)");
+	    lagi = getche();
+	}while (lagi == 'y' || lagi == 'Y');
+}
 
 void Input1Int(int *angka)
 {

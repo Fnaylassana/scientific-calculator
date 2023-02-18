@@ -66,6 +66,10 @@ void Faktorial();
 
 void Modulus();
 
+void Kombinasi();
+
+void Permutasi();
+
 void Input1Int(int *angka);
 
 void Input2Int(int *angka1, int *angka2);
