@@ -24,7 +24,6 @@ float cosRad(float angka)
 float cosNilai(float angka)
 {
 	float nilai, derajat;
-	
 	nilai = pi/180;
 	derajat = cosf(angka * nilai);
 	
@@ -63,7 +62,6 @@ float secRad(float angka)
 float secDerajat(float angka)
 {
 	float nilai, derajat;
-	
 	nilai = pi/180;
 	derajat = 1/(cosf(angka * nilai));
 	
@@ -82,7 +80,6 @@ float tanRad(float angka)
 float tanDerajat(float angka)
 {
 	float nilai, derajat;
-	
 	nilai = pi/180;
 	derajat = tanf(angka * nilai);
 }
@@ -90,7 +87,6 @@ float tanDerajat(float angka)
 float tanInvers(float angka)
 {
 	float rad;
-	
 	rad = atanf(angka);
 	
 	return rad;
