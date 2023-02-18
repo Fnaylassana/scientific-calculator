@@ -4,7 +4,7 @@
 #include "math.h"
 
 
-int Log(Angka1);
+int Log(float Angka1);
 float ConCelFahr(float celc);
 float ConCelKelv(float celc);
 float ConCelReam(float celc);
