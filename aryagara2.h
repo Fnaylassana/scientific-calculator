@@ -16,4 +16,5 @@ float tanRad(float angka);
 float tanInvers(float angka);
 float tanInversNilai(float angka);
 
+
 #endif
