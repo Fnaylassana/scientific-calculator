@@ -15,6 +15,7 @@ float tanDerajat(float angka);
 float tanRad(float angka);
 float tanInvers(float angka);
 float tanInversNilai(float angka);
-
+float cotRad(float angka);
+float cotDerajat(float angka);
 
 #endif

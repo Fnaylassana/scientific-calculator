@@ -60,6 +60,7 @@ float secRad(float angka)
 	return sec;
 }
 
+
 float secDerajat(float angka)
 {
 	float nilai, derajat;
@@ -104,4 +105,22 @@ float tanInversNilai(float angka)
 	derajat = ((atanf(angka)) * nilai );
 
 	return derajat;
+}
+
+float cotRad(float angka)
+{
+	float rad, cot;
+	
+	rad = tanf(angka);
+	cot = 1/rad;
+	
+	return cot;
+}
+
+float cotDerajat(float angka)
+{
+	float nilai, derajat;
+	
+	nilai = pi/180;
+	derajat = 1/(tanf(angka * nilai));
 }
