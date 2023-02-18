@@ -1,6 +1,6 @@
 #include "Hasby.h"
 
-int Log(float Angka1){
+float Log(float Angka1){
 	int Hasil;
 
     Hasil = log10(Angka1);
@@ -128,3 +128,28 @@ float ConMkeMIL (float met){
 	mil = met / 1609.344;
 	return mil;
 }
+
+float ConCMkeM (float cm){
+	float met;
+	met = cm / 100;
+	return met;
+}
+
+float ConCMkeMM (float cm){
+	float mm;
+	mm = cm * 10;
+	return mm;
+}
+
+float ConCMkeKM (float cm){
+	float km;
+	km = cm / 100000;
+	return km;
+}
+
+float ConCMkeINC (float cm){
+	float inc;
+	inc = cm / 2.54;
+	return inc;
+}
+

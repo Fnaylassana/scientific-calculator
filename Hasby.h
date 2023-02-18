@@ -4,7 +4,7 @@
 #include "math.h"
 
 
-int Log(float Angka1);
+float Log(float Angka1);
 float ConCelFahr(float celc);
 float ConCelKelv(float celc);
 float ConCelReam(float celc);
@@ -24,5 +24,10 @@ float ConMkeCM (float met);
 float ConMkeKM (float met);
 float ConMkeMIL (float met);
 float ConMkeMM (float met);
+float ConCMkeM (float cm);
+float ConCMkeMM (float cm);
+float ConCMkeKM (float cm);
+float ConCMkeINC (float cm);
+
 #endif
 
