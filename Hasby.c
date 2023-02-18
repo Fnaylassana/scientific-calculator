@@ -153,3 +153,26 @@ float ConCMkeINC (float cm){
 	return inc;
 }
 
+float ConKMkeCM (float km){
+	float cm;
+	cm = km * 100000;
+	return cm;
+}
+
+float ConKMkeMM (float km){
+	float mm;
+	mm = km * 1000000;
+	return mm;
+}
+
+float ConKMkeM (float km){
+	float m;
+	m = km * 1000;
+	return m;
+}
+
+float ConKMkeMIL (float km){
+	float mil;
+	mil = km / 1.609344;
+	return mil;
+}
