@@ -6,96 +6,41 @@
 
 
 int main() {
-	int operan1, operan2;
-	float operan3, operan4;
-	int operasi;
-	int hasil1;
-	double operan, hasil2;
-	float hasil3;
+//	int operan1, operan2;
+//	float operan3, operan4;
+	int menu;
+	char ulang;
+//	int hasil1;
+//	double operan, hasil2;
+//	float hasil3;
 
+	do {
+		system ("cls");
+		printf ("\nPilih menu :");
+		printf ("\n\t1. Kalkulator");
+		printf ("\n\t2. Fitur lainnya");
+		
+		do{
+			printf ("\n\nPilih fitur yang akan dijalankan (berupa angka): ");
+			scanf  ("%d", &menu);
 	
-	printf ("\nOperasi yang tersedia :");
-	printf ("\n\t1. Nilai Nutlak");
-	printf ("\n\t2. Tambah");
-	printf ("\n\t3. Pangkat");
-	printf ("\n\t4. Logaritma 10");
-	printf ("\n\t5. Logaritma Natural");
-	printf ("\n\t6. Kurang");
-	printf ("\n\t7. Kali");
-	printf ("\n\t8. Bagi");
-	
-	printf ("\n\nPilih operasi yang akan dijalankan (berupa angka): ");
-	scanf  ("%d", &operasi);
-
-	switch (operasi){
-		case 1 :	
-			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%f", &operan3);
-			hasil3 = HitungNilaiMutlak (operan3);
-			printf ("\nHasilnya adalah : %0.2f", hasil3);
-			break;
-			
-		case 2 :	
-			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &operan1);
-			printf ("\nMasukkan operan kedua : ");
-			scanf  ("%d", &operan2);
-			hasil1 = pertambahan(operan1, operan2);
-			printf ("\nHasilnya adalah : %d", hasil1);
-			break;
-			
-		case 3 :	
-			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &operan1);
-			printf ("\nMasukkan operan kedua : ");
-			scanf  ("%d", &operan2);
-			hasil1 = eksponen(operan1, operan2);
-			printf ("\nHasilnya adalah : %d", hasil1);
-			break;
+			switch (menu){
+				case 1 :	
+					kalkulator();
+					break;
+					
+				case 2 :	
+					FiturLain();
+					break;
 		
-		case 4 :	
-			printf ("\nMasukkan operan pertsama : ");
-			scanf  ("%d", &operan1);
-			hasil1 = Log(operan1);
-			printf ("\nHasilnya adalah : %d", hasil1);
-			break;
-			
-		case 5 :	
-			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%lf", &operan);
-			hasil2 = hitungLog(operan);
-			printf ("\nHasilnya adalah : %lf", hasil2);
-			break;
+				default :
+					printf ("\nMenu yang anda pilih tidak ada, silahkan pilih antara 1 atau 2!\n");
+			}
+		} while (menu < 1 || menu > 2);
 		
-		case 6 :	
-			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &operan1);
-			printf ("\nMasukkan operan kedua : ");
-			scanf  ("%d", &operan2);
-			hasil1 = pertambahan(operan1, operan2);
-			printf ("\nHasilnya adalah : %d", hasil1);
-			break;
-			
-		case 7 :	
-			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &operan1);
-			printf ("\nMasukkan operan kedua : ");
-			scanf  ("%d", &operan2);
-			hasil1 = pertambahan(operan1, operan2);
-			printf ("\nHasilnya adalah : %d", hasil1);
-			break;
-			
-		case 8 :	
-			printf ("\nMasukkan operan pertama : ");
-			scanf  ("%d", &operan1);
-			printf ("\nMasukkan operan kedua : ");
-			scanf  ("%d", &operan2);
-			hasil1 = pertambahan(operan1, operan2);
-			printf ("\nHasilnya adalah : %d", hasil1);
-			break;
-			
-		
-	}
+		printf ("\n\nApakah anda ingin kembali ke menu awal? (y/t)");
+		ulang = getche ();
+	} while (ulang == 'y' || ulang == 'Y');
 	
 	return 0;
 }

@@ -21,7 +21,29 @@ float cosRad(float angka)
 	return rad;
 }
 
+<<<<<<< HEAD
+double cosNilai(double angka)
+{
+	double nilai, derajat;
+	nilai = pi/180;
+	derajat = cos(angka*nilai);
+	
+	return derajat;
+}
+
+
+double cosInvers(double angka)
+{
+	double rad;
+	rad = acos(angka);
+	
+	return rad;
+}
+
+double cosInversNilai(double angka)
+=======
 float cosNilai(float angka)
+>>>>>>> 83961c64ef7dab23093aa93cc8b308da4522d2a2
 {
 	float nilai, derajat;
 	nilai = pi/180;
@@ -48,6 +70,8 @@ float cosInversNilai(float angka)
 	
 	return derajat;
 }
+<<<<<<< HEAD
+=======
 
 float secRad(float angka)
 {
@@ -101,3 +125,4 @@ float tanInversNilai(float angka)
 
 	return derajat;
 }
+>>>>>>> 83961c64ef7dab23093aa93cc8b308da4522d2a2

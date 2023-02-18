@@ -52,8 +52,8 @@ int modulus(int nilai1, int nilai2){
 	return temp;
 }
 
-int kombinasi(int nilai1, int nilai2, int hasil){
-	int i, x1=1, x2=1, x3=1;
+int kombinasi(int nilai1, int nilai2){
+	int hasil, i, x1=1, x2=1, x3=1;
 
 	for(i=1;i<=nilai1;i++){
         x1=x1*i;
@@ -68,11 +68,11 @@ int kombinasi(int nilai1, int nilai2, int hasil){
 	}
 	hasil=x1/(x2*x3);
 	
-	return;
+	return hasil;
 }
 
-int permutasi(int nilai1, int nilai2, int hasil){
-	int i, x1=1, x2=1, x3=1;
+int permutasi(int nilai1, int nilai2){
+	int hasil, i, x1=1, x2=1, x3=1;
 
 	for(i=1;i<=nilai1;i++){
         x1=x1*i;
@@ -84,5 +84,5 @@ int permutasi(int nilai1, int nilai2, int hasil){
     
     hasil=x1/x2;
     
-    return;
+    return hasil;
 }
