@@ -1,55 +1,103 @@
 #include "aryagara2.h"
 #include <stdio.h>
 
-double hitungLog(double angka)
+float hitungLog(float angka)
 {
-	double hasil;
+	float hasil;
 	
     //Menghitung angka yang diiinput sebagai logaritma Natural
     hasil = log(angka);
-    printf("%lf", hasil);
     
     return hasil;
 }
 
-double cosRad(double angka)
+float cosRad(float angka)
 {
-	double rad;
+	float rad;
 	
 	//Menghitung angka yang diinput sebagai Cosinus, hasilnya akan menjadi radian
-	rad = cos(angka);
+	rad = cosf(angka);
 	
 	return rad;
 }
 
-double cosNilai(double angka)
-{
-	double nilai, derajat;
-	nilai = pi/180;
-	derajat = cos(angka*nilai);
-	
-	return derajat;
-}
-<<<<<<< HEAD
-=======
-
-double cosInvers(double angka)
-{
-	double rad;
-	rad = acos(angka);
-	
-	return rad;
-}
-
-double cosInversNilai(double angka)
+float cosNilai(float angka)
 {
 	float nilai, derajat;
-//	nilai = pi/180;
-//	derajat = acos(angka*nilai);
+	nilai = pi/180;
+	derajat = cosf(angka * nilai);
+	
+	return derajat;
+}
+
+float cosInvers(float angka)
+{
+	float rad;
+	rad = acosf(angka);
+	
+	return rad;
+}
+
+float cosInversNilai(float angka)
+{
+	float nilai, derajat;
+
 	nilai = 180/pi;
-	derajat = ((acos(angka)) * nilai );
+	derajat = ((acosf(angka)) * nilai );
 
 	
 	return derajat;
 }
->>>>>>> c3fdc276eceeed82cd30e5106980b68415325f10
+
+float secRad(float angka)
+{
+	float rad, sec;
+	
+	rad = cosf(angka);
+	sec = 1/rad;
+	
+	return sec;
+}
+
+float secDerajat(float angka)
+{
+	float nilai, derajat;
+	nilai = pi/180;
+	derajat = 1/(cosf(angka * nilai));
+	
+	return derajat;
+}
+
+float tanRad(float angka)
+{
+	float rad;
+	
+	rad = tanf(angka);
+	
+	return rad;
+}
+
+float tanDerajat(float angka)
+{
+	float nilai, derajat;
+	nilai = pi/180;
+	derajat = tanf(angka * nilai);
+}
+
+float tanInvers(float angka)
+{
+	float rad;
+	rad = atanf(angka);
+	
+	return rad;
+}
+
+float tanInversNilai(float angka)
+{
+	float nilai, derajat;
+	
+	nilai = 180/pi;
+	derajat = ((atanf(angka)) * nilai );
+
+	return derajat;
+}
