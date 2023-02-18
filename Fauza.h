@@ -70,6 +70,8 @@ void Kombinasi();
 
 void Permutasi();
 
+void KonversiSuhu();
+
 void Input1Int(int *angka);
 
 void Input2Int(int *angka1, int *angka2);

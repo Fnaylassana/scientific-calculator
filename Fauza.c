@@ -329,6 +329,10 @@ void FiturLain()
 				case 7 :
 					Permutasi ();
 					break;
+					
+				case 8 :
+					KonversiSuhu ();
+					break;
 						
 				default :
 					printf ("\nFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
@@ -485,6 +489,63 @@ void Permutasi()
 		printf ("\nHasil dari %d P %d adalah %d\n", angka1, angka2, permutasi(angka1, angka2));
 
 	    printf ("\nApakah anda ingin menghitung permutasi kembali? (y/t)");
+	    lagi = getche();
+	}while (lagi == 'y' || lagi == 'Y');
+}
+
+void KonversiSuhu()
+{
+	int pilih, lagi;
+	float angka1;
+	double angka2;
+	
+	do{
+		system ("cls");
+		printf ("\nPilih Fitur :");
+		printf ("\n\t1. Celcius ke Farenheit, Reamur, dan Kelvin");
+		printf ("\n\t2. Farenheit ke Celcius, Reamur, dan Kelvin");
+		printf ("\n\t3. Reamur ke Celcius, Farenheit, dan Kelvin");
+		printf ("\n\t4. Kelvin ke Celcius, Farenheit, dan Reamur");
+	
+		do{
+			printf ("\n\nPilih fitur yang akan digunakan (berupa angka): ");
+			scanf  ("%d", &pilih);
+		
+			switch (pilih){
+				case 1 :
+					Input1Float(&angka1);
+					printf ("\n%0.2f Celcius = %0.2f Farenheit\n", angka1, ConCelFahr(angka1));
+					printf ("\n%0.2f Celcius = %0.2f Reamur\n", angka1, ConCelReam(angka1));
+					printf ("\n%0.2f Celcius = %0.2f Kelvin\n", angka1, ConCelKelv(angka1));
+					break;
+					
+				case 2 :
+					Input1Float(&angka1);
+					printf ("\n%0.2f Farenheit = %0.2f Celcius\n", angka1, ConFahrCel(angka1));
+					printf ("\n%0.2f Farenheit = %0.2f Reamur\n", angka1, ConFahrReam(angka1));
+					printf ("\n%0.2f Farenheit = %0.2f Kelvin\n", angka1, ConFahrKelv(angka1));
+					break;
+					
+				case 3 :
+					Input1Float(&angka1);
+					printf ("\n%0.2f Reamur = %0.2f Celcius\n", angka1, ConReamCel(angka1));
+					printf ("\n%0.2f Reamur = %0.2f Farenheit\n", angka1, ConReamFahr(angka1));
+					printf ("\n%0.2f Reamur = %0.2f Kelvin\n", angka1, ConReamKelv(angka1));
+					break;
+					
+				case 4 :
+					Input1Float(&angka1);
+					printf ("\n%0.2f Kelvin = %0.2f Celcius\n", angka1, ConKelvCel(angka1));
+					printf ("\n%0.2f Kelvin = %0.2f Farenheit\n", angka1, ConKelvFahr(angka1));
+					printf ("\n%0.2f Kelvin = %0.2f Reamur\n", angka1, ConKelvReam(angka1));
+					break;
+		
+				default :
+					printf ("\nFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
+			}
+		} while (pilih != 1 && pilih != 2 && pilih != 3 && pilih != 4);
+		
+	    printf ("\nApakah anda ingin mengkonversi suhu kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
