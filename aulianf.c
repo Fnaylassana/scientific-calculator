@@ -1,15 +1,15 @@
 #include "aulianf.h"
 #define pi 3.14
 
-/* float eksponen(float bilangan1, float bilangan2)
-// Menghitung bilangan berpangkat
+float akar(float bilangan1, float bilangan2)
 {
-	float hasil1;							
-	hasil1 = pow(bilangan1,bilangan2);     	// Menghitung pangkat dengan fungsi pow 
-	return hasil1;
-} */
+	float hasil;
+	bilangan2 = 1/bilangan2;
+	hasil = pow(bilangan1,bilangan2);		
+	return hasil;
+}
 
-float eksponen (float bilangan1, float bilangan2)
+float eksponen(float bilangan1, float bilangan2)
 {   
 	float hasil;
 	hasil = 1;
@@ -34,59 +34,36 @@ float eksponen (float bilangan1, float bilangan2)
     return hasil;
 } 
 
-float akar (float bilangan)
-// Menghitung akar
-{
-	float hasil;
-	while (bilangan < 0){
-		printf("Hasil tidak terdefinisi, silahkan masukkan kembali bilangan");
-		printf("\n\n2Masukkan bilangan : ");
-		scanf("%f",&bilangan);
-	}
-	hasil = sqrt(bilangan);		// Menghitung akar dengan fungsi sqrt		
-	return hasil;
-}
-
-float sinRad(float bilangan)
+float sinRad(float angka)
 // Hasil sin berupa radian
 {
 	float rad;
-	rad = sin(bilangan); 
+	rad = sin(angka); 
 	return rad;
 }
 
-float sinDerajat(float bilangan)
+float sinDerajat(float angka)
 // Hasil sin berupa derajat
 {
 	float nilai, derajat;
 	nilai = pi/180;
-	derajat = sin(bilangan*nilai);
+	derajat = sinf(angka*nilai);
 	return derajat;
 }
 
-float sinInversRad(float bilangan)
+float sinInversRad(float angka)
 // Hasil Invers berupa derajat
 {
 	float rad;
-	while (bilangan < -1 || bilangan > 1){
-	printf("Silahkan masukkan kembali bilangan (-1 - 1)");
-		printf("\n\n2Masukkan bilangan : ");
-		scanf("%f",&bilangan);
-	} 
-	rad = asin(bilangan);
+	rad = asinf(angka);
 	return rad;
 } 
 
-float sinInversDerajat(float bilangan)
+float sinInversDerajat(float angka)
 // Hasil Invers berupa derajat
 {
 	float nilai, derajat;
-	while (bilangan < -1 || bilangan > 1){
-	printf("Silahkan masukkan kembali bilangan (-1 - 1)");
-		printf("\n\n2Masukkan bilangan : ");
-		scanf("%f",&bilangan);
-	} 
 	nilai = 180/pi;
-	derajat = ((asin(bilangan))*nilai);
+	derajat = ((asinf(angka))*nilai);
 	return derajat;
 } 
