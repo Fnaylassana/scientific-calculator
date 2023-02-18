@@ -176,3 +176,27 @@ float ConKMkeMIL (float km){
 	mil = km / 1.609344;
 	return mil;
 }
+
+float ConMMkeM (float mm){
+	float met;
+	met = mm / 1000;
+	return met;
+}
+
+float ConMMkeCM (float mm){
+	float cm;
+	cm = mm / 10;
+	return cm;
+}
+
+float ConMMkeKM (float mm){
+	float km;
+	km = mm / 1000000;
+	return km;
+}
+
+float ConMMkeINC (float mm){
+	float inc;
+	inc = mm / 25.4;
+	return inc;
+}

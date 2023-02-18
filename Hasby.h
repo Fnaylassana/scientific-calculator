@@ -32,5 +32,9 @@ float ConKMkeCM (float km);
 float ConKMkeM (float km);
 float ConKMkeMIL (float km);
 float ConKMkeMM (float km);
+float ConMMkeM (float mm);
+float ConMMkeCM (float mm);
+float ConMMkeKM (float mm);
+float ConMMkeINC (float mm);
 #endif
 
