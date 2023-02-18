@@ -27,7 +27,7 @@ float HitungTan(float nilai){
 
 void kalkulator()
 {
-    char infixExpr[256];
+    char input[256];
     char lagi = 'y';
 	char*x;
     float result;
@@ -35,15 +35,20 @@ void kalkulator()
     while(lagi == 'y' || lagi == 'Y')
     {
     	system ("cls");
-    	
+    	printf("\nKetentuan: ");
+    	printf("\n1. Gunakan + untuk operasi tambah ");
+    	printf("\n2. Gunakan - untuk operasi kurang ");
+    	printf("\n3. Gunakan * untuk operasi kali ");
+    	printf("\n4. Gunakan / untuk operasi bagi ");
+    	printf("\n5. Gunakan ^ untuk operasi pangkat \n");
     	printf("\nMasukkan operasi yang akan anda hitung (tanpa spasi): ");
-    	scanf ("%s", &infixExpr);
+    	scanf ("%s", &input);
 	    char postfixExpr[256] = "";
-        replaceNewLineBySpace(infixExpr);
-        x=removespaces(infixExpr);
+        replaceNewLineBySpace(input);
+        x=removespaces(input);
         printf("Postfix : %s\n",infixToPostfix(x, postfixExpr));
         result = evaluatePostfix(postfixExpr);
-        printf("Hasilnya adalah: %0.0f\n\n", result);
+        printf("Hasilnya adalah: %0.2f\n\n", result);
         printf ("Apakah anda ingin menghitung kembali? (y/t)");
         lagi = getche();
     }
@@ -90,13 +95,13 @@ int priority(char c)
 {
     if (c=='+' || c=='-') return 1;
     else if (c=='*' || c=='/') return 2;
-    else if (c=='^') return 3 ;
+    else if (c=='^' || c=='v') return 3 ;
     return 0;
 }
 
 int isOperator(char c)
 {
-    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^') return 1;
+    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v') return 1;
     else return 0;
 }
 
@@ -197,7 +202,7 @@ char *infixToPostfix(char *infix,char *postfix)
                 char tempChar3 = '-';
                 strncat(temp2, &tempChar3, 1);
                 strcpy(tempInfix, infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^");
+                temp = strtok(tempInfix + ptr, " +-)(*/^v");
                 ptr += strlen(temp) + 1;
                 strcat(temp2, temp);
                 strcat(postfix, temp2);
@@ -206,7 +211,7 @@ char *infixToPostfix(char *infix,char *postfix)
             else
             {
                 strcpy(tempInfix,infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^");
+                temp = strtok(tempInfix + ptr, " +-)(*/^v");
                 ptr+=strlen(temp);
                 strcat(postfix, temp);
                 strcat(postfix, oneSpace);
@@ -271,6 +276,9 @@ float evaluatePostfix(char postFix[])
                 break;
             case '^':
                 push(stack, eksponen (b, a));
+                break;
+            case 'v':
+                push(stack, pow (b, 1/a));
                 break;
             default:
                 break;
