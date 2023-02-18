@@ -104,3 +104,27 @@ float Sigmaitiga(float en){
     }
     return sig; // operasi sigma i kubik
 }
+
+float ConMkeCM (float met){
+	float cm;
+	cm = met * 100;
+	return cm;
+}
+
+float ConMkeMM (float met){
+	float mm;
+	mm = met * 1000;
+	return mm;
+}
+
+float ConMkeKM (float met){
+	float km;
+	km = met / 1000;
+	return km;
+}
+
+float ConMkeMIL (float met){
+	float mil;
+	mil = met / 1609.344;
+	return mil;
+}

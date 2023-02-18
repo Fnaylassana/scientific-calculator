@@ -20,6 +20,9 @@ float ConReamKelv(float ream);
 float Sigmai(float en);
 float Sigmaidua(float en);
 float Sigmaitiga(float en);
-	
+float ConMkeCM (float met);
+float ConMkeKM (float met);
+float ConMkeMIL (float met);
+float ConMkeMM (float met);
 #endif
 
