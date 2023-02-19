@@ -1,6 +1,5 @@
 #ifndef aryagara_H
 #define aryagara_H
-#define pi 3.14285714
 #include <stdio.h>
 #include <math.h>
 

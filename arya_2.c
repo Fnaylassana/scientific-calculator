@@ -1,5 +1,5 @@
 #include "aryagara2.h"
-#include "aulianf.c"
+#include "aulianf.h"
 #include <stdio.h>
 
 void Trigonometri()
@@ -39,8 +39,8 @@ void Trigonometri()
 
 				case 3 :	
 					Input1Float(&angka1);
-					printf ("\nHasil dari csc(%.01f) adalah %.02f radian\n", angka1, cscRad(angka1));
-					printf ("\nHasil dari csc(%.01f) adalah %.02f derajat\n", angka1, cscDerajat(angka1));
+					printf ("\nHasil dari csc(%.01f) adalah %.02f radian\n", angka1, cosecRad(angka1));
+					printf ("\nHasil dari csc(%.01f) adalah %.02f derajat\n", angka1, cosecDerajat(angka1));
 					break;
 
 				case 4 :	
