@@ -222,33 +222,33 @@ void KonversiPanjang()
                 case 1 :
                     Input1Float(&angka1);
                     printf("Panjang meter :%g m dalam sentimeter: %g cm\n", angka1, ConMkeCM(angka1));
-                    printf("Panjang meter :%g m dalam milimeter %g cm\n", angka1, ConMkeMM(angka1));
+                    printf("Panjang meter :%g m dalam milimeter %g mm\n", angka1, ConMkeMM(angka1));
                     printf("Panjang meter :%g m dalam kilometer: %g km\n", angka1, ConMkeKM(angka1));
                     printf("Panjang meter :%g m dalam mil: %g mi\n", angka1, ConMkeMIL(angka1));
                     break;
                     
                 case 2 :
                     Input1Float(&angka1);
-                    printf("Panjang kilometer :%g m dalam sentimeter: %g cm\n", angka1, ConKMkeCM(angka1));
-                    printf("Panjang kilometer :%g m dalam milimeter %g cm\n", angka1, ConKMkeMM(angka1));
-                    printf("Panjang kilometer :%g m dalam meter: %g km\n", angka1, ConKMkeM(angka1));
-                    printf("Panjang kilometer :%g m dalam mil: %g mi\n", angka1, ConKMkeMIL(angka1));
+                    printf("Panjang kilometer :%g km dalam sentimeter: %g cm\n", angka1, ConKMkeCM(angka1));
+                    printf("Panjang kilometer :%g km dalam milimeter %g mm\n", angka1, ConKMkeMM(angka1));
+                    printf("Panjang kilometer :%g km dalam meter: %g m\n", angka1, ConKMkeM(angka1));
+                    printf("Panjang kilometer :%g km dalam mil: %g mi\n", angka1, ConKMkeMIL(angka1));
                     break;
                     
                 case 3 :
                     Input1Float(&angka1);
-                    printf("Panjang sentimeter :%g m dalam meter: %g cm\n", angka1, ConCMkeM(angka1));
-                    printf("Panjang sentimeter :%g m dalam milimeter %g cm\n", angka1, ConCMkeMM(angka1));
-                    printf("Panjang sentimeter :%g m dalam kilometer: %g km\n", angka1, ConCMkeKM(angka1));
-                    printf("Panjang sentimeter :%g m dalam inci: %g mi\n", angka1, ConCMkeINC(angka1));
+                    printf("Panjang sentimeter :%g cm dalam meter: %g m\n", angka1, ConCMkeM(angka1));
+                    printf("Panjang sentimeter :%g cm dalam milimeter %g mm\n", angka1, ConCMkeMM(angka1));
+                    printf("Panjang sentimeter :%g cm dalam kilometer: %g km\n", angka1, ConCMkeKM(angka1));
+                    printf("Panjang sentimeter :%g cm dalam inci: %g inci\n", angka1, ConCMkeINC(angka1));
                     break;
                     
                 case 4 :
                     Input1Float(&angka1);
-                    printf("Panjang milimeter :%g m dalam meter: %g cm\n", angka1, ConMMkeM(angka1));
-                    printf("Panjang milimeter :%g m dalam milimeter %g cm\n", angka1, ConMMkeCM(angka1));
-                    printf("Panjang milimeter :%g m dalam kilometer: %g km\n", angka1, ConMMkeKM(angka1));
-                    printf("Panjang milimeter :%g m dalam inci: %g mi\n", angka1, ConMMkeINC(angka1));
+                    printf("Panjang milimeter :%g mm dalam meter: %g m\n", angka1, ConMMkeM(angka1));
+                    printf("Panjang milimeter :%g mm dalam milimeter %g m\n", angka1, ConMMkeCM(angka1));
+                    printf("Panjang milimeter :%g mm dalam kilometer: %g km\n", angka1, ConMMkeKM(angka1));
+                    printf("Panjang milimeter :%g mm dalam inci: %g inci\n", angka1, ConMMkeINC(angka1));
                     break;
         
                 default :
