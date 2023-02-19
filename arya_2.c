@@ -1,6 +1,63 @@
 #include "aryagara2.h"
 #include <stdio.h>
 
+void cekInversRad(float angka, float p)
+{
+	if (angka >= -1 && angka <= 1)
+	{
+	 	printf("Nilai invers adalah %.02f radian\n", p);			
+	} else
+	{
+		printf("Masukkan angka di antara -1 dan 1!\n");		
+	}
+}
+
+void cekInversDerajat(float angka, float p)
+{
+	if (angka >= -1 && angka <= 1) 
+	{
+	 	printf("Nilai invers adalah %.02f derajat", p); 			
+	}
+}
+
+void cekTidakTerdefinisiR(float angka, float p)
+{
+	if (angka != 90 && angka != 270 && angka != 450)
+	{
+		printf("Nilai dari angka yang di-input adalah %.02f radian\n", p);
+	} else
+	{
+		printf("Nilai yang Anda input tidak terdefinisi!");
+	}
+}
+
+void cekTidakTerdefinisiD(float angka, float p)
+{
+	if (angka != 90 && angka != 270 && angka != 450)
+	{
+		printf("Nilai dari angka yang di-input adalah adalah %.02f derajat", p);
+	}
+}
+
+void cekTidakTerdefinisiCotR(float angka, float p)
+{
+	if(angka != 0 && angka != 90 && angka != 180 && angka != 360 && angka != 540)
+	{
+		printf("Nilai dari angka yang di-input adalah %.02f radian\n", p);
+	} else 
+	{
+		printf("Nilai yang Anda input tidak terdefinisi!");
+	}
+}
+
+void cekTidakTerdefinisiCotD(float angka, float p)
+{
+	if(angka != 0 && angka != 90 && angka != 180 && angka != 360 && angka != 540)
+	{
+		printf("Nilai dari cot(%.01f) adalah %.02f derajat", angka, p);
+	}
+}
+
 float hitungLog(float angka)
 {
 	float hasil;
@@ -44,9 +101,8 @@ float cosInversNilai(float angka)
 	float nilai, derajat;
 
 	nilai = 180/pi;
-	derajat = ((acosf(angka)) * nilai );
+	derajat = ((acosf(angka)) * nilai);
 
-	
 	return derajat;
 }
 
@@ -124,3 +180,4 @@ float cotDerajat(float angka)
 	nilai = pi/180;
 	derajat = 1/(tanf(angka * nilai));
 }
+
