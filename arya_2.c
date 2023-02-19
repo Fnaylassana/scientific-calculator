@@ -1,5 +1,93 @@
 #include "aryagara2.h"
+#include "aulianf.c"
 #include <stdio.h>
+
+void Trigonometri()
+{
+	int pilih, lagi;
+	float angka1;
+	
+	do{
+		system ("cls");
+		printf ("\nPilih Fitur :");
+		printf ("\n\t1. Sinus");
+		printf ("\n\t2. Invers Sinus");
+		printf ("\n\t3. Cosecant");
+		printf ("\n\t4. Cosinus");
+		printf ("\n\t5. Invers Cosinus");
+		printf ("\n\t6. Secant");
+		printf ("\n\t7. Tangent");
+		printf ("\n\t8. Invers Tangent");
+		printf ("\n\t9. Cotangent");
+	
+		do{
+			printf ("\n\nPilih fitur yang akan digunakan (berupa angka): ");
+			scanf  ("%d", &pilih);
+		
+			switch (pilih){
+				case 1 :
+					Input1Float(&angka1);
+					printf ("\nHasil dari sin(%.01f) adalah %.02f radian\n", angka1, sinRad(angka1));
+					printf ("\nHasil dari sin(%.01f) adalah %.02f derajat\n", angka1, sinDerajat(angka1));
+					break;
+					
+				case 2 :	
+					Input1Float(&angka1);
+					printf ("\nHasil dari invers sin(%.01f) adalah %.02f radian\n", angka1, sinInversRad(angka1));
+					printf ("\nHasil dari invers sin(%.01f) adalah %.02f derajat\n", angka1, sinInversDerajat(angka1));
+					break;
+
+				case 3 :	
+					Input1Float(&angka1);
+					printf ("\nHasil dari csc(%.01f) adalah %.02f radian\n", angka1, cscRad(angka1));
+					printf ("\nHasil dari csc(%.01f) adalah %.02f derajat\n", angka1, cscDerajat(angka1));
+					break;
+
+				case 4 :	
+					Input1Float(&angka1);
+					printf ("\nHasil dari cos(%.01f) adalah %.02f radian\n", angka1, cosRad(angka1));
+					printf ("\nHasil dari cos(%.01f) adalah %.02f derajat\n", angka1, cosNilai(angka1));
+					break;
+
+				case 5 :	
+					Input1Float(&angka1);
+					printf ("\nHasil dari invers cos(%.01f) adalah %.02f radian\n", angka1, cosInvers(angka1));
+					printf ("\nHasil dari invers cos(%.01f) adalah %.02f derajat\n", angka1, cosInversNilai(angka1));
+					break;
+
+				case 6 :	
+					Input1Float(&angka1);
+					printf ("\nHasil dari sec(%.01f) adalah %.02f radian\n", angka1, secRad(angka1));
+					printf ("\nHasil dari sec(%.01f) adalah %.02f derajat\n", angka1, secDerajat(angka1));
+					break;
+
+				case 7 :	
+					Input1Float(&angka1);
+					printf ("\nHasil dari tan(%.01f) adalah %.02f radian\n", angka1, tanRad(angka1));
+					printf ("\nHasil dari tan(%.01f) adalah %.02f derajat\n", angka1, tanDerajat(angka1));
+					break;
+					
+				case 8 :	
+					Input1Float(&angka1);
+					printf ("\nHasil dari invers tan(%.01f) adalah %.02f radian\n", angka1, tanInvers(angka1));
+					printf ("\nHasil dari invers tan(%.01f) adalah %.02f derajat\n", angka1, tanInversNilai(angka1));
+					break;
+					
+				case 9 :	
+					Input1Float(&angka1);
+					printf ("\nHasil dari cot(%.01f) adalah %.02f radian\n", angka1, cotRad(angka1));
+					printf ("\nHasil dari cot(%.01f) adalah %.02f derajat\n", angka1, cotDerajat(angka1));
+					break;
+		
+				default :
+					printf ("\nFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
+			}
+		} while (pilih != 1 && pilih != 2);
+		
+	    printf ("\nApakah anda ingin menghitung logaritma kembali? (y/t)");
+	    lagi = getche();
+	}while (lagi == 'y' || lagi == 'Y');
+}
 
 void cekInversRad(float angka, float p)
 {
@@ -180,4 +268,3 @@ float cotDerajat(float angka)
 	nilai = pi/180;
 	derajat = 1/(tanf(angka * nilai));
 }
-

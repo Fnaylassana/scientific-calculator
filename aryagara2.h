@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 
+void Trigonometri();
 void cekInversRad(float angka, float p);
 void cekInversDerajat(float angka, float p);
 void cekTidakTerdefinisiR(float angka, float p);
