@@ -36,5 +36,6 @@ float ConMMkeM (float mm);
 float ConMMkeCM (float mm);
 float ConMMkeKM (float mm);
 float ConMMkeINC (float mm);
+void KonversiPanjang ();
 #endif
 
