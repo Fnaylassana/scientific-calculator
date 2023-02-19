@@ -19,7 +19,7 @@ float ConFahrKelv(float fahr);
 
 float ConFahrReam(float fahr);
 
-float ConKelvCel(float fahe);
+float ConKelvCel(float fahr);
 
 float ConKelvFahr(float fahr);
 
@@ -40,6 +40,7 @@ float Sigmaitiga(float en);
 float ConMkeCM (float met);
 
 float ConMkeKM (float met);
+
 float ConMkeMIL (float met);
 
 float ConMkeMM (float met);
