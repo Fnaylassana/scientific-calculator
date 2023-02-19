@@ -260,3 +260,46 @@ void KonversiPanjang()
         lagi = getche();
     }while (lagi == 'y' || lagi == 'Y');
 }
+
+void TurunanPolinom ()
+{
+	int pilihan, lagi;
+	int n, a[100];
+
+	do	{
+		system ("cls");
+		printf("Masukkan orde polinom: ");
+  		scanf("%d", &n);
+  		if (n <= 0) {
+	    	printf("Jika orde polinom <= 0, turunan adalah 0\n");
+		}
+		else {
+			int i;
+  			for (i = 0; i < n; i++) {
+    			printf("Masukkan koefisien x^%d: ", n-i-1);
+    			scanf("%d", &a[i]);
+  			}
+  			HitungTurunanPolinom(a,n);
+		
+ 		 // Hitung dan cetak turunan
+	 		printf("Turunan polinom: ");
+ 			printf("%dx^%d", a[0], n-2);
+  			for (i = 1; i < n-1; i++) {
+   				printf(" + %dx^%d", a[i], n-i-2);
+			}
+  			printf("\n");
+		}
+		
+	    printf ("\nApakah anda akan menghitung polinom kembali? (y/t)");
+	    lagi = getche();
+	}while (lagi == 'y' || lagi == 'Y');
+
+}
+
+void HitungTurunanPolinom (int a[100], int n) {
+	int i;
+	for (i = 0; i < n - 1; i++) {
+		a[i] = a[i] * (n-i-1);
+	  	}
+  		a[n-1] = 0;
+}
