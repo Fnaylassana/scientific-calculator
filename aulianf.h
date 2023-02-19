@@ -2,7 +2,7 @@
 #define aulianf_h
 #include <stdio.h>
 #include "math.h"
-#define pi 3.14
+#define pi 3.14285714
 #define max 10
 
 /* 					AKAR				 */
