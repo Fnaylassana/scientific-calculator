@@ -95,7 +95,7 @@ void printMatriks(float matriks[max][max], int baris, int kolom)
     printf ("\t\t\t\t\t\t");
     for (i = 0; i < baris; i++) {
         for (j = 0; j < kolom; j++) {
-            printf("%f\t", matriks[i][j]);
+            printf("%0.0f\t", matriks[i][j]);
         }
         printf("\n\t\t\t\t\t\t");
     }
@@ -108,7 +108,7 @@ void inputMatriks(float matriks[max][max], int baris, int kolom)
     for (i = 0; i < baris; i++){
    		for (j = 0; j < kolom; j++){
    			
-		printf("matriksA[%d][%d]: ", i+1 ,j+1);
+		printf("\t\t\t\t\t\tmatriksA[%d][%d]: ", i+1 ,j+1);
 		scanf("%f",&matriks[i][j]);
       	}
    }
@@ -122,7 +122,7 @@ void printMatriksDet(int matriks[max][max], int baris, int kolom)
         for (j = 0; j < kolom; j++) {
             printf("%d\t", matriks[i][j]);
         }
-        printf("\n");
+        printf("\n\t\t\t\t\t\t");
     }
 }
 
@@ -133,7 +133,7 @@ void inputMatriksDet(int matriks[max][max], int baris, int kolom)
     for (i = 0; i < baris; i++){
    		for (j = 0; j < kolom; j++){
    			
-		printf("matriksA[%d][%d]: ", i+1 ,j+1);
+		printf("\t\t\t\t\t\tmatriksA[%d][%d]: ", i+1 ,j+1);
 		scanf("%d",&matriks[i][j]);
       	}
    }
@@ -212,37 +212,37 @@ void determinanMatriks()
 	int matriks[max][max];
 	int i, j, hasilDet;
 	
-	printf("DETERMINAN MATRIKS");
-	printf("\n(Jumlah baris dan kolom harus sama)");
-    printf("\n\nInput jumlah baris matriks : "); 
+	printf("\t\t\t\t\t\tDETERMINAN MATRIKS");
+	printf("\n\t\t\t\t\t\t(Jumlah baris dan kolom harus sama)");
+    printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
 	scanf("%d", &baris);
-	printf("Input jumlah kolom matriks : ");
+	printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
 	scanf("%d", &kolom);
     
-    printf("\nInput elemen dari matriks : \n");
+    printf("\n\t\t\t\t\t\tInput elemen dari matriks : \n");
 	inputMatriksDet(matriks, baris, kolom);
    
-   	printf("\nMatriks : \n");
+   	printf("\n\t\t\t\t\t\tMatriks : \n");
 	printMatriksDet(matriks, baris, kolom); 
     
    	while (baris != kolom){
-	   	printf("\nTidak bisa melakukan determinan (Jumlah baris dan kolom tidak sama)\n");
-		printf("Silahkan masukkan kembali Matriks dengan jumlah baris dan kolom yang sama)\n");
+	   	printf("\n\t\t\t\t\t\tTidak bisa melakukan determinan (Jumlah baris dan kolom tidak sama)\n");
+		printf("\t\t\t\t\t\tSilahkan masukkan kembali Matriks dengan jumlah baris dan kolom yang sama)\n");
 	    printf("\n");
 		system("pause");
 	    system("cls");
-		printf("DETERMINAN MATRIKS");
-		printf("\n(Jumlah baris dan kolom harus sama)");
-		printf("\n\nInput jumlah baris matriks : "); 
+		printf("\t\t\t\t\t\tDETERMINAN MATRIKS");
+		printf("\n\t\t\t\t\t\t(Jumlah baris dan kolom harus sama)");
+		printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
 		scanf("%d", &baris);
-		printf("Input jumlah kolom matriks : ");
+		printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
 		scanf("%d", &kolom);
-	    printf("\nInput elemen dari matriks : \n");
+	    printf("\n\t\t\t\t\t\tInput elemen dari matriks : \n");
 		inputMatriksDet(matriks, baris, kolom);
-	   	printf("\nMatriks : \n");
+	   	printf("\n\t\t\t\t\t\tMatriks : \n");
 		printMatriksDet(matriks, baris, kolom); 
 	}
-    printf("\n\nHasil determinan : ");
+    printf("\n\n\t\t\t\t\t\tHasil determinan : ");
 	hasilDet = hitungDeterminan(matriks, baris);
 	printf("%d", hasilDet);
 }
@@ -255,56 +255,56 @@ void pertambahanMatriks()
 	float matriksB[max][max];
 	float hasilMatriks[max][max], i, j;
 	 
-	printf("PERTAMBAHAN MATRIKS");
-	printf("\n(Jumlah baris dan kolom harus sama)");
-	printf("\n\nInput jumlah baris matriks : "); 
+	printf("\t\t\t\t\t\tPERTAMBAHAN MATRIKS");
+	printf("\n\t\t\t\t\t\t(Jumlah baris dan kolom harus sama)");
+	printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
 	scanf("%d", &barisA);
-	printf("Input jumlah kolom matriks : ");
+	printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
 	scanf("%d", &kolomA);
    
-	printf("\nInput elemen dari matriks 1 : \n");
+	printf("\n\t\t\t\t\t\tInput elemen dari matriks 1 : \n");
 	inputMatriks(matriksA, barisA, kolomA);
 	
-	printf("\nInput jumlah baris matriks 2 : "); 
+	printf("\n\t\t\t\t\t\tInput jumlah baris matriks 2 : "); 
 	scanf("%d", &barisB);
-	printf("Input jumlah kolom matriks 2 : ");
+	printf("\t\t\t\t\t\tInput jumlah kolom matriks 2 : ");
 	scanf("%d", &kolomB);
    
-    printf("\nInput elemen dari matriks 2 : \n");
+    printf("\n\t\t\t\t\t\tInput elemen dari matriks 2 : \n");
 	inputMatriks(matriksB, barisB, kolomB);
    
-	printf("\nMatriks 1 : \n");
+	printf("\n\t\t\t\t\t\tMatriks 1 : \n");
 	printMatriks(matriksA, barisA, kolomA);
-	printf("\nMatriks 2 : \n");
+	printf("\n\t\t\t\t\t\tMatriks 2 : \n");
 	printMatriks(matriksB, barisB, kolomB);
    
    while (barisA != barisB || kolomA != kolomB){
-		printf("\nTidak bisa melakukan penjumlahan (Jumlah kolom dan baris Matriks 1 dan 2 tidak sama)\n");
-		printf("Silahkan masukkan kembali Matriks dengan jumlah baris dan kolom Matriks 1 dan 2 yang sama\n");
+		printf("\n\t\t\t\t\t\tTidak bisa melakukan penjumlahan (Jumlah kolom dan baris Matriks 1 dan 2 tidak sama)\n");
+		printf("\t\t\t\t\t\tSilahkan masukkan kembali Matriks dengan jumlah baris dan kolom Matriks 1 dan 2 yang sama\n");
 		printf("\n");
 		system("pause");
 	    system("cls");
-	    printf("PERTAMBAHAN MATRIKS");
-		printf("\n(Jumlah baris dan kolom harus sama)");
-		printf("\n\nInput jumlah baris matriks : "); 
+	    printf("\t\t\t\t\t\tPERTAMBAHAN MATRIKS");
+		printf("\n\t\t\t\t\t\t(Jumlah baris dan kolom harus sama)");
+		printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
 		scanf("%d", &barisA);
-		printf("Input jumlah kolom matriks : ");
+		printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
 		scanf("%d", &kolomA);
 	   
-		printf("\nInput elemen dari matriks 1 : \n");
+		printf("\n\t\t\t\t\t\tInput elemen dari matriks 1 : \n");
 		inputMatriks(matriksA, barisA, kolomA);
 		
-		printf("\nInput jumlah baris matriks 2 : "); 
+		printf("\n\t\t\t\t\t\tInput jumlah baris matriks 2 : "); 
 		scanf("%d", &barisB);
-		printf("Input jumlah kolom matriks 2 : ");
+		printf("\t\t\t\t\t\tInput jumlah kolom matriks 2 : ");
 		scanf("%d", &kolomB);
 	   
 	    printf("\nInput elemen dari matriks 2 : \n");
 		inputMatriks(matriksB, barisB, kolomB);
 	   
-		printf("\nMatriks 1 : \n");
+		printf("\n\t\t\t\t\t\tMatriks 1 : \n");
 		printMatriks(matriksA, barisA, kolomA);
-		printf("\nMatriks 2 : \n");
+		printf("\n\t\t\t\t\t\tMatriks 2 : \n");
 		printMatriks(matriksB, barisB, kolomB);
    }
 	printf("\nHasil penjumlahan Matriks : \n");
@@ -320,59 +320,59 @@ void penguranganMatriks()
 	float matriksB[max][max];
 	float hasilMatriks[max][max], i, j;
 
-	printf("PENGURANGAN MATRIKS");
-	printf("\n(Jumlah baris dan kolom harus sama)");
-	printf("\n\nInput jumlah baris matriks : "); 
+	printf("\t\t\t\t\t\tPENGURANGAN MATRIKS");
+	printf("\n\t\t\t\t\t\t(Jumlah baris dan kolom harus sama)");
+	printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
 	scanf("%d", &barisA);
-	printf("Input jumlah kolom matriks : ");
+	printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
 	scanf("%d", &kolomA);
    
-	printf("\nInput elemen dari matriks 1 : \n");
+	printf("\n\t\t\t\t\t\tInput elemen dari matriks 1 : \n");
 	inputMatriks(matriksA, barisA, kolomA);
 	
-	printf("\nInput jumlah baris matriks 2 : "); 
+	printf("\n\t\t\t\t\t\tInput jumlah baris matriks 2 : "); 
 	scanf("%d", &barisB);
-	printf("Input jumlah kolom matriks 2 : ");
+	printf("\t\t\t\t\t\tInput jumlah kolom matriks 2 : ");
 	scanf("%d", &kolomB);
    
-    printf("\nInput elemen dari matriks 2 : \n");
+    printf("\n\t\t\t\t\t\tInput elemen dari matriks 2 : \n");
 	inputMatriks(matriksB, barisB, kolomB);
    
-	printf("\nMatriks 1 : \n");
+	printf("\n\t\t\t\t\t\tMatriks 1 : \n");
 	printMatriks(matriksA, barisA, kolomA);
-	printf("\nMatriks 2 : \n");
+	printf("\n\t\t\t\t\t\tMatriks 2 : \n");
 	printMatriks(matriksB, barisB, kolomB);;
    
    while (barisA != barisB || kolomA != kolomB){
-		printf("Tidak bisa melakukan penjumlahan (Jumlah kolom dan baris Matriks 1 dan 2 tidak sama)\n");
-		printf("Silahkan masukkan kembali Matriks dengan jumlah baris dan kolom Matriks 1 dan 2 yang sama\n");
+		printf("\t\t\t\t\t\tTidak bisa melakukan penjumlahan (Jumlah kolom dan baris Matriks 1 dan 2 tidak sama)\n");
+		printf("\t\t\t\t\t\tSilahkan masukkan kembali Matriks dengan jumlah baris dan kolom Matriks 1 dan 2 yang sama\n");
 		printf("\n");
 		system("pause");
 	    system("cls");
-		printf("PENGURANGAN MATRIKS");
-		printf("\n(Jumlah baris dan kolom harus sama)");
-		printf("\n\nInput jumlah baris matriks : "); 
+		printf("\t\t\t\t\t\tPENGURANGAN MATRIKS");
+		printf("\n\t\t\t\t\t\t(Jumlah baris dan kolom harus sama)");
+		printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
 		scanf("%d", &barisA);
-		printf("Input jumlah kolom matriks : ");
+		printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
 		scanf("%d", &kolomA);
 	   
-		printf("\nInput elemen dari matriks 1 : \n");
+		printf("\n\t\t\t\t\t\tInput elemen dari matriks 1 : \n");
 		inputMatriks(matriksA, barisA, kolomA);
 		
-		printf("\nInput jumlah baris matriks 2 : "); 
+		printf("\n\t\t\t\t\t\tInput jumlah baris matriks 2 : "); 
 		scanf("%d", &barisB);
-		printf("Input jumlah kolom matriks 2 : ");
+		printf("\t\t\t\t\t\tInput jumlah kolom matriks 2 : ");
 		scanf("%d", &kolomB);
 	   
-	    printf("\nInput elemen dari matriks 2 : \n");
+	    printf("\n\t\t\t\t\t\tInput elemen dari matriks 2 : \n");
 		inputMatriks(matriksB, barisB, kolomB);
 	   
-		printf("\nMatriks 1 : \n");
+		printf("\n\t\t\t\t\t\tMatriks 1 : \n");
 		printMatriks(matriksA, barisA, kolomA);
-		printf("\nMatriks 2 : \n");
+		printf("\n\t\t\t\t\t\tMatriks 2 : \n");
 		printMatriks(matriksB, barisB, kolomB);
    }
-	printf("\nHasil pengurangan Matriks : \n");
+	printf("\n\t\t\t\t\t\tHasil pengurangan Matriks : \n");
 	hitungPenguranganMatriks(hasilMatriks, matriksA, matriksB, barisA, kolomB);
 	printMatriks(hasilMatriks, barisA, kolomB);	
 }

@@ -277,21 +277,21 @@ void TurunanPolinom ()
 		puts	("\t\t\t\t\t================================================================================================================================");
 		puts	("\t\t\t\t\t==                                                   Turunan Polinom                                                          ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		printf("\t\t\t\t\tMasukkan orde polinom: ");
+		printf("\t\t\t\t\t\tMasukkan orde polinom: ");
   		scanf("%d", &n);
   		if (n <= 0) {
-	    	printf("\t\t\t\t\tJika orde polinom <= 0, turunan adalah 0\n");
+	    	printf("\t\t\t\t\t\tJika orde polinom <= 0, turunan adalah 0\n");
 		}
 		else {
 			int i;
   			for (i = 0; i < n; i++) {
-    			printf("\t\t\t\t\tMasukkan koefisien x^%d: ", n-i-1);
+    			printf("\t\t\t\t\t\tMasukkan koefisien x^%d: ", n-i-1);
     			scanf("%d", &a[i]);
   			}
   			HitungTurunanPolinom(a,n);
 		
  		 // Hitung dan cetak turunan
-	 		printf("\t\t\t\t\tTurunan polinom: ");
+	 		printf("\t\t\t\t\t\tTurunan polinom: ");
  			printf("%dx^%d", a[0], n-2);
   			for (i = 1; i < n-1; i++) {
    				printf(" + %dx^%d", a[i], n-i-2);
@@ -299,7 +299,7 @@ void TurunanPolinom ()
   			printf("\n");
 		}
 		
-	    printf ("\n\t\t\t\t\tApakah anda akan menghitung polinom kembali? (y/t)");
+	    printf ("\n\t\t\t\t\t\tApakah anda akan menghitung polinom kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 
