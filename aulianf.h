@@ -63,12 +63,12 @@ int hitungKofaktor(int matriks[max][max], int temp[max][max], int p, int q, int 
 int hitungDeterminan(int matriks[max][max], int ordo);
 
 // Menampilkan determinan matriks
-void determinanMatriks(int baris, int kolom, int matriks[max][max]);
+void determinanMatriks();
 
 // Menampilkan pertambahan matriks
-void pertambahanMatriks(int barisA, int barisB, int kolomA, int kolomB, float matriksA[max][max], float matriksB[max][max]);
+void pertambahanMatriks();
 	
 // Menampilkan pengurangan matriks
-void penguranganMatriks(int barisA, int barisB, int kolomA, int kolomB, float matriksA[max][max], float matriksB[max][max]);
+void penguranganMatriks();
 
 #endif
