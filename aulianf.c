@@ -92,11 +92,12 @@ void printMatriks(float matriks[max][max], int baris, int kolom)
 // Menampilkan matriks pertambahan dan pengurangan
 {
     int i, j;
+    printf ("\t\t\t\t\t\t");
     for (i = 0; i < baris; i++) {
         for (j = 0; j < kolom; j++) {
             printf("%f\t", matriks[i][j]);
         }
-        printf("\n");
+        printf("\n\t\t\t\t\t\t");
     }
 }
 
@@ -204,9 +205,11 @@ int hitungDeterminan(int matriks[max][max], int ordo)
     return det;
 }
 
-void determinanMatriks(int baris, int kolom, int matriks[max][max])
+void determinanMatriks()
 // Menampilkan determinan matriks
 {
+	int baris, kolom;
+	int matriks[max][max];
 	int i, j, hasilDet;
 	
 	printf("DETERMINAN MATRIKS");
@@ -244,9 +247,12 @@ void determinanMatriks(int baris, int kolom, int matriks[max][max])
 	printf("%d", hasilDet);
 }
 
-void pertambahanMatriks(int barisA, int barisB, int kolomA, int kolomB, float matriksA[max][max], float matriksB[max][max])
+void pertambahanMatriks()
 // Menampilkan pertambahan matriks
 {
+	int barisA, barisB, kolomA, kolomB;
+	float matriksA[max][max];
+	float matriksB[max][max];
 	float hasilMatriks[max][max], i, j;
 	 
 	printf("PERTAMBAHAN MATRIKS");
@@ -306,9 +312,12 @@ void pertambahanMatriks(int barisA, int barisB, int kolomA, int kolomB, float ma
 	printMatriks(hasilMatriks, barisA, kolomB);
 }
 
-void penguranganMatriks(int barisA, int barisB, int kolomA, int kolomB, float matriksA[max][max], float matriksB[max][max])
+void penguranganMatriks()
 // Menampilkan pengurangan matriks
 {
+	int barisA, barisB, kolomA, kolomB;
+	float matriksA[max][max];
+	float matriksB[max][max];
 	float hasilMatriks[max][max], i, j;
 
 	printf("PENGURANGAN MATRIKS");

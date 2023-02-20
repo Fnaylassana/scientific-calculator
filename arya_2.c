@@ -1,5 +1,6 @@
 #include "aryagara2.h"
 #include "aulianf.h"
+#include "Fauza.h"
 #include <stdio.h>
 
 void Trigonometri()
@@ -8,7 +9,7 @@ void Trigonometri()
 	float angka1;
 	
 	do{
-		system ("cls");
+		header();
 		printf ("\nPilih Fitur :");
 		printf ("\n\t1. Sinus");
 		printf ("\n\t2. Invers Sinus");

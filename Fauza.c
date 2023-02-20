@@ -1,8 +1,24 @@
 #include "Fauza.h"
 #include "naufal.h"
 #include "Hasby.h"
-#include "aulianf.h"
 #include "aryagara2.h"
+#include "aulianf.h"
+
+void header()
+{
+	system("cls");
+	puts	("\t\t\t\t\t================================================================================================================================");
+	puts	("\t\t\t\t\t================================================================================================================================");
+	puts	("\t\t\t\t\t==              ==    ==  =======  ==       ========   ==     ==   ======   ========   ==    ==       ========                ==");
+	puts	("\t\t\t\t\t==              ==   ==   ==       ==       ==    ==   ===   ===   ==    =  ==    ==   ==   ==        ==                      ==");
+	puts	("\t\t\t\t\t==              == ==     ======   ==       ==    ==   == = = ==   ==    =  ==    ==   == ==          =====                   ==");
+	puts	("\t\t\t\t\t==              ====      ======   ==       ==    ==   ==  =  ==   ======   ==    ==   ====                ==                 ==");
+	puts	("\t\t\t\t\t==              ==  ==    ==       ==       ==    ==   ==     ==   ==       ==    ==   ==  ==               ==                ==");
+	puts	("\t\t\t\t\t==              ==   ==   =======  =======  ========   ==     ==   ==       ========   ==   ==        =======                 ==");
+	puts	("\t\t\t\t\t================================================================================================================================");
+	puts	("\t\t\t\t\t==                                                 CALCULATOR PROGRAM                                                         ==");
+	puts	("\t\t\t\t\t================================================================================================================================\n\n");	
+}
 
 float HitungNilaiMutlak (float nilai){
 	
@@ -30,31 +46,39 @@ void kalkulator()
     char input[256];
     char lagi = 'y';
 	char*x;
-    float result;
+    float hasil;
     
     while(lagi == 'y' || lagi == 'Y')
     {
-    	system ("cls");
-    	printf("\nKetentuan: ");
-    	printf("\n1. Gunakan + untuk operasi tambah ");
-    	printf("\n2. Gunakan - untuk operasi kurang ");
-    	printf("\n3. Gunakan * untuk operasi kali ");
-    	printf("\n4. Gunakan / untuk operasi bagi ");
-    	printf("\n5. Gunakan ^ untuk operasi pangkat \n");
-    	printf("\nMasukkan operasi yang akan anda hitung (tanpa spasi): ");
+    	header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                      Ketentuan                                                             ==");
+		puts	("\t\t\t\t\t================================================================================================================================");	
+		puts	("\t\t\t\t\t==  1. Gunakan + untuk operasi tambah                                                                                         ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  2. Gunakan - untuk operasi kurang                                                                                         ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  3. Gunakan * untuk operasi kali                                                                                           ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  4. Gunakan / untuk operasi bagi                                                                                           ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  5. Gunakan ^ untuk operasi pangkat                                                                                        ==");
+//		puts	("\t\t\t\t\t================================================================================================================================");
+//		puts	("\t\t\t\t\t==  6. Gunakan v untuk operasi akar                                                                                           ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n\n");	
+    	
+    	printf("\n\t\t\t\t\t    Masukkan operasi yang akan anda hitung (tanpa spasi): ");
     	scanf ("%s", &input);
-	    char postfixExpr[256] = "";
-        replaceNewLineBySpace(input);
-        x=removespaces(input);
-        printf("Postfix : %s\n",infixToPostfix(x, postfixExpr));
-        result = evaluatePostfix(postfixExpr);
-        printf("Hasilnya adalah: %0.2f\n\n", result);
-        printf ("Apakah anda ingin menghitung kembali? (y/t)");
+	    char postfix[256] = "";
+        printf("\t\t\t\t\t\tPostfix : %s\n",infixToPostfix(input, postfix));
+        hasil = hitungIsiPostfix(postfix);
+        printf("\t\t\t\t\t\tHasilnya adalah: %0.2f\n\n", hasil);
+        printf ("\t\t\t\t\t\tApakah anda ingin menghitung kembali? (y/t)");
         lagi = getche();
     }
 }
 
-Stack* initialize()
+Stack* alloc()
 {
     Stack *s = malloc(sizeof(Stack));
     s->top=-1;
@@ -64,6 +88,11 @@ Stack* initialize()
 int isEmpty(Stack *s)
 {
     return s->top == -1;
+}
+
+int isFull(Stack *s)
+{
+    return s->top==255;
 }
 
 Item top(Stack *s)
@@ -86,30 +115,49 @@ void pushChar(Stack *s, char c)
     s->item[++s->top].datachar = c;
 }
 
-int isFull(Stack *s)
+int prioritas(char c)
 {
-    return s->top==255;
+    if (c=='+' || c=='-') {
+    	return 1;
+	}else {
+		if (c=='*' || c=='/') {
+			return 2;
+		} else {
+			if (c=='^' || c=='v'){
+				return 3 ;
+			} else {
+				return 0;
+			}
+		}
+	}
 }
 
-int priority(char c)
+/// This function checks if a given token is a number ( positive or negative )
+int isNumber(char *token)
 {
-    if (c=='+' || c=='-') return 1;
-    else if (c=='*' || c=='/') return 2;
-    else if (c=='^' || c=='v') return 3 ;
-    return 0;
+    return isdigit(*token) || ( *token == '-' && isdigit(token[1]) );
 }
 
 int isOperator(char c)
 {
-    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v') return 1;
-    else return 0;
+    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v') {
+		return 1;
+	}else{
+		return 0;
+	} 
 }
 
 int negativeInteger(char *infix,char c,int ptr)
 {
-    if (ptr == 0 && c == '-' ) return 1;
-    else  if((isOperator(infix[ptr-1]) && c == '-' ) )return 1;
-    else return 0;
+    if (ptr == 0 && c == '-' ) {
+    	return 1;
+	}else  {
+		if((isOperator(infix[ptr-1]) && c == '-' ) ){
+			return 1;
+		}else {
+			return 0;
+		}
+	}
 }
 
 int isAfter(Stack *s)
@@ -118,28 +166,12 @@ int isAfter(Stack *s)
     else return 0;
 }
 
-char * removespaces(char * infix)
-{
-
-    char* x=malloc(266*sizeof(char));
-    int i,j;
-    for(i=0,j=0; infix[i]!='\0'; i++,j++)
-    {
-
-        while(infix[j]==' ')
-            j++;
-        x[i]=infix[j];
-    }
-    x[i]='\0';
-    return x;
-}
-
 char *infixToPostfix(char *infix,char *postfix)
 {
     char oneSpace[] = " ", tempInfix[256];
     int  ptr = 0;
     char *temp;
-    Stack *s = initialize();
+    Stack *s = alloc();
 
     while(infix[ptr] != '\0' )
     {
@@ -148,7 +180,7 @@ char *infixToPostfix(char *infix,char *postfix)
         {
             if(infix[ptr] == '(' )
             {
-                pushChar(s,infix[ptr]); //(1+
+                pushChar(s,infix[ptr]); 
                 ptr++;
             }
             else if(isAfter(s))
@@ -156,12 +188,12 @@ char *infixToPostfix(char *infix,char *postfix)
                 pushChar(s,infix[ptr]);
                 ptr++;
             }
-            else if(priority(infix[ptr]) > priority(top(s).datachar) || isEmpty(s))
+            else if(prioritas(infix[ptr]) > prioritas(top(s).datachar) || isEmpty(s))
             {
                 pushChar(s,infix[ptr]);
                 ptr++;
             }
-            else if(priority(infix[ptr])==priority(top(s).datachar))
+            else if(prioritas(infix[ptr])==prioritas(top(s).datachar))
             {
                 char tempchar=pop(s).datachar;
                 strncat(postfix,&tempchar,1);
@@ -169,7 +201,7 @@ char *infixToPostfix(char *infix,char *postfix)
                 ptr++;
                 strcat(postfix,oneSpace);
             }
-            else if(priority(infix[ptr]) <priority(top(s).datachar) && top(s).datachar != '(' && top(s).datachar != ')')
+            else if(prioritas(infix[ptr]) <prioritas(top(s).datachar) && top(s).datachar != '(' && top(s).datachar != ')')
             {
                 while(1)
                 {
@@ -227,24 +259,11 @@ char *infixToPostfix(char *infix,char *postfix)
     return postfix;
 }
 
-void replaceNewLineBySpace(char *s)
-{
-    char *s1 = s;
-    while((s1 = strstr(s1, "\n")) != NULL)
-        *s1 = ' ';
-}
-
-/// This function checks if a given token is a number ( positive or negative )
-int isNumber(char *token)
-{
-    return isdigit(*token) || ( *token == '-' && isdigit(token[1]) );
-}
-
 /// This function evaluates a postfix expression and returns the result
-float evaluatePostfix(char postFix[])
+float hitungIsiPostfix(char postFix[])
 {
     float a, b;
-    Stack *stack = initialize();
+    Stack *stack = alloc();
     char *token = strtok(postFix," ");
 
     while(token != NULL)
@@ -278,7 +297,7 @@ float evaluatePostfix(char postFix[])
                 push(stack, eksponen (b, a));
                 break;
             case 'v':
-                push(stack, pow (b, 1/a));
+                push(stack, akar(b, a));
                 break;
             default:
                 break;
@@ -294,25 +313,41 @@ void FiturLain()
 	int fitur, lagi;
 	
 	do{
-		system ("cls");
-		printf ("\nPilih Fitur :");
-		printf ("\n\t1. Hitung Trigonometri");
-		printf ("\n\t2. Hitung Logaritma");
-		printf ("\n\t3. Hitung Sigma");
-		printf ("\n\t4. Hitung Faktorial");
-		printf ("\n\t5. Hitung Modulus");
-		printf ("\n\t6. Hitung Kombinasi");
-		printf ("\n\t7. Hitung Permutasi");
-		printf ("\n\t8. Konversi Suhu");
+		header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                  Fitur Lainnya                                                             ==");
+		puts	("\t\t\t\t\t================================================================================================================================");	
+		puts	("\t\t\t\t\t==  1. Hitung Trigonometri                                                                                                    ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  2. Hitung Logaritma                                                                                                       ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  3. Hitung Sigma                                                                                                           ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  4. Hitung Faktorial                                                                                                       ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  5. Hitung Modulus                                                                                                         ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  6. Hitung Kombinasi                                                                                                       ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  7. Hitung Permuta                                                                                                         ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  8. Konversi Suhu                                                                                                          ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  9. Konversi Panjang                                                                                                       ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  10. Matriks                                                                                                               ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  11. Turunan                                                                                                                ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n\n");	
 	
 		do{
-			printf ("\n\nPilih Fitur yang akan digunakan (berupa angka): ");
+			printf ("\n\n\t\t\t\t\tPilih Fitur yang akan digunakan (berupa angka): ");
 			scanf  ("%d", &fitur);
 		
 			switch (fitur){
-	//			case 1 :	
-	//				Trigonometri();
-	//				break;
+				case 1 :	
+					Trigonometri();
+					break;
 					
 				case 2 :	
 					Logaritma();
@@ -341,13 +376,25 @@ void FiturLain()
 				case 8 :
 					KonversiSuhu ();
 					break;
+					
+				case 9 :
+					KonversiPanjang ();
+					break;
+					
+				case 10 :
+					Matriks ();
+					break;
+					
+				case 11 :
+					TurunanPolinom ();
+					break;
 						
 				default :
-					printf ("\nFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
+					printf ("\n\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
 			}
-		} while (fitur < 1 || fitur > 8);
+		} while (fitur < 1 || fitur > 11);
 			
-	    printf ("\n\nApakah anda ingin menggunakan fitur lainnya kembali? (y/t)");
+	    printf ("\n\n\t\t\t\t\tApakah anda ingin menggunakan fitur lainnya kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
@@ -359,32 +406,36 @@ void Logaritma()
 	double angka2;
 	
 	do{
-		system ("cls");
-		printf ("\nPilih Fitur :");
-		printf ("\n\t1. Logaritma 10");
-		printf ("\n\t2. Logaritma Natural");
+		header();		
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                     Logaritma                                                              ==");
+		puts	("\t\t\t\t\t================================================================================================================================");	
+		puts	("\t\t\t\t\t==  1. Logaritma 10                                                                                                           ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  2. Logaritma Natural                                                                                                       ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n\n");	
 	
 		do{
-			printf ("\n\nPilih fitur yang akan digunakan (berupa angka): ");
+			printf ("\n\n\t\t\t\t\t Pilih fitur yang akan digunakan (berupa angka): ");
 			scanf  ("%d", &pilih);
 		
 			switch (pilih){
 				case 1 :
 					Input1Int(&angka1);
-					printf ("\nHasil dari 10 log %d adalah %d\n", angka1, Log(angka1));
+					printf ("\n\t\t\t\t\tHasil dari 10 log %d adalah %d\n", angka1, Log(angka1));
 					break;
 					
 				case 2 :	
 					Input1Double(&angka2);
-					printf ("\nHasil dari log %0.0lf adalah %lf\n", angka2, hitungLog(angka2));
+					printf ("\n\t\t\t\t\tHasil dari log %0.0lf adalah %lf\n", angka2, hitungLog(angka2));
 					break;
 		
 				default :
-					printf ("\nFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
+					printf ("\n\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
 			}
 		} while (pilih != 1 && pilih != 2);
 		
-	    printf ("\nApakah anda ingin menghitung logaritma kembali? (y/t)");
+	    printf ("\n\t\t\t\t\tApakah anda ingin menghitung logaritma kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
@@ -395,39 +446,43 @@ void Sigma()
 	float angka1;
 	
 	do{
-		system ("cls");
-		printf ("\nPilih Fitur :");
-		printf ("\n\t1. Sigma i");
-		printf ("\n\t2. Sigma i^2");
-		printf ("\n\t3. Sigma i^3");
-	
+		header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                       Sigma                                                                ==");
+		puts	("\t\t\t\t\t================================================================================================================================");	
+		puts	("\t\t\t\t\t==  1. Sigma i                                                                                                                ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  2. Sigma i^2                                                                                                              ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  3. Sigma i^3                                                                                                              ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n\n");	
 		do{
-			printf ("\n\nPilih fitur yang akan digunakan (berupa angka): ");
+			printf ("\n\n\t\t\t\t\tPilih fitur yang akan digunakan (berupa angka): ");
 			scanf  ("%d", &pilih);
 		
 			switch (pilih){
 				case 1 :
 					Input1Float(&angka1);
-					printf ("\nHasil dari sigma n = 1 sampai %0.0f dari i adalah %0.2f\n", angka1, Sigmai(angka1));
+					printf ("\n\t\t\t\t\tHasil dari sigma n = 1 sampai %0.0f dari i adalah %0.2f\n", angka1, Sigmai(angka1));
 					break;
 					
 				case 2 :
 					Input1Float(&angka1);
-					printf ("\nHasil dari sigma n = 1 sampai %0.0f dari i^2 adalah %0.2f\n", angka1, Sigmaidua(angka1));
+					printf ("\n\t\t\t\t\tHasil dari sigma n = 1 sampai %0.0f dari i^2 adalah %0.2f\n", angka1, Sigmaidua(angka1));
 					break;
 					
 				case 3 :
 					Input1Float(&angka1);
-					printf ("\nHasil dari sigma n = 1 sampai %0.0f dari i^3 adalah %0.2f\n", angka1, Sigmaitiga(angka1));
+					printf ("\n\t\t\t\t\tHasil dari sigma n = 1 sampai %0.0f dari i^3 adalah %0.2f\n", angka1, Sigmaitiga(angka1));
 					break;
 					
 		
 				default :
-					printf ("\nFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
+					printf ("\n\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
 			}
 		} while (pilih != 1 && pilih != 2 && pilih != 3 );
 		
-	    printf ("\nApakah anda ingin menghitung sigma kembali? (y/t)");
+	    printf ("\n\t\t\t\t\tApakah anda ingin menghitung sigma kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
@@ -438,10 +493,13 @@ void Faktorial()
 	int angka1, hasil;
 	
 	do{
-		system ("cls");
+		header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                     Faktorial                                                              ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n\n");	
 		Input1Int(&angka1);
 		hasil = faktorial (angka1);
-		printf ("\n%d! adalah %d", angka1, angka1);
+		printf ("\n\t\t\t\t\t\t%d! adalah %d", angka1, angka1);
 		angka1 = angka1 - 1;
 		
 		do{
@@ -451,7 +509,7 @@ void Faktorial()
 		
 		printf (", sehingga hasilnya adalah %d\n", hasil );
 
-	    printf ("\nApakah anda ingin menghitung faktorial kembali? (y/t)");
+	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung faktorial kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
@@ -463,11 +521,14 @@ void Modulus()
 	int angka1, angka2;
 	
 	do{
-		system ("cls");
+		header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                       Modulus                                                              ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n\n");	
 		Input2Int(&angka1, &angka2);
-		printf ("\nHasil dari %d mod %d adalah %d\n", angka1, angka2, modulus(angka1, angka2));
+		printf ("\n\t\t\t\t\t\tHasil dari %d mod %d adalah %d\n", angka1, angka2, modulus(angka1, angka2));
 
-	    printf ("\nApakah anda ingin menghitung modulus kembali? (y/t)");
+	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung modulus kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
@@ -478,11 +539,14 @@ void Kombinasi()
 	int angka1, angka2;
 	
 	do{
-		system ("cls");
+		header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                     Kombinasi                                                              ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n\n");	
 		Input2Int(&angka1, &angka2);
-		printf ("\nHasil dari %d C %d adalah %d\n", angka1, angka2, kombinasi(angka1, angka2));
+		printf ("\\t\t\t\t\t\tnHasil dari %d C %d adalah %d\n", angka1, angka2, kombinasi(angka1, angka2));
 
-	    printf ("\nApakah anda ingin menghitung kombinasi kembali? (y/t)");
+	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung kombinasi kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
@@ -493,10 +557,14 @@ void Permutasi()
 	int angka1, angka2;
 	
 	do{
+		header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                     Permutasi                                                              ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n\n");	
 		Input2Int(&angka1, &angka2);
-		printf ("\nHasil dari %d P %d adalah %d\n", angka1, angka2, permutasi(angka1, angka2));
+		printf ("\n\t\t\t\t\t\tHasil dari %d P %d adalah %d\n", angka1, angka2, permutasi(angka1, angka2));
 
-	    printf ("\nApakah anda ingin menghitung permutasi kembali? (y/t)");
+	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung permutasi kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
@@ -505,81 +573,220 @@ void KonversiSuhu()
 {
 	int pilih, lagi;
 	float angka1;
-	double angka2;
 	
 	do{
-		system ("cls");
-		printf ("\nPilih Fitur :");
-		printf ("\n\t1. Celcius ke Farenheit, Reamur, dan Kelvin");
-		printf ("\n\t2. Farenheit ke Celcius, Reamur, dan Kelvin");
-		printf ("\n\t3. Reamur ke Celcius, Farenheit, dan Kelvin");
-		printf ("\n\t4. Kelvin ke Celcius, Farenheit, dan Reamur");
+		header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                  Konversi Suhu                                                             ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  1. Celcius ke Farenheit, Reamur, dan Kelvin                                                                               ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  2. Farenheit ke Celcius, Reamur, dan Kelvin                                                                               ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  3. Reamur ke Celcius, Farenheit, dan Kelvin                                                                               ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  4. Kelvin ke Celcius, Farenheit, dan Reamu                                                                                ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n\n");
 	
 		do{
-			printf ("\n\nPilih fitur yang akan digunakan (berupa angka): ");
+			printf ("\n\n\t\t\t\t\t\tPilih fitur yang akan digunakan (berupa angka): ");
 			scanf  ("%d", &pilih);
 		
 			switch (pilih){
 				case 1 :
 					Input1Float(&angka1);
-					printf ("\n%0.2f Celcius = %0.2f Farenheit\n", angka1, ConCelFahr(angka1));
-					printf ("\n%0.2f Celcius = %0.2f Reamur\n", angka1, ConCelReam(angka1));
-					printf ("\n%0.2f Celcius = %0.2f Kelvin\n", angka1, ConCelKelv(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Celcius = %0.2f Farenheit\n", angka1, ConCelFahr(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Celcius = %0.2f Reamur\n", angka1, ConCelReam(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Celcius = %0.2f Kelvin\n", angka1, ConCelKelv(angka1));
 					break;
 					
 				case 2 :
 					Input1Float(&angka1);
-					printf ("\n%0.2f Farenheit = %0.2f Celcius\n", angka1, ConFahrCel(angka1));
-					printf ("\n%0.2f Farenheit = %0.2f Reamur\n", angka1, ConFahrReam(angka1));
-					printf ("\n%0.2f Farenheit = %0.2f Kelvin\n", angka1, ConFahrKelv(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Farenheit = %0.2f Celcius\n", angka1, ConFahrCel(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Farenheit = %0.2f Reamur\n", angka1, ConFahrReam(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Farenheit = %0.2f Kelvin\n", angka1, ConFahrKelv(angka1));
 					break;
 					
 				case 3 :
 					Input1Float(&angka1);
-					printf ("\n%0.2f Reamur = %0.2f Celcius\n", angka1, ConReamCel(angka1));
-					printf ("\n%0.2f Reamur = %0.2f Farenheit\n", angka1, ConReamFahr(angka1));
-					printf ("\n%0.2f Reamur = %0.2f Kelvin\n", angka1, ConReamKelv(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Reamur = %0.2f Celcius\n", angka1, ConReamCel(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Reamur = %0.2f Farenheit\n", angka1, ConReamFahr(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Reamur = %0.2f Kelvin\n", angka1, ConReamKelv(angka1));
 					break;
 					
 				case 4 :
 					Input1Float(&angka1);
-					printf ("\n%0.2f Kelvin = %0.2f Celcius\n", angka1, ConKelvCel(angka1));
-					printf ("\n%0.2f Kelvin = %0.2f Farenheit\n", angka1, ConKelvFahr(angka1));
-					printf ("\n%0.2f Kelvin = %0.2f Reamur\n", angka1, ConKelvReam(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Kelvin = %0.2f Celcius\n", angka1, ConKelvCel(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Kelvin = %0.2f Farenheit\n", angka1, ConKelvFahr(angka1));
+					printf ("\n\t\t\t\t\t\t%0.2f Kelvin = %0.2f Reamur\n", angka1, ConKelvReam(angka1));
 					break;
 		
 				default :
-					printf ("\nFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
+					printf ("\n\t\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
 			}
 		} while (pilih != 1 && pilih != 2 && pilih != 3 && pilih != 4);
 		
-	    printf ("\nApakah anda ingin mengkonversi suhu kembali? (y/t)");
+	    printf ("\n\t\t\t\t\t\tApakah anda ingin mengkonversi suhu kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
 
+void Matriks()
+{
+	int operan1, operan2;	
+	int operan3, operan4;
+	float matriks1[max][max];
+	float matriks2[max][max];
+	float hasil[max][max];
+	int operasi1, pilih;
+	char lagi;
+	
+	do {
+		header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                        Matriks                                                             ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  1. Pertambahan 2 matriks                                                                                                  ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  2. Pengurangan 2 Matriks                                                                                                  ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  3. Perkalian skalar matriks                                                                                               ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  4. Perkalian 2 matriks                                                                                                    ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  5. Transpose Matriks                                                                                                      ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  6. Determinan Matriks                                                                                                     ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n\n");
+			
+		do{
+			printf ("\n\n\t\t\t\t\t\tPilih operasi yang akan digunakan (berupa angka): ");
+			scanf  ("%d", &operasi1);
+			
+			switch (operasi1){
+				case 1 :
+					pertambahanMatriks();
+				    break;
+					
+				case 2 :
+					penguranganMatriks();
+				    break;
+					
+				case 3 :
+					printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
+					scanf("%d", &operan1);
+					printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
+					scanf("%d", &operan2);
+					inputMatriks (matriks1, operan1, operan2);
+					
+					printf("\n\t\t\t\t\t\tMatriks : \n");
+					printMatriks(matriks1, operan1, operan2);
+					
+					PerkalianSkalarMatriks(matriks1, operan1, operan2);
+					printMatriks(matriks1, operan1, operan2);
+				    break;
+				    
+				case 4 :
+					printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
+					scanf("%d", &operan1);
+					printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
+					scanf("%d", &operan2);
+					inputMatriks (matriks1, operan1, operan2);
+					
+					printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
+					scanf("%d", &operan3);
+					printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
+					scanf("%d", &operan4);
+					inputMatriks (matriks2, operan3, operan4);
+					
+					printf("\n\t\t\t\t\t\tMatriks 1 : \n");
+					printMatriks(matriks1, operan1, operan2);
+					printf("\n\t\t\t\t\t\tMatriks 2 : \n");
+					printMatriks(matriks2, operan3, operan4);
+					
+					Perkalian2Matriks(matriks1, matriks2, hasil, operan1, operan2, operan4);
+					printf("\n\t\t\t\t\t\tMatriks 1 setelah dikali dengan matriks 2:\n");
+					printMatriks(hasil, operan1, operan4);
+				    break;
+				    
+		//		case 5 :
+		//			inputMatriks (matriks1, &operan1, &operan2);
+		//			transposeMatriks (matriks1, hasil, operan1, operan2);
+		//			printf("\n\t\t\t\t\t\tMatriks setelah ditranspose:\n");
+		//			printMatriks(hasil, operan2, operan1);
+		//		    break;
+					
+				case 6 :
+					determinanMatriks();
+				    break;
+		
+				default :
+					printf ("\n\t\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
+			
+			}
+		} while (pilih < 1 || pilih > 6);
+		
+	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung matriks kembali? (y/t)");
+	    lagi = getche();
+	}while (lagi == 'y' || lagi == 'Y');
+}
+
+void Perkalian2Matriks(float mat1[max][max], float mat2[max][max], float hasil[max][max], int baris1, int kolom1, int kolom2)
+{
+	int i, j, k;
+    for (i = 0; i < baris1; i++)
+    {
+        for (j = 0; j < kolom2; j++)
+        {
+            hasil[i][j] = 0;
+            for (k = 0; k < kolom1; k++)
+            {
+                hasil[i][j] = hasil[i][j] + (mat1[i][k] * mat2[k][j]);
+            }
+        }
+    }
+}
+
+void PerkalianSkalarMatriks(float matriks[max][max], int baris, int kolom)
+{
+	int pengali, i, j;
+	
+	printf ("\n\t\t\t\t\t\tMasukkan pengali : ");
+	scanf  ("%d", &pengali);
+	i = 1;
+	while (i <= baris) {
+	   	j = 1;
+	    while (j <= kolom) {
+		    matriks[i-1][j-1] = pengali * matriks[i-1][j-1];
+		    j++;
+		}
+		i++;
+	}
+	printf("\n\t\t\t\t\t\tMatriks setelah dikali skalar dengan %d :\n", pengali);
+}
+
 void Input1Int(int *angka)
 {
-	printf ("\nMasukkan operan : ");
+	printf ("\n\t\t\t\t\t\tMasukkan operan : ");
 	scanf  ("%d", &(*angka));
 }
 
 void Input2Int(int *angka1, int *angka2)
 {
-	printf ("\nMasukkan operan pertama: ");
+	printf ("\n\t\t\t\t\t\tMasukkan operan pertama: ");
 	scanf  ("%d", &(*angka1));
-	printf ("\nMasukkan operan kedua: ");
+	printf ("\n\t\t\t\t\t\tMasukkan operan kedua: ");
 	scanf  ("%d", &(*angka2));
 }
 
 void Input1Double(double *angka)
 {
-	printf ("\nMasukkan operan : ");
+	printf ("\n\t\t\t\t\t\tMasukkan operan : ");
 	scanf  ("%lf", &(*angka));
 }
 
 void Input1Float(float *angka)
 {
-	printf ("\nMasukkan operan : ");
+	printf ("\n\t\t\t\t\t\tMasukkan operan : ");
 	scanf  ("%f", &(*angka));
 }
