@@ -10,82 +10,91 @@ void Trigonometri()
 	
 	do{
 		header();
-		printf ("\nPilih Fitur :");
-		printf ("\n\t1. Sinus");
-		printf ("\n\t2. Invers Sinus");
-		printf ("\n\t3. Cosecant");
-		printf ("\n\t4. Cosinus");
-		printf ("\n\t5. Invers Cosinus");
-		printf ("\n\t6. Secant");
-		printf ("\n\t7. Tangent");
-		printf ("\n\t8. Invers Tangent");
-		printf ("\n\t9. Cotangent");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                     Trigonometri                                                           ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  1. Sinus                                                                                                                  ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  2. Invers Sinus                                                                                                           ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  3. Cosecant                                                                                                               ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  4. Cosinus                                                                                                                ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  6. Secan                                                                                                                  ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  7. Tangent                                                                                                                ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  8. Invers Tangent                                                                                                         ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  9. Cotangent                                                                                                              ==");
+		puts	("\t\t\t\t\t================================================================================================================================\n");
 	
 		do{
-			printf ("\n\nPilih fitur yang akan digunakan (berupa angka): ");
+			printf ("\n\n\t\t\t\t\t\tPilih fitur yang akan digunakan (berupa angka): ");
 			scanf  ("%d", &pilih);
 		
 			switch (pilih){
 				case 1 :
 					Input1Float(&angka1);
-					printf ("\nHasil dari sin(%.01f) adalah %.02f radian\n", angka1, sinRad(angka1));
-					printf ("\nHasil dari sin(%.01f) adalah %.02f derajat\n", angka1, sinDerajat(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari sin(%.01f) adalah %.02f radian\n", angka1, sinRad(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari sin(%.01f) adalah %.02f derajat\n", angka1, sinDerajat(angka1));
 					break;
 					
 				case 2 :	
 					Input1Float(&angka1);
-					printf ("\nHasil dari invers sin(%.01f) adalah %.02f radian\n", angka1, sinInversRad(angka1));
-					printf ("\nHasil dari invers sin(%.01f) adalah %.02f derajat\n", angka1, sinInversDerajat(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari invers sin(%.01f) adalah %.02f radian\n", angka1, sinInversRad(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari invers sin(%.01f) adalah %.02f derajat\n", angka1, sinInversDerajat(angka1));
 					break;
 
 				case 3 :	
 					Input1Float(&angka1);
-					printf ("\nHasil dari csc(%.01f) adalah %.02f radian\n", angka1, cosecRad(angka1));
-					printf ("\nHasil dari csc(%.01f) adalah %.02f derajat\n", angka1, cosecDerajat(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari csc(%.01f) adalah %.02f radian\n", angka1, cosecRad(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari csc(%.01f) adalah %.02f derajat\n", angka1, cosecDerajat(angka1));
 					break;
 
 				case 4 :	
 					Input1Float(&angka1);
-					printf ("\nHasil dari cos(%.01f) adalah %.02f radian\n", angka1, cosRad(angka1));
-					printf ("\nHasil dari cos(%.01f) adalah %.02f derajat\n", angka1, cosNilai(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari cos(%.01f) adalah %.02f radian\n", angka1, cosRad(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari cos(%.01f) adalah %.02f derajat\n", angka1, cosNilai(angka1));
 					break;
 
 				case 5 :	
 					Input1Float(&angka1);
-					printf ("\nHasil dari invers cos(%.01f) adalah %.02f radian\n", angka1, cosInvers(angka1));
-					printf ("\nHasil dari invers cos(%.01f) adalah %.02f derajat\n", angka1, cosInversNilai(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari invers cos(%.01f) adalah %.02f radian\n", angka1, cosInvers(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari invers cos(%.01f) adalah %.02f derajat\n", angka1, cosInversNilai(angka1));
 					break;
 
 				case 6 :	
 					Input1Float(&angka1);
-					printf ("\nHasil dari sec(%.01f) adalah %.02f radian\n", angka1, secRad(angka1));
-					printf ("\nHasil dari sec(%.01f) adalah %.02f derajat\n", angka1, secDerajat(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari sec(%.01f) adalah %.02f radian\n", angka1, secRad(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari sec(%.01f) adalah %.02f derajat\n", angka1, secDerajat(angka1));
 					break;
 
 				case 7 :	
 					Input1Float(&angka1);
-					printf ("\nHasil dari tan(%.01f) adalah %.02f radian\n", angka1, tanRad(angka1));
-					printf ("\nHasil dari tan(%.01f) adalah %.02f derajat\n", angka1, tanDerajat(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari tan(%.01f) adalah %.02f radian\n", angka1, tanRad(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari tan(%.01f) adalah %.02f derajat\n", angka1, tanDerajat(angka1));
 					break;
 					
 				case 8 :	
 					Input1Float(&angka1);
-					printf ("\nHasil dari invers tan(%.01f) adalah %.02f radian\n", angka1, tanInvers(angka1));
-					printf ("\nHasil dari invers tan(%.01f) adalah %.02f derajat\n", angka1, tanInversNilai(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari invers tan(%.01f) adalah %.02f radian\n", angka1, tanInvers(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari invers tan(%.01f) adalah %.02f derajat\n", angka1, tanInversNilai(angka1));
 					break;
 					
 				case 9 :	
 					Input1Float(&angka1);
-					printf ("\nHasil dari cot(%.01f) adalah %.02f radian\n", angka1, cotRad(angka1));
-					printf ("\nHasil dari cot(%.01f) adalah %.02f derajat\n", angka1, cotDerajat(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari cot(%.01f) adalah %.02f radian\n", angka1, cotRad(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari cot(%.01f) adalah %.02f derajat\n", angka1, cotDerajat(angka1));
 					break;
 		
 				default :
-					printf ("\nFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
+					printf ("\n\t\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
 			}
 		} while (pilih != 1 && pilih != 2);
 		
-	    printf ("\nApakah anda ingin menghitung logaritma kembali? (y/t)");
+	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung logaritma kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
@@ -94,10 +103,10 @@ void cekInversRad(float angka, float p)
 {
 	if (angka >= -1 && angka <= 1)
 	{
-	 	printf("Nilai invers adalah %.02f radian\n", p);			
+	 	printf("\t\t\t\t\t\tNilai invers adalah %.02f radian\n", p);			
 	} else
 	{
-		printf("Masukkan angka di antara -1 dan 1!\n");		
+		printf("\t\t\t\t\t\tMasukkan angka di antara -1 dan 1!\n");		
 	}
 }
 
@@ -105,7 +114,7 @@ void cekInversDerajat(float angka, float p)
 {
 	if (angka >= -1 && angka <= 1) 
 	{
-	 	printf("Nilai invers adalah %.02f derajat", p); 			
+	 	printf("\t\t\t\t\t\tNilai invers adalah %.02f derajat", p); 			
 	}
 }
 
@@ -113,10 +122,10 @@ void cekTidakTerdefinisiR(float angka, float p)
 {
 	if (angka != 90 && angka != 270 && angka != 450)
 	{
-		printf("Nilai dari angka yang di-input adalah %.02f radian\n", p);
+		printf("\t\t\t\t\t\tNilai dari angka yang di-input adalah %.02f radian\n", p);
 	} else
 	{
-		printf("Nilai yang Anda input tidak terdefinisi!");
+		printf("\t\t\t\t\t\tNilai yang Anda input tidak terdefinisi!");
 	}
 }
 
@@ -124,7 +133,7 @@ void cekTidakTerdefinisiD(float angka, float p)
 {
 	if (angka != 90 && angka != 270 && angka != 450)
 	{
-		printf("Nilai dari angka yang di-input adalah adalah %.02f derajat", p);
+		printf("\t\t\t\t\t\tNilai dari angka yang di-input adalah adalah %.02f derajat", p);
 	}
 }
 
@@ -132,10 +141,10 @@ void cekTidakTerdefinisiCotR(float angka, float p)
 {
 	if(angka != 0 && angka != 90 && angka != 180 && angka != 360 && angka != 540)
 	{
-		printf("Nilai dari angka yang di-input adalah %.02f radian\n", p);
+		printf("\t\t\t\t\t\tNilai dari angka yang di-input adalah %.02f radian\n", p);
 	} else 
 	{
-		printf("Nilai yang Anda input tidak terdefinisi!");
+		printf("\t\t\t\t\t\tNilai yang Anda input tidak terdefinisi!");
 	}
 }
 
@@ -143,7 +152,7 @@ void cekTidakTerdefinisiCotD(float angka, float p)
 {
 	if(angka != 0 && angka != 90 && angka != 180 && angka != 360 && angka != 540)
 	{
-		printf("Nilai dari cot(%.01f) adalah %.02f derajat", angka, p);
+		printf("\t\t\t\t\t\tNilai dari cot(%.01f) adalah %.02f derajat", angka, p);
 	}
 }
 

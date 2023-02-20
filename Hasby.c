@@ -207,56 +207,62 @@ void KonversiPanjang()
     float angka1;
     
     do{
-        system ("cls");
-        printf ("\nPilih apa yang akan anda konversi :");
-        printf ("\n\t1. Meter ke Sentimeter, Milimeter, Kilometer , dan Mil");
-        printf ("\n\t2. Kilometer ke Sentimeter, Milimeter, Meter, dan Mil");
-        printf ("\n\t3. Sentimeter ke Meter, Milimeter, Kilometer, dan Inci");
-        printf ("\n\t4. Milimeter ke Meter, Sentimeter, Kilometer, dan Inci");
+		header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                   Konversi Panjang                                                         ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  1. Meter ke Sentimeter, Milimeter, Kilometer , dan Mil                                                                    ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  2. Kilometer ke Sentimeter, Milimeter, Meter, dan Mil                                                                     ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  3. Sentimeter ke Meter, Milimeter, Kilometer, dan Inci                                                                    ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  4. Milimeter ke Meter, Sentimeter, Kilometer, dan Inci                                                                    ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
     
         do{
-            printf ("\n\nPilih fitur yang akan digunakan (berupa angka): ");
+            printf ("\n\n\t\t\t\t\tPilih fitur yang akan digunakan (berupa angka): ");
             scanf  ("%d", &pilihan);
         
             switch (pilihan){
                 case 1 :
                     Input1Float(&angka1);
-                    printf("Panjang meter :%g m dalam sentimeter: %g cm\n", angka1, ConMkeCM(angka1));
-                    printf("Panjang meter :%g m dalam milimeter %g mm\n", angka1, ConMkeMM(angka1));
-                    printf("Panjang meter :%g m dalam kilometer: %g km\n", angka1, ConMkeKM(angka1));
-                    printf("Panjang meter :%g m dalam mil: %g mi\n", angka1, ConMkeMIL(angka1));
+                    printf("\t\t\t\t\tPanjang meter :%g m dalam sentimeter: %g cm\n", angka1, ConMkeCM(angka1));
+                    printf("\t\t\t\t\tPanjang meter :%g m dalam milimeter %g mm\n", angka1, ConMkeMM(angka1));
+                    printf("\t\t\t\t\tPanjang meter :%g m dalam kilometer: %g km\n", angka1, ConMkeKM(angka1));
+                    printf("\t\t\t\t\tPanjang meter :%g m dalam mil: %g mi\n", angka1, ConMkeMIL(angka1));
                     break;
                     
                 case 2 :
                     Input1Float(&angka1);
-                    printf("Panjang kilometer :%g km dalam sentimeter: %g cm\n", angka1, ConKMkeCM(angka1));
-                    printf("Panjang kilometer :%g km dalam milimeter %g mm\n", angka1, ConKMkeMM(angka1));
-                    printf("Panjang kilometer :%g km dalam meter: %g m\n", angka1, ConKMkeM(angka1));
-                    printf("Panjang kilometer :%g km dalam mil: %g mi\n", angka1, ConKMkeMIL(angka1));
+                    printf("\t\t\t\t\tPanjang kilometer :%g km dalam sentimeter: %g cm\n", angka1, ConKMkeCM(angka1));
+                    printf("\t\t\t\t\tPanjang kilometer :%g km dalam milimeter %g mm\n", angka1, ConKMkeMM(angka1));
+                    printf("\t\t\t\t\tPanjang kilometer :%g km dalam meter: %g m\n", angka1, ConKMkeM(angka1));
+                    printf("\t\t\t\t\tPanjang kilometer :%g km dalam mil: %g mi\n", angka1, ConKMkeMIL(angka1));
                     break;
                     
                 case 3 :
                     Input1Float(&angka1);
-                    printf("Panjang sentimeter :%g cm dalam meter: %g m\n", angka1, ConCMkeM(angka1));
-                    printf("Panjang sentimeter :%g cm dalam milimeter %g mm\n", angka1, ConCMkeMM(angka1));
-                    printf("Panjang sentimeter :%g cm dalam kilometer: %g km\n", angka1, ConCMkeKM(angka1));
-                    printf("Panjang sentimeter :%g cm dalam inci: %g inci\n", angka1, ConCMkeINC(angka1));
+                    printf("\t\t\t\t\tPanjang sentimeter :%g cm dalam meter: %g m\n", angka1, ConCMkeM(angka1));
+                    printf("\t\t\t\t\tPanjang sentimeter :%g cm dalam milimeter %g mm\n", angka1, ConCMkeMM(angka1));
+                    printf("\t\t\t\t\tPanjang sentimeter :%g cm dalam kilometer: %g km\n", angka1, ConCMkeKM(angka1));
+                    printf("\t\t\t\t\tPanjang sentimeter :%g cm dalam inci: %g inci\n", angka1, ConCMkeINC(angka1));
                     break;
                     
                 case 4 :
                     Input1Float(&angka1);
-                    printf("Panjang milimeter :%g mm dalam meter: %g m\n", angka1, ConMMkeM(angka1));
-                    printf("Panjang milimeter :%g mm dalam milimeter %g m\n", angka1, ConMMkeCM(angka1));
-                    printf("Panjang milimeter :%g mm dalam kilometer: %g km\n", angka1, ConMMkeKM(angka1));
-                    printf("Panjang milimeter :%g mm dalam inci: %g inci\n", angka1, ConMMkeINC(angka1));
+                    printf("\t\t\t\t\tPanjang milimeter :%g mm dalam meter: %g m\n", angka1, ConMMkeM(angka1));
+                    printf("\t\t\t\t\tPanjang milimeter :%g mm dalam milimeter %g m\n", angka1, ConMMkeCM(angka1));
+                    printf("\t\t\t\t\tPanjang milimeter :%g mm dalam kilometer: %g km\n", angka1, ConMMkeKM(angka1));
+                    printf("\t\t\t\t\tPanjang milimeter :%g mm dalam inci: %g inci\n", angka1, ConMMkeINC(angka1));
                     break;
         
                 default :
-                    printf ("\nPilihan yang anda inputkan salah, Silahkan pilih dari 1 sampai 4\n");
+                    printf ("\n\t\t\t\t\tPilihan yang anda inputkan salah, Silahkan pilih dari 1 sampai 4\n");
             }
         } while (pilihan != 1 && pilihan != 2 && pilihan != 3 && pilihan != 4);
         
-        printf ("\nApakah anda akan menkonversi panjang kembali? (y/t)");
+        printf ("\n\t\t\t\t\tApakah anda akan menkonversi panjang kembali? (y/t)");
         lagi = getche();
     }while (lagi == 'y' || lagi == 'Y');
 }
@@ -267,22 +273,25 @@ void TurunanPolinom ()
 	int n, a[100];
 
 	do	{
-		system ("cls");
-		printf("Masukkan orde polinom: ");
+		header();
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==                                                   Turunan Polinom                                                          ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		printf("\t\t\t\t\tMasukkan orde polinom: ");
   		scanf("%d", &n);
   		if (n <= 0) {
-	    	printf("Jika orde polinom <= 0, turunan adalah 0\n");
+	    	printf("\t\t\t\t\tJika orde polinom <= 0, turunan adalah 0\n");
 		}
 		else {
 			int i;
   			for (i = 0; i < n; i++) {
-    			printf("Masukkan koefisien x^%d: ", n-i-1);
+    			printf("\t\t\t\t\tMasukkan koefisien x^%d: ", n-i-1);
     			scanf("%d", &a[i]);
   			}
   			HitungTurunanPolinom(a,n);
 		
  		 // Hitung dan cetak turunan
-	 		printf("Turunan polinom: ");
+	 		printf("\t\t\t\t\tTurunan polinom: ");
  			printf("%dx^%d", a[0], n-2);
   			for (i = 1; i < n-1; i++) {
    				printf(" + %dx^%d", a[i], n-i-2);
@@ -290,7 +299,7 @@ void TurunanPolinom ()
   			printf("\n");
 		}
 		
-	    printf ("\nApakah anda akan menghitung polinom kembali? (y/t)");
+	    printf ("\n\t\t\t\t\tApakah anda akan menghitung polinom kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 
