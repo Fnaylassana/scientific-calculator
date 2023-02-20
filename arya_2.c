@@ -5,7 +5,7 @@
 
 void Trigonometri()
 {
-	int pilih, lagi;
+	int pilih, lagi, ulang;
 	float angka1;
 	
 	do{
@@ -20,6 +20,8 @@ void Trigonometri()
 		puts	("\t\t\t\t\t==  3. Cosecant                                                                                                               ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
 		puts	("\t\t\t\t\t==  4. Cosinus                                                                                                                ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  5. Invers Cosinus                                                                                                         ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
 		puts	("\t\t\t\t\t==  6. Secan                                                                                                                  ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
@@ -43,14 +45,14 @@ void Trigonometri()
 					
 				case 2 :	
 					Input1Float(&angka1);
-					printf ("\n\t\t\t\t\t\tHasil dari invers sin(%.01f) adalah %.02f radian\n", angka1, sinInversRad(angka1));
-					printf ("\n\t\t\t\t\t\tHasil dari invers sin(%.01f) adalah %.02f derajat\n", angka1, sinInversDerajat(angka1));
+					cekInversRad(angka1, sinInversRad(angka1), &ulang);
+					cekInversDerajat(angka1, sinInversDerajat(angka1));
 					break;
 
 				case 3 :	
 					Input1Float(&angka1);
-					printf ("\n\t\t\t\t\t\tHasil dari csc(%.01f) adalah %.02f radian\n", angka1, cosecRad(angka1));
-					printf ("\n\t\t\t\t\t\tHasil dari csc(%.01f) adalah %.02f derajat\n", angka1, cosecDerajat(angka1));
+					cekTidakTerdefinisiCscR(angka1, cosecRad(angka1));
+					cekTidakTerdefinisiCscD(angka1, cosecDerajat(angka1));
 					break;
 
 				case 4 :	
@@ -59,34 +61,36 @@ void Trigonometri()
 					printf ("\n\t\t\t\t\t\tHasil dari cos(%.01f) adalah %.02f derajat\n", angka1, cosNilai(angka1));
 					break;
 
-				case 5 :	
-					Input1Float(&angka1);
-					printf ("\n\t\t\t\t\t\tHasil dari invers cos(%.01f) adalah %.02f radian\n", angka1, cosInvers(angka1));
-					printf ("\n\t\t\t\t\t\tHasil dari invers cos(%.01f) adalah %.02f derajat\n", angka1, cosInversNilai(angka1));
+				case 5 :
+					do {
+						Input1Float(&angka1);
+						cekInversRad(angka1, cosInvers(angka1), &ulang);
+						cekInversDerajat(angka1, cosInversNilai(angka1));
+					} while (!ulang);
 					break;
 
-				case 6 :	
+				case 6 :
 					Input1Float(&angka1);
-					printf ("\n\t\t\t\t\t\tHasil dari sec(%.01f) adalah %.02f radian\n", angka1, secRad(angka1));
-					printf ("\n\t\t\t\t\t\tHasil dari sec(%.01f) adalah %.02f derajat\n", angka1, secDerajat(angka1));
+					cekTidakTerdefinisiR(angka1, secRad(angka1));
+					cekTidakTerdefinisiD(angka1, secDerajat(angka1));
 					break;
 
 				case 7 :	
 					Input1Float(&angka1);
-					printf ("\n\t\t\t\t\t\tHasil dari tan(%.01f) adalah %.02f radian\n", angka1, tanRad(angka1));
-					printf ("\n\t\t\t\t\t\tHasil dari tan(%.01f) adalah %.02f derajat\n", angka1, tanDerajat(angka1));
+					cekTidakTerdefinisiR(angka1, tanRad(angka1));
+					cekTidakTerdefinisiD(angka1, tanRad(angka1));
 					break;
 					
 				case 8 :	
 					Input1Float(&angka1);
-					printf ("\n\t\t\t\t\t\tHasil dari invers tan(%.01f) adalah %.02f radian\n", angka1, tanInvers(angka1));
-					printf ("\n\t\t\t\t\t\tHasil dari invers tan(%.01f) adalah %.02f derajat\n", angka1, tanInversNilai(angka1));
+					cekInversRad(angka1, tanInvers(angka1), &ulang);
+					cekInversDerajat(angka1, tanInversNilai(angka1));
 					break;
-					
+						
 				case 9 :	
 					Input1Float(&angka1);
-					printf ("\n\t\t\t\t\t\tHasil dari cot(%.01f) adalah %.02f radian\n", angka1, cotRad(angka1));
-					printf ("\n\t\t\t\t\t\tHasil dari cot(%.01f) adalah %.02f derajat\n", angka1, cotDerajat(angka1));
+					cekTidakTerdefinisiCotR(angka1, cotRad(angka1));
+					cekTidakTerdefinisiCotD(angka1, cotDerajat(angka1));
 					break;
 		
 				default :
@@ -99,14 +103,16 @@ void Trigonometri()
 	}while (lagi == 'y' || lagi == 'Y');
 }
 
-void cekInversRad(float angka, float p)
+void cekInversRad(float angka, float p, int *cek)
 {
 	if (angka >= -1 && angka <= 1)
 	{
-	 	printf("\t\t\t\t\t\tNilai invers adalah %.02f radian\n", p);			
+	 	printf("\t\t\t\t\t\tNilai invers adalah %.02f radian\n", p);
+		*cek = 1;			
 	} else
 	{
-		printf("\t\t\t\t\t\tMasukkan angka di antara -1 dan 1!\n");		
+		printf("\t\t\t\t\t\tMasukkan angka di antara -1 dan 1!\n");
+		*cek = 0;		
 	}
 }
 
@@ -153,6 +159,25 @@ void cekTidakTerdefinisiCotD(float angka, float p)
 	if(angka != 0 && angka != 90 && angka != 180 && angka != 360 && angka != 540)
 	{
 		printf("\t\t\t\t\t\tNilai dari cot(%.01f) adalah %.02f derajat", angka, p);
+	}
+}
+
+void cekTidakTerdefinisiCscR(float angka, float p)
+{
+	if(angka != 0 && angka != 180 && angka != 360 && angka != 540)
+	{
+		printf("\t\t\t\t\t\tNilai dari angka yang di-input adalah %.02f radian\n", p);
+	} else 
+	{
+		printf("\t\t\t\t\t\tNilai yang Anda input tidak terdefinisi!");
+	}
+}
+
+void cekTidakTerdefinisiCscD(float angka, float p)
+{
+	if(angka != 0 && angka != 180 && angka != 360 && angka != 540)
+	{
+		printf("\t\t\t\t\t\tNilai dari csc(%.01f) adalah %.02f derajat", angka, p);
 	}
 }
 
