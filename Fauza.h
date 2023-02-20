@@ -5,6 +5,7 @@
 #include <string.h>
 #include <math.h>
 #include <ctype.h>
+#define max 10
 
 typedef union
 {
@@ -24,9 +25,11 @@ float HitungTan(float nilai);
 
 void kalkulator();
 
-Stack* initialize();
+Stack* alloc();
 
 int isEmpty(Stack *s);
+
+int isFull(Stack *s);
 
 Item top(Stack *s);
 
@@ -36,9 +39,9 @@ void push(Stack *s, float val);
 
 void pushChar(Stack *s, char c);
 
-int isFull(Stack *s);
+int prioritas(char c);
 
-int priority(char c);
+int isNumber(char *token);
 
 int isOperator(char c);
 
@@ -46,15 +49,9 @@ int negativeInteger(char *infix,char c,int ptr);
 
 int isAfter(Stack *s);
 
-char * removespaces(char * infix);
-
 char *infixToPostfix(char *infix,char *postfix);
 
-void replaceNewLineBySpace(char *s);
-
-int isNumber(char *token);
-
-float evaluatePostfix(char postFix[]);
+float hitungIsiPostfix(char postFix[]);
 
 void FiturLain();
 
@@ -71,6 +68,12 @@ void Kombinasi();
 void Permutasi();
 
 void KonversiSuhu();
+
+void Matriks();
+
+void Perkalian2Matriks(float mat1[max][max], float mat2[max][max], float hasil[max][max], int baris1, int kolom1, int kolom2);
+
+void PerkalianSkalarMatriks(float matriks[max][max], int baris, int kolom);
 
 void Input1Int(int *angka);
 
