@@ -1,7 +1,7 @@
 #include "Hasby.h"
 
-float Log(Angka1){
-	int Hasil;
+float Log(float Angka1){
+	float Hasil;
 
     Hasil = log10(Angka1);
    return Hasil;

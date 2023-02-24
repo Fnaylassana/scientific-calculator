@@ -426,7 +426,7 @@ void Logaritma()
 			switch (pilih){
 				case 1 :
 					Input1Int(&angka1);
-					printf ("\n\t\t\t\t\t\tHasil dari 10 log %d adalah %d\n", angka1, Log(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari 10 log %d adalah %g\n", angka1, Log(angka1));
 					break;
 					
 				case 2 :	
