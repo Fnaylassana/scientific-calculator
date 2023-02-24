@@ -124,7 +124,7 @@ int prioritas(char c)
 		if (c=='*' || c=='/') {
 			return 2;
 		} else {
-			if (c=='^' || c=='v'){
+			if (c=='^' || c=='v' || c=='%'){
 				return 3 ;
 			} else {
 				return 0;
@@ -141,7 +141,7 @@ int isNumber(char *token)
 
 int isOperator(char c)
 {
-    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v') {
+    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='%') {
 		return 1;
 	}else{
 		return 0;
@@ -235,7 +235,7 @@ char *infixToPostfix(char *infix,char *postfix)
                 char tempChar3 = '-';
                 strncat(temp2, &tempChar3, 1);
                 strcpy(tempInfix, infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^v");
+                temp = strtok(tempInfix + ptr, " +-)(*/^v%");
                 ptr += strlen(temp) + 1;
                 strcat(temp2, temp);
                 strcat(postfix, temp2);
@@ -244,7 +244,7 @@ char *infixToPostfix(char *infix,char *postfix)
             else
             {
                 strcpy(tempInfix,infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^v");
+                temp = strtok(tempInfix + ptr, " +-)(*/^v%");
                 ptr+=strlen(temp);
                 strcat(postfix, temp);
                 strcat(postfix, oneSpace);
@@ -300,6 +300,9 @@ float hitungIsiPostfix(char postFix[])
             case 'v':
                 push(stack, akar(b, a));
                 break;
+            case '%':
+                push(stack, modulus(b, a));
+                break;
             default:
                 break;
             }
@@ -316,7 +319,7 @@ void FiturLain()
 	do{
 		header();
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==                                                  Fitur Lainnya                                                             ==");
+		puts	("\t\t\t\t\t==                                                    Aritmatika                                                              ==");
 		puts	("\t\t\t\t\t================================================================================================================================");	
 		puts	("\t\t\t\t\t==  1. Hitung Trigonometri                                                                                                    ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
