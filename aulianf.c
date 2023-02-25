@@ -35,6 +35,14 @@ float eksponen(float bilangan1, float bilangan2)
     return hasil;
 } 
 
+float sinRad(float angka)
+// Menghitung sin dalam radian
+{
+	float rad;
+	rad = sin(angka); 
+	return rad;
+}
+
 float sinDerajat(float angka)
 // Menghitung sin dalam derajat
 {
@@ -42,6 +50,32 @@ float sinDerajat(float angka)
 	nilai = pi/180;
 	derajat = sinf(angka*nilai);
 	return derajat;
+}
+
+float sinInversRad(float angka)
+// Menghitung invers sin dalam radian
+{
+	float rad;
+	rad = asinf(angka);
+	return rad;
+} 
+
+float sinInversDerajat(float angka)
+// Menghitung invers sin dalam derajat
+{
+	float nilai, derajat;
+	nilai = 180/pi;
+	derajat = ((asinf(angka))*nilai);
+	return derajat;
+} 
+
+float cosecRad(float angka)
+// Menghitung cosec dalam radian
+{
+	float rad, cosec;
+	rad = sinf(angka); 
+	cosec = 1/rad;
+	return cosec;
 }
 
 float cosecDerajat(float angka)

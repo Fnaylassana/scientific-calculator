@@ -13,6 +13,16 @@ float hitungLog(float angka)
     return hasil;
 }
 
+float cosRad(float angka)
+{
+	float rad;
+	
+	//Menghitung angka yang diinput sebagai Cosinus, hasilnya akan menjadi radian
+	rad = cosf(angka);
+	
+	return rad;
+}
+
 float cosNilai(float angka)
 {
 	float nilai, derajat;
@@ -23,12 +33,32 @@ float cosNilai(float angka)
 	return derajat;
 }
 
-float tanDerajat(float angka)
+float cosInvers(float angka)
+{
+	float rad;
+	rad = acosf(angka);
+	
+	return rad;
+}
+
+float cosInversNilai(float angka)
 {
 	float nilai, derajat;
+
+	nilai = 180/pi;
+	derajat = ((acosf(angka)) * nilai);
+
+	return derajat;
+}
+
+float secRad(float angka)
+{
+	float rad, sec;
 	
-	nilai = pi/180;
-	derajat = tanf(angka * nilai);
+	rad = cosf(angka);
+	sec = 1/rad;
+	
+	return sec;
 }
 
 float secDerajat(float angka)
@@ -39,6 +69,52 @@ float secDerajat(float angka)
 	derajat = 1/(cosf(angka * nilai));
 	
 	return derajat;
+}
+
+float tanRad(float angka)
+{
+	float rad;
+	
+	rad = tanf(angka);
+	
+	return rad;
+}
+
+float tanDerajat(float angka)
+{
+	float nilai, derajat;
+	
+	nilai = pi/180;
+	derajat = tanf(angka * nilai);
+}
+
+float tanInvers(float angka)
+{
+	float rad;
+	
+	rad = atanf(angka);
+	
+	return rad;
+}
+
+float tanInversNilai(float angka)
+{
+	float nilai, derajat;
+	
+	nilai = 180/pi;
+	derajat = ((atanf(angka)) * nilai );
+
+	return derajat;
+}
+
+float cotRad(float angka)
+{
+	float rad, cot;
+	
+	rad = tanf(angka);
+	cot = 1/rad;
+	
+	return cot;
 }
 
 float cotDerajat(float angka)
