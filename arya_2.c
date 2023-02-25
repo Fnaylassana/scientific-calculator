@@ -40,7 +40,7 @@ void Trigonometri()
 				case 1 :
 					Input1Float(&angka1);
 					printf ("\n\t\t\t\t\t\tHasil dari sin(%.01f) adalah %.02f radian\n", angka1, sinRad(angka1));
-					printf ("\n\t\t\t\t\t\tHasil dari sin(%.01f) adalah %.02f derajat\n", angka1, sinDerajat(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari sin(%.01f) adalah %.g derajat\n", angka1, sinDerajat(angka1));
 					break;
 					
 				case 2 :	
@@ -58,7 +58,7 @@ void Trigonometri()
 				case 4 :	
 					Input1Float(&angka1);
 					printf ("\n\t\t\t\t\t\tHasil dari cos(%.01f) adalah %.02f radian\n", angka1, cosRad(angka1));
-					printf ("\n\t\t\t\t\t\tHasil dari cos(%.01f) adalah %.02f derajat\n", angka1, cosNilai(angka1));
+					printf ("\n\t\t\t\t\t\tHasil dari cos(%.01f) adalah %g derajat\n", angka1, cosNilai(angka1));
 					break;
 
 				case 5 :
