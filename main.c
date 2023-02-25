@@ -12,11 +12,11 @@ int main() {
 		puts	("\t\t\t\t\t================================================================================================================================");	
 		puts	("\t\t\t\t\t==  1. Kalkulator                                                                                                             ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  2. Fitur lainnya                                                                                                          ==");
+		puts	("\t\t\t\t\t==  2. Aritmatika                                                                                                             ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
+		printf ("\n\n\t\t\t\t\t\tPilih fitur yang akan dijalankan (berupa angka): ");
 		
 		do{
-			printf ("\n\n\t\t\t\t\t\tPilih fitur yang akan dijalankan (berupa angka): ");
 			scanf  ("%d", &menu);
 	
 			switch (menu){
@@ -31,7 +31,7 @@ int main() {
 				default :
 					printf ("\n\t\t\t\t\t\tMenu yang anda pilih tidak ada, silahkan pilih antara 1 atau 2!\n");
 			}
-		} while (menu < 1 || menu > 2);
+		} while (menu != 1 || menu != 2);
 		
 		printf ("\n\n\t\t\t\t\t\tApakah anda ingin kembali ke menu awal? (y/t)");
 		ulang = getche ();

@@ -15,7 +15,6 @@ void header()
 	puts	("\t\t\t\t\t==              ====      ======   ==       ==    ==   ==  =  ==   ======   ==    ==   ====                ==                 ==");
 	puts	("\t\t\t\t\t==              ==  ==    ==       ==       ==    ==   ==     ==   ==       ==    ==   ==  ==               ==                ==");
 	puts	("\t\t\t\t\t==              ==   ==   =======  =======  ========   ==     ==   ==       ========   ==   ==        =======                 ==");
-	puts	("\t\t\t\t\t================================================================================================================================\n\n");	
 	puts	("\t\t\t\t\t================================================================================================================================");
 	puts	("\t\t\t\t\t==                                                 CALCULATOR PROGRAM                                                         ==");
 	puts	("\t\t\t\t\t================================================================================================================================\n\n");	
@@ -30,14 +29,7 @@ float HitungNilaiMutlak (float nilai){
 	return nilai;
 }
 
-float HitungTan(float nilai){
-	float temp;
-	
-	temp = tanf (nilai);
-	
-	return temp;
-}
-
+////Referensi:
 ///MOHAMED FARID ABDELAZIZ SALAMA 6905
 ///ADHAM MOHAMED ALY ABDELHAMID 6744
 
@@ -51,29 +43,37 @@ void kalkulator()
     
     while(lagi == 'y' || lagi == 'Y')
     {
-    	header();
+		header();
 		puts	("\t\t\t\t\t================================================================================================================================");
 		puts	("\t\t\t\t\t==                                                      Ketentuan                                                             ==");
 		puts	("\t\t\t\t\t================================================================================================================================");	
-		puts	("\t\t\t\t\t==  1. Gunakan + untuk operasi tambah                                                                                         ==");
+		puts	("\t\t\t\t\t==  1. x+y untuk operasi tambah                                                                                               ==");
+		puts	("\t\t\t\t\t==  2. x-y untuk operasi kurang                                                                                               ==");
+		puts	("\t\t\t\t\t==  3. x*y untuk operasi kali                                                                                                 ==");
+		puts	("\t\t\t\t\t==  4. x/y untuk operasi bagi                                                                                                 ==");
+		puts	("\t\t\t\t\t==  7. xmody untuk operasi modulus                                                                                            ==");
+		puts	("\t\t\t\t\t==  7. (x) untuk prioritas                                                                                                    ==");
+		puts	("\t\t\t\t\t==  8. x! untuk operasi faktorial                                                                                             ==");
+		puts	("\t\t\t\t\t==  7. x% untuk operasi x/100                                                                                                 ==");
+		puts	("\t\t\t\t\t==  8. pi untuk 3.14285714                                                                                                    ==");
+		puts	("\t\t\t\t\t==  4. xCy untuk operasi kombinasi (dengan penulisan C berupa huruf kapital)                                                  ==");
+		puts	("\t\t\t\t\t==  7. xPy untuk operasi permutasi (dengan penulisan P berupa huruf kapital)                                                  ==");
+		puts	("\t\t\t\t\t==  5. x^y untuk operasi pangkat (dengan y sebagai pangkat)                                                                   ==");
+		puts	("\t\t\t\t\t==  6. xvy untuk operasi akar (dengan v tidak kapital dan x akar pangkat y)                                                   ==");
+		puts	("\t\t\t\t\t==  9. sin(x) untuk operasi sinus (dengan penulisan sin yang harus spesifik seperti contoh dan x berupa derajat)              ==");
+		puts	("\t\t\t\t\t==  10. cos(x) untuk operasi cosinus (dengan penulisan cos yang harus spesifik seperti contoh dan x berupa derajat)           ==");
+		puts	("\t\t\t\t\t==  11. tan(x) untuk operasi tangen (dengan penulisan tan yang harus spesifik seperti contoh dan x berupa derajat)            ==");
+		puts	("\t\t\t\t\t==  12. log(x) untuk operasi logaritma 10 (dengan penulisan log yang harus spesifik seperti contoh)                           ==");
+		puts	("\t\t\t\t\t==  13. ln(x) untuk operasi logaritma natural (dengan penulisan ln yang harus spesifik seperti contoh)                        ==");
+		puts	("\t\t\t\t\t==  14. ylog(x) untuk operasi cosinus (dengan penulisan log yang harus spesifik seperti contoh dan y sebagai basis)           ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  2. Gunakan - untuk operasi kurang                                                                                         ==");
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  3. Gunakan * untuk operasi kali                                                                                           ==");
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  4. Gunakan / untuk operasi bagi                                                                                           ==");
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  5. Gunakan ^ untuk operasi pangkat                                                                                        ==");
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  6. Gunakan v untuk operasi akar                                                                                           ==");
-		puts	("\t\t\t\t\t================================================================================================================================");	
     	
     	printf ("\n\t\t\t\t\t\tMasukkan operasi yang akan anda hitung (tanpa spasi): ");
     	scanf ("%s", &input);
 	    char postfix[256] = "";
         printf("\t\t\t\t\t\tPostfix : %s\n",infixToPostfix(input, postfix));
         hasil = hitungIsiPostfix(postfix);
-        printf ("\t\t\t\t\t\tHasilnya adalah: %0.2f\n\n", hasil);
+        printf ("\t\t\t\t\t\tHasilnya adalah: %g\n\n", hasil);
         printf ("\t\t\t\t\t\tApakah anda ingin menghitung kembali? (y/t)");
         lagi = getche();
     }
@@ -124,7 +124,7 @@ int prioritas(char c)
 		if (c=='*' || c=='/') {
 			return 2;
 		} else {
-			if (c=='^' || c=='v' || c=='%'){
+			if (c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P'){
 				return 3 ;
 			} else {
 				return 0;
@@ -141,7 +141,7 @@ int isNumber(char *token)
 
 int isOperator(char c)
 {
-    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='%') {
+    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P') {
 		return 1;
 	}else{
 		return 0;
@@ -171,13 +171,66 @@ char *infixToPostfix(char *infix,char *postfix)
 {
     char oneSpace[] = " ", tempInfix[256];
     int  ptr = 0;
-    char *temp;
+    float x;
+    int y;
+    char *temp, *temp2;
     Stack *s = alloc();
 
     while(infix[ptr] != '\0' )
     {
-
-        if(isOperator(infix[ptr]) && !negativeInteger(infix,infix[ptr],ptr))
+    	if(infix[ptr]=='s'|| infix[ptr]=='c'|| infix[ptr]=='t'|| infix[ptr]=='l' || infix[ptr]=='m' || infix[ptr]=='p'){
+    		strcpy(tempInfix,infix);
+        	temp = strtok(tempInfix + ptr, " +-*/^!%");
+        	y = ptr;
+            ptr+=strlen(temp);
+        	if (infix[y]=='s'){
+        		sscanf(temp, "sin(%f)", &x);
+        		x = sinDerajat(x);
+        		sprintf(temp, "%g", x);
+			}
+			else if (infix[y]=='c'){
+        		sscanf(temp, "cos(%f)", &x);
+        		x = cosNilai(x);
+        		sprintf(temp, "%f", x);
+			}
+			else if (infix[y]=='t'){
+        		sscanf(temp, "tan(%f)", &x);
+        		x = tanDerajat(x);
+        		sprintf(temp, "%g", x);
+			}
+			else if (infix[y]=='l' && infix[y+1]=='n'){
+				sscanf(temp, "ln(%f)", &x);
+	       		x = hitungLog(x);
+	        	sprintf(temp, "%g", x);
+	        }
+			else if (infix[y]=='l' && isNumber(&infix[y-1])){
+	        	sscanf (temp, "log(%f)", &x);
+	        	sprintf(temp, "%g", x);
+	        	*temp2 = 'l';
+			}
+			else if (infix[y]=='l' && infix[y+1]=='o'){
+	        	sscanf (temp, "log(%f)", &x);
+	        	x = Log(x);
+	        	sprintf(temp, "%g", x);
+			}
+			else if (infix[y]=='m'){
+	        	sscanf (temp, "mod%f", &x);
+	        	sprintf(temp, "%g", x);
+	        	*temp2 = 'm';
+			}
+			else if (infix[y]=='p'){
+	        	sprintf(temp, "%g", pi);
+			}
+			
+            strcat(postfix, temp);
+            strcat(postfix, oneSpace);
+            
+			if ((infix[y]=='l' && isNumber(&infix[y-1]))||infix[y]=='m'){
+            	strcat(postfix, temp2);
+        	    strcat(postfix, oneSpace);
+			}
+		}
+        else if(isOperator(infix[ptr]) && !negativeInteger(infix,infix[ptr],ptr))
         {
             if(infix[ptr] == '(' )
             {
@@ -235,7 +288,7 @@ char *infixToPostfix(char *infix,char *postfix)
                 char tempChar3 = '-';
                 strncat(temp2, &tempChar3, 1);
                 strcpy(tempInfix, infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^v%");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP");
                 ptr += strlen(temp) + 1;
                 strcat(temp2, temp);
                 strcat(postfix, temp2);
@@ -244,8 +297,19 @@ char *infixToPostfix(char *infix,char *postfix)
             else
             {
                 strcpy(tempInfix,infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^v%");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP");
                 ptr+=strlen(temp);
+                if (infix[ptr] == '!'){
+		        	sscanf (temp, "%f", &x);
+					x = faktorial(x);
+		        	sprintf(temp, "%g", x);
+		        	ptr++;
+				}else if(infix[ptr] == '%'){
+		        	sscanf (temp, "%f", &x);
+					x = x/100;
+		        	sprintf(temp, "%g", x);
+		        	ptr++;
+				}
                 strcat(postfix, temp);
                 strcat(postfix, oneSpace);
             }
@@ -260,7 +324,6 @@ char *infixToPostfix(char *infix,char *postfix)
     return postfix;
 }
 
-/// This function evaluates a postfix expression and returns the result
 float hitungIsiPostfix(char postFix[])
 {
     float a, b;
@@ -269,13 +332,10 @@ float hitungIsiPostfix(char postFix[])
 
     while(token != NULL)
     {
-        // The following condition checks if the token is a number. If so, it is converted to float and pushed into the stack
         if(isNumber(token))
         {
             push(stack, atof(token));
         }
-        // The following condition checks if the token is an operator. If so, the top two elements are popped to undergo the respective operation
-        // The result is then pushed back into the stack
         else if(isOperator(*token))
         {
             a = pop(stack).datafloat;
@@ -298,16 +358,25 @@ float hitungIsiPostfix(char postFix[])
                 push(stack, eksponen (b, a));
                 break;
             case 'v':
-                push(stack, akar(b, a));
+                push(stack, akar(a, b));
                 break;
-            case '%':
+            case 'm':
                 push(stack, modulus(b, a));
+                break;
+            case 'l':
+                push(stack, Logaritma(b,a));
+                break;
+            case 'C':
+                push(stack, kombinasi(b,a));
+                break;
+            case 'P':
+                push(stack, permutasi(b,a));
                 break;
             default:
                 break;
             }
         }
-        token = strtok(NULL, " "); //Proceed with tokenization
+        token = strtok(NULL, " "); 
     }
     return pop(stack).datafloat;
 }
@@ -320,28 +389,16 @@ void FiturLain()
 		header();
 		puts	("\t\t\t\t\t================================================================================================================================");
 		puts	("\t\t\t\t\t==                                                    Aritmatika                                                              ==");
-		puts	("\t\t\t\t\t================================================================================================================================");	
-		puts	("\t\t\t\t\t==  1. Hitung Trigonometri                                                                                                    ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  2. Hitung Logaritma                                                                                                       ==");
+		puts	("\t\t\t\t\t==  1. Hitung Sigma                                                                                                           ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  3. Hitung Sigma                                                                                                           ==");
+		puts	("\t\t\t\t\t==  2. Konversi Suhu                                                                                                          ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  4. Hitung Faktorial                                                                                                       ==");
+		puts	("\t\t\t\t\t==  3. Konversi Panjang                                                                                                       ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  5. Hitung Modulus                                                                                                         ==");
+		puts	("\t\t\t\t\t==  4. Matriks                                                                                                               ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  6. Hitung Kombinasi                                                                                                       ==");
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  7. Hitung Permuta                                                                                                         ==");
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  8. Konversi Suhu                                                                                                          ==");
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  9. Konversi Panjang                                                                                                       ==");
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  10. Matriks                                                                                                               ==");
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  11. Turunan                                                                                                               ==");
+		puts	("\t\t\t\t\t==  5. Turunan                                                                                                               ==");
 		puts	("\t\t\t\t\t================================================================================================================================");	
 	
 		do{
@@ -350,96 +407,31 @@ void FiturLain()
 		
 			switch (fitur){
 				case 1 :	
-					Trigonometri();
+					Sigma ();
 					break;
 					
 				case 2 :	
-					logaritma();
-					break;
-					
-				case 3 :
-					Sigma ();
-					break;
-
-				case 4 :
-					Faktorial ();
-					break;
-				
-				case 5 :
-					Modulus ();
-					break;
-
-				case 6 :
-					Kombinasi ();
-					break;
-				
-				case 7 :
-					Permutasi ();
-					break;
-					
-				case 8 :
 					KonversiSuhu ();
 					break;
 					
-				case 9 :
+				case 3 :
 					KonversiPanjang ();
 					break;
-					
-				case 10 :
+
+				case 4 :
 					Matriks ();
 					break;
-					
-				case 11 :
+				
+				case 5 :
 					TurunanPolinom ();
 					break;
-						
+					
 				default :
 					printf ("\n\t\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
 			}
-		} while (fitur < 1 || fitur > 11);
+		} while (fitur < 1 || fitur > 5);
 			
 	    printf ("\n\n\t\t\t\t\t\tApakah anda ingin menggunakan fitur lainnya kembali? (y/t)");
-	    lagi = getche();
-	}while (lagi == 'y' || lagi == 'Y');
-}
-
-void logaritma()
-{
-	int pilih, lagi;
-	int angka1;
-	double angka2;
-	
-	do{
-		header();		
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==                                                     Logaritma                                                              ==");
-		puts	("\t\t\t\t\t================================================================================================================================");	
-		puts	("\t\t\t\t\t==  1. Logaritma 10                                                                                                           ==");
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  2. Logaritma Natural                                                                                                      ==");
-		puts	("\t\t\t\t\t================================================================================================================================");	
-	
-		do{
-			printf ("\n\n\t\t\t\t\t\tPilih fitur yang akan digunakan (berupa angka): ");
-			scanf  ("%d", &pilih);
-		
-			switch (pilih){
-				case 1 :
-					Input1Int(&angka1);
-					printf ("\n\t\t\t\t\t\tHasil dari 10 log %d adalah %g\n", angka1, Log(angka1));
-					break;
-					
-				case 2 :	
-					Input1Double(&angka2);
-					printf ("\n\t\t\t\t\t\tHasil dari log %0.0lf adalah %lf\n", angka2, hitungLog(angka2));
-					break;
-		
-				default :
-					printf ("\n\t\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
-			}
-		} while (pilih != 1 && pilih != 2);
-		
-	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung logaritma kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
@@ -487,88 +479,6 @@ void Sigma()
 		} while (pilih != 1 && pilih != 2 && pilih != 3 );
 		
 	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung sigma kembali? (y/t)");
-	    lagi = getche();
-	}while (lagi == 'y' || lagi == 'Y');
-}
-
-void Faktorial()
-{
-	int lagi;
-	int angka1, hasil;
-	
-	do{
-		header();
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==                                                     Faktorial                                                              ==");
-		puts	("\t\t\t\t\t================================================================================================================================");	
-		Input1Int(&angka1);
-		hasil = faktorial (angka1);
-		printf ("\n\t\t\t\t\t\t%d! adalah %d", angka1, angka1);
-		angka1 = angka1 - 1;
-		
-		do{
-			printf (" * %d", angka1);
-			angka1 = angka1 - 1;
-		}while (angka1 >=1);
-		
-		printf (", sehingga hasilnya adalah %d\n", hasil );
-
-	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung faktorial kembali? (y/t)");
-	    lagi = getche();
-	}while (lagi == 'y' || lagi == 'Y');
-}
-
-
-void Modulus()
-{
-	int lagi;
-	int angka1, angka2;
-	
-	do{
-		header();
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==                                                       Modulus                                                              ==");
-		puts	("\t\t\t\t\t================================================================================================================================");	
-		Input2Int(&angka1, &angka2);
-		printf ("\n\t\t\t\t\t\tHasil dari %d mod %d adalah %d\n", angka1, angka2, modulus(angka1, angka2));
-
-	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung modulus kembali? (y/t)");
-	    lagi = getche();
-	}while (lagi == 'y' || lagi == 'Y');
-}
-
-void Kombinasi()
-{
-	int lagi;
-	int angka1, angka2;
-	
-	do{
-		header();
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==                                                     Kombinasi                                                              ==");
-		puts	("\t\t\t\t\t================================================================================================================================");	
-		Input2Int(&angka1, &angka2);
-		printf ("\n\t\t\t\t\t\tHasil dari %d C %d adalah %d\n", angka1, angka2, kombinasi(angka1, angka2));
-
-	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung kombinasi kembali? (y/t)");
-	    lagi = getche();
-	}while (lagi == 'y' || lagi == 'Y');
-}
-
-void Permutasi()
-{
-	int lagi;
-	int angka1, angka2;
-	
-	do{
-		header();
-		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==                                                     Permutasi                                                              ==");
-		puts	("\t\t\t\t\t================================================================================================================================");	
-		Input2Int(&angka1, &angka2);
-		printf ("\n\t\t\t\t\t\tHasil dari %d P %d adalah %d\n", angka1, angka2, permutasi(angka1, angka2));
-
-	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung permutasi kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }

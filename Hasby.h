@@ -7,6 +7,11 @@
 
 float Log(float Angka1);
 
+float Logaritma (float Angka1,float Angka2);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 float ConCelFahr(float celc);
 
 float ConCelKelv(float celc);
@@ -68,8 +73,6 @@ float ConMMkeCM (float mm);
 float ConMMkeKM (float mm);
 
 float ConMMkeINC (float mm);
-
-float Logaritma (float Angka1,float Angka2);
 
 void KonversiPanjang ();
 

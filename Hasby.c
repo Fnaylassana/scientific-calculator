@@ -7,6 +7,16 @@ float Log(float Angka1){
    return Hasil;
 }
 
+float Logaritma (float Angka1, float Angka2){
+	float Hitung;
+
+    Hitung = log10(Angka2) / log10(Angka1);
+   return Hitung;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 float ConCelFahr(float celc){
 	float fahr; 
 	fahr = (9.0/5.0 * celc) + 32;
@@ -199,13 +209,6 @@ float ConMMkeINC (float mm){
 	float inc;
 	inc = mm / 25.4;
 	return inc;
-}
-
-float Logaritma (float Angka1, float Angka2){
-	float Hitung;
-
-    Hitung = log10(Angka2) / log10(Angka1);
-   return Hitung;
 }
 
 void KonversiPanjang()

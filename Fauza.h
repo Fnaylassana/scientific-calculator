@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
+#include "math.h"
 #include <ctype.h>
 #define max 10
 
@@ -20,8 +20,6 @@ typedef struct
 } Stack;
 
 float HitungNilaiMutlak (float nilai);
-
-float HitungTan(float nilai);
 
 void kalkulator();
 
@@ -55,17 +53,7 @@ float hitungIsiPostfix(char postFix[]);
 
 void FiturLain();
 
-void logaritma();
-
 void Sigma();
-
-void Faktorial();
-
-void Modulus();
-
-void Kombinasi();
-
-void Permutasi();
 
 void KonversiSuhu();
 
