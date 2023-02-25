@@ -354,7 +354,7 @@ void FiturLain()
 					break;
 					
 				case 2 :	
-					Logaritma();
+					logaritma();
 					break;
 					
 				case 3 :
@@ -403,7 +403,7 @@ void FiturLain()
 	}while (lagi == 'y' || lagi == 'Y');
 }
 
-void Logaritma()
+void logaritma()
 {
 	int pilih, lagi;
 	int angka1;

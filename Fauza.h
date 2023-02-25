@@ -55,7 +55,7 @@ float hitungIsiPostfix(char postFix[]);
 
 void FiturLain();
 
-void Logaritma();
+void logaritma();
 
 void Sigma();
 
