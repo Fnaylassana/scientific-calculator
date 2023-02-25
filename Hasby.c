@@ -201,6 +201,13 @@ float ConMMkeINC (float mm){
 	return inc;
 }
 
+float Logaritma (float Angka1, float Angka2){
+	float Hitung;
+
+    Hitung = log10(Angka2) / log10(Angka1);
+   return Hitung;
+}
+
 void KonversiPanjang()
 {
     int pilihan, lagi;
