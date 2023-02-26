@@ -52,29 +52,30 @@ void kalkulator()
 		puts	("\t\t\t\t\t==  3. x*y untuk operasi kali                                                                                                 ==");
 		puts	("\t\t\t\t\t==  4. x/y untuk operasi bagi                                                                                                 ==");
 		puts	("\t\t\t\t\t==  5. xmody untuk operasi modulus                                                                                            ==");
-		puts	("\t\t\t\t\t==  6. (x) untuk prioritas                                                                                                    ==");
-		puts	("\t\t\t\t\t==  7. x! untuk operasi faktorial                                                                                             ==");
-		puts	("\t\t\t\t\t==  8. x% untuk operasi x/100                                                                                                 ==");
-		puts	("\t\t\t\t\t==  9. pi untuk 3.14285714                                                                                                    ==");
-		puts	("\t\t\t\t\t==  10. xCy untuk operasi kombinasi (dengan penulisan C berupa huruf kapital)                                                  ==");
-		puts	("\t\t\t\t\t==  11. xPy untuk operasi permutasi (dengan penulisan P berupa huruf kapital)                                                  ==");
-		puts	("\t\t\t\t\t==  12. x^y untuk operasi pangkat (dengan y sebagai pangkat)                                                                   ==");
-		puts	("\t\t\t\t\t==  13. xvy untuk operasi akar (dengan v tidak kapital dan x akar pangkat y)                                                   ==");
-		puts	("\t\t\t\t\t==  14. sin(x) untuk operasi sinus (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                       ==");
-		puts	("\t\t\t\t\t==  15. sinR(x) untuk operasi sinus (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))        ==");
-		puts	("\t\t\t\t\t==  16. cos(x) untuk operasi cosinus (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                    ==");
-		puts	("\t\t\t\t\t==  17. cosR(x) untuk operasi cosinus (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))      ==");
-		puts	("\t\t\t\t\t==  18. tan(x) untuk operasi tangen (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                     ==");
-		puts	("\t\t\t\t\t==  19. tanR(x) untuk operasi tangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))       ==");
-		puts	("\t\t\t\t\t==  20. csc(x) untuk operasi cosecan (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                    ==");
-		puts	("\t\t\t\t\t==  21. cscR(x) untuk operasi cosecan (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))      ==");
-		puts	("\t\t\t\t\t==  22. sec(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                      ==");
-		puts	("\t\t\t\t\t==  23. secR(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))        ==");
-		puts	("\t\t\t\t\t==  24. cot(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                   ==");
-		puts	("\t\t\t\t\t==  25. cotR(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))     ==");
-		puts	("\t\t\t\t\t==  26. log(x) untuk operasi logaritma 10 (dengan penulisan log yang harus spesifik seperti contoh)                           ==");
-		puts	("\t\t\t\t\t==  27. ln(x) untuk operasi logaritma natural (dengan penulisan ln yang harus spesifik seperti contoh)                        ==");
-		puts	("\t\t\t\t\t==  28. ylog(x) untuk operasi cosinus (dengan penulisan log yang harus spesifik seperti contoh dan y sebagai basis)           ==");
+		puts	("\t\t\t\t\t==  6. (x) untuk tanda kurung                                                                                                 ==");
+		puts	("\t\t\t\t\t==  7. |x| untuk mutlak                                                                                                       ==");
+		puts	("\t\t\t\t\t==  8. x! untuk operasi faktorial                                                                                             ==");
+		puts	("\t\t\t\t\t==  9. x% untuk operasi x/100                                                                                                 ==");
+		puts	("\t\t\t\t\t==  10. pi untuk 3.14285714                                                                                                   ==");
+		puts	("\t\t\t\t\t==  11. xCy untuk operasi kombinasi (dengan penulisan C berupa huruf kapital)                                                 ==");
+		puts	("\t\t\t\t\t==  12. xPy untuk operasi permutasi (dengan penulisan P berupa huruf kapital)                                                 ==");
+		puts	("\t\t\t\t\t==  13. x^y untuk operasi pangkat (dengan y sebagai pangkat)                                                                  ==");
+		puts	("\t\t\t\t\t==  14. xvy untuk operasi akar (dengan v tidak kapital dan x akar pangkat y)                                                  ==");
+		puts	("\t\t\t\t\t==  15. sin(x) untuk operasi sinus (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                      ==");
+		puts	("\t\t\t\t\t==  16. sinR(x) untuk operasi sinus (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))        ==");
+		puts	("\t\t\t\t\t==  17. cos(x) untuk operasi cosinus (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                    ==");
+		puts	("\t\t\t\t\t==  18. cosR(x) untuk operasi cosinus (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))      ==");
+		puts	("\t\t\t\t\t==  19. tan(x) untuk operasi tangen (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                     ==");
+		puts	("\t\t\t\t\t==  20. tanR(x) untuk operasi tangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))       ==");
+		puts	("\t\t\t\t\t==  21. csc(x) untuk operasi cosecan (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                    ==");
+		puts	("\t\t\t\t\t==  22. cscR(x) untuk operasi cosecan (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))      ==");
+		puts	("\t\t\t\t\t==  23. sec(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                      ==");
+		puts	("\t\t\t\t\t==  24. secR(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))        ==");
+		puts	("\t\t\t\t\t==  25. cot(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                   ==");
+		puts	("\t\t\t\t\t==  26. cotR(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))     ==");
+		puts	("\t\t\t\t\t==  27. log(x) untuk operasi logaritma 10 (dengan penulisan log yang harus spesifik seperti contoh)                           ==");
+		puts	("\t\t\t\t\t==  28. ln(x) untuk operasi logaritma natural (dengan penulisan ln yang harus spesifik seperti contoh)                        ==");
+		puts	("\t\t\t\t\t==  29. ylog(x) untuk operasi cosinus (dengan penulisan log yang harus spesifik seperti contoh dan y sebagai basis)           ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
     	
     	printf ("\n\t\t\t\t\t\tMasukkan operasi yang akan anda hitung (tanpa spasi): ");
@@ -150,7 +151,7 @@ int isNumber(char *token)
 
 int isOperator(char c)
 {
-    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P' || c=='|') {
+    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P') {
 		return 1;
 	}else{
 		return 0;
@@ -165,6 +166,9 @@ int negativeInteger(char *infix,char c,int ptr)
 		if((isOperator(infix[ptr-1]) && c == '-' ) ){
 			return 1;
 		}else {
+			if ((ptr == 1 || isOperator(infix[ptr-2])) && infix[ptr-1]=='|' && c == '-'  ) {
+				return 1;
+			}else
 			return 0;
 		}
 	}
@@ -172,7 +176,7 @@ int negativeInteger(char *infix,char c,int ptr)
 
 int isAfter(Stack *s)
 {
-    if(s->item[s->top].datachar == '(' ) return 1;
+    if(s->item[s->top].datachar == '(' || s->item[s->top].datachar == '|' ) return 1;
     else return 0;
 }
 
@@ -181,7 +185,7 @@ char *infixToPostfix(char *infix,char *postfix)
     char oneSpace[] = " ", tempInfix[256];
     int  ptr = 0;
     float x;
-    int y;
+    int y, mutlak=0;
     char *temp, *temp2;
     Stack *s = alloc();
 
@@ -298,6 +302,27 @@ char *infixToPostfix(char *infix,char *postfix)
 			}
 			
 		}
+		else if(infix[ptr]=='|' && mutlak==1)
+        {
+            char tempChar2;
+            while(top(s).datachar!='|')
+            {
+                tempChar2 = pop(s).datachar;
+                strncat(postfix, &tempChar2, 1);
+                strcat(postfix, oneSpace);
+            }
+            tempChar2 = pop(s).datachar;
+            strncat(postfix, &tempChar2, 1);
+            strcat(postfix, oneSpace);
+            ptr++;
+            mutlak = mutlak-1;
+        }
+        else if(infix[ptr] == '|' && mutlak==0)
+        {
+            pushChar(s,infix[ptr]);
+            ptr++;
+            mutlak+=1;
+        }
         else if(isOperator(infix[ptr]) && !negativeInteger(infix,infix[ptr],ptr))
         {
             if(infix[ptr] == '(' )
@@ -323,13 +348,14 @@ char *infixToPostfix(char *infix,char *postfix)
                 ptr++;
                 strcat(postfix,oneSpace);
             }
-            else if(prioritas(infix[ptr]) <prioritas(top(s).datachar) && top(s).datachar != '(' && top(s).datachar != ')')
+            else if(prioritas(infix[ptr]) <prioritas(top(s).datachar) && top(s).datachar != '(' && top(s).datachar != '|' && top(s).datachar != ')')
             {
                 while(1)
                 {
                     char tempChar;
                     if( isEmpty(s) ) break;
                     if( top(s).datachar == '(' ) break;
+                    if( top(s).datachar == '|' ) break;
                     tempChar = pop(s).datachar;
                     strncat(postfix, &tempChar, 1);
                     strcat(postfix, oneSpace);
@@ -356,7 +382,7 @@ char *infixToPostfix(char *infix,char *postfix)
                 char tempChar3 = '-';
                 strncat(temp2, &tempChar3, 1);
                 strcpy(tempInfix, infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP|");
                 ptr += strlen(temp) + 1;
                 strcat(temp2, temp);
                 strcat(postfix, temp2);
@@ -365,7 +391,7 @@ char *infixToPostfix(char *infix,char *postfix)
             else
             {
                 strcpy(tempInfix,infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP|");
                 ptr+=strlen(temp);
                 if (infix[ptr] == '!'){
 		        	sscanf (temp, "%f", &x);
@@ -443,7 +469,10 @@ float hitungIsiPostfix(char postFix[])
             default:
                 break;
             }
-        }
+        } else if(*token == '|'){
+            a = pop(stack).datafloat;
+            push(stack, HitungNilaiMutlak(a));
+		}
         token = strtok(NULL, " "); 
     }
     return pop(stack).datafloat;
