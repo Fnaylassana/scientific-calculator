@@ -150,7 +150,7 @@ int isNumber(char *token)
 
 int isOperator(char c)
 {
-    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P') {
+    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P' || c=='|') {
 		return 1;
 	}else{
 		return 0;
@@ -464,9 +464,11 @@ void FiturLain()
 		puts	("\t\t\t\t\t================================================================================================================================");
 		puts	("\t\t\t\t\t==  3. Konversi Panjang                                                                                                       ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  4. Matriks                                                                                                               ==");
+		puts	("\t\t\t\t\t==  4. Matriks                                                                                                                ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  5. Turunan                                                                                                               ==");
+		puts	("\t\t\t\t\t==  5. Turunan                                                                                                                ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  6. Invers Trigonometri                                                                                                    ==");
 		puts	("\t\t\t\t\t================================================================================================================================");	
 	
 		do{
@@ -493,11 +495,15 @@ void FiturLain()
 				case 5 :
 					TurunanPolinom ();
 					break;
+				
+				case 6 :
+					inversTrigonometri ();
+					break;
 					
 				default :
 					printf ("\n\t\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
 			}
-		} while (fitur < 1 || fitur > 5);
+		} while (fitur < 1 || fitur > 6);
 			
 	    printf ("\n\n\t\t\t\t\t\tApakah anda ingin menggunakan fitur lainnya kembali? (y/t)");
 	    lagi = getche();
@@ -691,12 +697,18 @@ void Matriks()
 					printMatriks(hasil, operan1, operan4);
 				    break;
 				    
-		//		case 5 :
-		//			inputMatriks (matriks1, &operan1, &operan2);
-		//			transposeMatriks (matriks1, hasil, operan1, operan2);
-		//			printf("\n\t\t\t\t\t\tMatriks setelah ditranspose:\n");
-		//			printMatriks(hasil, operan2, operan1);
-		//		    break;
+				case 5 :
+					printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
+					scanf("%d", &operan1);
+					printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
+					scanf("%d", &operan2);
+					inputMatriks (matriks1, operan1, operan2);
+					transposeMatriks (matriks1, hasil, operan1, operan2);
+					printf("\n\t\t\t\t\t\tMatriks sebelum ditranspose:\n");
+					printMatriks(matriks1, operan1, operan2);
+					printf("\n\t\t\t\t\t\tMatriks setelah ditranspose:\n");
+					printMatriks(hasil, operan2, operan1);
+				    break;
 					
 				case 6 :
 					determinanMatriks();
