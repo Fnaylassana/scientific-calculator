@@ -61,11 +61,14 @@ void kalkulator()
 		puts	("\t\t\t\t\t==  5. x^y untuk operasi pangkat (dengan y sebagai pangkat)                                                                   ==");
 		puts	("\t\t\t\t\t==  6. xvy untuk operasi akar (dengan v tidak kapital dan x akar pangkat y)                                                   ==");
 		puts	("\t\t\t\t\t==  9. sin(x) untuk operasi sinus (dengan penulisan sin yang harus spesifik seperti contoh dan x berupa derajat)              ==");
-		puts	("\t\t\t\t\t==  10. cos(x) untuk operasi cosinus (dengan penulisan cos yang harus spesifik seperti contoh dan x berupa derajat)           ==");
-		puts	("\t\t\t\t\t==  11. tan(x) untuk operasi tangen (dengan penulisan tan yang harus spesifik seperti contoh dan x berupa derajat)            ==");
-		puts	("\t\t\t\t\t==  12. log(x) untuk operasi logaritma 10 (dengan penulisan log yang harus spesifik seperti contoh)                           ==");
-		puts	("\t\t\t\t\t==  13. ln(x) untuk operasi logaritma natural (dengan penulisan ln yang harus spesifik seperti contoh)                        ==");
-		puts	("\t\t\t\t\t==  14. ylog(x) untuk operasi cosinus (dengan penulisan log yang harus spesifik seperti contoh dan y sebagai basis)           ==");
+		puts	("\t\t\t\t\t==  10. sinR(x) untuk operasi sinus (dengan penulisan sin yang harus spesifik seperti contoh dan x berupa radian)             ==");
+		puts	("\t\t\t\t\t==  11. cos(x) untuk operasi cosinus (dengan penulisan cos yang harus spesifik seperti contoh dan x berupa derajat)           ==");
+		puts	("\t\t\t\t\t==  12. cosR(x) untuk operasi cosinus (dengan penulisan cos yang harus spesifik seperti contoh dan x berupa radian)           ==");
+		puts	("\t\t\t\t\t==  13. tan(x) untuk operasi tangen (dengan penulisan tan yang harus spesifik seperti contoh dan x berupa derajat)            ==");
+		puts	("\t\t\t\t\t==  14. tanR(x) untuk operasi tangen (dengan penulisan tan yang harus spesifik seperti contoh dan x berupa radian)            ==");
+		puts	("\t\t\t\t\t==  15. log(x) untuk operasi logaritma 10 (dengan penulisan log yang harus spesifik seperti contoh)                           ==");
+		puts	("\t\t\t\t\t==  16. ln(x) untuk operasi logaritma natural (dengan penulisan ln yang harus spesifik seperti contoh)                        ==");
+		puts	("\t\t\t\t\t==  17. ylog(x) untuk operasi cosinus (dengan penulisan log yang harus spesifik seperti contoh dan y sebagai basis)           ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
     	
     	printf ("\n\t\t\t\t\t\tMasukkan operasi yang akan anda hitung (tanpa spasi): ");
@@ -178,24 +181,69 @@ char *infixToPostfix(char *infix,char *postfix)
 
     while(infix[ptr] != '\0' )
     {
-    	if(infix[ptr]=='s'|| infix[ptr]=='c'|| infix[ptr]=='t'|| infix[ptr]=='l' || infix[ptr]=='m' || infix[ptr]=='p'){
+    	if(infix[ptr]=='a' || infix[ptr]=='s'|| infix[ptr]=='c'|| infix[ptr]=='t'|| infix[ptr]=='l' || infix[ptr]=='m' || infix[ptr]=='p'){
     		strcpy(tempInfix,infix);
         	temp = strtok(tempInfix + ptr, " +-*/^!%");
         	y = ptr;
             ptr+=strlen(temp);
-        	if (infix[y]=='s'){
+        	if (infix[y]=='s' && infix[y+3]=='('){
         		sscanf(temp, "sin(%f)", &x);
         		x = sinDerajat(x);
         		sprintf(temp, "%g", x);
 			}
-			else if (infix[y]=='c'){
+			else if (infix[y]=='s' && infix[y+4]=='('){
+        		sscanf(temp, "sinR(%f)", &x);//blm bisa
+        		x = sinRad(x);
+        		sprintf(temp, "%g", x);
+			}
+			else if (infix[y]=='c' && infix[y+1]=='s' && infix[y+3]=='('){
+        		sscanf(temp, "csc(%f)", &x);
+        		x = cosecDerajat(x);
+        		sprintf(temp, "%g", x);
+			}
+			else if (infix[y]=='c' && infix[y+1]=='s' && infix[y+3]=='R'){
+        		sscanf(temp, "cscR(%f)", &x);
+        		x = cosecRad(x);
+        		sprintf(temp, "%g", x);
+			}
+			else if (infix[y]=='c' && infix[y+3]=='('){
         		sscanf(temp, "cos(%f)", &x);
         		x = cosNilai(x);
+        		sprintf(temp, "%0.2f", x);
+			}
+			else if (infix[y]=='c' && infix[y+3]=='R'){
+        		sscanf(temp, "cosR(%f)", &x);
+        		x = cosRad(x);
         		sprintf(temp, "%f", x);
 			}
-			else if (infix[y]=='t'){
+			else if (infix[y]=='s' && infix[y+1]=='e' && infix[y+3]=='('){
+        		sscanf(temp, "sec(%f)", &x);
+        		x = secDerajat(x);
+        		sprintf(temp, "%f", x);
+			}
+			else if (infix[y]=='s' && infix[y+1]=='e' && infix[y+3]=='R'){
+        		sscanf(temp, "secR(%f)", &x);
+        		x = secRad(x);
+        		sprintf(temp, "%f", x);
+			}
+			else if (infix[y]=='t' && infix[y+3]=='('){
         		sscanf(temp, "tan(%f)", &x);
         		x = tanDerajat(x);
+        		sprintf(temp, "%g", x);
+			}
+			else if (infix[y]=='t' && infix[y+3]=='R'){
+        		sscanf(temp, "tanR(%f)", &x);
+        		x = tanRad(x);
+        		sprintf(temp, "%g", x);
+			}
+			else if (infix[y]=='c' && infix[y+1]=='o' && infix[y+3]=='('){
+        		sscanf(temp, "cot(%f)", &x);
+        		x = cotDerajat(x);
+        		sprintf(temp, "%g", x);
+			}
+			else if (infix[y]=='c' && infix[y+1]=='o' && infix[y+3]=='R'){
+        		sscanf(temp, "cotR(%f)", &x);
+        		x = cotRad(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='l' && infix[y+1]=='n'){
