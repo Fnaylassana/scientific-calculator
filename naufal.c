@@ -32,8 +32,9 @@ float pembagian(float nilai1, float nilai2){
 	return temp;
 }
 
-int faktorial(int angka){
-	int temp, i;
+float faktorial(float angka){
+	float temp;
+	int i;
 	 
 	temp = 1;
 	
@@ -43,17 +44,17 @@ int faktorial(int angka){
 	
 	return temp;
 }
- 
-int modulus(int nilai1, int nilai2){
-	int temp;
+
+float modulus(int nilai1, int nilai2){
+	float temp;
 	
 	temp = nilai1 % nilai2;
 	
 	return temp;
 }
 
-int kombinasi(int nilai1, int nilai2){
-	int hasil, i, x1=1, x2=1, x3=1;
+float kombinasi(float nilai1, float nilai2){
+	float hasil, i, x1=1, x2=1, x3=1;
 
 	for(i=1;i<=nilai1;i++){
         x1=x1*i;
@@ -67,12 +68,11 @@ int kombinasi(int nilai1, int nilai2){
         x3=x3*i;
 	}
 	hasil=x1/(x2*x3);
-	
 	return hasil;
 }
 
-int permutasi(int nilai1, int nilai2){
-	int hasil, i, x1=1, x2=1, x3=1;
+float permutasi(float nilai1, float nilai2){
+	float hasil, i, x1=1, x2=1, x3=1;
 
 	for(i=1;i<=nilai1;i++){
         x1=x1*i;
