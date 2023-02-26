@@ -5,7 +5,7 @@
 
 void inversTrigonometri()
 {
-	int pilih, lagi, ulang;
+	int pilih, lagi, ulang, c;
 	float angka1;
 	
 	do{
@@ -27,19 +27,19 @@ void inversTrigonometri()
 			switch (pilih) {
 				case 1 :
 					Input1Float(&angka1);
-					cekInversRad(angka1, sinInversRad(angka1));
+					cekInversRad(angka1, sinInversRad(angka1), &c);
 					cekInversDerajat(angka1, sinInversDerajat(angka1));
 					break;
 					
 				case 2 :	
 					Input1Float(&angka1);
-					cekInversRad(angka1, cosInvers(angka1));
+					cekInversRad(angka1, cosInvers(angka1), &c);
 					cekInversDerajat(angka1, cosInversNilai(angka1));
 					break;
 
 				case 3 :	
 					Input1Float(&angka1);
-					cekInversRad(angka1, tanInvers(angka1));
+					cekInversRad(angka1, tanInvers(angka1), &c);
 					cekInversDerajat(angka1, tanInversNilai(angka1));
 					break;
 
@@ -58,8 +58,8 @@ void cekInversRad(float angka, float p, int *cek)
 {
 	if (angka >= -1 && angka <= 1)
 	{
-	 	printf("\t\t\t\t\t\tNilai invers adalah %.02f radian\n", p);
-		 *cek = 1;		
+		printf("\t\t\t\t\t\tNilai invers adalah %.02f radian\n", p);
+		*cek = 1;		
 	} else
 	{
 		printf("\t\t\t\t\t\tMasukkan angka di antara -1 dan 1!\n");
