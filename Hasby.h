@@ -74,6 +74,8 @@ float ConMMkeKM (float mm);
 
 float ConMMkeINC (float mm);
 
+float Eksponen10 (float nilai, float e)
+
 void KonversiPanjang ();
 
 void TurunanPolinom ();
