@@ -181,7 +181,7 @@ char *infixToPostfix(char *infix,char *postfix)
 
     while(infix[ptr] != '\0' )
     {
-    	if(infix[ptr]=='a' || infix[ptr]=='s'|| infix[ptr]=='c'|| infix[ptr]=='t'|| infix[ptr]=='l' || infix[ptr]=='m' || infix[ptr]=='p'){
+    	if(infix[ptr]=='s'|| infix[ptr]=='c'|| infix[ptr]=='t'|| infix[ptr]=='l' || infix[ptr]=='m' || infix[ptr]=='p'){
     		strcpy(tempInfix,infix);
         	temp = strtok(tempInfix + ptr, " +-*/^!%");
         	y = ptr;
@@ -191,8 +191,8 @@ char *infixToPostfix(char *infix,char *postfix)
         		x = sinDerajat(x);
         		sprintf(temp, "%g", x);
 			}
-			else if (infix[y]=='s' && infix[y+4]=='('){
-        		sscanf(temp, "sinR(%f)", &x);//blm bisa
+			else if (infix[y]=='s' && infix[y+3]=='R'){
+        		sscanf(temp, "sinR(%f)", &x);
         		x = sinRad(x);
         		sprintf(temp, "%g", x);
 			}
