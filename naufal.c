@@ -93,7 +93,6 @@ void transposeMatriks (float matriks[max][max], float transpose[max][max], int b
 	for (i = 0; i < baris; i ++){
     	for(j = 0; j < kolom; j++){
     		transpose[j][i] = matriks[i][j];
-    return transpose[j][i];		
     	}
 	}
 }
