@@ -23,8 +23,8 @@ void inversTrigonometri()
 		do{
 			printf ("\n\n\t\t\t\t\t\tPilih fitur yang akan digunakan (berupa angka): ");
 			scanf  ("%d", &pilih);
-		
-			switch (pilih){
+			do {
+			switch (pilih) {
 				case 1 :
 					Input1Float(&angka1);
 					cekInversRad(angka1, sinInversRad(angka1));
@@ -45,22 +45,25 @@ void inversTrigonometri()
 
 				default :
 					printf ("\n\t\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
-			}
-		} while (pilih != 1 && pilih != 2);
+				}
+			} while (!ulang);
+		} while (pilih != 1 && pilih != 2 && pilih != 3);
 		
-	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung trigonometri kembali? (y/t)");
+	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung invers trigonometri kembali? (y/t)");
 	    lagi = getche();
 	}while (lagi == 'y' || lagi == 'Y');
 }
 
-void cekInversRad(float angka, float p)
+void cekInversRad(float angka, float p, int *cek)
 {
 	if (angka >= -1 && angka <= 1)
 	{
-	 	printf("\t\t\t\t\t\tNilai invers adalah %.02f radian\n", p);		
+	 	printf("\t\t\t\t\t\tNilai invers adalah %.02f radian\n", p);
+		 *cek = 1;		
 	} else
 	{
 		printf("\t\t\t\t\t\tMasukkan angka di antara -1 dan 1!\n");
+		*cek = 0;
 	}
 }
 
@@ -72,14 +75,16 @@ void cekInversDerajat(float angka, float p)
 	}
 }
 
-void cekTidakTerdefinisiR(float angka, float p)
+void cekTidakTerdefinisiR(float angka, float p, int *cek)
 {
 	if (angka != 90 && angka != 270 && angka != 450)
 	{
 		printf("\t\t\t\t\t\tNilai dari angka yang di-input adalah %.02f radian\n", p);
+		*cek = 1;
 	} else
 	{
 		printf("\t\t\t\t\t\tNilai yang Anda input tidak terdefinisi!");
+		*cek = 0;
 	}
 }
 
@@ -91,14 +96,16 @@ void cekTidakTerdefinisiD(float angka, float p)
 	}
 }
 
-void cekTidakTerdefinisiCotR(float angka, float p)
+void cekTidakTerdefinisiCotR(float angka, float p, int *cek)
 {
 	if(angka != 0 && angka != 90 && angka != 180 && angka != 360 && angka != 540)
 	{
 		printf("\t\t\t\t\t\tNilai dari angka yang di-input adalah %.02f radian\n", p);
+		*cek = 1;
 	} else 
 	{
 		printf("\t\t\t\t\t\tNilai yang Anda input tidak terdefinisi!");
+		*cek = 0;
 	}
 }
 
@@ -110,14 +117,16 @@ void cekTidakTerdefinisiCotD(float angka, float p)
 	}
 }
 
-void cekTidakTerdefinisiCscR(float angka, float p)
+void cekTidakTerdefinisiCscR(float angka, float p, int *cek)
 {
 	if(angka != 0 && angka != 180 && angka != 360 && angka != 540)
 	{
 		printf("\t\t\t\t\t\tNilai dari angka yang di-input adalah %.02f radian\n", p);
+		*cek = 1;
 	} else 
 	{
 		printf("\t\t\t\t\t\tNilai yang Anda input tidak terdefinisi!");
+		*cek = 0;
 	}
 }
 
