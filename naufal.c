@@ -86,3 +86,13 @@ float permutasi(float nilai1, float nilai2){
     
     return hasil;
 }
+
+void transposeMatriks (float matriks[max][max], float transpose[max][max], int baris, int kolom)
+{
+	int i, j;
+	for (i = 0; i < baris; i ++){
+    	for(j = 0; j < kolom; j++){
+    		transpose[j][i] = matriks[i][j];
+    	}
+	}
+}

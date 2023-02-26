@@ -21,8 +21,6 @@ typedef struct
 
 float HitungNilaiMutlak (float nilai);
 
-void kalkulator();
-
 Stack* alloc();
 
 int isEmpty(Stack *s);
@@ -32,10 +30,6 @@ int isFull(Stack *s);
 Item top(Stack *s);
 
 Item pop(Stack *s);
-
-void push(Stack *s, float val);
-
-void pushChar(Stack *s, char c);
 
 int prioritas(char c);
 
@@ -50,6 +44,15 @@ int isAfter(Stack *s);
 char *infixToPostfix(char *infix,char *postfix);
 
 float hitungIsiPostfix(char postFix[]);
+
+void kalkulator();
+
+void push(Stack *s, float val);
+
+void pushChar(Stack *s, char c);
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void FiturLain();
 

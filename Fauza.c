@@ -51,24 +51,31 @@ void kalkulator()
 		puts	("\t\t\t\t\t==  2. x-y untuk operasi kurang                                                                                               ==");
 		puts	("\t\t\t\t\t==  3. x*y untuk operasi kali                                                                                                 ==");
 		puts	("\t\t\t\t\t==  4. x/y untuk operasi bagi                                                                                                 ==");
-		puts	("\t\t\t\t\t==  7. xmody untuk operasi modulus                                                                                            ==");
-		puts	("\t\t\t\t\t==  7. (x) untuk prioritas                                                                                                    ==");
+		puts	("\t\t\t\t\t==  5. xmody untuk operasi modulus                                                                                            ==");
+		puts	("\t\t\t\t\t==  6. (x) untuk tanda kurung                                                                                                 ==");
+		puts	("\t\t\t\t\t==  7. |x| untuk mutlak                                                                                                       ==");
 		puts	("\t\t\t\t\t==  8. x! untuk operasi faktorial                                                                                             ==");
-		puts	("\t\t\t\t\t==  7. x% untuk operasi x/100                                                                                                 ==");
-		puts	("\t\t\t\t\t==  8. pi untuk 3.14285714                                                                                                    ==");
-		puts	("\t\t\t\t\t==  4. xCy untuk operasi kombinasi (dengan penulisan C berupa huruf kapital)                                                  ==");
-		puts	("\t\t\t\t\t==  7. xPy untuk operasi permutasi (dengan penulisan P berupa huruf kapital)                                                  ==");
-		puts	("\t\t\t\t\t==  5. x^y untuk operasi pangkat (dengan y sebagai pangkat)                                                                   ==");
-		puts	("\t\t\t\t\t==  6. xvy untuk operasi akar (dengan v tidak kapital dan x akar pangkat y)                                                   ==");
-		puts	("\t\t\t\t\t==  9. sin(x) untuk operasi sinus (dengan penulisan sin yang harus spesifik seperti contoh dan x berupa derajat)              ==");
-		puts	("\t\t\t\t\t==  10. sinR(x) untuk operasi sinus (dengan penulisan sin yang harus spesifik seperti contoh dan x berupa radian)             ==");
-		puts	("\t\t\t\t\t==  11. cos(x) untuk operasi cosinus (dengan penulisan cos yang harus spesifik seperti contoh dan x berupa derajat)           ==");
-		puts	("\t\t\t\t\t==  12. cosR(x) untuk operasi cosinus (dengan penulisan cos yang harus spesifik seperti contoh dan x berupa radian)           ==");
-		puts	("\t\t\t\t\t==  13. tan(x) untuk operasi tangen (dengan penulisan tan yang harus spesifik seperti contoh dan x berupa derajat)            ==");
-		puts	("\t\t\t\t\t==  14. tanR(x) untuk operasi tangen (dengan penulisan tan yang harus spesifik seperti contoh dan x berupa radian)            ==");
-		puts	("\t\t\t\t\t==  15. log(x) untuk operasi logaritma 10 (dengan penulisan log yang harus spesifik seperti contoh)                           ==");
-		puts	("\t\t\t\t\t==  16. ln(x) untuk operasi logaritma natural (dengan penulisan ln yang harus spesifik seperti contoh)                        ==");
-		puts	("\t\t\t\t\t==  17. ylog(x) untuk operasi cosinus (dengan penulisan log yang harus spesifik seperti contoh dan y sebagai basis)           ==");
+		puts	("\t\t\t\t\t==  9. x% untuk operasi x/100                                                                                                 ==");
+		puts	("\t\t\t\t\t==  10. pi untuk 3.14285714                                                                                                   ==");
+		puts	("\t\t\t\t\t==  11. xCy untuk operasi kombinasi (dengan penulisan C berupa huruf kapital)                                                 ==");
+		puts	("\t\t\t\t\t==  12. xPy untuk operasi permutasi (dengan penulisan P berupa huruf kapital)                                                 ==");
+		puts	("\t\t\t\t\t==  13. x^y untuk operasi pangkat (dengan y sebagai pangkat)                                                                  ==");
+		puts	("\t\t\t\t\t==  14. xvy untuk operasi akar (dengan v tidak kapital dan x akar pangkat y)                                                  ==");
+		puts	("\t\t\t\t\t==  15. sin(x) untuk operasi sinus (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                      ==");
+		puts	("\t\t\t\t\t==  16. sinR(x) untuk operasi sinus (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))        ==");
+		puts	("\t\t\t\t\t==  17. cos(x) untuk operasi cosinus (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                    ==");
+		puts	("\t\t\t\t\t==  18. cosR(x) untuk operasi cosinus (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))      ==");
+		puts	("\t\t\t\t\t==  19. tan(x) untuk operasi tangen (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                     ==");
+		puts	("\t\t\t\t\t==  20. tanR(x) untuk operasi tangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))       ==");
+		puts	("\t\t\t\t\t==  21. csc(x) untuk operasi cosecan (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                    ==");
+		puts	("\t\t\t\t\t==  22. cscR(x) untuk operasi cosecan (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))      ==");
+		puts	("\t\t\t\t\t==  23. sec(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                      ==");
+		puts	("\t\t\t\t\t==  24. secR(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))        ==");
+		puts	("\t\t\t\t\t==  25. cot(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                   ==");
+		puts	("\t\t\t\t\t==  26. cotR(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))     ==");
+		puts	("\t\t\t\t\t==  27. log(x) untuk operasi logaritma 10 (dengan penulisan log yang harus spesifik seperti contoh)                           ==");
+		puts	("\t\t\t\t\t==  28. ln(x) untuk operasi logaritma natural (dengan penulisan ln yang harus spesifik seperti contoh)                        ==");
+		puts	("\t\t\t\t\t==  29. ylog(x) untuk operasi cosinus (dengan penulisan log yang harus spesifik seperti contoh dan y sebagai basis)           ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
     	
     	printf ("\n\t\t\t\t\t\tMasukkan operasi yang akan anda hitung (tanpa spasi): ");
@@ -159,6 +166,9 @@ int negativeInteger(char *infix,char c,int ptr)
 		if((isOperator(infix[ptr-1]) && c == '-' ) ){
 			return 1;
 		}else {
+			if ((ptr == 1 || isOperator(infix[ptr-2])) && infix[ptr-1]=='|' && c == '-'  ) {
+				return 1;
+			}else
 			return 0;
 		}
 	}
@@ -166,7 +176,7 @@ int negativeInteger(char *infix,char c,int ptr)
 
 int isAfter(Stack *s)
 {
-    if(s->item[s->top].datachar == '(' ) return 1;
+    if(s->item[s->top].datachar == '(' || s->item[s->top].datachar == '|' ) return 1;
     else return 0;
 }
 
@@ -175,109 +185,144 @@ char *infixToPostfix(char *infix,char *postfix)
     char oneSpace[] = " ", tempInfix[256];
     int  ptr = 0;
     float x;
-    int y;
+    int y, mutlak=0;
     char *temp, *temp2;
     Stack *s = alloc();
 
     while(infix[ptr] != '\0' )
     {
-    	if(infix[ptr]=='a' || infix[ptr]=='s'|| infix[ptr]=='c'|| infix[ptr]=='t'|| infix[ptr]=='l' || infix[ptr]=='m' || infix[ptr]=='p'){
+    	if(infix[ptr]=='s'|| infix[ptr]=='c'|| infix[ptr]=='t'|| infix[ptr]=='l'){
     		strcpy(tempInfix,infix);
-        	temp = strtok(tempInfix + ptr, " +-*/^!%");
+        	temp = strtok(tempInfix + ptr, ")");
         	y = ptr;
-            ptr+=strlen(temp);
+            ptr+=strlen(temp)+1;
         	if (infix[y]=='s' && infix[y+3]=='('){
-        		sscanf(temp, "sin(%f)", &x);
+        		sscanf(temp, "sin(%f", &x);
         		x = sinDerajat(x);
         		sprintf(temp, "%g", x);
 			}
-			else if (infix[y]=='s' && infix[y+4]=='('){
-        		sscanf(temp, "sinR(%f)", &x);//blm bisa
+			else if (infix[y]=='s' && infix[y+3]=='R'){
+        		sscanf(temp, "sinR(%f", &x);
         		x = sinRad(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='c' && infix[y+1]=='s' && infix[y+3]=='('){
-        		sscanf(temp, "csc(%f)", &x);
+        		sscanf(temp, "csc(%f", &x);
         		x = cosecDerajat(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='c' && infix[y+1]=='s' && infix[y+3]=='R'){
-        		sscanf(temp, "cscR(%f)", &x);
+        		sscanf(temp, "cscR(%f", &x);
         		x = cosecRad(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='c' && infix[y+3]=='('){
-        		sscanf(temp, "cos(%f)", &x);
+        		sscanf(temp, "cos(%f", &x);
         		x = cosNilai(x);
         		sprintf(temp, "%0.2f", x);
 			}
 			else if (infix[y]=='c' && infix[y+3]=='R'){
-        		sscanf(temp, "cosR(%f)", &x);
+        		sscanf(temp, "cosR(%f", &x);
         		x = cosRad(x);
         		sprintf(temp, "%f", x);
 			}
 			else if (infix[y]=='s' && infix[y+1]=='e' && infix[y+3]=='('){
-        		sscanf(temp, "sec(%f)", &x);
+        		sscanf(temp, "sec(%f", &x);
         		x = secDerajat(x);
         		sprintf(temp, "%f", x);
 			}
 			else if (infix[y]=='s' && infix[y+1]=='e' && infix[y+3]=='R'){
-        		sscanf(temp, "secR(%f)", &x);
+        		sscanf(temp, "secR(%f", &x);
         		x = secRad(x);
         		sprintf(temp, "%f", x);
 			}
 			else if (infix[y]=='t' && infix[y+3]=='('){
-        		sscanf(temp, "tan(%f)", &x);
+        		sscanf(temp, "tan(%f", &x);
         		x = tanDerajat(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='t' && infix[y+3]=='R'){
-        		sscanf(temp, "tanR(%f)", &x);
+        		sscanf(temp, "tanR(%f", &x);
         		x = tanRad(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='c' && infix[y+1]=='o' && infix[y+3]=='('){
-        		sscanf(temp, "cot(%f)", &x);
+        		sscanf(temp, "cot(%f", &x);
         		x = cotDerajat(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='c' && infix[y+1]=='o' && infix[y+3]=='R'){
-        		sscanf(temp, "cotR(%f)", &x);
+        		sscanf(temp, "cotR(%f", &x);
         		x = cotRad(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='l' && infix[y+1]=='n'){
-				sscanf(temp, "ln(%f)", &x);
+				sscanf(temp, "ln(%f", &x);
 	       		x = hitungLog(x);
 	        	sprintf(temp, "%g", x);
 	        }
 			else if (infix[y]=='l' && isNumber(&infix[y-1])){
-	        	sscanf (temp, "log(%f)", &x);
+	        	sscanf (temp, "log(%f", &x);
 	        	sprintf(temp, "%g", x);
 	        	*temp2 = 'l';
 			}
 			else if (infix[y]=='l' && infix[y+1]=='o'){
-	        	sscanf (temp, "log(%f)", &x);
+	        	sscanf (temp, "log(%f", &x);
 	        	x = Log(x);
 	        	sprintf(temp, "%g", x);
 			}
-			else if (infix[y]=='m'){
-	        	sscanf (temp, "mod%f", &x);
-	        	sprintf(temp, "%g", x);
-	        	*temp2 = 'm';
-			}
-			else if (infix[y]=='p'){
-	        	sprintf(temp, "%g", pi);
-			}
-			
-            strcat(postfix, temp);
-            strcat(postfix, oneSpace);
+	        
+			strcat(postfix, temp);
+	        strcat(postfix, oneSpace);
             
 			if ((infix[y]=='l' && isNumber(&infix[y-1]))||infix[y]=='m'){
             	strcat(postfix, temp2);
         	    strcat(postfix, oneSpace);
 			}
 		}
+		else if (infix[ptr]=='m' || infix[ptr]=='p'){
+    		strcpy(tempInfix,infix);
+        	temp = strtok(tempInfix + ptr, " +-*/^v!%CP");
+        	y = ptr;
+            ptr+=strlen(temp);
+            
+			if (infix[y]=='m'){
+	        	sscanf (temp, "mod%f", &x);
+	        	sprintf(temp, "%g", x);
+	        	*temp2 = 'm';
+	            strcat(postfix, temp);
+	            strcat(postfix, oneSpace);
+            	strcat(postfix, temp2);
+        	    strcat(postfix, oneSpace);
+			}
+			else if (infix[y]=='p'){
+	        	sprintf(temp, "%g", pi);
+	            strcat(postfix, temp);
+	            strcat(postfix, oneSpace);
+			}
+			
+		}
+		else if(infix[ptr]=='|' && mutlak==1)
+        {
+            char tempChar2;
+            while(top(s).datachar!='|')
+            {
+                tempChar2 = pop(s).datachar;
+                strncat(postfix, &tempChar2, 1);
+                strcat(postfix, oneSpace);
+            }
+            tempChar2 = pop(s).datachar;
+            strncat(postfix, &tempChar2, 1);
+            strcat(postfix, oneSpace);
+            ptr++;
+            mutlak = mutlak-1;
+        }
+        else if(infix[ptr] == '|' && mutlak==0)
+        {
+            pushChar(s,infix[ptr]);
+            ptr++;
+            mutlak+=1;
+        }
         else if(isOperator(infix[ptr]) && !negativeInteger(infix,infix[ptr],ptr))
         {
             if(infix[ptr] == '(' )
@@ -303,13 +348,14 @@ char *infixToPostfix(char *infix,char *postfix)
                 ptr++;
                 strcat(postfix,oneSpace);
             }
-            else if(prioritas(infix[ptr]) <prioritas(top(s).datachar) && top(s).datachar != '(' && top(s).datachar != ')')
+            else if(prioritas(infix[ptr]) <prioritas(top(s).datachar) && top(s).datachar != '(' && top(s).datachar != '|' && top(s).datachar != ')')
             {
                 while(1)
                 {
                     char tempChar;
                     if( isEmpty(s) ) break;
                     if( top(s).datachar == '(' ) break;
+                    if( top(s).datachar == '|' ) break;
                     tempChar = pop(s).datachar;
                     strncat(postfix, &tempChar, 1);
                     strcat(postfix, oneSpace);
@@ -336,7 +382,7 @@ char *infixToPostfix(char *infix,char *postfix)
                 char tempChar3 = '-';
                 strncat(temp2, &tempChar3, 1);
                 strcpy(tempInfix, infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP|");
                 ptr += strlen(temp) + 1;
                 strcat(temp2, temp);
                 strcat(postfix, temp2);
@@ -345,7 +391,7 @@ char *infixToPostfix(char *infix,char *postfix)
             else
             {
                 strcpy(tempInfix,infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP|");
                 ptr+=strlen(temp);
                 if (infix[ptr] == '!'){
 		        	sscanf (temp, "%f", &x);
@@ -423,7 +469,10 @@ float hitungIsiPostfix(char postFix[])
             default:
                 break;
             }
-        }
+        } else if(*token == '|'){
+            a = pop(stack).datafloat;
+            push(stack, HitungNilaiMutlak(a));
+		}
         token = strtok(NULL, " "); 
     }
     return pop(stack).datafloat;
@@ -444,9 +493,11 @@ void FiturLain()
 		puts	("\t\t\t\t\t================================================================================================================================");
 		puts	("\t\t\t\t\t==  3. Konversi Panjang                                                                                                       ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  4. Matriks                                                                                                               ==");
+		puts	("\t\t\t\t\t==  4. Matriks                                                                                                                ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
-		puts	("\t\t\t\t\t==  5. Turunan                                                                                                               ==");
+		puts	("\t\t\t\t\t==  5. Turunan                                                                                                                ==");
+		puts	("\t\t\t\t\t================================================================================================================================");
+		puts	("\t\t\t\t\t==  6. Invers Trigonometri                                                                                                    ==");
 		puts	("\t\t\t\t\t================================================================================================================================");	
 	
 		do{
@@ -473,11 +524,15 @@ void FiturLain()
 				case 5 :
 					TurunanPolinom ();
 					break;
+				
+				case 6 :
+					inversTrigonometri ();
+					break;
 					
 				default :
 					printf ("\n\t\t\t\t\t\tFitur yang anda pilih tidak ada, silahkan pilih ulang\n");
 			}
-		} while (fitur < 1 || fitur > 5);
+		} while (fitur < 1 || fitur > 6);
 			
 	    printf ("\n\n\t\t\t\t\t\tApakah anda ingin menggunakan fitur lainnya kembali? (y/t)");
 	    lagi = getche();
@@ -671,12 +726,18 @@ void Matriks()
 					printMatriks(hasil, operan1, operan4);
 				    break;
 				    
-		//		case 5 :
-		//			inputMatriks (matriks1, &operan1, &operan2);
-		//			transposeMatriks (matriks1, hasil, operan1, operan2);
-		//			printf("\n\t\t\t\t\t\tMatriks setelah ditranspose:\n");
-		//			printMatriks(hasil, operan2, operan1);
-		//		    break;
+				case 5 :
+					printf("\n\n\t\t\t\t\t\tInput jumlah baris matriks : "); 
+					scanf("%d", &operan1);
+					printf("\t\t\t\t\t\tInput jumlah kolom matriks : ");
+					scanf("%d", &operan2);
+					inputMatriks (matriks1, operan1, operan2);
+					transposeMatriks (matriks1, hasil, operan1, operan2);
+					printf("\n\t\t\t\t\t\tMatriks sebelum ditranspose:\n");
+					printMatriks(matriks1, operan1, operan2);
+					printf("\n\t\t\t\t\t\tMatriks setelah ditranspose:\n");
+					printMatriks(hasil, operan2, operan1);
+				    break;
 					
 				case 6 :
 					determinanMatriks();
