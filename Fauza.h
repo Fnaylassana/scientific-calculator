@@ -41,7 +41,7 @@ int negativeInteger(char *infix,char c,int ptr);
 
 int isAfter(Stack *s);
 
-char *infixToPostfix(char *infix,char *postfix);
+char *infixToPostfix(char *infix,char *postfix, int *cek);
 
 float hitungIsiPostfix(char postFix[]);
 

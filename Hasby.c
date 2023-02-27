@@ -211,6 +211,24 @@ float ConMMkeINC (float mm){
 	return inc;
 }
 
+float Eksponen10 (float nilai, float e){   
+	float hasil;
+	hasil = 1;
+        
+    if(e > 0){
+		while (e != 0)
+	    {
+	        hasil = hasil * 10;
+	        e = e - 1;
+	    } 
+    } 
+    
+    hasil = nilai * hasil;
+    
+    return hasil;
+} 
+
+
 void KonversiPanjang()
 {
     int pilihan, lagi;
