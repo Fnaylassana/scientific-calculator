@@ -76,6 +76,7 @@ void kalkulator()
 		puts	("\t\t\t\t\t==  27. log(x) untuk operasi logaritma 10 (dengan penulisan log yang harus spesifik seperti contoh)                           ==");
 		puts	("\t\t\t\t\t==  28. ln(x) untuk operasi logaritma natural (dengan penulisan ln yang harus spesifik seperti contoh)                        ==");
 		puts	("\t\t\t\t\t==  29. ylog(x) untuk operasi cosinus (dengan penulisan log yang harus spesifik seperti contoh dan y sebagai basis)           ==");
+		puts	("\t\t\t\t\t==  30. xey untuk eksponen 10 (x * 10^y)                                                                                      ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
     	
     	printf ("\n\t\t\t\t\t\tMasukkan operasi yang akan anda hitung (tanpa spasi): ");
@@ -134,7 +135,7 @@ int prioritas(char c)
 		if (c=='*' || c=='/') {
 			return 2;
 		} else {
-			if (c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P'){
+			if (c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P' || c=='e'){
 				return 3 ;
 			} else {
 				return 0;
@@ -151,7 +152,7 @@ int isNumber(char *token)
 
 int isOperator(char c)
 {
-    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P') {
+    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P' || c=='e') {
 		return 1;
 	}else{
 		return 0;
@@ -282,7 +283,7 @@ char *infixToPostfix(char *infix,char *postfix)
 		}
 		else if (infix[ptr]=='m' || infix[ptr]=='p'){
     		strcpy(tempInfix,infix);
-        	temp = strtok(tempInfix + ptr, " +-*/^v!%CP");
+        	temp = strtok(tempInfix + ptr, " +-*/^v!%CPe");
         	y = ptr;
             ptr+=strlen(temp);
             
@@ -382,7 +383,7 @@ char *infixToPostfix(char *infix,char *postfix)
                 char tempChar3 = '-';
                 strncat(temp2, &tempChar3, 1);
                 strcpy(tempInfix, infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP|");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP|e");
                 ptr += strlen(temp) + 1;
                 strcat(temp2, temp);
                 strcat(postfix, temp2);
@@ -391,7 +392,7 @@ char *infixToPostfix(char *infix,char *postfix)
             else
             {
                 strcpy(tempInfix,infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP|");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%CP|e");
                 ptr+=strlen(temp);
                 if (infix[ptr] == '!'){
 		        	sscanf (temp, "%f", &x);
@@ -465,6 +466,9 @@ float hitungIsiPostfix(char postFix[])
                 break;
             case 'P':
                 push(stack, permutasi(b,a));
+                break;
+            case 'e':
+                push(stack, Eksponen10(b, a));
                 break;
             default:
                 break;
