@@ -62,21 +62,21 @@ void kalkulator()
 		puts	("\t\t\t\t\t==  13. x^y untuk operasi pangkat (dengan y sebagai pangkat)                                                                  ==");
 		puts	("\t\t\t\t\t==  14. xvy untuk operasi akar (dengan v tidak kapital dan x akar pangkat y)                                                  ==");
 		puts	("\t\t\t\t\t==  15. sin(x) untuk operasi sinus (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                      ==");
-		puts	("\t\t\t\t\t==  16. sinR(x) untuk operasi sinus (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))        ==");
+		puts	("\t\t\t\t\t==  16. sinR(x) untuk operasi sinus (dengan penulisan harus spesifik seperti contoh dan x berupa radian)                      ==");
 		puts	("\t\t\t\t\t==  17. cos(x) untuk operasi cosinus (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                    ==");
-		puts	("\t\t\t\t\t==  18. cosR(x) untuk operasi cosinus (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))      ==");
+		puts	("\t\t\t\t\t==  18. cosR(x) untuk operasi cosinus (dengan penulisan harus spesifik seperti contoh dan x berupa radian)                    ==");
 		puts	("\t\t\t\t\t==  19. tan(x) untuk operasi tangen (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                     ==");
-		puts	("\t\t\t\t\t==  20. tanR(x) untuk operasi tangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))       ==");
+		puts	("\t\t\t\t\t==  20. tanR(x) untuk operasi tangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian)                     ==");
 		puts	("\t\t\t\t\t==  21. csc(x) untuk operasi cosecan (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                    ==");
-		puts	("\t\t\t\t\t==  22. cscR(x) untuk operasi cosecan (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))      ==");
+		puts	("\t\t\t\t\t==  22. cscR(x) untuk operasi cosecan (dengan penulisan harus spesifik seperti contoh dan x berupa radian)                    ==");
 		puts	("\t\t\t\t\t==  23. sec(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                      ==");
-		puts	("\t\t\t\t\t==  24. secR(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))        ==");
+		puts	("\t\t\t\t\t==  24. secR(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa radian)                      ==");
 		puts	("\t\t\t\t\t==  25. cot(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                   ==");
-		puts	("\t\t\t\t\t==  26. cotR(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian (-1 sampai 1))     ==");
+		puts	("\t\t\t\t\t==  26. cotR(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian)                   ==");
 		puts	("\t\t\t\t\t==  27. log(x) untuk operasi logaritma 10 (dengan penulisan log yang harus spesifik seperti contoh)                           ==");
 		puts	("\t\t\t\t\t==  28. ln(x) untuk operasi logaritma natural (dengan penulisan ln yang harus spesifik seperti contoh)                        ==");
 		puts	("\t\t\t\t\t==  29. ylog(x) untuk operasi cosinus (dengan penulisan log yang harus spesifik seperti contoh dan y sebagai basis)           ==");
-		puts	("\t\t\t\t\t==  30. xey untuk eksponen 10 (x * 10^y)                                                                                      ==");
+		puts	("\t\t\t\t\t==  30. xey untuk euler (x * 10^y)                                                                                            ==");
 		puts	("\t\t\t\t\t================================================================================================================================");
     	
     	printf ("\n\t\t\t\t\t\tMasukkan operasi yang akan anda hitung (tanpa spasi): ");
@@ -209,11 +209,19 @@ char *infixToPostfix(char *infix,char *postfix)
 			}
 			else if (infix[y]=='c' && infix[y+1]=='s' && infix[y+3]=='('){
         		sscanf(temp, "csc(%f", &x);
+        		if (x == 0 || x == 180 || x == 360 || x == 540){
+        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", x);
+        			exit(0);
+				}
         		x = cosecDerajat(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='c' && infix[y+1]=='s' && infix[y+3]=='R'){
         		sscanf(temp, "cscR(%f", &x);
+        		if (x == 0 || x == 180 || x == 360 || x == 540){
+        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", x);
+        			exit(0);
+				}
         		x = cosecRad(x);
         		sprintf(temp, "%g", x);
 			}
@@ -229,31 +237,55 @@ char *infixToPostfix(char *infix,char *postfix)
 			}
 			else if (infix[y]=='s' && infix[y+1]=='e' && infix[y+3]=='('){
         		sscanf(temp, "sec(%f", &x);
+        		if (x == 90 || x == 270 || x == 450){
+        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", x);
+        			exit(0);
+				}
         		x = secDerajat(x);
         		sprintf(temp, "%f", x);
 			}
 			else if (infix[y]=='s' && infix[y+1]=='e' && infix[y+3]=='R'){
         		sscanf(temp, "secR(%f", &x);
+        		if (x == 90 || x == 270 || x == 450){
+        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", x);
+        			exit(0);
+				}
         		x = secRad(x);
         		sprintf(temp, "%f", x);
 			}
 			else if (infix[y]=='t' && infix[y+3]=='('){
         		sscanf(temp, "tan(%f", &x);
+        		if (x == 90 || x == 270 || x == 450){
+        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", x);
+        			exit(0);
+				}
         		x = tanDerajat(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='t' && infix[y+3]=='R'){
         		sscanf(temp, "tanR(%f", &x);
+        		if (x == 90 || x == 270 || x == 450){
+        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", x);
+        			exit(0);
+				}
         		x = tanRad(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='c' && infix[y+1]=='o' && infix[y+3]=='('){
         		sscanf(temp, "cot(%f", &x);
+        		if (x == 0 || x == 90 || x == 180 || x == 360 || x == 540){
+        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", x);
+        			exit(0);
+				}
         		x = cotDerajat(x);
         		sprintf(temp, "%g", x);
 			}
 			else if (infix[y]=='c' && infix[y+1]=='o' && infix[y+3]=='R'){
         		sscanf(temp, "cotR(%f", &x);
+        		if (x == 0 || x == 90 || x == 180 || x == 360 || x == 540){
+        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", x);
+        			exit(0);
+				}
         		x = cotRad(x);
         		sprintf(temp, "%g", x);
 			}
