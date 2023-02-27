@@ -2,6 +2,7 @@
 #ifndef naufal_H
 #define naufal_H
 #include <math.h>
+#define max 10
 
 float pertambahan(float nilai1, float nilai2);
 float pengurangan(float nilai1, float nilai2);
