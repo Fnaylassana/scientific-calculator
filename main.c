@@ -34,7 +34,7 @@ int main() {
 		} while (menu != 1 || menu != 2);
 		
 		printf ("\n\n\t\t\t\t\t\tApakah anda ingin kembali ke menu awal? (y/t)");
-		ulang = getche ();
+		ulang = getchar ();
 	} while (ulang == 'y' || ulang == 'Y');
 	
 	return 0;

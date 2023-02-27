@@ -1,4 +1,5 @@
 #include "aulianf.h"
+#include "Fauza.h"
 
 float akar(float bilangan1, float bilangan2)
 // Menghitung akar

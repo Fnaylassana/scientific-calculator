@@ -2,6 +2,7 @@
 #include "aulianf.h"
 #include "Fauza.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 float hitungLog(float angka)
 {
@@ -173,7 +174,7 @@ void inversTrigonometri()
 		} while (pilih != 1 && pilih != 2 && pilih != 3);
 		
 	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung invers trigonometri kembali? (y/t)");
-	    lagi = getche();
+	    lagi = getchar();
 	}while (lagi == 'y' || lagi == 'Y');
 }
 
