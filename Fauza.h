@@ -21,7 +21,7 @@ typedef struct
 
 float HitungNilaiMutlak (float nilai);
 
-Stack* alloc();
+Stack* alloc();	
 
 int isEmpty(Stack *s);
 
