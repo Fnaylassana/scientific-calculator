@@ -4,8 +4,10 @@
 
 float Log(float Angka1){ //log basis 10
 	float Hasil;
-
-    Hasil = log10(Angka1);
+    while (Angka1 >= 10) {
+        Hasil++;
+        Hasil /= 10;
+    }
    return Hasil;
 }
 
