@@ -7,7 +7,7 @@
 
 float Log(float Angka1);
 
-float Logaritma (float Angka1,float Angka2);
+float Logaritma (float X,float Y);
 
 float Eurel (float nilai, float e);
 

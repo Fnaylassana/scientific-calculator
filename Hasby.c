@@ -9,11 +9,13 @@ float Log(float Angka1){ //log basis 10
    return Hasil;
 }
 
-float Logaritma (float Angka1, float Angka2){ //log basis bebas
-	float Hitung;
-
-    Hitung = log10(Angka2) / log10(Angka1);
-   return Hitung;
+float Logaritma(float X, float Y){
+	float Hasil;   
+	while (X >= Y) {
+        Hasil++;
+        X /= Y;
+    }
+    return Hasil;
 }
 
 float Eurel (float nilai, float e){   //eurel
