@@ -74,7 +74,7 @@ void kalkulator()
 		puts	("\t\t\t\t\t==  23. sec(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                           ==");
 		puts	("\t\t\t\t\t==  24. secR(x) untuk operasi secan (dengan penulisan harus spesifik seperti contoh dan x berupa radian)                           ==");
 		puts	("\t\t\t\t\t==  25. cot(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa derajat)                        ==");
-		puts	("\t\t\t\t\t==  26. cotR(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian)              	       ==");
+		puts	("\t\t\t\t\t==  26. cotR(x) untuk operasi cotangen (dengan penulisan harus spesifik seperti contoh dan x berupa radian) 		   	   ==");
 		puts	("\t\t\t\t\t==  27. log(x) untuk operasi logaritma 10 (dengan penulisan log yang harus spesifik seperti contoh)                                ==");
 		puts	("\t\t\t\t\t==  28. ln(x) untuk operasi logaritma natural (dengan penulisan ln yang harus spesifik seperti contoh)                             ==");
 		puts	("\t\t\t\t\t==  29. ylog(x) untuk operasi logaritma basis bebas (dengan penulisan log yang harus spesifik seperti contoh dan y sebagai basis)  ==");
@@ -510,7 +510,7 @@ float hitungIsiPostfix(char postFix[])
                 push(stack, permutasi(b,a));
                 break;
             case 'e':
-                push(stack, Eksponen10(b, a));
+                push(stack, Eurel(b, a));
                 break;
             default:
                 break;

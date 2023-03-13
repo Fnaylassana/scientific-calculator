@@ -59,6 +59,8 @@ float hitungPertambahanMatriks(float hasil[max][max], float matriksA[max][max], 
 // Menghitung pengurangan Matriks
 float hitungPenguranganMatriks(float hasil[max][max], float matriksA[max][max], float matriksB[max][max], int baris, int kolom);
 
+/* Referensi det matriks : stackoverflow */
+
 // Menghitung determinan dengan kofaktor
 int hitungKofaktor(int matriks[max][max], int temp[max][max], int p, int q, int ordo);
 
