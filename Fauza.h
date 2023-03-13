@@ -56,18 +56,6 @@ void pushChar(Stack *s, char c);
 
 void header();
 
-void FiturLain();
-
-void Sigma();
-
-void KonversiSuhu();
-
-void Matriks();
-
-void Perkalian2Matriks(float mat1[max][max], float mat2[max][max], float hasil[max][max], int baris1, int kolom1, int kolom2);
-
-void PerkalianSkalarMatriks(float matriks[max][max], int baris, int kolom);
-
 void Input1Int(int *angka);
 
 void Input2Int(int *angka1, int *angka2);
