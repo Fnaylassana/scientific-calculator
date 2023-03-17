@@ -141,7 +141,7 @@ int isAfter(Stack *s)
     else return 0;
 }
 
-char *infixToPostfix(char *infix,char *postfix)
+char *infixToPostfix(char *infix,char *postfix, int *cek)
 {
     char oneSpace[] = " ", tempInfix[256];
     int  ptr = 0;
@@ -163,6 +163,10 @@ char *infixToPostfix(char *infix,char *postfix)
         	temp = strtok(tempInfix + ptr, "( ");
         	y = ptr;
             ptr+=strlen(temp);
+            if ((infix[y+2] != '(' && infix[y+3] != '(' && infix[y+4] != '(' && infix[y+5] != '(')){
+	        	printf ("\t\t\t\t\t\tInput trigonometri, logaritma, dan modulus harus menggunakan tanda kurung");
+	        	*cek = 1;
+			}
         	if (infix[y]=='s' && infix[y+1]=='i' && infix[y+3]=='r'){
                 pushChar(s,'I'); 
 			}
@@ -213,7 +217,7 @@ char *infixToPostfix(char *infix,char *postfix)
 	    	}
 		}
 		else if (infix[ptr]=='p'){
-        	temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e");
+        	temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,");
 			*temp2 = 'p';
             ptr+=2;
             strcat(postfix, temp2);
@@ -304,7 +308,7 @@ char *infixToPostfix(char *infix,char *postfix)
         {
             ptr++;
         }
-        else
+        else if (isNumber(&infix[ptr]))
         {
             if(negativeInteger(infix,infix[ptr],ptr))
             {
@@ -312,7 +316,7 @@ char *infixToPostfix(char *infix,char *postfix)
                 char tempChar3 = '-';
                 strncat(temp2, &tempChar3, 1);
                 strcpy(tempInfix, infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,");
                 ptr += strlen(temp) + 1;
                 strcat(temp2, temp);
                 strcat(postfix, temp2);
@@ -321,7 +325,7 @@ char *infixToPostfix(char *infix,char *postfix)
             else
             {
                 strcpy(tempInfix,infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,");
                 ptr+=strlen(temp);
                 if (infix[ptr] == '!'){
 		        	sscanf (temp, "%f", &x);
@@ -337,7 +341,10 @@ char *infixToPostfix(char *infix,char *postfix)
                 strcat(postfix, temp);
                 strcat(postfix, oneSpace);
             }
-        }
+        }else{
+	        *cek = 1;
+	        ptr++;
+		}
     }
     while(!isEmpty(s))
     {
@@ -375,13 +382,27 @@ float hitungIsiPostfix(char postFix[], int *cek)
 	                push(stack, perkalian(b, a));
 	                break;
 	            case '/':
-	                push(stack, pembagian(b, a));
+	            	if (a == 0){
+	            		printf ("\t\t\t\t\t\tPenyebut = 0, nilai tidak terdefinisi, masukkan input kembali");
+	        			*cek = 1;
+					} else{
+						push(stack, pembagian(b, a));
+					}
 	                break;
 	            case '^':
 	                push(stack, eksponen (b, a));
 	                break;
 	            case 'v':
-	                push(stack, akar(a, b));
+	            	if (a < 0){
+	            		if (modulus(b,2) == 0){
+	            			printf ("\t\t\t\t\t\tNilai di dalam akar tidak boleh minus, masukkan input kembali", a);
+	        				*cek = 1;
+						} else{
+							push(stack, (-1*akar(HitungNilaiMutlak(a), b)));
+						}
+					} else{
+						push(stack, akar(a, b));
+					}
 	                break;
 	            case 'm':
 	                push(stack, modulus(b, a));
@@ -470,15 +491,17 @@ float hitungIsiPostfix(char postFix[], int *cek)
 	        		if (a == 0 || a == 90 || a == 180 || a == 360 || a == 540){
 	        			printf ("\t\t\t\t\t\tNilai cot(%g) tidak terdefinisi", a);
 	        			*cek = 1;
+					} else {
+						push(stack, cotDerajat(a));
 					}
-					push(stack, cotDerajat(a));
 					break;
 				case 'G' :																	//cotangen dengan input radian
 	        		if (a == 0 || a == 90 || a == 180 || a == 360 || a == 540){
 	        			printf ("\t\t\t\t\t\tNilai cot(%g) tidak terdefinisi", a);
 	        			*cek = 1;
+					} else {
+						push(stack, cotRad(a));
 					}
-					push(stack, cotRad(a));
 					break;	
 				case 'n' :																	//hitung logaritma natural
 					push(stack, hitungLog(a));

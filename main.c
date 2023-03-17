@@ -53,15 +53,19 @@ int main()
 	    scanf (" %[^\n]s", &input);
 	    strlwr(input);
 		char postfix[256] = "";
-	    temp = infixToPostfix(input, postfix);
+	    temp = infixToPostfix(input, postfix, &ulang);
 		
-		printf("\t\t\t\t\t\tPostfix : %s\n",temp);                                                                    
-	    hasil = hitungIsiPostfix(postfix, &ulang); 
-	    	
+		if(!ulang){
+			printf("\t\t\t\t\t\tPostfix : %s\n", temp);                                                                    
+	    	hasil = hitungIsiPostfix(postfix, &ulang);
+		} else{
+        	printf ("\t\t\t\t\t\tInput anda tidak sesuai, cek kembali inputan anda");
+		}
+		
 	    if (ulang){
 	    	getche();
 	    	goto awal;
-		}	
+		}
 			
 	    printf ("\t\t\t\t\t\tHasilnya adalah: %g\n\n", hasil);
 	    printf ("\t\t\t\t\t\tApakah anda ingin menghitung kembali? (y/t)");

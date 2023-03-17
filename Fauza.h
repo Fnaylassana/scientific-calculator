@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "math.h"
 #include <ctype.h>
 #define max 10
 
@@ -41,7 +40,7 @@ int negativeInteger(char *infix,char c,int ptr);
 
 int isAfter(Stack *s);
 
-char *infixToPostfix(char *infix,char *postfix);
+char *infixToPostfix(char *infix, char *postfix, int *cek);
 
 float hitungIsiPostfix(char postFix[], int *cek);
 
