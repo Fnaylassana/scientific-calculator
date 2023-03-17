@@ -17,9 +17,11 @@ float pengurangan(float nilai1, float nilai2){
 }
 
 float perkalian(float nilai1, float nilai2){
-	float temp;
+	float temp, i;
 	
-	temp = nilai1 * nilai2;
+	for (i = 1; i <= nilai2; i++) {
+    temp += nilai1;
+    }
 	
 	return temp;
 }
@@ -27,7 +29,10 @@ float perkalian(float nilai1, float nilai2){
 float pembagian(float nilai1, float nilai2){
 	float temp;
 	
-	temp = nilai1 / nilai2;
+	while (nilai1 >= nilai2) {
+    nilai1 -= nilai2;
+    temp++;
+    }
 	
 	return temp;
 }
@@ -45,11 +50,14 @@ float faktorial(float angka){
 	return temp;
 }
 
-float modulus(int nilai1, int nilai2){
-	float temp;
+int modulus(int nilai1, int nilai2){
 	
-	temp = nilai1 % nilai2;
-	
+	int temp;
+	temp = nilai1;
+    while (temp >= nilai2) {
+    temp -= nilai2;
+    }
+    
 	return temp;
 }
 
