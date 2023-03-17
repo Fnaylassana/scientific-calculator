@@ -41,11 +41,9 @@ int negativeInteger(char *infix,char c,int ptr);
 
 int isAfter(Stack *s);
 
-char *infixToPostfix(char *infix,char *postfix, int *cek);
+char *infixToPostfix(char *infix,char *postfix);
 
-float hitungIsiPostfix(char postFix[]);
-
-void kalkulator();
+float hitungIsiPostfix(char postFix[], int *cek);
 
 void push(Stack *s, float val);
 
