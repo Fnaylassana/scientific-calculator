@@ -5,7 +5,7 @@
 #include <conio.h>
 
 
-float Log(float Angka1);
+float Log(int Angka1);
 
 float Logaritma (float X,float Y);
 

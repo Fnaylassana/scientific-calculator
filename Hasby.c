@@ -2,22 +2,49 @@
 #include "Fauza.h"
 
 
-float Log(float Angka1){ //log basis 10
+float Log(int Angka1){ //log basis 10
+	
 	float Hasil;
 	Hasil = 0;
-    while (Angka1 >= 10) {
+    
+	while (Angka1 >= 10) {
         Hasil++;
         Angka1 /= 10;
     }
+    
+    while (Angka1 % 2 == 0){ 	
+		Hasil += 0.30103;  	
+		Angka1 /= 2;
+	}
+	
+    while (Angka1 % 3 == 0){
+		Hasil += 0.47712;  	
+		Angka1 /= 3;
+	}
+	
+    while (Angka1 % 5 == 0){
+		Hasil += 0.69897;  	
+		Angka1 /= 5;
+	}
+	
+    while (Angka1 % 7 == 0){
+		Hasil += 0.84510;  	
+		Angka1 /= 7;
+	}
+	
    return Hasil;
 }
 
 float Logaritma(float X, float Y){
-	float Hasil;   
+	float Hasil; 
+	
+	Hasil = 0;
+	
 	while (X >= Y) {
         Hasil++;
         X /= Y;
     }
+    
     return Hasil;
 }
 
