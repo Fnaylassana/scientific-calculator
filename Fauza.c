@@ -20,11 +20,18 @@ void header()
 	puts	("\t\t\t\t\t================================================================================================================================\n\n");	
 }
 
-float HitungNilaiMutlak (float nilai){
+float Mutlak (float nilai){
 	
 	if (nilai < 0){
 		nilai = nilai * -1;
 	}
+	
+	return nilai;
+}
+
+float Persen (float nilai){
+	
+	nilai = nilai/100;
 	
 	return nilai;
 }
@@ -112,7 +119,7 @@ int isOperator(char c)
 
 int isOperator2(char c)
 {
-    if( c=='|' || c == 'L'|| c=='p' || c == 'n' || c == 'z'|| c=='Z' || c == 'E' || c=='i' || c=='I' || c=='s' || c=='S' || c=='o' || c=='O' || c=='a' || c=='A' || c=='t' || c=='T' || c=='g' || c=='G') {
+    if(c=='!' || c == '%'|| c=='|' || c == 'L'|| c=='p' || c == 'n' || c == 'z'|| c=='Z' || c == 'E' || c=='i' || c=='I' || c=='s' || c=='S' || c=='o' || c=='O' || c=='a' || c=='A' || c=='t' || c=='T' || c=='g' || c=='G') {
 		return 1;
 	}else{
 		return 0;
@@ -150,7 +157,7 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
     char *temp, *temp2, *temp3;
     Stack *s = alloc();
 
-    while(infix[ptr] != '\0' )
+    while(infix[ptr] != '\0' && *cek != 1)
     {
     	if(infix[ptr]=='c' && isNumber(&infix[ptr+1])){
     		infix[ptr] = 'C';
@@ -159,72 +166,74 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
     		infix[ptr] = 'P';
 		}
     	else if(infix[ptr]=='s'|| infix[ptr]=='c'|| infix[ptr]=='t'|| infix[ptr]=='m' || (infix[ptr]=='l' )){
-    		strcpy(tempInfix,infix);
-        	temp = strtok(tempInfix + ptr, "( ");
-        	y = ptr;
-            ptr+=strlen(temp);
-            if ((infix[y+2] != '(' && infix[y+3] != '(' && infix[y+4] != '(' && infix[y+5] != '(')){
+            if ((infix[ptr+2] != '(' && infix[ptr+3] != '(' && infix[ptr+4] != '(' && infix[ptr+5] != '(')){
 	        	*cek = 1;
 			}
-        	if (infix[y]=='s' && infix[y+1]=='i' && infix[y+3]=='r'){
-                pushChar(s,'I'); 
-			}
-			else if (infix[y]=='s' && infix[y+1]=='i' && infix[y+2]=='g'){
-				if(infix[y+4] == '1'){
-					pushChar(s,'z'); 
+			else{
+	    		strcpy(tempInfix,infix);
+	        	temp = strtok(tempInfix + ptr, "( ");
+	        	y = ptr;
+	            ptr+=strlen(temp);
+	        	if (infix[y]=='s' && infix[y+1]=='i' && infix[y+3]=='r'){
+	                pushChar(s,'I'); 
 				}
-				else if(infix[y+4] == '2'){
-					pushChar(s,'Z'); 
+				else if (infix[y]=='s' && infix[y+1]=='i' && infix[y+2]=='g'){
+					if(infix[y+4] == '1'){
+						pushChar(s,'z'); 
+					}
+					else if(infix[y+4] == '2'){
+						pushChar(s,'Z'); 
+					}
+					else if(infix[y+4] == '3'){
+						pushChar(s,'E'); 
+					}
 				}
-				else if(infix[y+4] == '3'){
-					pushChar(s,'E'); 
+				else if (infix[y]=='s' && infix[y+1]=='i'){
+	                pushChar(s,'i'); 
 				}
+				else if (infix[y]=='c' && infix[y+1]=='s' && infix[y+3]=='r'){
+	                pushChar(s,'S'); 
+				}
+				else if (infix[y]=='c' && infix[y+1]=='s'){
+	                pushChar(s,'s'); 
+				}
+				else if (infix[y]=='c' && infix[y+2]=='s' && infix[y+3]=='r'){
+	                pushChar(s,'O'); 
+				}
+				else if (infix[y]=='c' && infix[y+2]=='s'){
+	                pushChar(s,'o'); 
+				}
+				else if (infix[y]=='s' && infix[y+1]=='e' && infix[y+3]=='r'){
+	                pushChar(s,'A'); 
+				}
+				else if (infix[y]=='s' && infix[y+1]=='e'){
+	                pushChar(s,'a'); 
+				}
+				else if (infix[y]=='t' && infix[y+3]=='r'){
+	                pushChar(s,'T'); 
+				}
+				else if (infix[y]=='t'){
+	                pushChar(s,'t'); 
+				}
+				else if (infix[y]=='c' && infix[y+2]=='t' && infix[y+3]=='r'){
+	                pushChar(s,'G'); 
+				}
+				else if (infix[y]=='c' && infix[y+2]=='t'){
+	                pushChar(s,'g'); 
+				}
+				else if (infix[y]=='l' && infix[y+1]=='n'){
+	                pushChar(s,'n'); 
+		        }
+				else if (infix[y]=='l' && infix[y+1]=='o' && !isNumber(&infix[y-1])){
+	                pushChar(s,'L'); 
+				}
+				else if (infix[y]=='m'){
+	                pushChar(s,'m'); 
+				}
+				else if (infix[y]=='l' && isNumber(&infix[y-1])){
+	                pushChar(s,'l'); 
+		    	}
 			}
-			else if (infix[y]=='s' && infix[y+1]=='i'){
-                pushChar(s,'i'); 
-			}
-			else if (infix[y]=='c' && infix[y+1]=='s' && infix[y+3]=='r'){
-                pushChar(s,'S'); 
-			}
-			else if (infix[y]=='c' && infix[y+1]=='s'){
-                pushChar(s,'s'); 
-			}
-			else if (infix[y]=='c' && infix[y+2]=='s' && infix[y+3]=='r'){
-                pushChar(s,'O'); 
-			}
-			else if (infix[y]=='c' && infix[y+2]=='s'){
-                pushChar(s,'o'); 
-			}
-			else if (infix[y]=='s' && infix[y+1]=='e' && infix[y+3]=='r'){
-                pushChar(s,'A'); 
-			}
-			else if (infix[y]=='s' && infix[y+1]=='e'){
-                pushChar(s,'a'); 
-			}
-			else if (infix[y]=='t' && infix[y+3]=='r'){
-                pushChar(s,'T'); 
-			}
-			else if (infix[y]=='t'){
-                pushChar(s,'t'); 
-			}
-			else if (infix[y]=='c' && infix[y+2]=='t' && infix[y+3]=='r'){
-                pushChar(s,'G'); 
-			}
-			else if (infix[y]=='c' && infix[y+2]=='t'){
-                pushChar(s,'g'); 
-			}
-			else if (infix[y]=='l' && infix[y+1]=='n'){
-                pushChar(s,'n'); 
-	        }
-			else if (infix[y]=='l' && infix[y+1]=='o' && !isNumber(&infix[y-1])){
-                pushChar(s,'L'); 
-			}
-			else if (infix[y]=='m'){
-                pushChar(s,'m'); 
-			}
-			else if (infix[y]=='l' && isNumber(&infix[y-1])){
-                pushChar(s,'l'); 
-	    	}
 		}
 		else if (infix[ptr]=='p'){
             pushChar(s,'p'); 
@@ -323,7 +332,7 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
                 char tempChar3 = '-';
                 strncat(temp2, &tempChar3, 1);
                 strcpy(tempInfix, infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,`~@#$&][{}:;''<>.?\"qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM");
                 ptr += strlen(temp) + 1;
                 strcat(temp2, temp);
                 strcat(postfix, temp2);
@@ -332,23 +341,23 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
             else
             {
                 strcpy(tempInfix,infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,`~@#$&][{}:;''<>.?\"qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM");
                 ptr+=strlen(temp);
-                if (infix[ptr] == '!'){
-		        	sscanf (temp, "%f", &x);
-					x = faktorial(x);
-		        	sprintf(temp, "%g", x);
-		        	ptr++;
-				}else if(infix[ptr] == '%'){
-		        	sscanf (temp, "%f", &x);
-					x = x/100;
-		        	sprintf(temp, "%g", x);
-		        	ptr++;
-				}
                 strcat(postfix, temp);
                 strcat(postfix, oneSpace);
             }
-        }else{
+        }
+        else if (infix[ptr] == '!'){
+        	strcat(postfix, "!");
+            strcat(postfix, oneSpace);
+            ptr++;
+		}
+		else if (infix[ptr] == '%'){
+        	strcat(postfix, "%");
+            strcat(postfix, oneSpace);
+            ptr++;
+		}
+		else{
 	        *cek = 1;
 	        ptr++;
 		}
@@ -368,7 +377,7 @@ float hitungIsiPostfix(char postFix[], int *cek)
     Stack *stack = alloc();
     char *token = strtok(postFix," ");
 
-    while(token != NULL)
+    while(token != NULL && *cek != 1)
     {
         if(isNumber(token))
         {
@@ -405,7 +414,7 @@ float hitungIsiPostfix(char postFix[], int *cek)
 	            			printf ("\t\t\t\t\t\tNilai di dalam akar tidak boleh minus, masukkan input kembali", a);
 	        				*cek = 1;
 						} else{
-							push(stack, (-1*akar(HitungNilaiMutlak(a), b)));
+							push(stack, (-1*akar(Mutlak(a), b)));
 						}
 					} else{
 						push(stack, akar(a, b));
@@ -436,12 +445,17 @@ float hitungIsiPostfix(char postFix[], int *cek)
 		else if(isOperator2(*token)){
             a = pop(stack).datafloat;
             switch (*token){
+            	case '!' :
+            		push(stack, faktorial(a));
+					break;
+				case '%' :																	
+					push(stack, Persen(a));
+					break;
             	case '|' :
-            		push(stack, HitungNilaiMutlak(a));
+            		push(stack, Mutlak(a));
 					break;
 				case 'i' :																	//sin dengan input derajat
 					push(stack, sinDerajat(a));
-					
 					break;
 				case 'I' :																	//sin dengan input radian
 					push(stack, sinRad(a));
