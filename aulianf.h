@@ -5,41 +5,24 @@
 #define pi 3.14159265
 #define max 10
 
-/* 					AKAR				 */
+double akar(double bilangan, double pangkat);
 
-// Menghitung akar
-double akar(double bilangan1, double bilangan2);
+double eksponen(double bilangan, double pangkat);
 
-/* 					PANGKAT				 */
+double sinRad(double bilangan);
 
-// Menghitung bilangan berpangkat
-double eksponen (double bilangan1, double bilangan2);
+double sinDerajat(double bilangan);
 
-/* 					SIN				 */
-// Menghitung sin dalam radian
-double sinRad(double angka);
+double cosecRad(double bilangan);
 
-// Menghitung sin dalam derajat
-double sinDerajat(double angka);
+double cosecDerajat(double bilangan);
 
-// Menghitung invers sin dalam radian
 double sinInversRad(double angka);
 
-// Menghitung invers sin dalam derajat
 double sinInversDerajat(double angka);
-
-/* 					COSEC				 */
-
-// Menghitung cosec dalam radian
-double cosecRad(double angka);
-
-// Menghitung cosec dalam derajat
-double cosecDerajat(double angka);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/* 					MATRIKS				 */
 
 // Menampilkan matriks pertambahan dan pengurangan dengan tipe data double
 void printMatriks(double matriks[max][max], int baris, int kolom);
