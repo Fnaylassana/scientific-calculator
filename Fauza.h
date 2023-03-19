@@ -18,7 +18,9 @@ typedef struct
     int top;
 } Stack;
 
-float HitungNilaiMutlak (float nilai);
+float Mutlak (float nilai);
+
+float Persen (float nilai);
 
 Stack* alloc();
 
