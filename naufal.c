@@ -17,9 +17,12 @@ float pengurangan(float nilai1, float nilai2){
 }
 
 float perkalian(float nilai1, float nilai2){
-	float temp;
+	float temp, i;
+	temp = 0;
 	
-	temp = nilai1 * nilai2;
+	for (i = 1; i <= nilai2; i++) {
+    temp += nilai1;
+    }
 	
 	return temp;
 }
@@ -27,47 +30,51 @@ float perkalian(float nilai1, float nilai2){
 float pembagian(float nilai1, float nilai2){
 	float temp;
 	
-	temp = nilai1 / nilai2;
+	temp = 0;
+	while (nilai1 >= nilai2) {
+    nilai1 -= nilai2;
+    temp++;
+    }
 	
 	return temp;
 }
 
 float faktorial(float angka){
-	float temp;
-	int i;
+	float temp, i;
 	 
 	temp = 1;
 	
 	for(i=1;i<=angka;i++){
-		temp = temp * i;
+	temp = perkalian(temp, i);
 	}
 	
 	return temp;
 }
 
-float modulus(int nilai1, int nilai2){
-	float temp;
+int modulus(int nilai1, int nilai2){
 	
-	temp = nilai1 % nilai2;
-	
-	return temp;
+    while (nilai1 >= nilai2) {
+    nilai1 -= nilai2;
+    }
+    
+	return nilai1;
 }
 
 float kombinasi(float nilai1, float nilai2){
 	float hasil, i, x1=1, x2=1, x3=1;
 
 	for(i=1;i<=nilai1;i++){
-        x1=x1*i;
+        x1 = perkalian(x1, i);
     }
     
 	for(i=1;i<=nilai2;i++){
-        x2=x2*i;
+        x2 = perkalian(x2, i);
     }
     
 	for(i=1;i<=nilai1-nilai2;i++){
-        x3=x3*i;
+        x3 = perkalian(x3, i);
 	}
-	hasil=x1/(x2*x3);
+	hasil = pembagian(x1, (perkalian(x2, x3)));
 	return hasil;
 }
 
@@ -75,14 +82,14 @@ float permutasi(float nilai1, float nilai2){
 	float hasil, i, x1=1, x2=1, x3=1;
 
 	for(i=1;i<=nilai1;i++){
-        x1=x1*i;
+        x1 = perkalian(x1, i);
     }
     
     for(i=1;i<=nilai1-nilai2;i++){
-        x2=x2*i;
+        x2= perkalian(x2, i);
     }
     
-    hasil=x1/x2;
+    hasil= pembagian(x1, x2);
     
     return hasil;
 }

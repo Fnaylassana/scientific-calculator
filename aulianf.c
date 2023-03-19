@@ -1,4 +1,5 @@
 #include "aulianf.h"
+#include "Fauza.h"
 
 double akar(double bilangan1, double bilangan2)
 // Menghitung akar

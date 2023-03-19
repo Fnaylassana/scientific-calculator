@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "math.h"
 #include <ctype.h>
 #define max 10
 
@@ -41,11 +40,9 @@ int negativeInteger(char *infix,char c,int ptr);
 
 int isAfter(Stack *s);
 
-char *infixToPostfix(char *infix,char *postfix, int *cek);
+char *infixToPostfix(char *infix, char *postfix, int *cek);
 
-float hitungIsiPostfix(char postFix[]);
-
-void kalkulator();
+float hitungIsiPostfix(char postFix[], int *cek);
 
 void push(Stack *s, float val);
 
@@ -54,17 +51,7 @@ void pushChar(Stack *s, char c);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void FiturLain();
-
-void Sigma();
-
-void KonversiSuhu();
-
-void Matriks();
-
-void Perkalian2Matriks(float mat1[max][max], float mat2[max][max], float hasil[max][max], int baris1, int kolom1, int kolom2);
-
-void PerkalianSkalarMatriks(float matriks[max][max], int baris, int kolom);
+void header();
 
 void Input1Int(int *angka);
 

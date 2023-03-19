@@ -5,9 +5,11 @@
 #include <conio.h>
 
 
-float Log(float Angka1);
+float Log(int Angka1);
 
-float Logaritma (float Angka1,float Angka2);
+float Logaritma (float X,float Y);
+
+float Eurel (float nilai, float e);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -73,8 +75,6 @@ float ConMMkeCM (float mm);
 float ConMMkeKM (float mm);
 
 float ConMMkeINC (float mm);
-
-float Eksponen10 (float nilai, float e);
 
 void KonversiPanjang ();
 

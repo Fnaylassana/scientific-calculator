@@ -9,7 +9,7 @@ float pengurangan(float nilai1, float nilai2);
 float perkalian(float nilai1, float nilai2);
 float pembagian(float nilai1, float nilai2);
 float faktorial(float angka);
-float modulus(int nilai1, int nilai2);
+int modulus(int nilai1, int nilai2);
 float kombinasi(float nilai1, float nilai2);
 float permutasi(float nilai1, float nilai2);
 

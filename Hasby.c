@@ -1,18 +1,70 @@
 #include "Hasby.h"
+#include "Fauza.h"
 
-float Log(float Angka1){
+
+float Log(int Angka1){ //log basis 10
+	
 	float Hasil;
-
-    Hasil = log10(Angka1);
+	Hasil = 0;
+    
+	while (Angka1 >= 10) {
+        Hasil++;
+        Angka1 /= 10;
+    }
+    
+    while (Angka1 % 2 == 0){ 	
+		Hasil += 0.30103;  	
+		Angka1 /= 2;
+	}
+	
+    while (Angka1 % 3 == 0){
+		Hasil += 0.47712;  	
+		Angka1 /= 3;
+	}
+	
+    while (Angka1 % 5 == 0){
+		Hasil += 0.69897;  	
+		Angka1 /= 5;
+	}
+	
+    while (Angka1 % 7 == 0){
+		Hasil += 0.84510;  	
+		Angka1 /= 7;
+	}
+	
    return Hasil;
 }
 
-float Logaritma (float Angka1, float Angka2){
-	float Hitung;
-
-    Hitung = log10(Angka2) / log10(Angka1);
-   return Hitung;
+float Logaritma(float X, float Y){
+	float Hasil; 
+	
+	Hasil = 0;
+	
+	while (X >= Y) {
+        Hasil++;
+        X /= Y;
+    }
+    
+    return Hasil;
 }
+
+float Eurel (float nilai, float e){   //eurel
+	float hasil;
+	hasil = 1;
+        
+    if(e > 0){
+		while (e != 0)
+	    {
+	        hasil = hasil * 10;
+	        e = e - 1;
+	    } 
+    } 
+    
+    hasil = nilai * hasil;
+    
+    return hasil;
+} 
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -211,22 +263,6 @@ float ConMMkeINC (float mm){
 	return inc;
 }
 
-float Eksponen10 (float nilai, float e){   
-	float hasil;
-	hasil = 1;
-        
-    if(e > 0){
-		while (e != 0)
-	    {
-	        hasil = hasil * 10;
-	        e = e - 1;
-	    } 
-    } 
-    
-    hasil = nilai * hasil;
-    
-    return hasil;
-} 
 
 
 void KonversiPanjang()

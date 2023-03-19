@@ -1,7 +1,10 @@
 #include "aryagara2.h"
 #include "aulianf.h"
+#include "naufal.h"
 #include "Fauza.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
 
 float hitungLog(float angka)
 {
@@ -23,15 +26,22 @@ float cosRad(float angka)
 	return rad;
 }
 
-float cosNilai(float angka)
+float cosNilai(float angka, int terms)
 {
-	float nilai, derajat;
-	
-	nilai = pi/180;
-	derajat = cosf(angka * nilai);
-	
-	return derajat;
+  	terms = 10;
+    float radian = angka * pi / 180;
+	float hasil = 1;
+	float tanda = -1;
+	for(int n = 1; n <= terms; n++)
+	{
+		float term = eksponen(radian, 2*n)/faktorial(2*n);
+		hasil += tanda * term;
+		tanda *= -1;
+	}
+	return hasil;
 }
+
+
 
 float cosInvers(float angka)
 {
@@ -173,7 +183,7 @@ void inversTrigonometri()
 		} while (pilih != 1 && pilih != 2 && pilih != 3);
 		
 	    printf ("\n\t\t\t\t\t\tApakah anda ingin menghitung invers trigonometri kembali? (y/t)");
-	    lagi = getche();
+	    lagi = getchar();
 	}while (lagi == 'y' || lagi == 'Y');
 }
 
