@@ -20,7 +20,7 @@ int main()
 		puts	("\t\t\t\t\t==  2. x-y untuk operasi kurang                                                                                                    ==");
 		puts	("\t\t\t\t\t==  3. x*y untuk operasi kali                                                                                                      ==");
 		puts	("\t\t\t\t\t==  4. x/y untuk operasi bagi                                                                                                      ==");
-		puts	("\t\t\t\t\t==  5. xmody untuk operasi modulus                                                                                                 ==");
+		puts	("\t\t\t\t\t==  5. xmod(y) untuk operasi modulus                                                                                               ==");
 		puts	("\t\t\t\t\t==  6. (x) untuk tanda kurung                                                                                                      ==");
 		puts	("\t\t\t\t\t==  7. |x| untuk mutlak                                                                                                            ==");
 		puts	("\t\t\t\t\t==  8. x! untuk operasi faktorial                                                                                                  ==");
@@ -42,10 +42,13 @@ int main()
 		puts	("\t\t\t\t\t==  24. secR(x) untuk operasi secan (x berupa radian)                                                                              ==");
 		puts	("\t\t\t\t\t==  25. cot(x) untuk operasi cotangen (x berupa derajat)                                                                           ==");
 		puts	("\t\t\t\t\t==  26. cotR(x) untuk operasi cotangen (x berupa radian)                                                                           ==");
-		puts	("\t\t\t\t\t==  27. log(x) untuk operasi logaritma 10                                                                                          ==");
+		puts	("\t\t\t\t\t==  27. log(x) untuk operasi logaritma berbasis 10                                                                                 ==");
 		puts	("\t\t\t\t\t==  28. ln(x) untuk operasi logaritma natural                                                                                      ==");
-		puts	("\t\t\t\t\t==  29. ylog(x) untuk operasi logaritma basis bebas (y sebagai basis)                                                              ==");
-		puts	("\t\t\t\t\t==  30. xey untuk euler (x * 10^y)                                                                                                 ==");
+		puts	("\t\t\t\t\t==  29. (y)log(x) untuk operasi logaritma berbasis bebas (dengan y sebagai basis)                                                  ==");
+		puts	("\t\t\t\t\t==  30. (x)e(y) untuk euler (x * 10^y)                                                                                             ==");
+		puts	("\t\t\t\t\t==  31. sigI1(x) untuk operasi sigma i (dengan x sebagai nilai n)                                                                  ==");
+		puts	("\t\t\t\t\t==  32. sigI2(x) untuk operasi sigma i kaudrat (dengan x sebagai nilai n)                                                          ==");
+		puts	("\t\t\t\t\t==  33. sigI3(x) untuk operasi sigma i kubik (dengan x sebagai nilai n)                                                            ==");
 		puts	("\t\t\t\t\t=====================================================================================================================================");
     	
     	ulang = 0;	    	
@@ -59,7 +62,7 @@ int main()
 			printf("\t\t\t\t\t\tPostfix : %s\n", temp);                                                                    
 	    	hasil = hitungIsiPostfix(postfix, &ulang);
 		} else{
-        	printf ("\t\t\t\t\t\tInput anda tidak sesuai, cek kembali inputan anda");
+        	printf ("\t\t\t\t\t\tInput anda tidak sesuai, cek kembali inputan anda sesuai ketentuan");
 		}
 		
 	    if (ulang){

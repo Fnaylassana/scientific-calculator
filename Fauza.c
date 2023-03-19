@@ -112,7 +112,7 @@ int isOperator(char c)
 
 int isOperator2(char c)
 {
-    if( c=='|' || c == 'L'|| c=='p' || c == 'n'|| c=='i' || c=='I' || c=='s' || c=='S' || c=='o' || c=='O' || c=='a' || c=='A' || c=='t' || c=='T' || c=='g' || c=='G') {
+    if( c=='|' || c == 'L'|| c=='p' || c == 'n' || c == 'z'|| c=='Z' || c == 'E' || c=='i' || c=='I' || c=='s' || c=='S' || c=='o' || c=='O' || c=='a' || c=='A' || c=='t' || c=='T' || c=='g' || c=='G') {
 		return 1;
 	}else{
 		return 0;
@@ -164,11 +164,21 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
         	y = ptr;
             ptr+=strlen(temp);
             if ((infix[y+2] != '(' && infix[y+3] != '(' && infix[y+4] != '(' && infix[y+5] != '(')){
-	        	printf ("\t\t\t\t\t\tInput trigonometri, logaritma, dan modulus harus menggunakan tanda kurung");
 	        	*cek = 1;
 			}
         	if (infix[y]=='s' && infix[y+1]=='i' && infix[y+3]=='r'){
                 pushChar(s,'I'); 
+			}
+			else if (infix[y]=='s' && infix[y+1]=='i' && infix[y+2]=='g'){
+				if(infix[y+4] == '1'){
+					pushChar(s,'z'); 
+				}
+				else if(infix[y+4] == '2'){
+					pushChar(s,'Z'); 
+				}
+				else if(infix[y+4] == '3'){
+					pushChar(s,'E'); 
+				}
 			}
 			else if (infix[y]=='s' && infix[y+1]=='i'){
                 pushChar(s,'i'); 
@@ -217,11 +227,8 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
 	    	}
 		}
 		else if (infix[ptr]=='p'){
-        	temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,");
-			*temp2 = 'p';
+            pushChar(s,'p'); 
             ptr+=2;
-            strcat(postfix, temp2);
-            strcat(postfix, oneSpace);
 		}
 		else if(infix[ptr]=='|' && mutlak==1)
         {
@@ -508,6 +515,15 @@ float hitungIsiPostfix(char postFix[], int *cek)
 					break;
 				case 'L' :																	//hitung logaritma 10
 					push(stack, Log(a));
+					break;
+				case 'z' :																	//sigma i
+	        		push(stack, Sigmai(a));
+					break;	
+				case 'Z' :																	//sigma i kuadrat
+					push(stack, Sigmaidua(a));
+					break;
+				case 'E' :																	//sigma i kubik
+					push(stack, Sigmaitiga(a));
 					break;
 	            default:
 	                break;
