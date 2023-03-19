@@ -5,7 +5,7 @@
 
 float hitungLog(float angka); //referensi dari programiz
 float cosRad(float angka); //referensi dari programiz
-float cosNilai(float angka); //referensi konversi radian ke derajat dari programiz
+float cosNilai(float angka, int terms); //referensi konversi radian ke derajat dari programiz
 float secRad(float angka); 
 float secDerajat(float angka);
 float tanDerajat(float angka);
