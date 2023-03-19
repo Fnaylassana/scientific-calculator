@@ -1,19 +1,19 @@
 #include "aulianf.h"
 #include "Fauza.h"
 
-float akar(float bilangan1, float bilangan2)
+double akar(double bilangan1, double bilangan2)
 // Menghitung akar
 {
-	float hasil;
+	double hasil;
 	bilangan2 = 1/bilangan2;
 	hasil = pow(bilangan1, bilangan2);
 	return hasil;
 }
 
-float eksponen(float bilangan1, float bilangan2)
+double eksponen(double bilangan1, double bilangan2)
 // Menghitung bilangan berpangkat
 {   
-	float hasil;
+	double hasil;
 	hasil = 1;
         
     if(bilangan2 > 0){
@@ -36,53 +36,53 @@ float eksponen(float bilangan1, float bilangan2)
     return hasil;
 } 
 
-float sinRad(float angka)
+double sinRad(double angka)
 // Menghitung sin dalam radian
 {
-	float rad;
+	double rad;
 	rad = sin(angka); 
 	return rad;
 }
 
-float sinDerajat(float angka)
+double sinDerajat(double angka)
 // Menghitung sin dalam derajat
 {
-	float nilai, derajat;
+	double nilai, derajat;
 	nilai = pi/180;
 	derajat = sinf(angka*nilai);
 	return derajat;
 }
 
-float sinInversRad(float angka)
+double sinInversRad(double angka)
 // Menghitung invers sin dalam radian
 {
-	float rad;
+	double rad;
 	rad = asinf(angka);
 	return rad;
 } 
 
-float sinInversDerajat(float angka)
+double sinInversDerajat(double angka)
 // Menghitung invers sin dalam derajat
 {
-	float nilai, derajat;
+	double nilai, derajat;
 	nilai = 180/pi;
 	derajat = ((asinf(angka))*nilai);
 	return derajat;
 } 
 
-float cosecRad(float angka)
+double cosecRad(double angka)
 // Menghitung cosec dalam radian
 {
-	float rad, cosec;
+	double rad, cosec;
 	rad = sinf(angka); 
 	cosec = 1/rad;
 	return cosec;
 }
 
-float cosecDerajat(float angka)
+double cosecDerajat(double angka)
 // Menghitung cosec dalam derajat
 {
-	float nilai, derajat, cosec;
+	double nilai, derajat, cosec;
 	nilai = pi/180;
 	derajat = sinf(angka*nilai);
 	cosec = 1/derajat;
@@ -92,7 +92,7 @@ float cosecDerajat(float angka)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void printMatriks(float matriks[max][max], int baris, int kolom) 
+void printMatriks(double matriks[max][max], int baris, int kolom) 
 // Menampilkan matriks pertambahan dan pengurangan
 {
     int i, j;
@@ -105,7 +105,7 @@ void printMatriks(float matriks[max][max], int baris, int kolom)
     }
 }
 
-void inputMatriks(float matriks[max][max], int baris, int kolom) 
+void inputMatriks(double matriks[max][max], int baris, int kolom) 
 // Input elemen pada matriks pertambahan dan pengurangan
 {
     int i, j;
@@ -143,7 +143,7 @@ void inputMatriksDet(int matriks[max][max], int baris, int kolom)
    }
 }
 
-float hitungPertambahanMatriks(float hasil[max][max], float matriksA[max][max], float matriksB[max][max], int baris, int kolom)
+double hitungPertambahanMatriks(double hasil[max][max], double matriksA[max][max], double matriksB[max][max], int baris, int kolom)
 // Penjumlahan dua buah matriks
 {
 	int i, j;
@@ -156,7 +156,7 @@ float hitungPertambahanMatriks(float hasil[max][max], float matriksA[max][max], 
 	}
 }
 
-float hitungPenguranganMatriks(float hasil[max][max], float matriksA[max][max], float matriksB[max][max], int baris, int kolom)
+double hitungPenguranganMatriks(double hasil[max][max], double matriksA[max][max], double matriksB[max][max], int baris, int kolom)
 // Pengurangan dua buah matriks
 {
 	int i, j;
@@ -255,9 +255,9 @@ void pertambahanMatriks()
 // Menampilkan pertambahan matriks
 {
 	int barisA, barisB, kolomA, kolomB;
-	float matriksA[max][max];
-	float matriksB[max][max];
-	float hasilMatriks[max][max], i, j;
+	double matriksA[max][max];
+	double matriksB[max][max];
+	double hasilMatriks[max][max], i, j;
 	 
 	printf("\t\t\t\t\t\tPERTAMBAHAN MATRIKS");
 	printf("\n\t\t\t\t\t\t(Jumlah baris dan kolom harus sama)");
@@ -320,9 +320,9 @@ void penguranganMatriks()
 // Menampilkan pengurangan matriks
 {
 	int barisA, barisB, kolomA, kolomB;
-	float matriksA[max][max];
-	float matriksB[max][max];
-	float hasilMatriks[max][max], i, j;
+	double matriksA[max][max];
+	double matriksB[max][max];
+	double hasilMatriks[max][max], i, j;
 
 	printf("\t\t\t\t\t\tPENGURANGAN MATRIKS");
 	printf("\n\t\t\t\t\t\t(Jumlah baris dan kolom harus sama)");

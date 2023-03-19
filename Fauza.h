@@ -22,7 +22,7 @@ float Mutlak (float nilai);
 
 float Persen (float nilai);
 
-Stack* alloc();
+Stack* alloc();	
 
 int isEmpty(Stack *s);
 
