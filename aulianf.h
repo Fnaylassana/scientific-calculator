@@ -8,44 +8,44 @@
 /* 					AKAR				 */
 
 // Menghitung akar
-float akar(float bilangan1, float bilangan2);
+double akar(double bilangan1, double bilangan2);
 
 /* 					PANGKAT				 */
 
 // Menghitung bilangan berpangkat
-float eksponen (float bilangan1, float bilangan2);
+double eksponen (double bilangan1, double bilangan2);
 
 /* 					SIN				 */
 // Menghitung sin dalam radian
-float sinRad(float angka);
+double sinRad(double angka);
 
 // Menghitung sin dalam derajat
-float sinDerajat(float angka);
+double sinDerajat(double angka);
 
 // Menghitung invers sin dalam radian
-float sinInversRad(float angka);
+double sinInversRad(double angka);
 
 // Menghitung invers sin dalam derajat
-float sinInversDerajat(float angka);
+double sinInversDerajat(double angka);
 
 /* 					COSEC				 */
 
 // Menghitung cosec dalam radian
-float cosecRad(float angka);
+double cosecRad(double angka);
 
 // Menghitung cosec dalam derajat
-float cosecDerajat(float angka);
+double cosecDerajat(double angka);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* 					MATRIKS				 */
 
-// Menampilkan matriks pertambahan dan pengurangan dengan tipe data float
-void printMatriks(float matriks[max][max], int baris, int kolom);
+// Menampilkan matriks pertambahan dan pengurangan dengan tipe data double
+void printMatriks(double matriks[max][max], int baris, int kolom);
 
-// Input elemen pada matriks pertambahan dan pengurangan dengan tipe data float
-void inputMatriks(float matriks[max][max], int baris, int kolom);
+// Input elemen pada matriks pertambahan dan pengurangan dengan tipe data double
+void inputMatriks(double matriks[max][max], int baris, int kolom);
 
 // Menampilkan matriks determinan dengan tipe data int
 void printMatriksDet(int matriks[max][max], int baris, int kolom);
@@ -54,10 +54,10 @@ void printMatriksDet(int matriks[max][max], int baris, int kolom);
 void inputMatriksDet(int matriks[max][max], int baris, int kolom);
 
 // Menghitung pertambahan Matriks
-float hitungPertambahanMatriks(float hasil[max][max], float matriksA[max][max], float matriksB[max][max], int baris, int kolom);
+double hitungPertambahanMatriks(double hasil[max][max], double matriksA[max][max], double matriksB[max][max], int baris, int kolom);
 
 // Menghitung pengurangan Matriks
-float hitungPenguranganMatriks(float hasil[max][max], float matriksA[max][max], float matriksB[max][max], int baris, int kolom);
+double hitungPenguranganMatriks(double hasil[max][max], double matriksA[max][max], double matriksB[max][max], int baris, int kolom);
 
 // Menghitung determinan dengan kofaktor
 int hitungKofaktor(int matriks[max][max], int temp[max][max], int p, int q, int ordo);
