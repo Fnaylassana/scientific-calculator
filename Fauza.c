@@ -36,9 +36,9 @@ double Persen (double nilai){
 	return nilai;
 }
 
-////Referensi:
-///MOHAMED FARID ABDELAZIZ SALAMA 6905
-///ADHAM MOHAMED ALY ABDELHAMID 6744
+//Referensi:
+//MOHAMED FARID ABDELAZIZ SALAMA 6905
+//ADHAM MOHAMED ALY ABDELHAMID 6744
 
 Stack* alloc()
 {
@@ -333,7 +333,7 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
                 char tempChar3 = '-';
                 strncat(temp2, &tempChar3, 1);
                 strcpy(tempInfix, infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,`~@#$&][{}:;''<>?\"qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,`~@#$&][{}:;''<>?\"qwrtyuiokjhgfdsazxbn");
                 ptr += strlen(temp) + 1;
                 strcat(temp2, temp);
                 strcat(postfix, temp2);
@@ -342,7 +342,7 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
             else
             {
                 strcpy(tempInfix,infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,`~@#$&][{}:;''<>?\"qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,`~@#$&][{}:;''<>?\"qwrtyuiokjhgfdsazxbn");
                 ptr+=strlen(temp);
                 strcat(postfix, temp);
                 strcat(postfix, oneSpace);
