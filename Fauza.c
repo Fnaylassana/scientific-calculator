@@ -20,7 +20,7 @@ void header()
 	puts	("\t\t\t\t\t================================================================================================================================\n\n");	
 }
 
-float Mutlak (float nilai){
+double Mutlak (double nilai){
 	
 	if (nilai < 0){
 		nilai = nilai * -1;
@@ -29,7 +29,7 @@ float Mutlak (float nilai){
 	return nilai;
 }
 
-float Persen (float nilai){
+double Persen (double nilai){
 	
 	nilai = nilai/100;
 	
@@ -67,9 +67,9 @@ Item pop(Stack *s)
     return s->item[s->top--];
 }
 
-void push(Stack *s, float val)
+void push(Stack *s, double val)
 {
-    s->item[++s->top].datafloat = val;
+    s->item[++s->top].datadouble = val;
 }
 
 void pushChar(Stack *s, char c)
@@ -152,7 +152,7 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
 {
     char oneSpace[] = " ", tempInfix[256];
     int  ptr = 0;
-    float x;
+    double x;
     int y, mutlak=0;
     char *temp, *temp2, *temp3;
     Stack *s = alloc();
@@ -236,7 +236,8 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
 			}
 		}
 		else if (infix[ptr]=='p'){
-            pushChar(s,'p'); 
+            strcat(postfix, "p");
+            strcat(postfix, oneSpace);
             ptr+=2;
 		}
 		else if(infix[ptr]=='|' && mutlak==1)
@@ -371,9 +372,9 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
     return postfix;
 }
 
-float hitungIsiPostfix(char postFix[], int *cek)
+double hitungIsiPostfix(char postFix[], int *cek)
 {
-    float a, b;
+    double a, b;
     Stack *stack = alloc();
     char *token = strtok(postFix," ");
 
@@ -385,8 +386,8 @@ float hitungIsiPostfix(char postFix[], int *cek)
         }
         else if(isOperator(*token))
         {
-            a = pop(stack).datafloat;
-            b = pop(stack).datafloat;
+            a = pop(stack).datadouble;
+            b = pop(stack).datadouble;
             switch(*token){
 	            case '+':
 	                push(stack, pertambahan(b, a));
@@ -443,7 +444,7 @@ float hitungIsiPostfix(char postFix[], int *cek)
 			push(stack, pi);
 		} 
 		else if(isOperator2(*token)){
-            a = pop(stack).datafloat;
+            a = pop(stack).datadouble;
             switch (*token){
             	case '!' :
             		push(stack, faktorial(a));
@@ -545,7 +546,7 @@ float hitungIsiPostfix(char postFix[], int *cek)
 		} 
         token = strtok(NULL, " "); 
     }
-    return pop(stack).datafloat;
+    return pop(stack).datadouble;
 }
 
 void Input1Int(int *angka)
@@ -568,7 +569,7 @@ void Input1Double(double *angka)
 	scanf  ("%lf", &(*angka));
 }
 
-void Input1Float(float *angka)
+void Input1Float(double *angka)
 {
 	printf ("\n\t\t\t\t\t\tMasukkan operan : ");
 	scanf  ("%f", &(*angka));

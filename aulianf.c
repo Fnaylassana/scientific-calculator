@@ -20,15 +20,16 @@ double eksponen(double bilangan, double pangkat)
 // Menghitung bilangan berpangkat
 {
     double hasil = 1;
+    int i;
     
     if(pangkat > 0){
-    	for (int i = 1; i <= pangkat; i++) 
+    	for (i = 1; i <= pangkat; i++) 
 		{
         	hasil *= bilangan;
 		}
 	} else {
 		if(pangkat < 0){
-		    	for (int i = 1; i <= -pangkat; i++) 
+		    	for (i = 1; i <= -pangkat; i++) 
 				{
 		        	hasil *= bilangan;
 				}
@@ -45,8 +46,9 @@ double sinRad(double bilangan)
 	int n = 10; 								// jumlah suku deret Taylor yang dihitung
 	double rad = 0;
 	double tanda, pembilang, penyebut;
+	int i;
 	
-	for (int i = 0; i <= n; i++) 
+	for (i = 0; i <= n; i++) 
    {
       tanda = (i % 2 == 0) ? 1 : -1;				// menentukan tanda suku deret Taylor
       pembilang = eksponen(bilangan, 2 * i + 1);	// menghitung nilai pembilang pada setiap suku deret Taylor

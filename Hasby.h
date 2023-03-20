@@ -5,76 +5,76 @@
 #include <conio.h>
 
 
-float Log(int Angka1);
+double Log(int Angka1);
 
-float Logaritma (float X,float Y);
+double Logaritma (double X,double Y);
 
-float Eurel (float nilai, float e);
+double Eurel (double nilai, double e);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-float ConCelFahr(float celc);
+double ConCelFahr(double celc);
 
-float ConCelKelv(float celc);
+double ConCelKelv(double celc);
 
-float ConCelReam(float celc);
+double ConCelReam(double celc);
 
-float ConFahrCel(float fahr);
+double ConFahrCel(double fahr);
 
-float ConFahrKelv(float fahr);
+double ConFahrKelv(double fahr);
 
-float ConFahrReam(float fahr);
+double ConFahrReam(double fahr);
 
-float ConKelvCel(float fahr);
+double ConKelvCel(double fahr);
 
-float ConKelvFahr(float fahr);
+double ConKelvFahr(double fahr);
 
-float ConKelvReam(float fahr);
+double ConKelvReam(double fahr);
 
-float ConReamCel(float ream);
+double ConReamCel(double ream);
 
-float ConReamFahr(float ream);
+double ConReamFahr(double ream);
 
-float ConReamKelv(float ream);
+double ConReamKelv(double ream);
 
-float Sigmai(float en);
+double Sigmai(double en);
 
-float Sigmaidua(float en);
+double Sigmaidua(double en);
 
-float Sigmaitiga(float en);
+double Sigmaitiga(double en);
 
-float ConMkeCM (float met);
+double ConMkeCM (double met);
 
-float ConMkeKM (float met);
+double ConMkeKM (double met);
 
-float ConMkeMIL (float met);
+double ConMkeMIL (double met);
 
-float ConMkeMM (float met);
+double ConMkeMM (double met);
 
-float ConCMkeM (float cm);
+double ConCMkeM (double cm);
 
-float ConCMkeMM (float cm);
+double ConCMkeMM (double cm);
 
-float ConCMkeKM (float cm);
+double ConCMkeKM (double cm);
 
-float ConCMkeINC (float cm);
+double ConCMkeINC (double cm);
 
-float ConKMkeCM (float km);
+double ConKMkeCM (double km);
 
-float ConKMkeM (float km);
+double ConKMkeM (double km);
 
-float ConKMkeMIL (float km);
+double ConKMkeMIL (double km);
 
-float ConKMkeMM (float km);
+double ConKMkeMM (double km);
 
-float ConMMkeM (float mm);
+double ConMMkeM (double mm);
 
-float ConMMkeCM (float mm);
+double ConMMkeCM (double mm);
 
-float ConMMkeKM (float mm);
+double ConMMkeKM (double mm);
 
-float ConMMkeINC (float mm);
+double ConMMkeINC (double mm);
 
 void KonversiPanjang ();
 

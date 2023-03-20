@@ -3,28 +3,28 @@
 #include <stdio.h>
 #include <math.h>
 
-float hitungLog(float angka); //referensi dari programiz
-float cosRad(float angka); //referensi dari programiz
+double hitungLog(double angka); //referensi dari programiz
+double cosRad(double angka); //referensi dari programiz
 double cosNilai(double angka); //referensi konversi radian ke derajat dari programiz
-float secRad(float angka); 
-float secDerajat(float angka);
-float tanDerajat(float angka);
-float tanRad(float angka);
-float cotRad(float angka);
-float cotDerajat(float angka);
+double secRad(double angka); 
+double secDerajat(double angka);
+double tanDerajat(double angka);
+double tanRad(double angka);
+double cotRad(double angka);
+double cotDerajat(double angka);
 
-float cosInvers(float angka); 
-float cosInversNilai(float angka); //konversi radian ke derajat mendapat referensi dari tutorialspoint
-float tanInvers(float angka); 
-float tanInversNilai(float angka);
+double cosInvers(double angka); 
+double cosInversNilai(double angka); //konversi radian ke derajat mendapat referensi dari tutorialspoint
+double tanInvers(double angka); 
+double tanInversNilai(double angka);
 void inversTrigonometri(); //referensi dari Hasby
-void cekInversRad(float angka, float p, int *cek);
-void cekInversDerajat(float angka, float p);
-void cekTidakTerdefinisiR(float angka, float p, int *cek);
-void cekTidakTerdefinisiD(float angka, float p);
-void cekTidakTerdefinisiCotR(float angka, float p, int *cek);
-void cekTidakTerdefinisiCotD(float angka, float p);
-void cekTidakTerdefinisiCscR(float angka, float p, int *cek);
-void cekTidakTerdefinisiCscD(float angka, float p);
+void cekInversRad(double angka, double p, int *cek);
+void cekInversDerajat(double angka, double p);
+void cekTidakTerdefinisiR(double angka, double p, int *cek);
+void cekTidakTerdefinisiD(double angka, double p);
+void cekTidakTerdefinisiCotR(double angka, double p, int *cek);
+void cekTidakTerdefinisiCotD(double angka, double p);
+void cekTidakTerdefinisiCscR(double angka, double p, int *cek);
+void cekTidakTerdefinisiCscD(double angka, double p);
 
 #endif

@@ -8,7 +8,7 @@
 
 typedef union
 {
-    float datafloat;
+    double datadouble;
     char  datachar;
 } Item;
 
@@ -18,9 +18,9 @@ typedef struct
     int top;
 } Stack;
 
-float Mutlak (float nilai);
+double Mutlak (double nilai);
 
-float Persen (float nilai);
+double Persen (double nilai);
 
 Stack* alloc();	
 
@@ -44,9 +44,9 @@ int isAfter(Stack *s);
 
 char *infixToPostfix(char *infix, char *postfix, int *cek);
 
-float hitungIsiPostfix(char postFix[], int *cek);
+double hitungIsiPostfix(char postFix[], int *cek);
 
-void push(Stack *s, float val);
+void push(Stack *s, double val);
 
 void pushChar(Stack *s, char c);
 
@@ -61,6 +61,6 @@ void Input2Int(int *angka1, int *angka2);
 
 void Input1Double(double *angka);
 
-void Input1Float(float *angka);
+void Input1Float(double *angka);
 
 #endif

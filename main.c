@@ -6,7 +6,7 @@ int main()
     char input[256];
     char lagi = 'y';
 	char *x, *temp;
-    float hasil;
+    double hasil;
     int ulang;    
     
     while(lagi == 'y' || lagi == 'Y')

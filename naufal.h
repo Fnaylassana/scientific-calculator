@@ -4,18 +4,18 @@
 #include <math.h>
 #define max 10
 
-float pertambahan(float nilai1, float nilai2);
-float pengurangan(float nilai1, float nilai2);
-float perkalian(float nilai1, float nilai2);
-float pembagian(float nilai1, float nilai2);
-float faktorial(float angka);
+double pertambahan(double nilai1, double nilai2);
+double pengurangan(double nilai1, double nilai2);
+double perkalian(double nilai1, double nilai2);
+double pembagian(double nilai1, double nilai2);
+double faktorial(double angka);
 int modulus(int nilai1, int nilai2);
-float kombinasi(float nilai1, float nilai2);
-float permutasi(float nilai1, float nilai2);
+double kombinasi(double nilai1, double nilai2);
+double permutasi(double nilai1, double nilai2);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void transposeMatriks (float matriks[max][max], float transpose[max][max], int baris, int kolom);
+void transposeMatriks (double matriks[max][max], double transpose[max][max], int baris, int kolom);
 
 #endif

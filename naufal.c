@@ -1,23 +1,23 @@
 #include "naufal.h"
 
-float pertambahan(float nilai1, float nilai2){
-	float temp;
+double pertambahan(double nilai1, double nilai2){
+	double temp;
 	
 	temp = nilai1 + nilai2;
 	
 	return temp;
 }
 
-float pengurangan(float nilai1, float nilai2){
-	float temp;
+double pengurangan(double nilai1, double nilai2){
+	double temp;
 	
 	temp = nilai1 - nilai2;
 	
 	return temp;
 }
 
-float perkalian(float nilai1, float nilai2){
-	float temp, i;
+double perkalian(double nilai1, double nilai2){
+	double temp, i;
 	temp = 0;
 	
 	for (i = 1; i <= nilai2; i++) {
@@ -27,8 +27,8 @@ float perkalian(float nilai1, float nilai2){
 	return temp;
 }
 
-float pembagian(float nilai1, float nilai2){
-	float temp;
+double pembagian(double nilai1, double nilai2){
+	double temp;
 	
 	temp = 0;
 	while (nilai1 >= nilai2) {
@@ -39,8 +39,8 @@ float pembagian(float nilai1, float nilai2){
 	return temp;
 }
 
-float faktorial(float angka){
-	float temp, i;
+double faktorial(double angka){
+	double temp, i;
 	 
 	temp = 1;
 	
@@ -60,8 +60,8 @@ int modulus(int nilai1, int nilai2){
 	return nilai1;
 }
 
-float kombinasi(float nilai1, float nilai2){
-	float hasil, i, x1=1, x2=1, x3=1;
+double kombinasi(double nilai1, double nilai2){
+	double hasil, i, x1=1, x2=1, x3=1;
 
 	for(i=1;i<=nilai1;i++){
         x1 = perkalian(x1, i);
@@ -78,8 +78,8 @@ float kombinasi(float nilai1, float nilai2){
 	return hasil;
 }
 
-float permutasi(float nilai1, float nilai2){
-	float hasil, i, x1=1, x2=1, x3=1;
+double permutasi(double nilai1, double nilai2){
+	double hasil, i, x1=1, x2=1, x3=1;
 
 	for(i=1;i<=nilai1;i++){
         x1 = perkalian(x1, i);
@@ -94,7 +94,7 @@ float permutasi(float nilai1, float nilai2){
     return hasil;
 }
 
-void transposeMatriks (float matriks[max][max], float transpose[max][max], int baris, int kolom)
+void transposeMatriks (double matriks[max][max], double transpose[max][max], int baris, int kolom)
 {
 	int i, j;
 	for (i = 0; i < baris; i ++){

@@ -6,9 +6,9 @@
 #include <stdlib.h>
 #include <conio.h>
 
-float hitungLog(float angka)
+double hitungLog(double angka)
 {
-	float hasil;
+	double hasil;
 	
     //Menghitung angka yang diiinput sebagai logaritma Natural
     hasil = log(angka);
@@ -16,9 +16,9 @@ float hitungLog(float angka)
     return hasil;
 }
 
-float cosRad(float angka)
+double cosRad(double angka)
 {
-	float rad;
+	double rad;
 	
 	//Menghitung angka yang diinput sebagai Cosinus, hasilnya akan menjadi radian
 	rad = cosf(angka);
@@ -33,9 +33,11 @@ double cosNilai(double angka)
     double radian = angka * pi / 180;
 	double hasil = 1;
 	double tanda = -1;
-	for(int n = 1; n <= suku; n++)
+	int n;
+	
+	for(n = 1; n <= suku; n++)
 	{
-		float nilaiSuku = eksponen(radian, 2*n)/faktorial(2*n);
+		double nilaiSuku = eksponen(radian, 2*n)/faktorial(2*n);
 		hasil += tanda * nilaiSuku;
 		tanda *= -1;
 	}
@@ -44,17 +46,17 @@ double cosNilai(double angka)
 
 
 
-float cosInvers(float angka)
+double cosInvers(double angka)
 {
-	float rad;
+	double rad;
 	rad = acosf(angka);
 	
 	return rad;
 }
 
-float cosInversNilai(float angka)
+double cosInversNilai(double angka)
 {
-	float nilai, derajat;
+	double nilai, derajat;
 
 	nilai = 180/pi;
 	derajat = ((acosf(angka)) * nilai);
@@ -62,9 +64,9 @@ float cosInversNilai(float angka)
 	return derajat;
 }
 
-float secRad(float angka)
+double secRad(double angka)
 {
-	float rad, sec;
+	double rad, sec;
 	
 	rad = cosf(angka);
 	sec = 1/rad;
@@ -73,9 +75,9 @@ float secRad(float angka)
 }
 
 
-float secDerajat(float angka)
+double secDerajat(double angka)
 {
-	float nilai, derajat;
+	double nilai, derajat;
 	
 	nilai = pi/180;
 	derajat = 1/(cosf(angka * nilai));
@@ -83,35 +85,35 @@ float secDerajat(float angka)
 	return derajat;
 }
 
-float tanRad(float angka)
+double tanRad(double angka)
 {
-	float rad;
+	double rad;
 	
 	rad = tanf(angka);
 	
 	return rad;
 }
 
-float tanDerajat(float angka)
+double tanDerajat(double angka)
 {
-	float nilai, derajat;
+	double nilai, derajat;
 	
 	nilai = pi/180;
 	derajat = tanf(angka * nilai);
 }
 
-float tanInvers(float angka)
+double tanInvers(double angka)
 {
-	float rad;
+	double rad;
 	
 	rad = atanf(angka);
 	
 	return rad;
 }
 
-float tanInversNilai(float angka)
+double tanInversNilai(double angka)
 {
-	float nilai, derajat;
+	double nilai, derajat;
 	
 	nilai = 180/pi;
 	derajat = ((atanf(angka)) * nilai );
@@ -119,9 +121,9 @@ float tanInversNilai(float angka)
 	return derajat;
 }
 
-float cotRad(float angka)
+double cotRad(double angka)
 {
-	float rad, cot;
+	double rad, cot;
 	
 	rad = tanf(angka);
 	cot = 1/rad;
@@ -129,9 +131,9 @@ float cotRad(float angka)
 	return cot;
 }
 
-float cotDerajat(float angka)
+double cotDerajat(double angka)
 {
-	float nilai, derajat;
+	double nilai, derajat;
 	
 	nilai = pi/180;
 	derajat = 1/(tanf(angka * nilai));
@@ -140,7 +142,7 @@ float cotDerajat(float angka)
 void inversTrigonometri()
 {
 	int pilih, lagi, c;
-	float angka1;
+	double angka1;
 	
 	do{
 		header();
@@ -188,7 +190,7 @@ void inversTrigonometri()
 	}while (lagi == 'y' || lagi == 'Y');
 }
 
-void cekInversRad(float angka, float p, int *cek)
+void cekInversRad(double angka, double p, int *cek)
 {
 	if (angka >= -1 && angka <= 1)
 	{
@@ -201,7 +203,7 @@ void cekInversRad(float angka, float p, int *cek)
 	}
 }
 
-void cekInversDerajat(float angka, float p)
+void cekInversDerajat(double angka, double p)
 {
 	if (angka >= -1 && angka <= 1) 
 	{
@@ -209,7 +211,7 @@ void cekInversDerajat(float angka, float p)
 	}
 }
 
-void cekTidakTerdefinisiR(float angka, float p, int *cek)
+void cekTidakTerdefinisiR(double angka, double p, int *cek)
 {
 	if (angka != 90 && angka != 270 && angka != 450)
 	{
@@ -222,7 +224,7 @@ void cekTidakTerdefinisiR(float angka, float p, int *cek)
 	}
 }
 
-void cekTidakTerdefinisiD(float angka, float p)
+void cekTidakTerdefinisiD(double angka, double p)
 {
 	if (angka != 90 && angka != 270 && angka != 450)
 	{
@@ -230,7 +232,7 @@ void cekTidakTerdefinisiD(float angka, float p)
 	}
 }
 
-void cekTidakTerdefinisiCotR(float angka, float p, int *cek)
+void cekTidakTerdefinisiCotR(double angka, double p, int *cek)
 {
 	if(angka != 0 && angka != 90 && angka != 180 && angka != 360 && angka != 540)
 	{
@@ -243,7 +245,7 @@ void cekTidakTerdefinisiCotR(float angka, float p, int *cek)
 	}
 }
 
-void cekTidakTerdefinisiCotD(float angka, float p)
+void cekTidakTerdefinisiCotD(double angka, double p)
 {
 	if(angka != 0 && angka != 90 && angka != 180 && angka != 360 && angka != 540)
 	{
@@ -251,7 +253,7 @@ void cekTidakTerdefinisiCotD(float angka, float p)
 	}
 }
 
-void cekTidakTerdefinisiCscR(float angka, float p, int *cek)
+void cekTidakTerdefinisiCscR(double angka, double p, int *cek)
 {
 	if(angka != 0 && angka != 180 && angka != 360 && angka != 540)
 	{
@@ -264,7 +266,7 @@ void cekTidakTerdefinisiCscR(float angka, float p, int *cek)
 	}
 }
 
-void cekTidakTerdefinisiCscD(float angka, float p)
+void cekTidakTerdefinisiCscD(double angka, double p)
 {
 	if(angka != 0 && angka != 180 && angka != 360 && angka != 540)
 	{

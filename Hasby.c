@@ -2,9 +2,9 @@
 #include "Fauza.h"
 
 
-float Log(int Angka1){ //log basis 10
+double Log(int Angka1){ //log basis 10
 	
-	float Hasil;
+	double Hasil;
 	Hasil = 0;
     
 	while (Angka1 >= 10) {
@@ -35,8 +35,8 @@ float Log(int Angka1){ //log basis 10
    return Hasil;
 }
 
-float Logaritma(float X, float Y){
-	float Hasil; 
+double Logaritma(double X, double Y){
+	double Hasil; 
 	
 	Hasil = 0;
 	
@@ -48,8 +48,8 @@ float Logaritma(float X, float Y){
     return Hasil;
 }
 
-float Eurel (float nilai, float e){   //eurel
-	float hasil;
+double Eurel (double nilai, double e){   //eurel
+	double hasil;
 	hasil = 1;
         
     if(e > 0){
@@ -69,81 +69,81 @@ float Eurel (float nilai, float e){   //eurel
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-float ConCelFahr(float celc){
-	float fahr; 
+double ConCelFahr(double celc){
+	double fahr; 
 	fahr = (9.0/5.0 * celc) + 32;
 	return fahr;
 }
  
- float ConCelKelv(float celc){
-	float kelv;
+ double ConCelKelv(double celc){
+	double kelv;
 	 
 	kelv = celc + 273.15;
 	return kelv;
 }
 
-float ConCelReam(float celc){
-	float ream;
+double ConCelReam(double celc){
+	double ream;
 	 
 	ream = celc * (4.0/5.0) ;
 	return ream;
 }
 
-float ConFahrCel(float fahr){
-	float celc; 
+double ConFahrCel(double fahr){
+	double celc; 
 	celc = (5.0/9.0) * (fahr - 32);
 	return celc;
 }
  
-float ConFahrKelv(float fahr){
-	float kelv;
+double ConFahrKelv(double fahr){
+	double kelv;
 	kelv = (fahr - 32)* 5/9 + 273,15;
 	return kelv;
 }
 
-float ConFahrReam(float fahr){
-	float ream;
+double ConFahrReam(double fahr){
+	double ream;
 	ream = (fahr - 32)* 4/9 ;
 	return ream;
 }
 
-float ConKelvCel(float kelv){
-	float celc; 
+double ConKelvCel(double kelv){
+	double celc; 
 	 celc = kelv - 273,15;
 	return celc;
 }
  
-float ConKelvFahr(float kelv){
-	float fahr;
+double ConKelvFahr(double kelv){
+	double fahr;
 	fahr = kelv * 9/5 - 459,67;
 	return fahr;
 }
 
-float ConKelvReam(float kelv){
-	float ream;
+double ConKelvReam(double kelv){
+	double ream;
 	ream = (kelv - 273) * 4/5;
 	return ream;
 }
 
-float ConReamCel(float ream){
-	float celc; 
+double ConReamCel(double ream){
+	double celc; 
 	celc = (5.0/4.0) * ream;
 	return celc;
 }
  
-float ConReamFahr(float ream){
-	float fahr;
+double ConReamFahr(double ream){
+	double fahr;
 	fahr = ream * (9.0/4.0) + 32;
 	return fahr;
 }
 
-float ConReamKelv(float ream){
-	float kelv;
+double ConReamKelv(double ream){
+	double kelv;
 	kelv = 273.15 + (5.0/4.0) * ream;
 	return kelv;
 }
 
-float Sigmai(float en){
+double Sigmai(double en){
 	int i,sig = 0;
 	for (i = 1; i <= en; i++) {
         sig = sig + i;
@@ -151,7 +151,7 @@ float Sigmai(float en){
     	return sig; // operasi sigma i
 }
 
-float Sigmaidua(float en){
+double Sigmaidua(double en){
 	int i,sig = 0;
 	for (i = 1; i <= en; i++) {
         sig += i*i; // operasi sigma i
@@ -159,7 +159,7 @@ float Sigmaidua(float en){
     return sig; // operasi sigma i kuadrat
 }
 
-float Sigmaitiga(float en){
+double Sigmaitiga(double en){
 	int i,sig = 0;
 	for (i = 1; i <= en; i++) {
         sig += i*i*i; // operasi sigma i
@@ -167,98 +167,98 @@ float Sigmaitiga(float en){
     return sig; // operasi sigma i kubik
 }
 
-float ConMkeCM (float met){
-	float cm;
+double ConMkeCM (double met){
+	double cm;
 	cm = met * 100;
 	return cm;
 }
 
-float ConMkeMM (float met){
-	float mm;
+double ConMkeMM (double met){
+	double mm;
 	mm = met * 1000;
 	return mm;
 }
 
-float ConMkeKM (float met){
-	float km;
+double ConMkeKM (double met){
+	double km;
 	km = met / 1000;
 	return km;
 }
 
-float ConMkeMIL (float met){
-	float mil;
+double ConMkeMIL (double met){
+	double mil;
 	mil = met / 1609.344;
 	return mil;
 }
 
-float ConCMkeM (float cm){
-	float met;
+double ConCMkeM (double cm){
+	double met;
 	met = cm / 100;
 	return met;
 }
 
-float ConCMkeMM (float cm){
-	float mm;
+double ConCMkeMM (double cm){
+	double mm;
 	mm = cm * 10;
 	return mm;
 }
 
-float ConCMkeKM (float cm){
-	float km;
+double ConCMkeKM (double cm){
+	double km;
 	km = cm / 100000;
 	return km;
 }
 
-float ConCMkeINC (float cm){
-	float inc;
+double ConCMkeINC (double cm){
+	double inc;
 	inc = cm / 2.54;
 	return inc;
 }
 
-float ConKMkeCM (float km){
-	float cm;
+double ConKMkeCM (double km){
+	double cm;
 	cm = km * 100000;
 	return cm;
 }
 
-float ConKMkeMM (float km){
-	float mm;
+double ConKMkeMM (double km){
+	double mm;
 	mm = km * 1000000;
 	return mm;
 }
 
-float ConKMkeM (float km){
-	float m;
+double ConKMkeM (double km){
+	double m;
 	m = km * 1000;
 	return m;
 }
 
-float ConKMkeMIL (float km){
-	float mil;
+double ConKMkeMIL (double km){
+	double mil;
 	mil = km / 1.609344;
 	return mil;
 }
 
-float ConMMkeM (float mm){
-	float met;
+double ConMMkeM (double mm){
+	double met;
 	met = mm / 1000;
 	return met;
 }
 
-float ConMMkeCM (float mm){
-	float cm;
+double ConMMkeCM (double mm){
+	double cm;
 	cm = mm / 10;
 	return cm;
 }
 
-float ConMMkeKM (float mm){
-	float km;
+double ConMMkeKM (double mm){
+	double km;
 	km = mm / 1000000;
 	return km;
 }
 
-float ConMMkeINC (float mm){
-	float inc;
+double ConMMkeINC (double mm){
+	double inc;
 	inc = mm / 25.4;
 	return inc;
 }
@@ -268,7 +268,7 @@ float ConMMkeINC (float mm){
 void KonversiPanjang()
 {
     int pilihan, lagi;
-    float angka1;
+    double angka1;
     
     do{
 		header();
