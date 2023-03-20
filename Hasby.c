@@ -1,5 +1,6 @@
 #include "Hasby.h"
 #include "Fauza.h"
+#include "naufal.h"
 
 
 double Log(int Angka1){ //log basis 10
@@ -152,17 +153,23 @@ double Sigmai(double en){
 }
 
 double Sigmaidua(double en){
-	int i,sig = 0;
-	for (i = 1; i <= en; i++) {
-        sig += perkalian(i,i); // operasi sigma i
+	int i;
+	double tampung, sig = 0;
+	
+	for (i = 1; i<=en ; i++){
+		tampung = perkalian(i,i);
+		sig += tampung; // operasi sigma i
     }
     return sig; // operasi sigma i kuadrat
-}
+}               
 
 double Sigmaitiga(double en){
-	int i,sig = 0;
+	int i;
+	double tampung, sig = 0;
 	for (i = 1; i <= en; i++) {
-        sig += perkalian(i,perkalian(i,i)); // operasi sigma i
+		tampung = perkalian (i,i);
+		tampung = perkalian (i,tampung);
+        sig += tampung; // operasi sigma i
     }
     return sig; // operasi sigma i kubik
 }

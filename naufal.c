@@ -23,7 +23,6 @@ double perkalian(double nilai1, double nilai2){
 	for (i = 1; i <= nilai2; i++) {
     temp += nilai1;
     }
-	
 	return temp;
 }
 

@@ -1,5 +1,8 @@
 #include "Fauza.h"
-
+#include "naufal.h"
+#include "Hasby.h"
+#include "aryagara2.h"
+#include "aulianf.h"
 
 int main() 
 {
