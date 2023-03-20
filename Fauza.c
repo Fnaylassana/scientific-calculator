@@ -333,7 +333,7 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
                 char tempChar3 = '-';
                 strncat(temp2, &tempChar3, 1);
                 strcpy(tempInfix, infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,`~@#$&][{}:;''<>.?\"qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,`~@#$&][{}:;''<>?\"qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM");
                 ptr += strlen(temp) + 1;
                 strcat(temp2, temp);
                 strcat(postfix, temp2);
@@ -342,7 +342,7 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
             else
             {
                 strcpy(tempInfix,infix);
-                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,`~@#$&][{}:;''<>.?\"qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM");
+                temp = strtok(tempInfix + ptr, " +-)(*/^vml!%cp|e,`~@#$&][{}:;''<>?\"qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM");
                 ptr+=strlen(temp);
                 strcat(postfix, temp);
                 strcat(postfix, oneSpace);
@@ -375,6 +375,7 @@ char *infixToPostfix(char *infix,char *postfix, int *cek)
 double hitungIsiPostfix(char postFix[], int *cek)
 {
     double a, b;
+    int tampung;
     Stack *stack = alloc();
     char *token = strtok(postFix," ");
 
@@ -410,6 +411,7 @@ double hitungIsiPostfix(char postFix[], int *cek)
 	                push(stack, eksponen (b, a));
 	                break;
 	            case 'v':
+	            	tampung = b;
 	            	if (a < 0){
 	            		if (modulus(b,2) == 0){
 	            			printf ("\t\t\t\t\t\tNilai di dalam akar tidak boleh minus, masukkan input kembali", a);
@@ -417,7 +419,16 @@ double hitungIsiPostfix(char postFix[], int *cek)
 						} else{
 							push(stack, (-1*akar(Mutlak(a), b)));
 						}
-					} else{
+					} 
+					else if (b < 0){
+	            		printf ("\t\t\t\t\t\tNilai basis di akar tidak boleh minus, masukkan input kembali", a);
+	        			*cek = 1;
+					}
+					else if (b - tampung != 0){
+	            		printf ("\t\t\t\t\t\tNilai basis di akar harus bilangan bulat, masukkan input kembali", a);
+	        			*cek = 1;
+					}
+					else{
 						push(stack, akar(a, b));
 					}
 	                break;
