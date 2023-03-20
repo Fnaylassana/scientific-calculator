@@ -70,7 +70,7 @@ int main()
 	    	goto awal;
 		}
 			
-	    printf ("\t\t\t\t\t\tHasilnya adalah: %g\n\n", hasil);
+	    printf ("\t\t\t\t\t\tHasilnya adalah: %lf\n\n", hasil);
 	    printf ("\t\t\t\t\t\tApakah anda ingin menghitung kembali? (y/t)");
 	    lagi = getche();
     }
