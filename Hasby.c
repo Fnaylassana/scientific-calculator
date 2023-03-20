@@ -154,7 +154,7 @@ double Sigmai(double en){
 double Sigmaidua(double en){
 	int i,sig = 0;
 	for (i = 1; i <= en; i++) {
-        sig += i*i; // operasi sigma i
+        sig += perkalian(i,i); // operasi sigma i
     }
     return sig; // operasi sigma i kuadrat
 }
@@ -162,7 +162,7 @@ double Sigmaidua(double en){
 double Sigmaitiga(double en){
 	int i,sig = 0;
 	for (i = 1; i <= en; i++) {
-        sig += i*i*i; // operasi sigma i
+        sig += perkalian(i,perkalian(i,i)); // operasi sigma i
     }
     return sig; // operasi sigma i kubik
 }
