@@ -1,56 +1,88 @@
 #include "aulianf.h"
 #include "Fauza.h"
+#include "naufal.h"
 
-double akar(double bilangan1, double bilangan2)
+double akar(double bilangan, double pangkat) 
 // Menghitung akar
 {
-	double hasil;
-	bilangan2 = 1/bilangan2;
-	hasil = pow(bilangan1, bilangan2);
-	return hasil;
+    double hasil, epsilon;
+    
+	hasil = bilangan;
+    epsilon = 0.000001; 
+    while ((eksponen(hasil, pangkat) - bilangan) > epsilon) 
+	{
+        hasil = (1/pangkat)*((pangkat-1)*hasil + bilangan/eksponen(hasil, pangkat-1));
+    }
+    return hasil;
 }
 
-double eksponen(double bilangan1, double bilangan2)
+double eksponen(double bilangan, double pangkat) 
 // Menghitung bilangan berpangkat
-{   
-	double hasil;
-	hasil = 1;
-        
-    if(bilangan2 > 0){
-		while (bilangan2 != 0)
-	    {
-	        hasil = hasil * bilangan1;
-	        bilangan2 = bilangan2 - 1;
-	    } 
-    } 
+{
+    double hasil = 1;
     
-    if(bilangan2 < 0){
-		while (bilangan2 != 0)
-	    {
-	        hasil = hasil * bilangan1;
-	        bilangan2 = bilangan2 + 1;
-	    } 
-        hasil = 1/hasil;
-    } 
+    if(pangkat > 0){
+    	for (int i = 1; i <= pangkat; i++) 
+		{
+        	hasil *= bilangan;
+		}
+	} else {
+		if(pangkat < 0){
+		    	for (int i = 1; i <= -pangkat; i++) 
+				{
+		        	hasil *= bilangan;
+				}
+				hasil = 1/hasil;
+			}
+	}
     
     return hasil;
 } 
 
-double sinRad(double angka)
+double sinRad(double bilangan)
 // Menghitung sin dalam radian
 {
-	double rad;
-	rad = sin(angka); 
-	return rad;
+	int n = 10; 								// jumlah suku deret Taylor yang dihitung
+	double rad = 0;
+	double tanda, pembilang, penyebut;
+	
+	for (int i = 0; i <= n; i++) 
+   {
+      tanda = (i % 2 == 0) ? 1 : -1;				// menentukan tanda suku deret Taylor
+      pembilang = eksponen(bilangan, 2 * i + 1);	// menghitung nilai pembilang pada setiap suku deret Taylor
+      penyebut = faktorial(2 * i + 1);				// menghitung nilai penyebut pada setiap suku deret Taylor
+      rad += tanda * pembilang / penyebut;
+   }
+   
+   return rad;
 }
 
-double sinDerajat(double angka)
+double sinDerajat(double bilangan)
 // Menghitung sin dalam derajat
 {
-	double nilai, derajat;
-	nilai = pi/180;
-	derajat = sinf(angka*nilai);
+	double derajat;
+	bilangan = bilangan* pi / 180;
+	derajat = sinRad(bilangan);
+	
 	return derajat;
+}
+
+double cosecRad(double bilangan)
+// Menghitung cosec dalam radian
+{
+	double rad, cosec;
+	rad = sinRad(bilangan); 
+	cosec = 1/rad;
+	return cosec;
+}
+
+double cosecDerajat(double bilangan)
+// Menghitung cosec dalam derajat
+{
+	double nilai, derajat, cosec;
+	derajat = sinDerajat(bilangan);
+	cosec = 1/derajat;
+	return cosec;
 }
 
 double sinInversRad(double angka)
@@ -69,25 +101,6 @@ double sinInversDerajat(double angka)
 	derajat = ((asinf(angka))*nilai);
 	return derajat;
 } 
-
-double cosecRad(double angka)
-// Menghitung cosec dalam radian
-{
-	double rad, cosec;
-	rad = sinf(angka); 
-	cosec = 1/rad;
-	return cosec;
-}
-
-double cosecDerajat(double angka)
-// Menghitung cosec dalam derajat
-{
-	double nilai, derajat, cosec;
-	nilai = pi/180;
-	derajat = sinf(angka*nilai);
-	cosec = 1/derajat;
-	return cosec;
-}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -26,16 +26,17 @@ float cosRad(float angka)
 	return rad;
 }
 
-float cosNilai(float angka, int terms)
+double cosNilai(double angka)
 {
-  	terms = 10;
-    float radian = angka * pi / 180;
-	float hasil = 1;
-	float tanda = -1;
-	for(int n = 1; n <= terms; n++)
+	int suku; //variable yang digunakan untuk menghitung deret maclaurin/taylor dengan sebanyak 'suku' kali.
+  	suku = 10;
+    double radian = angka * pi / 180;
+	double hasil = 1;
+	double tanda = -1;
+	for(int n = 1; n <= suku; n++)
 	{
-		float term = eksponen(radian, 2*n)/faktorial(2*n);
-		hasil += tanda * term;
+		float nilaiSuku = eksponen(radian, 2*n)/faktorial(2*n);
+		hasil += tanda * nilaiSuku;
 		tanda *= -1;
 	}
 	return hasil;
