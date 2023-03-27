@@ -18,12 +18,19 @@ double hitungLog(double angka)
 
 double cosRad(double angka)
 {
-	double rad;
+	int suku; //variable yang digunakan untuk menghitung deret maclaurin/taylor dengan sebanyak 'suku' kali.
+  	suku = 34;
+	double hasil = 1;
+	double tanda = -1;
+	int n;
 	
-	//Menghitung angka yang diinput sebagai Cosinus, hasilnya akan menjadi radian
-	rad = cosf(angka);
-	
-	return rad;
+	for(n = 1; n <= suku; n++)
+	{
+		double nilaiSuku = eksponen(angka, 2*n)/faktorial(2*n);
+		hasil += tanda * nilaiSuku;
+		tanda *= -1;
+	}
+	return hasil;
 }
 
 double cosNilai(double angka)
@@ -66,21 +73,20 @@ double cosInversNilai(double angka)
 
 double secRad(double angka)
 {
-	double rad, sec;
+	double nilai, rad;
 	
-	rad = cosf(angka);
-	sec = 1/rad;
+	nilai = cosRad(angka);
+	rad = 1/nilai;
 	
-	return sec;
+	return rad;
 }
-
 
 double secDerajat(double angka)
 {
 	double nilai, derajat;
 	
-	nilai = pi/180;
-	derajat = 1/(cosf(angka * nilai));
+	nilai = cosNilai(angka);
+	derajat = 1/nilai;
 	
 	return derajat;
 }
@@ -89,17 +95,19 @@ double tanRad(double angka)
 {
 	double rad;
 	
-	rad = tanf(angka);
+	rad = sinRad(angka)/cosRad(angka);
 	
 	return rad;
 }
 
 double tanDerajat(double angka)
 {
-	double nilai, derajat;
+	double nilai /*, derajat*/;
 	
-	nilai = pi/180;
-	derajat = tanf(angka * nilai);
+	nilai = sinDerajat(angka)/cosNilai(angka);
+//	derajat = tanf(angka * nilai);
+	
+	return nilai;
 }
 
 double tanInvers(double angka)
