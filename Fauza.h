@@ -5,62 +5,107 @@
 #include <string.h>
 #include <ctype.h>
 #define max 10
+#define Info(P) (P)->info
+#define Next(P) (P)->next
+#define Prev(P) (P)->prev
+#define Top(L) (L).Top
 
-typedef union
-{
-    double datadouble;
-    char  datachar;
-} Item;
+//Referensi logika Prioritas Scientific Kalkulator dari GitHub by:
+//MOHAMED FARID ABDELAZIZ SALAMA 6905
+//ADHAM MOHAMED ALY ABDELHAMID 6744
 
-typedef struct
+typedef const char *infotype;
+
+typedef struct node *address;
+typedef struct node 
 {
-    Item item[256];
-    int top;
-} Stack;
+	infotype info;
+	address  next;
+	address  prev;
+} Node;
+
+typedef struct stackchar *address1;
+typedef struct stackchar 
+{
+	char info;
+	address1  next;
+} StackChar;
+
+typedef struct stackdouble *address2;
+typedef struct stackdouble
+{
+	double info;
+	address2  next;
+} StackDouble;
+
+typedef struct {
+	address Top;
+} List;
+
+typedef struct {
+	address1 Top;
+} List1;
+
+typedef struct {
+	address2 Top;
+} List2;
 
 double Mutlak (double nilai);
 
 double Persen (double nilai);
 
-Stack* alloc();	
+void Input1Float(double *angka);
 
-int isEmpty(Stack *s);
-
-int isFull(Stack *s);
-
-Item top(Stack *s);
-
-Item pop(Stack *s);
-
-int prioritas(char c);
-
-int isNumber(char *token);
-
-int isOperator(char c);
-
-int negativeInteger(char *infix,char c,int ptr);
-
-int isAfter(Stack *s);
-
-char *infixToPostfix(char *infix, char *postfix, int *cek);
-
-double hitungIsiPostfix(char postFix[], int *cek);
-
-void push(Stack *s, double val);
-
-void pushChar(Stack *s, char c);
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Menu Utama Scientific Calculator
 
 void header();
 
-void Input1Int(int *angka);
+int prioritas(char c);
 
-void Input2Int(int *angka1, int *angka2);
+int isNumber(address token);
 
-void Input1Double(double *angka);
+int isOperator(char c);								//operator-operator dengan 2 operan
 
-void Input1Float(double *angka);
+int isOperator2(char c);							//operator-operator dengan 1 operan
+
+int isOperator3(char c);							//simbol selain angka, operator 1, dan operator 2
+
+int negativeInteger(address infix);
+
+int isAfter(char c);
+
+address infixToPostfix(List input, int *cek);
+
+double hitungIsiPostfix(List postfix, int *cek);
+
+void CreateList (List * L);
+
+address AlokasiNode (infotype X);
+
+void InsVLast (List * L, infotype X);
+
+void InsertLast (List * L, address P);
+
+void PrintNode (List L, infotype C);
+
+address1 AlokasiStackChar (char X);
+
+void CreateList1 (List1 * L);
+
+void PushChar (List1 * L, char X);
+
+void InsertChar (List1 * L, address1 P);
+
+char PopChar (List1 * L);
+
+void CreateList2 (List2 * L);
+
+address2 AlokasiStackDouble (double X);
+
+void Push (List2 * L, double X);
+
+void InsertDouble (List2 * L, address2 P);
+
+double Pop (List2 * L);
 
 #endif

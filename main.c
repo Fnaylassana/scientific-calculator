@@ -6,9 +6,10 @@
 
 int main() 
 {
-    char input[256];
+	infotype input;
+	List infix, postfix;
     char lagi = 'y';
-	char *x, *temp;
+    infotype x, temp;
     double hasil;
     int ulang;    
     
@@ -55,14 +56,26 @@ int main()
 		puts	("\t\t\t\t\t=====================================================================================================================================");
     	
     	ulang = 0;	    	
+		CreateList (&infix);
+		CreateList (&postfix);
+		
 	    printf ("\n\t\t\t\t\t\tMasukkan operasi yang akan anda hitung : ");
-	    scanf (" %[^\n]s", &input);
+		input = (infotype) malloc (50*sizeof (char));
+		scanf (" %[^\n]s", input);
 	    strlwr(input);
-		char postfix[256] = "";
-	    temp = infixToPostfix(input, postfix, &ulang);
+	    
+	    int i = 0;
+	    while (input[i] != '\0'){
+			temp = (infotype) malloc (sizeof (char));
+	    	sprintf (temp, "%c", input[i]);
+			InsVLast (&infix, temp);
+			i++;
+		}
+	
+	    Top(postfix) = infixToPostfix(infix, &ulang);
 		
 		if(!ulang){
-			printf("\t\t\t\t\t\tPostfix : %s\n", temp);                                                                    
+	    	PrintNode (postfix, "\t\t\t\t\t\tPostfix : ");                                                                   
 	    	hasil = hitungIsiPostfix(postfix, &ulang);
 		} else{
         	printf ("\t\t\t\t\t\tInput anda tidak sesuai, cek kembali inputan anda sesuai ketentuan");
