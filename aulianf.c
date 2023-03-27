@@ -20,25 +20,21 @@ double eksponen(double bilangan, double pangkat)
 // Menghitung bilangan berpangkat
 {
     double hasil = 1;
-    int i;
     
     if(pangkat > 0){
-    	for (i = 1; i <= pangkat; i++) 
+    	for (int i = 1; i <= pangkat; i++) 
 		{
         	hasil *= bilangan;
 		}
 	} else {
 		if(pangkat < 0){
-		    	for (i = 1; i <= -pangkat; i++) 
-				{
-		        	hasil *= bilangan;
-				}
-				hasil = 1/hasil;
-			}
+			hasil = eksponen(bilangan,-pangkat);
+			hasil = 1/hasil;
+		}
 	}
     
     return hasil;
-} 
+}
 
 double sinRad(double bilangan)
 // Menghitung sin dalam radian
