@@ -56,16 +56,45 @@ double Eurel (double nilai, double e){   //eurel
     if(e > 0){
 		while (e != 0)
 	    {
-	        hasil = hasil * 10;
+	        hasil = perkalian(hasil,10);
 	        e = e - 1;
 	    } 
     } 
     
-    hasil = nilai * hasil;
+    hasil = perkalian(nilai,hasil);
     
     return hasil;
 } 
 
+double Sigmai(double en){
+	int i,sig = 0;
+	for (i = 1; i <= en; i++) {
+        sig = sig + i;
+    }
+    	return sig; // operasi sigma i
+}
+
+double Sigmaidua(double en){
+	int i;
+	double tampung, sig = 0;
+	
+	for (i = 1; i<=en ; i++){
+		tampung = perkalian(i,i);
+		sig += tampung; // operasi sigma i
+    }
+    return sig; // operasi sigma i kuadrat
+}               
+
+double Sigmaitiga(double en){
+	int i;
+	double tampung, sig = 0;
+	for (i = 1; i <= en; i++) {
+		tampung = perkalian (i,i);
+		tampung = perkalian (i,tampung);
+        sig += tampung; // operasi sigma i
+    }
+    return sig; // operasi sigma i kubik
+}
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -144,35 +173,6 @@ double ConReamKelv(double ream){
 	return kelv;
 }
 
-double Sigmai(double en){
-	int i,sig = 0;
-	for (i = 1; i <= en; i++) {
-        sig = sig + i;
-    }
-    	return sig; // operasi sigma i
-}
-
-double Sigmaidua(double en){
-	int i;
-	double tampung, sig = 0;
-	
-	for (i = 1; i<=en ; i++){
-		tampung = perkalian(i,i);
-		sig += tampung; // operasi sigma i
-    }
-    return sig; // operasi sigma i kuadrat
-}               
-
-double Sigmaitiga(double en){
-	int i;
-	double tampung, sig = 0;
-	for (i = 1; i <= en; i++) {
-		tampung = perkalian (i,i);
-		tampung = perkalian (i,tampung);
-        sig += tampung; // operasi sigma i
-    }
-    return sig; // operasi sigma i kubik
-}
 
 double ConMkeCM (double met){
 	double cm;
