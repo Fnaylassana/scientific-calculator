@@ -143,8 +143,8 @@ double cotDerajat(double angka)
 {
 	double nilai, derajat;
 	
-	nilai = pi/180;
-	derajat = 1/(tanf(angka * nilai));
+	nilai = tanDerajat(angka);
+	derajat = 1/nilai;
 }
 
 void inversTrigonometri()
