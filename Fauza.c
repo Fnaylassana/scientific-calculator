@@ -206,15 +206,15 @@ address infixToPostfix(List input, int *cek)
 				else if (*Info(infix)=='l' && *Info(Next(infix))=='n'){
 	                PushChar(&top,'n'); 
 		        }
-				else if (*Info(infix)=='l' && *Info(Next(infix))=='o' && !isNumber(infix)){
+				else if (*Info(infix)=='l' && *Info(Next(infix))=='o' && (Prev(infix) == NULL || !isNumber(Prev(infix)))){
 	                PushChar(&top,'L'); 
 				}
+				else if (*Info(infix)=='l' && isNumber(Prev(infix))){
+	                PushChar(&top,'l'); 
+		    	}
 				else if (*Info(infix)=='m'){
 	                PushChar(&top,'m'); 
 				}
-				else if (*Info(infix)=='l' && isNumber(infix)){
-	                PushChar(&top,'l'); 
-		    	}
 		    	while (*Info(infix) != '('){
 		    		infix = Next(infix);
 				}
