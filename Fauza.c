@@ -79,7 +79,7 @@ int isNumber(address token)
 
 int isOperator(char c)
 {
-    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P' || c=='e') {
+    if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P'|| c=='e') {
 		return 1;
 	}else{
 		return 0;
@@ -110,15 +110,19 @@ int isOperator3(char c)
 
 int negativeInteger(address infix)
 {
+	int c = 0;
+	c = strlen(Info(infix));
     if (Prev(infix) == NULL) {
     	if (*Info(infix) == '-'){
     		return 1;
 		} else{
     		return 0;
 		}
-	}else if(isOperator(*Info(Prev(infix))) && *Info(infix) == '-' ){
+	}else if(c != 1 && *Info(infix) == '-'){
 		return 1;
-	}else if ((Prev(Prev(infix)) == NULL || isOperator(*Info(Prev(Prev(infix))))) && *Info(Prev(infix)) =='|' && *Info(infix) == '-'  ) {
+	}else if((isOperator(*Info(Prev(infix))) || isOperator2(*Info(Prev(infix))) || isOperator3(*Info(Prev(infix)))) && *Info(infix) == '-' ){
+		return 1;
+	}else if ((Prev(Prev(infix)) == NULL || (isOperator(*Info(Prev(infix))) || isOperator2(*Info(Prev(infix))) || isOperator3(*Info(Prev(infix))))) && *Info(Prev(infix)) =='|' && *Info(infix) == '-'  ) {
 		return 1;
 	}else{
 		return 0;
@@ -320,7 +324,7 @@ address infixToPostfix(List input, int *cek)
 				infix = NULL;
 			}
 			
-            if (!isEmpty(top) && isOperator2(Info(Top(top))))
+            if (!isEmpty(top) && (isOperator2(Info(Top(top))) || Info(Top(top)) == 'l'))
 			{
 				temp = (infotype) malloc (2*sizeof (char));
 				temp[0] = PopChar(&top);
@@ -397,12 +401,10 @@ double hitungIsiPostfix(List postfix, int *cek)
     CreateList2 (&stack);
     
 
-    while(token != NULL && *cek != 1)
+    while(token != NULL)
     {
         if(isNumber(token))
         {
-        	printf ("F\n");
-        	getche();
             Push(&stack, atof(Info(token)));
         }
         else if(isOperator(*Info(token)))
@@ -418,7 +420,11 @@ double hitungIsiPostfix(List postfix, int *cek)
 	                Push(&stack, pengurangan(b, a));
 	                break;
 	            case '*':
-	                Push(&stack, perkalian(b, a));
+	            	if ( a < 0 ){
+	            		Push(&stack, -1*perkalian(b, Mutlak(a)));
+					} else{
+						Push(&stack, perkalian(b, a));
+					}
 	                break;
 	            case '/':
 	            	if (a == 0){
@@ -434,7 +440,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 	            case 'v':
 	            	if (a < 0){
 	            		if (modulus(b,2) == 0){
-	            			printf ("\t\t\t\t\t\tNilai di dalam akar tidak boleh minus, masukkan input kembali", a);
+	            			printf ("\t\t\t\t\t\tNilai di dalam akar tidak boleh minus, masukkan input kembali");
 	        				*cek = 1;
 						} else{
 							Push(&stack, (-1*akar(Mutlak(a), b)));
@@ -447,13 +453,31 @@ double hitungIsiPostfix(List postfix, int *cek)
 	                Push(&stack, modulus(b, a));
 	                break;
 	            case 'l':
-	                Push(&stack, Logaritma(a,b));
+	            	if (b < 0 || a < 0){
+	            		printf ("\t\t\t\t\t\tNilai x atau y tidak boleh lebih kecil dari 0");
+	        			*cek = 1;
+					} else{
+						Push(&stack, Logaritma(a,b));
+					}
 	                break;
 	            case 'C':
-	                Push(&stack, kombinasi(b,a));
+	            	if (b<a){
+	            		printf ("\t\t\t\t\t\tNilai x tidak boleh lebih kecil dari y");
+	        			*cek = 1;
+					} else if (b < 0 || a < 0){
+	            		printf ("\t\t\t\t\t\tNilai x atau y tidak boleh lebih kecil dari 0");
+	        			*cek = 1;
+					} else{
+						Push(&stack, kombinasi(b,a));
+					}
 	                break;
 	            case 'P':
-	                Push(&stack, permutasi(b,a));
+	            	if (b<a){
+	            		printf ("\t\t\t\t\t\tNilai x tidak boleh lebih kecil dari y");
+	        			*cek = 1;
+					} else{
+						Push(&stack, permutasi(b,a));
+					}
 	                break;
 	            case 'e':
 	                Push(&stack, Eurel(b, a));
@@ -469,7 +493,12 @@ double hitungIsiPostfix(List postfix, int *cek)
             a = Pop (&stack);
             switch (*Info(token)){
             	case '!' :
-            		Push(&stack, faktorial(a));
+            		if (a < 0){
+	            		printf ("\t\t\t\t\t\tInput faktorial tidak boleh kurang dari 0");
+	        			*cek = 1;
+					} else{
+            			Push(&stack, faktorial(a));
+					}
 					break;
 				case '%' :																	
 					Push(&stack, Persen(a));
@@ -487,15 +516,17 @@ double hitungIsiPostfix(List postfix, int *cek)
 	        		if (a == 0 || a == 180 || a == 360 || a == 540){
 	        			printf ("\t\t\t\t\t\tNilai csc(%g) tidak terdefinisi", a);
 	        			*cek = 1;
+					} else{
+            			Push(&stack, cosecDerajat(a));
 					}
-            		Push(&stack, cosecDerajat(a));
 					break;
 				case 'S' :																	//cosecan dengan input radian
 	        		if (a == 0 || a == 180 || a == 360 || a == 540){
 	        			printf ("\t\t\t\t\t\tNilai csc(%g) tidak terdefinisi", a);
 	        			*cek = 1;
+					} else{
+						Push(&stack, cosecRad(a));
 					}
-					Push(&stack, cosecRad(a));
 					break;
 				case 'o' :																	//cos dengan input derajat
 					Push(&stack, cosNilai(a));
@@ -507,29 +538,33 @@ double hitungIsiPostfix(List postfix, int *cek)
 	        		if (a == 90 || a == 270 || a == 450){
 	        			printf ("\t\t\t\t\t\tNilai sec(%g) tidak terdefinisi", a);
 	        			*cek = 1;
+					} else{
+						Push(&stack, secDerajat(a));
 					}
-					Push(&stack, secDerajat(a));
 					break;
             	case 'A' :																	//secan dengan input radian
 	        		if (a == 90 || a == 270 || a == 450){
 	        			printf ("\t\t\t\t\t\tNilai sec(%g) tidak terdefinisi", a);
 	        			*cek = 1;
+					} else{
+						Push(&stack, secRad(a));
 					}
-            		Push(&stack, secRad(a));
 					break;
 				case 't' :																	//tan dengan input derajat
 	        		if (a == 90 || a == 270 || a == 450){
 	        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", a);
 	        			*cek = 1;
+					} else{
+						Push(&stack, tanDerajat(a));
 					}
-					Push(&stack, tanDerajat(a));
 					break;
 				case 'T' :																	//tan dengan input radian
 	        		if (a == 90 || a == 270 || a == 450){
 	        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", a);
 	        			*cek = 1;
+					} else{
+						Push(&stack, tanRad(a));
 					}
-					Push(&stack, tanRad(a));
 					break;
 				case 'g' :																	//cotangen dengan input derajat
 	        		if (a == 0 || a == 90 || a == 180 || a == 360 || a == 540){
@@ -548,10 +583,20 @@ double hitungIsiPostfix(List postfix, int *cek)
 					}
 					break;	
 				case 'n' :																	//hitung logaritma natural
-					Push(&stack, hitungLog(a));
+					if (a < 0){
+	            		printf ("\t\t\t\t\t\tNilai ln tidak boleh lebih kecil dari 0");
+	        			*cek = 1;
+					} else{
+						Push(&stack, hitungLog(a));
+					}
 					break;
 				case 'L' :																	//hitung logaritma 10
-					Push(&stack, Log(a));
+					if (a < 0){
+	            		printf ("\t\t\t\t\t\tNilai log tidak boleh lebih kecil dari 0");
+	        			*cek = 1;
+					} else{
+						Push(&stack, Log(a));
+					}
 					break;
 				case 'z' :																	//sigma i
 	        		Push(&stack, Sigmai(a));
@@ -568,7 +613,12 @@ double hitungIsiPostfix(List postfix, int *cek)
 		} 
         token = Next(token);
     }
-    return Info(Top(stack));
+    
+    if (Top(stack) == NULL){
+    	return 0;
+	} else{
+		return Info(Top(stack));
+	}
 }
 
 void CreateList (List * L)
