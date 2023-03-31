@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <conio.h>
 #define max 10
 #define Info(P) (P)->info
 #define Next(P) (P)->next
