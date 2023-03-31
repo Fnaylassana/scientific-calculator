@@ -17,23 +17,17 @@ double pengurangan(double nilai1, double nilai2){
 }
 
 double perkalian(double nilai1, double nilai2){
-	double temp, i;
-	temp = 0;
+	double temp;
 	
-	for (i = 1; i <= nilai2; i++) {
-    temp += nilai1;
-    }
+	temp = nilai1 * nilai2;
+	
 	return temp;
 }
 
 double pembagian(double nilai1, double nilai2){
 	double temp;
 	
-	temp = 0;
-	while (nilai1 >= nilai2) {
-    nilai1 -= nilai2;
-    temp++;
-    }
+	temp = nilai1 / nilai2;
 	
 	return temp;
 }
