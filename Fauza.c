@@ -69,10 +69,17 @@ int prioritas(char c)
 int isNumber(address token)
 {
 	char c;
+	int d = 0;
+	
 	c = *Info(token);
-	if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9' || negativeInteger(token)){
+	d = strlen(Info(token));
+	
+	if (c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9'){
 		return 1;
-	} else{
+	}else if (c == '-' && d > 1){
+		return 1;
+	}
+	else{
 		return 0;
 	}
 }
@@ -99,7 +106,7 @@ int isOperator3(char c)
 {
     if( c==')' || c==',' || c=='`' || c=='~' || c=='@' || c=='#' || c=='$' || c=='&' || c=='[' || c==']' || c=='{' || c=='}') {
 		return 1;
-	}else if( c==':' || c==';' || c==' ' || c=='"' || c=='<' || c=='>' || c=='.' || c=='?' || c=='\'' || c=='q' || c=='w') {
+	}else if( c==':' || c==';' || c==' ' || c=='"' || c=='<' || c=='>' || c=='?' || c=='\'' || c=='q' || c=='w') {
 		return 1;
 	}else if( c=='r' || c=='y' || c=='u' || c=='l' || c=='k' || c=='j' || c=='h' || c=='f' || c=='d' || c=='x' || c=='c' || c=='b' || c=='m') {
 		return 1;
@@ -110,19 +117,15 @@ int isOperator3(char c)
 
 int negativeInteger(address infix)
 {
-	int c = 0;
-	c = strlen(Info(infix));
     if (Prev(infix) == NULL) {
     	if (*Info(infix) == '-'){
     		return 1;
 		} else{
     		return 0;
 		}
-	}else if(c != 1 && *Info(infix) == '-'){
+	}else if((isOperator(*Info(Prev(infix))) || isOperator2(*Info(Prev(infix)))) && *Info(infix) == '-' ){
 		return 1;
-	}else if((isOperator(*Info(Prev(infix))) || isOperator2(*Info(Prev(infix))) || isOperator3(*Info(Prev(infix)))) && *Info(infix) == '-' ){
-		return 1;
-	}else if ((Prev(Prev(infix)) == NULL || (isOperator(*Info(Prev(infix))) || isOperator2(*Info(Prev(infix))) || isOperator3(*Info(Prev(infix))))) && *Info(Prev(infix)) =='|' && *Info(infix) == '-'  ) {
+	}else if ((Prev(Prev(infix)) == NULL || (isOperator(*Info(Prev(infix))) || *Info(Prev(infix))=='!' || *Info(Prev(infix)) == '%'|| *Info(Prev(infix))=='|' )) && *Info(Prev(infix)) =='|' && *Info(infix) == '-'  ) {
 		return 1;
 	}else{
 		return 0;
@@ -142,21 +145,22 @@ address infixToPostfix(List input, int *cek)
 {
 	address infix;
 	List postfix;
-	List1 top;
-    int mutlak=0;
+	List1 stack;
+	address1 cari;
+    int mutlak = 0, ketemu = 0;
     char *temp;
     char temp2;
     
     infix = Top(input);
-    CreateList1(&top);
+    CreateList1(&stack);
     CreateList(&postfix);
 
     while(infix != NULL && *cek != 1)
     {
-    	if(*Info(infix)=='c' && isNumber(Next(infix))){
+    	if(*Info(infix)=='c' && (isNumber(Next(infix)) || *Info(Next(infix))=='-')){
     		Info(infix) = "C";
 		}
-		if(*Info(infix)=='p' && isNumber(Next(infix))){
+		if(*Info(infix)=='p' && (isNumber(Next(infix)) || *Info(Next(infix))=='-')){
     		Info(infix) = "P";
 		}
     	else if(*Info(infix) == 's'|| *Info(infix)=='c'|| *Info(infix)=='t'|| *Info(infix)=='m' || (*Info(infix)=='l' )){
@@ -165,63 +169,63 @@ address infixToPostfix(List input, int *cek)
 			}
 			else{
 	        	if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&top,'I'); 
+	                PushChar(&stack,'I'); 
 				}
 				else if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(infix)))=='g'){
 					if(*Info(Next(Next(Next(Next(infix))))) == '1'){
-	                	PushChar(&top,'z'); 
+	                	PushChar(&stack,'z'); 
 					}
 					else if(*Info(Next(Next(Next(Next(infix))))) == '2'){
-	                	PushChar(&top,'Z'); 
+	                	PushChar(&stack,'Z'); 
 					}
 					else if(*Info(Next(Next(Next(Next(infix))))) == '3'){
-	                	PushChar(&top,'E'); 
+	                	PushChar(&stack,'E'); 
 					}
 				}
 				else if (*Info(infix)=='s' && *Info(Next(infix))=='i'){
-	                PushChar(&top,'i'); 
+	                PushChar(&stack,'i'); 
 				}
 				else if (*Info(infix)=='c' && *Info(Next(infix))=='s' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&top,'S'); 
+	                PushChar(&stack,'S'); 
 				}
 				else if (*Info(infix)=='c' && *Info(Next(infix))=='s'){
-	                PushChar(&top,'s'); 
+	                PushChar(&stack,'s'); 
 				}
 				else if (*Info(infix)=='c' && *Info(Next(Next(infix)))=='s' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&top,'O'); 
+	                PushChar(&stack,'O'); 
 				}
 				else if (*Info(infix)=='c' && *Info(Next(Next(infix)))=='s'){
-	                PushChar(&top,'o'); 
+	                PushChar(&stack,'o'); 
 				}
 				else if (*Info(infix)=='s' && *Info(Next(infix))=='e' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&top,'A'); 
+	                PushChar(&stack,'A'); 
 				}
 				else if (*Info(infix)=='s' && *Info(Next(infix))=='e'){
-	                PushChar(&top,'a'); 
+	                PushChar(&stack,'a'); 
 				}
 				else if (*Info(infix)=='t' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&top,'T'); 
+	                PushChar(&stack,'T'); 
 				}
 				else if (*Info(infix)=='t'){
-	                PushChar(&top,'t'); 
+	                PushChar(&stack,'t'); 
 				}
 				else if (*Info(infix)=='c' && *Info(Next(Next(infix)))=='t' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&top,'G'); 
+	                PushChar(&stack,'G'); 
 				}
 				else if (*Info(infix)=='c' && *Info(Next(Next(infix)))=='t'){
-	                PushChar(&top,'g'); 
+	                PushChar(&stack,'g'); 
 				}
 				else if (*Info(infix)=='l' && *Info(Next(infix))=='n'){
-	                PushChar(&top,'n'); 
+	                PushChar(&stack,'n'); 
 		        }
 				else if (*Info(infix)=='l' && *Info(Next(infix))=='o' && (Prev(infix) == NULL || !isNumber(Prev(infix)))){
-	                PushChar(&top,'L'); 
+	                PushChar(&stack,'L'); 
 				}
 				else if (*Info(infix)=='l' && isNumber(Prev(infix))){
-	                PushChar(&top,'l'); 
+	                PushChar(&stack,'l'); 
 		    	}
 				else if (*Info(infix)=='m'){
-	                PushChar(&top,'m'); 
+	                PushChar(&stack,'m'); 
 				}
 		    	while (*Info(infix) != '('){
 		    		infix = Next(infix);
@@ -234,19 +238,20 @@ address infixToPostfix(List input, int *cek)
 		}
 		else if(*Info(infix)=='|' && mutlak==1)
         {
-            while(Info(Top(top)) != '|')
+        	
+            while(Info(Top(stack)) != '|')
             {
-				temp = (infotype) malloc (2*sizeof (char));
-				temp[0] = PopChar(&top);
+				temp = (char *) malloc (2*sizeof (char));
+				temp[0] = PopChar(&stack);
 				temp[1]  = '\0';
 				InsVLast (&postfix, temp);
             }
             
-			temp = (infotype) malloc (2*sizeof (char));
-			temp[0] = PopChar(&top);
+			temp = (char *) malloc (2*sizeof (char));
+			temp[0] = PopChar(&stack);
 			temp[1]  = '\0';
 			InsVLast (&postfix, temp);
-            mutlak -= 1;
+            mutlak = 0;
             
             if (Next(infix) != NULL){
             	infix = Next(infix);
@@ -256,51 +261,56 @@ address infixToPostfix(List input, int *cek)
         }
         else if(*Info(infix) == '|' && mutlak==0)
         {
-            PushChar(&top, '|');
+            PushChar(&stack, '|');
             infix = Next(infix);
-            mutlak += 1;
+            mutlak = 1;
         }
         else if(isOperator(*Info(infix)) && !negativeInteger(infix))
         {
             if(*Info(infix) == '(' )
             {
-	            PushChar(&top, *Info(infix));
+            	if (Prev(infix) != NULL && isNumber(Prev(infix))){
+            		if (Prev(Prev(infix)) == NULL || (Prev(Prev(infix)) != NULL && *Info(Prev(Prev(infix))) != 'i')){
+            			PushChar(&stack, '*');
+					}
+				}
+	            PushChar(&stack, *Info(infix));
 	            infix = Next(infix);
             }
-            else if(isEmpty(top))
+            else if(isEmpty(stack))
             {
-	            PushChar(&top, *Info(infix));
+	            PushChar(&stack, *Info(infix));
 	            infix = Next(infix);
             }
-            else if(isAfter(Info(Top(top))))
+            else if(isAfter(Info(Top(stack))))
             {
-	            PushChar(&top, *Info(infix));
+	            PushChar(&stack, *Info(infix));
 	            infix = Next(infix);
             }
-            else if(prioritas(*Info(infix)) > prioritas(Info(Top(top))))
+            else if(prioritas(*Info(infix)) > prioritas(Info(Top(stack))))
             {
-	            PushChar(&top, *Info(infix));
+	            PushChar(&stack, *Info(infix));
 	            infix = Next(infix);
             }
-            else if(prioritas(*Info(infix)) == prioritas(Info(Top(top))))
+            else if(prioritas(*Info(infix)) == prioritas(Info(Top(stack))))
             {
-				temp = (infotype) malloc (2*sizeof (char));
-				temp[0] = PopChar(&top);
+				temp = (char *) malloc (2*sizeof (char));
+				temp[0] = PopChar(&stack);
 				temp[1]  = '\0';
 				InsVLast (&postfix, temp);
 				
-	            PushChar(&top, *Info(infix));
+	            PushChar(&stack, *Info(infix));
 	            infix = Next(infix);
             }
-            else if(prioritas(*Info(infix)) < prioritas(Info(Top(top))) && Info(Top(top)) != '(' && Info(Top(top)) != '|' && Info(Top(top)) != ')')
+            else if(prioritas(*Info(infix)) < prioritas(Info(Top(stack))) && Info(Top(stack)) != '(' && Info(Top(stack)) != '|' && Info(Top(stack)) != ')')
             {
                 while(1)
                 {
-                    if( isEmpty(top) ) break;
-                    if( Info(Top(top)) == '(' ) break;
-                    if( Info(Top(top)) == '|' ) break;
-					temp = (infotype) malloc (2*sizeof (char));
-					temp[0] = PopChar(&top);
+                    if( isEmpty(stack) ) break;
+                    if( Info(Top(stack)) == '(' ) break;
+                    if( Info(Top(stack)) == '|' ) break;
+					temp = (char *) malloc (2*sizeof (char));
+					temp[0] = PopChar(&stack);
 					temp[1]  = '\0';
 					InsVLast (&postfix, temp);
                 }
@@ -308,40 +318,56 @@ address infixToPostfix(List input, int *cek)
         }
         else if(*Info(infix)==')')
         {
-            while(Info(Top(top)) != '(')
-            {
-				temp = (infotype) malloc (2*sizeof (char));
-				temp[0] = PopChar(&top);
-				temp[1]  = '\0';
-				InsVLast (&postfix, temp);
-            }
-            
-            temp2 = PopChar(&top);
-            
-            if (Next(infix) != NULL){
-            	infix = Next(infix);
-			} else {
-				infix = NULL;
+        	cari = Top(stack);
+        	while (cari != NULL && Info(cari) != '('){
+        		cari = Next(cari);
 			}
 			
-            if (!isEmpty(top) && (isOperator2(Info(Top(top))) || Info(Top(top)) == 'l'))
-			{
-				temp = (infotype) malloc (2*sizeof (char));
-				temp[0] = PopChar(&top);
-				temp[1]  = '\0';
-				InsVLast (&postfix, temp);
+			if (cari != NULL && Info(cari) == '('){
+        		ketemu = 1;
 			}
+			
+			if (ketemu == 1){
+				while(Info(Top(stack)) != '(')
+	            {
+					temp = (char *) malloc (2*sizeof (char));
+					temp[0] = PopChar(&stack);
+					temp[1]  = '\0';
+					InsVLast (&postfix, temp);
+	            }
+	            
+	            temp2 = PopChar(&stack);
+	            
+	            if (Next(infix) != NULL){
+	            	infix = Next(infix);
+				} else {
+					infix = NULL;
+				}
+				
+	            if (!isEmpty(stack) && (isOperator2(Info(Top(stack))) || Info(Top(stack)) == 'l'))
+				{
+					temp = (char *) malloc (2*sizeof (char));
+					temp[0] = PopChar(&stack);
+					temp[1]  = '\0';
+					InsVLast (&postfix, temp);
+				}
+				
+				ketemu = 0;
+			} else {
+				*cek = 1;
+			}
+            
         }
         else if(*Info(infix)==' ')
         {
             infix = Next(infix);
         }
-        else if (isNumber(infix))
+        else if (isNumber(infix) || negativeInteger(infix))
         {
             if(negativeInteger(infix))
             {
             	int i = 1;
-				temp = (infotype) malloc (50*sizeof (char));
+				temp = (char *) malloc (50*sizeof (char));
                 
                 temp[0] = *Info(infix);
             	infix = Next(infix);
@@ -357,7 +383,7 @@ address infixToPostfix(List input, int *cek)
             else
             {
             	int i = 0;
-				temp = (infotype) malloc (50*sizeof (char));
+				temp = (char *) malloc (50*sizeof (char));
             	while( infix != NULL && !isOperator(*Info(infix)) && !isOperator2(*Info(infix)) && !isOperator3(*Info(infix))){
 					temp[i] = *Info(infix);
 					temp[i+1]  = '\0';
@@ -380,14 +406,20 @@ address infixToPostfix(List input, int *cek)
 		}
     }
 
-    while(Top(top) != NULL)
+    while(Top(stack) != NULL)
     {
-		temp = (infotype) malloc (2*sizeof (char));
-		temp[0] = PopChar(&top);
+		temp = (char *) malloc (2*sizeof (char));
+		temp[0] = PopChar(&stack);
 		temp[1]  = '\0';
-		InsVLast (&postfix, temp);
+		if (temp[0] != '('){
+			InsVLast (&postfix, temp);
+		}
     }
     
+    if (mutlak == 1){
+    	*cek = 1;
+	}
+	
     return Top(postfix);
 }
 
@@ -396,6 +428,8 @@ double hitungIsiPostfix(List postfix, int *cek)
     double a, b;
     address token;
     List2 stack;
+	infotype hapus;
+    
     
     token = Top(postfix);
     CreateList2 (&stack);
@@ -610,8 +644,12 @@ double hitungIsiPostfix(List postfix, int *cek)
 	            default:
 	                break;
 			}
+		} else {
+        	printf ("\t\t\t\t\t\tInput anda tidak sesuai, cek kembali inputan anda sesuai ketentuan");
+        	getche();
+        	*cek = 1;
 		} 
-        token = Next(token);
+		token = Next(token);
     }
     
     if (Top(stack) == NULL){
