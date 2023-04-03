@@ -5,10 +5,14 @@
 #include <string.h>
 #include <ctype.h>
 #include <conio.h>
+#include <stdbool.h>
 #define max 10
 #define Info(P) (P)->info
 #define Next(P) (P)->next
 #define Prev(P) (P)->prev
+#define LeftSon(P) (P)->leftson
+#define RightSon(P) (P)->rightson
+#define Parent(P) (P)->parent
 #define Top(L) (L).Top
 
 //Referensi logika Prioritas Scientific Kalkulator dari GitHub by:
@@ -24,6 +28,15 @@ typedef struct node
 	address  next;
 	address  prev;
 } Node;
+
+typedef struct subtree *link;
+typedef struct subtree 
+{
+	infotype info;
+	link  leftson;
+	link  rightson;
+	link  parent;
+} SubTree;
 
 typedef struct stackchar *address1;
 typedef struct stackchar 
@@ -79,6 +92,12 @@ address infixToPostfix(List input, int *cek);
 
 double hitungIsiPostfix(List postfix, int *cek);
 
+link CreateTree(List L);
+
+List TranversalPreOrder(link P, int JmlPostfix);
+
+link AlokasiTree(infotype X);
+
 void CreateList (List * L);
 
 address AlokasiNode (infotype X);
@@ -87,9 +106,11 @@ void InsVLast (List * L, infotype X);
 
 void InsertLast (List * L, address P);
 
-void PrintNode (List L, infotype C);
+void PrintNode (List L, infotype C, int *X);
 
 address1 AlokasiStackChar (char X);
+
+infotype Delete (List * L);
 
 void CreateList1 (List1 * L);
 

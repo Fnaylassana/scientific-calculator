@@ -7,17 +7,17 @@
 void header()
 {
 	system("cls");
-	puts	("\t\t\t\t\t================================================================================================================================");
-	puts	("\t\t\t\t\t================================================================================================================================");
-	puts	("\t\t\t\t\t==              ==    ==  =======  ==       ========   ==     ==   ======   ========   ==    ==       ========                ==");
-	puts	("\t\t\t\t\t==              ==   ==   ==       ==       ==    ==   ===   ===   ==    =  ==    ==   ==   ==        ==                      ==");
-	puts	("\t\t\t\t\t==              == ==     ======   ==       ==    ==   == = = ==   ==    =  ==    ==   == ==          =====                   ==");
-	puts	("\t\t\t\t\t==              ====      ======   ==       ==    ==   ==  =  ==   ======   ==    ==   ====                ==                 ==");
-	puts	("\t\t\t\t\t==              ==  ==    ==       ==       ==    ==   ==     ==   ==       ==    ==   ==  ==               ==                ==");
-	puts	("\t\t\t\t\t==              ==   ==   =======  =======  ========   ==     ==   ==       ========   ==   ==        =======                 ==");
-	puts	("\t\t\t\t\t================================================================================================================================");
-	puts	("\t\t\t\t\t==                                    CALCULATOR PROGRAM (Right Associative)                                                  ==");
-	puts	("\t\t\t\t\t================================================================================================================================\n\n");	
+	puts	("=====================================================================================================================================");
+	puts	("=====================================================================================================================================");
+	puts	("==                 ==    ==  =======  ==       ========   ==     ==   ======   ========   ==    ==       ========                  ==");
+	puts	("==                 ==   ==   ==       ==       ==    ==   ===   ===   ==    =  ==    ==   ==   ==        ==                        ==");
+	puts	("==                 == ==     ======   ==       ==    ==   == = = ==   ==    =  ==    ==   == ==          =====                     ==");
+	puts	("==                 ====      ======   ==       ==    ==   ==  =  ==   ======   ==    ==   ====                ==                   ==");
+	puts	("==                 ==  ==    ==       ==       ==    ==   ==     ==   ==       ==    ==   ==  ==               ==                  ==");
+	puts	("==                 ==   ==   =======  =======  ========   ==     ==   ==       ========   ==   ==        =======                   ==");
+	puts	("=====================================================================================================================================");
+	puts	("==                                       CALCULATOR PROGRAM (Right Associative)                                                    ==");
+	puts	("=====================================================================================================================================\n\n");
 }
 
 double Mutlak (double nilai){
@@ -462,7 +462,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 	                break;
 	            case '/':
 	            	if (a == 0){
-	            		printf ("\t\t\t\t\t\tPenyebut = 0, nilai tidak terdefinisi, masukkan input kembali");
+	            		printf ("Penyebut = 0, nilai tidak terdefinisi, masukkan input kembali");
 	        			*cek = 1;
 					} else{
 						Push(&stack, pembagian(b, a));
@@ -474,7 +474,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 	            case 'v':
 	            	if (a < 0){
 	            		if (modulus(b,2) == 0){
-	            			printf ("\t\t\t\t\t\tNilai di dalam akar tidak boleh minus, masukkan input kembali");
+	            			printf ("Nilai di dalam akar tidak boleh minus, masukkan input kembali");
 	        				*cek = 1;
 						} else{
 							Push(&stack, (-1*akar(Mutlak(a), b)));
@@ -488,7 +488,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 	                break;
 	            case 'l':
 	            	if (b < 0 || a < 0){
-	            		printf ("\t\t\t\t\t\tNilai x atau y tidak boleh lebih kecil dari 0");
+	            		printf ("Nilai x atau y tidak boleh lebih kecil dari 0");
 	        			*cek = 1;
 					} else{
 						Push(&stack, Logaritma(a,b));
@@ -496,10 +496,10 @@ double hitungIsiPostfix(List postfix, int *cek)
 	                break;
 	            case 'C':
 	            	if (b<a){
-	            		printf ("\t\t\t\t\t\tNilai x tidak boleh lebih kecil dari y");
+	            		printf ("Nilai x tidak boleh lebih kecil dari y");
 	        			*cek = 1;
 					} else if (b < 0 || a < 0){
-	            		printf ("\t\t\t\t\t\tNilai x atau y tidak boleh lebih kecil dari 0");
+	            		printf ("Nilai x atau y tidak boleh lebih kecil dari 0");
 	        			*cek = 1;
 					} else{
 						Push(&stack, kombinasi(b,a));
@@ -507,7 +507,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 	                break;
 	            case 'P':
 	            	if (b<a){
-	            		printf ("\t\t\t\t\t\tNilai x tidak boleh lebih kecil dari y");
+	            		printf ("Nilai x tidak boleh lebih kecil dari y");
 	        			*cek = 1;
 					} else{
 						Push(&stack, permutasi(b,a));
@@ -528,7 +528,7 @@ double hitungIsiPostfix(List postfix, int *cek)
             switch (*Info(token)){
             	case '!' :
             		if (a < 0){
-	            		printf ("\t\t\t\t\t\tInput faktorial tidak boleh kurang dari 0");
+	            		printf ("Input faktorial tidak boleh kurang dari 0");
 	        			*cek = 1;
 					} else{
             			Push(&stack, faktorial(a));
@@ -548,7 +548,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 					break;
             	case 's' :																	//cosecan dengan input derajat
 	        		if (a == 0 || a == 180 || a == 360 || a == 540){
-	        			printf ("\t\t\t\t\t\tNilai csc(%g) tidak terdefinisi", a);
+	        			printf ("Nilai csc(%g) tidak terdefinisi", a);
 	        			*cek = 1;
 					} else{
             			Push(&stack, cosecDerajat(a));
@@ -556,7 +556,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 					break;
 				case 'S' :																	//cosecan dengan input radian
 	        		if (a == 0 || a == 180 || a == 360 || a == 540){
-	        			printf ("\t\t\t\t\t\tNilai csc(%g) tidak terdefinisi", a);
+	        			printf ("Nilai csc(%g) tidak terdefinisi", a);
 	        			*cek = 1;
 					} else{
 						Push(&stack, cosecRad(a));
@@ -570,7 +570,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 					break;
 				case 'a' :																	//secan dengan input derajat
 	        		if (a == 90 || a == 270 || a == 450){
-	        			printf ("\t\t\t\t\t\tNilai sec(%g) tidak terdefinisi", a);
+	        			printf ("Nilai sec(%g) tidak terdefinisi", a);
 	        			*cek = 1;
 					} else{
 						Push(&stack, secDerajat(a));
@@ -578,7 +578,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 					break;
             	case 'A' :																	//secan dengan input radian
 	        		if (a == 90 || a == 270 || a == 450){
-	        			printf ("\t\t\t\t\t\tNilai sec(%g) tidak terdefinisi", a);
+	        			printf ("Nilai sec(%g) tidak terdefinisi", a);
 	        			*cek = 1;
 					} else{
 						Push(&stack, secRad(a));
@@ -586,7 +586,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 					break;
 				case 't' :																	//tan dengan input derajat
 	        		if (a == 90 || a == 270 || a == 450){
-	        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", a);
+	        			printf ("Nilai tan(%g) tidak terdefinisi", a);
 	        			*cek = 1;
 					} else{
 						Push(&stack, tanDerajat(a));
@@ -594,7 +594,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 					break;
 				case 'T' :																	//tan dengan input radian
 	        		if (a == 90 || a == 270 || a == 450){
-	        			printf ("\t\t\t\t\t\tNilai tan(%g) tidak terdefinisi", a);
+	        			printf ("Nilai tan(%g) tidak terdefinisi", a);
 	        			*cek = 1;
 					} else{
 						Push(&stack, tanRad(a));
@@ -602,7 +602,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 					break;
 				case 'g' :																	//cotangen dengan input derajat
 	        		if (a == 0 || a == 90 || a == 180 || a == 360 || a == 540){
-	        			printf ("\t\t\t\t\t\tNilai cot(%g) tidak terdefinisi", a);
+	        			printf ("Nilai cot(%g) tidak terdefinisi", a);
 	        			*cek = 1;
 					} else {
 						Push(&stack, cotDerajat(a));
@@ -610,7 +610,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 					break;
 				case 'G' :																	//cotangen dengan input radian
 	        		if (a == 0 || a == 90 || a == 180 || a == 360 || a == 540){
-	        			printf ("\t\t\t\t\t\tNilai cot(%g) tidak terdefinisi", a);
+	        			printf ("Nilai cot(%g) tidak terdefinisi", a);
 	        			*cek = 1;
 					} else {
 						Push(&stack, cotRad(a));
@@ -618,7 +618,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 					break;	
 				case 'n' :																	//hitung logaritma natural
 					if (a < 0){
-	            		printf ("\t\t\t\t\t\tNilai ln tidak boleh lebih kecil dari 0");
+	            		printf ("Nilai ln tidak boleh lebih kecil dari 0");
 	        			*cek = 1;
 					} else{
 						Push(&stack, hitungLog(a));
@@ -626,7 +626,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 					break;
 				case 'L' :																	//hitung logaritma 10
 					if (a < 0){
-	            		printf ("\t\t\t\t\t\tNilai log tidak boleh lebih kecil dari 0");
+	            		printf ("Nilai log tidak boleh lebih kecil dari 0");
 	        			*cek = 1;
 					} else{
 						Push(&stack, Log(a));
@@ -645,9 +645,8 @@ double hitungIsiPostfix(List postfix, int *cek)
 	                break;
 			}
 		} else {
-        	printf ("\t\t\t\t\t\tInput anda tidak sesuai, cek kembali inputan anda sesuai ketentuan");
-        	getche();
-        	*cek = 1;
+			printf ("masuk ke else");
+			getche();
 		} 
 		token = Next(token);
     }
@@ -657,6 +656,117 @@ double hitungIsiPostfix(List postfix, int *cek)
 	} else{
 		return Info(Top(stack));
 	}
+}
+
+link CreateTree(List L)
+{
+	address tail;
+	link Pcur, root;
+	bool lnjt;
+	
+	tail = Top(L);
+	
+	while (Next(tail) != NULL){
+		tail = Next(tail);
+	}
+	
+	root = AlokasiTree (Info(tail));
+	Pcur = root;
+	tail = Prev(tail);
+	
+	while (tail != NULL){
+		lnjt = true;
+		if(isNumber(tail) || *Info(tail) == 'p')
+        {
+    		if (RightSon(Pcur) == NULL && !isOperator2(*Info(Pcur))){
+        		RightSon(Pcur) = AlokasiTree(Info(tail));
+        		Parent(RightSon(Pcur)) = Pcur;
+			}else if (LeftSon(Pcur) == NULL){
+				LeftSon(Pcur) = AlokasiTree(Info(tail));
+        		Parent(LeftSon(Pcur)) = Pcur;
+			}else{
+				Pcur = Parent(Pcur);
+				lnjt = false;
+			}
+        }
+        else if(isOperator(*Info(tail)) || isOperator2(*Info(tail)))
+        {
+        	if (RightSon(Pcur) == NULL){
+        		RightSon(Pcur) = AlokasiTree(Info(tail));
+        		Parent(RightSon(Pcur)) = Pcur;
+        		Pcur = RightSon(Pcur);
+			}else if (LeftSon(Pcur) == NULL){
+				LeftSon(Pcur) = AlokasiTree(Info(tail));
+        		Parent(LeftSon(Pcur)) = Pcur;
+        		Pcur = LeftSon(Pcur);
+			}else{
+				Pcur = Parent(Pcur);
+				lnjt = false;
+			}
+        }
+        else{
+        	printf ("Masuk ke else");
+		}
+		
+		if (lnjt){
+			tail = Prev(tail);
+		}
+	} 
+	
+	return root;
+}
+
+link AlokasiTree(infotype X)
+{
+	link P;
+	
+	P = (link) malloc (sizeof (SubTree));
+	if (P != NULL)		
+	{
+		Info(P) = X;
+		RightSon(P) = NULL;
+		LeftSon(P) = NULL;
+		Parent(P) = NULL;
+	}
+	
+	return P;
+}
+
+List TranversalPreOrder(link P, int JmlPostfix)
+{
+	link Pcur;
+	bool resmi = true, resmi1 = true;
+	int JmlPreOrder = 1;
+	List PreOrder;
+	
+	CreateList (&PreOrder);
+	
+	Pcur = P;
+	InsVLast (&PreOrder, Info(Pcur));
+	
+	do{
+		if (LeftSon(Pcur) != NULL && resmi){
+			Pcur = LeftSon(Pcur);
+			JmlPreOrder++;
+			InsVLast (&PreOrder, Info(Pcur));
+			resmi1 = true;
+		} else if (RightSon(Pcur) != NULL && resmi1){
+			Pcur = RightSon(Pcur);
+			JmlPreOrder++;
+			InsVLast (&PreOrder, Info(Pcur));
+			resmi = true;
+			resmi1 = false;
+		}else {
+			Pcur = Parent(Pcur);
+			resmi = false;
+			if (!resmi && !resmi1){
+				resmi1 = true;
+				Pcur = Parent(Pcur);
+			}
+		}
+	}while (JmlPostfix > JmlPreOrder);
+	
+	return PreOrder;
 }
 
 void CreateList (List * L)
@@ -675,6 +785,8 @@ address AlokasiNode (infotype X)
 		Next(P) = NULL;
 		Prev(P) = NULL;
 	}
+	
+	return P;
 }
 
 void InsVLast (List * L, infotype X)
@@ -700,9 +812,10 @@ void InsertLast (List * L, address P)
 	}
 }
 
-void PrintNode (List L, infotype C)
+void PrintNode (List L, infotype C, int *X)
 {
 	address P;
+	*X = 0;
 	
 	if (Top(L) == NULL)
 	{
@@ -721,11 +834,31 @@ void PrintNode (List L, infotype C)
 			}
 			else
 			{
+				*X = *X + 1;
 				printf ("%s ", Info(P));
 				P = Next(P);
 			}
 		}
 	}
+}
+
+infotype Delete (List * L)
+{
+	address Pdel;
+	infotype x;
+	
+	x = Info(Top (*L));
+	Pdel = Top (*L);
+	
+	if (Next(Top (*L)) != NULL){
+		Top (*L) = Next(Top (*L));
+	} else{
+		Top (*L) = NULL;
+	}
+	
+	free(Pdel);
+	
+	return x;
 }
 
 void CreateList1 (List1 * L)
@@ -743,6 +876,8 @@ address1 AlokasiStackChar (char X)
 		Info(P) = X;
 		Next(P) = NULL;
 	}
+	
+	return P;
 }
 
 void PushChar (List1 * L, char X)
@@ -798,6 +933,8 @@ address2 AlokasiStackDouble (double X)
 		Info(P) = X;
 		Next(P) = NULL;
 	}
+	
+	return P;
 }
 
 void Push (List2 * L, double X)
@@ -840,6 +977,6 @@ double Pop (List2 * L)
 
 void Input1Float(double *angka)
 {
-	printf ("\n\t\t\t\t\t\tMasukkan operan : ");
+	printf ("\nMasukkan operan : ");
 	scanf  ("%f", &(*angka));
 }
