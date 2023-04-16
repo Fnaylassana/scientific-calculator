@@ -84,6 +84,11 @@ int isNumber(address token)
 	}
 }
 
+int isNumber1(const char *token)
+{
+    return isdigit(*token) || ( *token == '-' && isdigit(token[1]) );
+}
+
 int isOperator(char c)
 {
     if( c=='(' || c=='+' || c=='-' || c=='/' || c=='*' || c=='^' || c=='v' || c=='m' || c=='l' || c=='C' || c=='P'|| c=='e') {
@@ -123,9 +128,9 @@ int negativeInteger(address infix)
 		} else{
     		return 0;
 		}
-	}else if((isOperator(*Info(Prev(infix))) || isOperator2(*Info(Prev(infix)))) && *Info(infix) == '-' ){
+	}else if((isOperator(*Info(Prev(infix))) || *Info(Prev(infix)) == '|') && *Info(infix) == '-' ){
 		return 1;
-	}else if ((Prev(Prev(infix)) == NULL || (isOperator(*Info(Prev(infix))) || *Info(Prev(infix))=='!' || *Info(Prev(infix)) == '%'|| *Info(Prev(infix))=='|' )) && *Info(Prev(infix)) =='|' && *Info(infix) == '-'  ) {
+	}else if ((Prev(Prev(infix)) == NULL || (isOperator(*Info(Prev(infix)))  )) && *Info(Prev(infix)) =='|' && *Info(infix) == '-'  ) {
 		return 1;
 	}else{
 		return 0;
@@ -691,7 +696,7 @@ link CreateTree(List L)
         }
         else if(isOperator(*Info(tail)) || isOperator2(*Info(tail)))
         {
-        	if (RightSon(Pcur) == NULL){
+        	if (RightSon(Pcur) == NULL  && !isOperator2(*Info(Pcur))){
         		RightSon(Pcur) = AlokasiTree(Info(tail));
         		Parent(RightSon(Pcur)) = Pcur;
         		Pcur = RightSon(Pcur);
@@ -732,41 +737,31 @@ link AlokasiTree(infotype X)
 	return P;
 }
 
-List TranversalPreOrder(link P, int JmlPostfix)
+void preOrder(link root)
 {
-	link Pcur;
-	bool resmi = true, resmi1 = true;
-	int JmlPreOrder = 1;
-	List PreOrder;
-	
-	CreateList (&PreOrder);
-	
-	Pcur = P;
-	InsVLast (&PreOrder, Info(Pcur));
-	
-	do{
-		if (LeftSon(Pcur) != NULL && resmi){
-			Pcur = LeftSon(Pcur);
-			JmlPreOrder++;
-			InsVLast (&PreOrder, Info(Pcur));
-			resmi1 = true;
-		} else if (RightSon(Pcur) != NULL && resmi1){
-			Pcur = RightSon(Pcur);
-			JmlPreOrder++;
-			InsVLast (&PreOrder, Info(Pcur));
-			resmi = true;
-			resmi1 = false;
-		}else {
-			Pcur = Parent(Pcur);
-			resmi = false;
-			if (!resmi && !resmi1){
-				resmi1 = true;
-				Pcur = Parent(Pcur);
-			}
-		}
-	}while (JmlPostfix > JmlPreOrder);
-	
-	return PreOrder;
+	if (root != NULL){
+		printf("%s ", Info(root));
+        preOrder(LeftSon(root));
+        preOrder(RightSon(root));
+	}
+}
+
+void inOrder (link root)
+{
+	if (root != NULL) {
+        inOrder(LeftSon(root));
+        printf("%s ", Info(root));
+        inOrder(RightSon(root));
+    }
+}
+
+void postOrder (link root)
+{
+	if (root != NULL){
+        postOrder(LeftSon(root));
+        postOrder(RightSon(root));
+        printf("%s ", Info(root));
+	}
 }
 
 void CreateList (List * L)

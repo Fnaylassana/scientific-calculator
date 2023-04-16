@@ -10,13 +10,13 @@ int main()
 	List infix, postfix, preorder;
     char lagi = 'y';
     infotype x, temp;
-    double hasil;
+    double hasil, hasil2;
     int ulang, JmlNode;   
 	link Tree; 
     
     while(lagi == 'y' || lagi == 'Y')
     {
-    	awal :
+    	awal :{
     		system("cls");
 	    	ulang = 0;	    	
 			CreateList (&infix);
@@ -42,10 +42,20 @@ int main()
 				Top(postfix) = infixToPostfix(infix, &ulang);
 				
 				if(!ulang){
-			    	PrintNode (postfix, "Postfix : ", &JmlNode);                                                                   
-			    	hasil = hitungIsiPostfix(postfix, &ulang);
+					Tree = CreateTree(postfix);
+					
+					printf ("\nPreOrder: ");
+					preOrder(Tree);
+					
+					printf ("\nInOrder: ");
+					inOrder(Tree);
+					
+					printf ("\nPostOrder: ");
+					postOrder(Tree);
+					
+					hasil = hitungIsiPostfix(postfix, &ulang);
 				} else{
-		        	printf ("Input anda tidak sesuai, cek kembali inputan anda sesuai ketentuan");
+		        	printf ("\nInput anda tidak sesuai, cek kembali inputan anda sesuai ketentuan");
 				}
 				
 			    if (ulang){
@@ -53,17 +63,11 @@ int main()
 			    	goto awal;
 				}
 					
-				Tree = CreateTree(postfix);
-				
-				preorder = TranversalPreOrder(Tree, JmlNode);
-				
-				PrintNode (preorder, "Tranversal PreOrder : ", &JmlNode);
-			    printf ("Hasilnya adalah: %lf\n\n", hasil);
+				printf ("\nHasilnya adalah: %lf\n", hasil);
 			}
-			
-		    printf ("Apakah anda ingin menghitung kembali? (y/t)");
+		    printf ("\nApakah anda ingin menghitung kembali? (y/t)");
 		    lagi = getche();
+		}
     }
-    
     return 0;
 }

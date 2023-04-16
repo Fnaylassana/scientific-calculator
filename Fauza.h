@@ -78,6 +78,8 @@ int prioritas(char c);
 
 int isNumber(address token);
 
+int isNumber1(const char *token);
+
 int isOperator(char c);								//operator-operator dengan 2 operan
 
 int isOperator2(char c);							//operator-operator dengan 1 operan
@@ -94,7 +96,11 @@ double hitungIsiPostfix(List postfix, int *cek);
 
 link CreateTree(List L);
 
-List TranversalPreOrder(link P, int JmlPostfix);
+void preOrder(link root);
+
+void inOrder(link root);
+
+void postOrder(link root);
 
 link AlokasiTree(infotype X);
 
