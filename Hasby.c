@@ -1,7 +1,8 @@
 #include "Hasby.h"
 #include "Fauza.h"
 #include "naufal.h"
-
+#include "aryagara2.h"
+#include "aulianf.h"
 
 double Log(int Angka1){ //log basis 10
 	
@@ -40,11 +41,9 @@ double Logaritma(double X, double Y){
 	double Hasil; 
 	
 	Hasil = 0;
-	
-	while (X >= Y) {
-        Hasil++;
-        X /= Y;
-    }
+
+    Hasil = Log(X) / Log(Y);
+    
     
     return Hasil;
 }
@@ -94,6 +93,211 @@ double Sigmaitiga(double en){
         sig += tampung; // operasi sigma i
     }
     return sig; // operasi sigma i kubik
+}
+
+double HitungTree(link pcur, int *cek)
+{
+	double hasil;
+	
+	if (isNumber1(Info(pcur))){
+		hasil = atof(Info(pcur));
+	}
+	else if(isOperator(*Info(pcur)))
+    {	
+        switch(*Info(pcur)){
+            case '+':
+                hasil = pertambahan(HitungTree(LeftSon(pcur), &(*cek)), HitungTree(RightSon(pcur), &(*cek)));
+                break;
+            case '-':
+                hasil = pengurangan(HitungTree(LeftSon(pcur), &(*cek)), HitungTree(RightSon(pcur), &(*cek)));
+                break;
+            case '*':
+                hasil = perkalian(HitungTree(LeftSon(pcur), &(*cek)), HitungTree(RightSon(pcur), &(*cek)));
+                break;
+            case '/':
+            	if (HitungTree(RightSon(pcur), &(*cek)) == 0){
+            		printf ("Penyebut = 0, nilai tidak terdefinisi, masukkan input kembali");
+        			*cek = 1;
+				} else{
+                	hasil = pembagian(HitungTree(LeftSon(pcur), &(*cek)), HitungTree(RightSon(pcur), &(*cek)));
+				}
+                break;
+            case '^':
+                hasil = eksponen(HitungTree(LeftSon(pcur), &(*cek)), HitungTree(RightSon(pcur), &(*cek)));
+                break;
+            case 'v':
+            	if (HitungTree(RightSon(pcur), &(*cek)) < 0){
+            		if (modulus(HitungTree(LeftSon(pcur), &(*cek)),2) == 0){
+            			printf ("Nilai di dalam akar tidak boleh minus, masukkan input kembali");
+        				*cek = 1;
+					} else{
+                		hasil = -1*akar(HitungTree(RightSon(pcur), &(*cek)), HitungTree(LeftSon(pcur), &(*cek)));
+					}
+				} else{
+                	hasil = akar(HitungTree(RightSon(pcur), &(*cek)), HitungTree(LeftSon(pcur), &(*cek)));
+				}
+                break;
+            case 'm':
+                hasil = modulus(HitungTree(LeftSon(pcur), &(*cek)), HitungTree(RightSon(pcur), &(*cek)));
+                break;
+            case 'l':
+            	if (HitungTree(LeftSon(pcur), &(*cek)) < 0 || HitungTree(RightSon(pcur), &(*cek)) < 0){
+            		printf ("Nilai x atau y tidak boleh lebih kecil dari 0");
+        			*cek = 1;
+				} else{
+					hasil = Logaritma(HitungTree(RightSon(pcur), &(*cek)), HitungTree(LeftSon(pcur), &(*cek)));
+				}
+                break;
+            case 'C':
+            	if (HitungTree(LeftSon(pcur), &(*cek)) < HitungTree(RightSon(pcur), &(*cek))){
+            		printf ("Nilai x tidak boleh lebih kecil dari y");
+        			*cek = 1;
+				} else if (HitungTree(LeftSon(pcur), &(*cek)) < 0 || HitungTree(RightSon(pcur), &(*cek)) < 0){
+            		printf ("Nilai x atau y tidak boleh lebih kecil dari 0");
+        			*cek = 1;
+				} else{
+					hasil = kombinasi(HitungTree(LeftSon(pcur), &(*cek)), HitungTree(RightSon(pcur), &(*cek)));
+				}
+                break;
+            case 'P':
+            	if (HitungTree(LeftSon(pcur), &(*cek)) < HitungTree(RightSon(pcur), &(*cek))){
+            		printf ("Nilai x tidak boleh lebih kecil dari y");
+        			*cek = 1;
+				} else{
+					hasil = permutasi(HitungTree(LeftSon(pcur), &(*cek)), HitungTree(RightSon(pcur), &(*cek)));
+				}
+                break;
+            case 'e':
+				hasil = Eurel(HitungTree(LeftSon(pcur), &(*cek)), HitungTree(RightSon(pcur), &(*cek)));
+                break;
+        }
+    }
+	else if (*Info(pcur) == 'p'){
+		hasil = pi;
+	} 
+	else if(isOperator2(*Info(pcur))){
+        switch (*Info(pcur)){
+        	case '!' :
+        		if (HitungTree(LeftSon(pcur), &(*cek)) < 0){
+            		printf ("Input faktorial tidak boleh kurang dari 0");
+        			*cek = 1;
+				} else{
+					hasil = faktorial(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;
+			case '%' :
+				hasil = Persen(HitungTree(LeftSon(pcur), &(*cek)));
+				break;
+        	case '|' :
+        		hasil = Mutlak(HitungTree(LeftSon(pcur), &(*cek)));
+				break;
+			case 'i' :																	//sin dengan input derajat
+				hasil = sinDerajat(HitungTree(LeftSon(pcur), &(*cek)));
+				break;
+			case 'I' :																	//sin dengan input radian
+				hasil = sinRad(HitungTree(LeftSon(pcur), &(*cek)));
+				break;
+        	case 's' :																	//cosecan dengan input derajat
+        		if ( HitungTree(LeftSon(pcur), &(*cek)) == 0 ||  HitungTree(LeftSon(pcur), &(*cek)) == 180 ||  HitungTree(LeftSon(pcur), &(*cek)) == 360 ||  HitungTree(LeftSon(pcur), &(*cek)) == 540){
+        			printf ("Nilai csc(%g) tidak terdefinisi",  HitungTree(LeftSon(pcur), &(*cek)));
+        			*cek = 1;
+				} else{
+        			hasil = cosecDerajat(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;
+			case 'S' :																	//cosecan dengan input radian
+        		if ( HitungTree(LeftSon(pcur), &(*cek)) == 0 ||  HitungTree(LeftSon(pcur), &(*cek)) == 180 ||  HitungTree(LeftSon(pcur), &(*cek)) == 360 ||  HitungTree(LeftSon(pcur), &(*cek)) == 540){
+        			printf ("Nilai csc(%g) tidak terdefinisi",  HitungTree(LeftSon(pcur), &(*cek)));
+        			*cek = 1;
+				} else{
+					hasil = cosecRad(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;
+			case 'o' :																	//cos dengan input derajat
+				hasil = cosNilai(HitungTree(LeftSon(pcur), &(*cek)));
+				break;
+			case 'O' :																	//cos dengan input radian
+				hasil = cosRad(HitungTree(LeftSon(pcur), &(*cek)));
+				break;
+			case 'a' :																	//secan dengan input derajat
+        		if ( HitungTree(LeftSon(pcur), &(*cek)) == 90 ||  HitungTree(LeftSon(pcur), &(*cek)) == 270 ||  HitungTree(LeftSon(pcur), &(*cek)) == 450){
+        			printf ("Nilai sec(%g) tidak terdefinisi",  HitungTree(LeftSon(pcur), &(*cek)));
+        			*cek = 1;
+				} else{
+					hasil = secDerajat(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;
+        	case 'A' :																	//secan dengan input radian
+        		if ( HitungTree(LeftSon(pcur), &(*cek)) == 90 ||  HitungTree(LeftSon(pcur), &(*cek)) == 270 ||  HitungTree(LeftSon(pcur), &(*cek)) == 450){
+        			printf ("Nilai sec(%g) tidak terdefinisi",  HitungTree(LeftSon(pcur), &(*cek)));
+        			*cek = 1;
+				} else{
+					hasil = secRad(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;
+			case 't' :																	//tan dengan input derajat
+        		if ( HitungTree(LeftSon(pcur), &(*cek)) == 90 ||  HitungTree(LeftSon(pcur), &(*cek)) == 270 ||  HitungTree(LeftSon(pcur), &(*cek)) == 450){
+        			printf ("Nilai tan(%g) tidak terdefinisi",  HitungTree(LeftSon(pcur), &(*cek)));
+        			*cek = 1;
+				} else{
+					hasil = tanDerajat(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;
+			case 'T' :																	//tan dengan input radian
+        		if ( HitungTree(LeftSon(pcur), &(*cek)) == 90 ||  HitungTree(LeftSon(pcur), &(*cek)) == 270 ||  HitungTree(LeftSon(pcur), &(*cek)) == 450){
+        			printf ("Nilai tan(%g) tidak terdefinisi",  HitungTree(LeftSon(pcur), &(*cek)));
+        			*cek = 1;
+				} else{
+					hasil = tanRad(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;
+			case 'g' :																	//cotangen dengan input derajat
+        		if ( HitungTree(LeftSon(pcur), &(*cek)) == 0 ||  HitungTree(LeftSon(pcur), &(*cek)) == 90 ||  HitungTree(LeftSon(pcur), &(*cek)) == 180 ||  HitungTree(LeftSon(pcur), &(*cek)) == 360 ||  HitungTree(LeftSon(pcur), &(*cek)) == 540){
+        			printf ("Nilai cot(%g) tidak terdefinisi",  HitungTree(LeftSon(pcur), &(*cek)));
+        			*cek = 1;
+				} else {
+					hasil = cotDerajat(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;
+			case 'G' :																	//cotangen dengan input radian
+        		if ( HitungTree(LeftSon(pcur), &(*cek)) == 0 ||  HitungTree(LeftSon(pcur), &(*cek)) == 90 ||  HitungTree(LeftSon(pcur), &(*cek)) == 180 ||  HitungTree(LeftSon(pcur), &(*cek)) == 360 ||  HitungTree(LeftSon(pcur), &(*cek)) == 540){
+        			printf ("Nilai cot(%g) tidak terdefinisi",  HitungTree(LeftSon(pcur), &(*cek)));
+        			*cek = 1;
+				} else {
+					hasil = cotRad(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;	
+			case 'n' :																	//hitung logaritma natural
+				if (HitungTree(LeftSon(pcur), &(*cek)) < 0){
+            		printf ("Nilai ln tidak boleh lebih kecil dari 0");
+        			*cek = 1;
+				} else{
+					hasil = hitungLog(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;
+			case 'L' :																	//hitung logaritma 10
+				if (HitungTree(LeftSon(pcur), &(*cek)) < 0){
+            		printf ("Nilai log tidak boleh lebih kecil dari 0");
+        			*cek = 1;
+				} else{
+					hasil = Log(HitungTree(LeftSon(pcur), &(*cek)));
+				}
+				break;
+			case 'z' :																	//sigma i
+        		hasil = Sigmai(HitungTree(LeftSon(pcur), &(*cek)));
+				break;	
+			case 'Z' :																	//sigma i kuadrat
+				hasil = Sigmaidua(HitungTree(LeftSon(pcur), &(*cek)));
+				break;
+			case 'E' :																	//sigma i kubik
+				hasil = Sigmaitiga(HitungTree(LeftSon(pcur), &(*cek)));
+				break;
+            default:
+                break;
+		}
+	}
+	
+  return hasil;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,5 +1,9 @@
 #ifndef Hasby_H
 #define Hasby_H
+#include "Fauza.h"
+#include "naufal.h"
+#include "aryagara2.h"
+#include "aulianf.h"
 #include <stdio.h>
 #include "math.h"
 #include <conio.h>
@@ -11,6 +15,7 @@ double Logaritma (double X,double Y);
 
 double Eurel (double nilai, double e);
 
+double HitungTree(link pcur, int *cek);
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
