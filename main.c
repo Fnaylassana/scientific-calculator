@@ -25,6 +25,7 @@ int main()
 		    printf ("\nMasukkan operasi yang akan anda hitung atau ketik H untuk help: ");
 			input = (infotype) malloc (50*sizeof (char));
 			scanf (" %[^\n]s", input);
+			printf ("\n");
 			
 			if (input[0] == 'h' || input[0] == 'H'){
 				header();
@@ -44,16 +45,7 @@ int main()
 				if(!ulang){
 					Tree = CreateTree(postfix);
 					
-					printf ("\nPreOrder: ");
-					preOrder(Tree);
-					
-					printf ("\nInOrder: ");
-					inOrder(Tree);
-					
-					printf ("\nPostOrder: ");
-					postOrder(Tree);
-					
-					hasil = hitungIsiPostfix(postfix, &ulang);
+					hasil = HitungTree(Tree, &ulang);
 				} else{
 		        	printf ("\nInput anda tidak sesuai, cek kembali inputan anda sesuai ketentuan");
 				}
@@ -62,7 +54,19 @@ int main()
 			    	getche();
 			    	goto awal;
 				}
-					
+				
+				printf ("PreOrder: ");
+				preOrder(Tree);
+				printf ("\n");
+				
+				printf ("InOrder: ");
+				inOrder(Tree);
+				printf ("\n");
+				
+				printf ("PostOrder: ");
+				postOrder(Tree);
+				printf ("\n");
+				
 				printf ("\nHasilnya adalah: %lf\n", hasil);
 			}
 		    printf ("\nApakah anda ingin menghitung kembali? (y/t)");
