@@ -1,24 +1,31 @@
 #ifndef aulianf_h
 #define aulianf_h
 #include <stdio.h>
-#include "math.h"
 #define pi 3.14159265
 #define max 10
 
+//Menghitung akar dari suatu bilangan
 double akar(double bilangan, double pangkat);
 
+//Menghitung pangkat dari suatu bilangan
 double eksponen(double bilangan, double pangkat);
 
+//Menghitung sin dalam satuan radian
 double sinRad(double bilangan);
 
+//Menghitung sin dalam satuan derajat
 double sinDerajat(double bilangan);
 
+//Menghitung cosec dalam satuan radian
 double cosecRad(double bilangan);
 
+//Menghitung cosec dalam satuan derajat
 double cosecDerajat(double bilangan);
 
+//Menghitung sin invers dalam satuan radian
 double sinInversRad(double angka);
 
+//Menghitung sin dalam satuan derajat
 double sinInversDerajat(double angka);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
