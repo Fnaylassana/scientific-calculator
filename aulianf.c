@@ -3,17 +3,23 @@
 #include "naufal.h"
 
 double akar(double bilangan, double pangkat) 
-// Menghitung akar
+//Menghitung akar
 {
-    double hasil, epsilon;
+    double pembagi, hasil, epsilon, hasileksponen, bagian1, bagian2, bagian3;
     
-	hasil = bilangan;
-    epsilon = 0.000001; 
-    while ((eksponen(hasil, pangkat) - bilangan) > epsilon) 
+    hasil = bilangan;		// inisialisasi hasil dengan bilangan yang ingin dicari akarnya
+    epsilon = 0.000001; 	// batas kesalahan yang diijinkan
+
+    while ((eksponen(hasil, pangkat) - bilangan) > epsilon)    	// menggunakan metode iterasi         
 	{
-        hasil = (1/pangkat)*((pangkat-1)*hasil + bilangan/eksponen(hasil, pangkat-1));
+        hasileksponen = eksponen(hasil, pangkat - 1);
+        bagian1 = (pangkat - 1) * hasil;						// mempresentasikan pembagi 
+        bagian2 = bilangan / hasileksponen;  					// mempresentasikan pembilang 
+        bagian3 = bagian1 + bagian2;							// merepresentasikan pembilang baru setelah pembagi dan pembilang dihitung
+        pembagi = 1 / pangkat;
+        hasil = pembagi * bagian3;
     }
-    return hasil;
+    return hasil; 
 }
 
 double eksponen(double bilangan, double pangkat) 
