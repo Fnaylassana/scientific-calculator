@@ -20,9 +20,10 @@ double eksponen(double bilangan, double pangkat)
 // Menghitung bilangan berpangkat
 {
     double hasil = 1;
+    int i;
     
     if(pangkat > 0){
-    	for (int i = 1; i <= pangkat; i++) 
+    	for (i = 1; i <= pangkat; i++) 
 		{
         	hasil *= bilangan;
 		}
