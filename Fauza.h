@@ -1,11 +1,11 @@
 #ifndef Fauza_H
 #define Fauza_H
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <conio.h>
-#include <stdbool.h>
+#include <stdio.h>		
+#include <stdlib.h>		//library agar dapat menggunakan atof()
+#include <string.h>		//library agar dapat menggunakan strlwr(), strcat(), strlen(), strcmp(), strcpy()
+#include <ctype.h>		//library agar dapat menggunakan isdigit()
+#include <conio.h>		//library agar dapat menggunakan getche() 
+#include <stdbool.h>	//library agar dapat menggunakan tipe data bool
 #define max 10
 #define Info(P) (P)->info
 #define Next(P) (P)->next
