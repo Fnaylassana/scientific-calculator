@@ -48,6 +48,25 @@ double Logaritma(double X, double Y){
     return Hasil;
 }
 
+double LogNatural (double Angka) {
+    double hasil = 0;
+    double y,power,term,loop;
+    
+    y = (Angka - 1) / (Angka + 1);
+    power = y;
+    term = power;
+    loop = 1;
+    
+	while (term > 1e-15 || term < -1e-15) {
+        hasil = hasil + term;
+        power = power * y * y;
+        term = power / (2 * loop + 1);
+        loop++;
+    }
+    
+    return 2 * hasil;
+}
+
 double Eurel (double nilai, double e){   //eurel
 	double hasil;
 	hasil = 1;

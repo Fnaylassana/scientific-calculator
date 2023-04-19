@@ -15,6 +15,9 @@ double Log(int Angka1);
 // Referensi : https://www.utakatikotak.com/Rumus-Cara-Menghitung-Log-Dengan-Mudah-Beserta-Contohnya/kongkow/detail/15269
 double Logaritma (double X,double Y);
 
+// Fungsi untuk menghitung Logaritma Natural menggunakan perhitungan Deret Taylor
+double LogNatural (double Angka);
+
 // Fungsi untuk menghitung eurel atau banyaknya 0 dibelakang e
 double Eurel (double nilai, double e);
 
