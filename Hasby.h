@@ -8,15 +8,17 @@
 #include <conio.h>
 
 // Fungsi untuk menghitung Logaritma berbasis 10
+// Referensi : https://www.utakatikotak.com/Rumus-Cara-Menghitung-Log-Dengan-Mudah-Beserta-Contohnya/kongkow/detail/15269
 double Log(int Angka1); 
 
 // Fungsi untuk menghitung Logaritma berbasis bebas yang menggunakan modul logaritma basis 10
+// Referensi : https://www.utakatikotak.com/Rumus-Cara-Menghitung-Log-Dengan-Mudah-Beserta-Contohnya/kongkow/detail/15269
 double Logaritma (double X,double Y);
 
 // Fungsi untuk menghitung eurel atau banyaknya 0 dibelakang e
 double Eurel (double nilai, double e);
 
-// Fungsi untuk mengakumulasikan atau menjumlahkan dari Tree yang sudah dibuat
+// Fungsi untuk menghitung, mengakumulasikan atau menjumlahkan dari Tree yang sudah dibuat
 double HitungTree(link pcur, int *cek);
 
 // Fungsi untuk menghitung Sigma
