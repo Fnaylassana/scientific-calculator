@@ -85,8 +85,6 @@ double Persen (double nilai);
 //modul untuk meminta inputan bertipe float sebanyak 1 nilai
 void Input1Float(double *angka);
 
-
-
 // Menu Utama Scientific Calculator---------------------------------------------------------------------------------------------------
 
 //modul untuk menampilkan header kalkulator kelompok 5

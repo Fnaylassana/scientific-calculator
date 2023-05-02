@@ -162,13 +162,16 @@ address infixToPostfix(List input, int *cek)
 
     while(infix != NULL && *cek != 1)
     {
+    	if(*Info(infix) == 'v' && (Prev(infix) == NULL || (Prev(infix) != NULL && !isNumber(Prev(infix))))){
+    		InsVLast (&postfix, "2");
+		}
     	if(*Info(infix)=='c' && (isNumber(Next(infix)) || *Info(Next(infix))=='-')){
     		Info(infix) = "C";
 		}
 		if(*Info(infix)=='p' && (isNumber(Next(infix)) || *Info(Next(infix))=='-')){
     		Info(infix) = "P";
 		}
-    	else if(*Info(infix) == 's'|| *Info(infix)=='c'|| *Info(infix)=='t'|| *Info(infix)=='m' || (*Info(infix)=='l' )){
+    	if(*Info(infix) == 's'|| *Info(infix)=='c'|| *Info(infix)=='t'|| *Info(infix)=='m' || (*Info(infix)=='l' )){
             if ((*Info(Next(Next(infix))) != '(' && *Info(Next(Next(Next(infix)))) != '(' && *Info(Next(Next(Next(Next(infix))))) != '(' && *Info(Next(Next(Next(Next(Next(infix)))))) != '(')){
 	        	*cek = 1;
 			}
