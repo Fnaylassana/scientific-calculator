@@ -172,72 +172,73 @@ address infixToPostfix(List input, int *cek)
     		Info(infix) = "P";
 		}
     	if(*Info(infix) == 's'|| *Info(infix)=='c'|| *Info(infix)=='t'|| *Info(infix)=='m' || (*Info(infix)=='l' )){
-            if ((*Info(Next(Next(infix))) != '(' && *Info(Next(Next(Next(infix)))) != '(' && *Info(Next(Next(Next(Next(infix))))) != '(' && *Info(Next(Next(Next(Next(Next(infix)))))) != '(')){
-	        	*cek = 1;
+        	if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(infix)))=='n' && *Info(Next(Next(Next(infix))))=='r'){
+                PushChar(&stack,'I'); 
+			}
+			else if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(infix)))=='n'){
+                PushChar(&stack,'i'); 
+			}
+			else if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(infix)))=='g'){
+				if(*Info(Next(Next(Next(Next(infix))))) == '1'){
+                	PushChar(&stack,'z'); 
+				}
+				else if(*Info(Next(Next(Next(Next(infix))))) == '2'){
+                	PushChar(&stack,'Z'); 
+				}
+				else if(*Info(Next(Next(Next(Next(infix))))) == '3'){
+                	PushChar(&stack,'E'); 
+				}
+			}
+			else if (*Info(infix)=='c' && *Info(Next(infix))=='s' && *Info(Next(Next(infix)))=='c' && *Info(Next(Next(Next(infix))))=='r'){
+                PushChar(&stack,'S'); 
+			}
+			else if (*Info(infix)=='c' && *Info(Next(infix))=='s' && *Info(Next(Next(infix)))=='c'){
+                PushChar(&stack,'s'); 
+			}
+			else if (*Info(infix)=='c' && *Info(Next(infix))=='o' && *Info(Next(Next(infix)))=='s' && *Info(Next(Next(Next(infix))))=='r'){
+                PushChar(&stack,'O'); 
+			}
+			else if (*Info(infix)=='c' && *Info(Next(infix))=='o' && *Info(Next(Next(infix)))=='s'){
+                PushChar(&stack,'o'); 
+			}
+			else if (*Info(infix)=='s' && *Info(Next(infix))=='e' && *Info(Next(Next(infix)))=='c' && *Info(Next(Next(Next(infix))))=='r'){
+                PushChar(&stack,'A'); 
+			}
+			else if (*Info(infix)=='s' && *Info(Next(infix))=='e' && *Info(Next(Next(infix)))=='c'){
+                PushChar(&stack,'a'); 
+			}
+			else if (*Info(infix)=='t' && *Info(Next(infix))=='a' && *Info(Next(Next(infix)))=='n' && *Info(Next(Next(Next(infix))))=='r'){
+                PushChar(&stack,'T'); 
+			}
+			else if (*Info(infix)=='t' && *Info(Next(infix))=='a' && *Info(Next(Next(infix)))=='n'){
+                PushChar(&stack,'t'); 
+			}
+			else if (*Info(infix)=='c' && *Info(Next(infix))=='o' && *Info(Next(Next(infix)))=='t' && *Info(Next(Next(Next(infix))))=='r'){
+                PushChar(&stack,'G'); 
+			}
+			else if (*Info(infix)=='c' && *Info(Next(infix))=='o' && *Info(Next(Next(infix)))=='t'){
+                PushChar(&stack,'g'); 
+			}
+			else if (*Info(infix)=='l' && *Info(Next(infix))=='n'){
+                PushChar(&stack,'n'); 
+	        }
+			else if (*Info(infix)=='l' && *Info(Next(infix))=='o' && *Info(Next(Next(infix)))=='g' && (Prev(infix) == NULL || !isNumber(Prev(infix)))){
+                PushChar(&stack,'L'); 
+			}
+			else if (*Info(infix)=='l' && *Info(Next(infix))=='o' && *Info(Next(Next(infix)))=='g' && isNumber(Prev(infix))){
+                PushChar(&stack,'l'); 
+	    	}
+			else if (*Info(infix)=='m' && *Info(Next(infix))=='o' && *Info(Next(Next(infix)))=='d' && (Prev(infix) != NULL && isNumber(Prev(infix)))){
+                PushChar(&stack,'m'); 
 			}
 			else{
-	        	if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&stack,'I'); 
-				}
-				else if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(infix)))=='g'){
-					if(*Info(Next(Next(Next(Next(infix))))) == '1'){
-	                	PushChar(&stack,'z'); 
-					}
-					else if(*Info(Next(Next(Next(Next(infix))))) == '2'){
-	                	PushChar(&stack,'Z'); 
-					}
-					else if(*Info(Next(Next(Next(Next(infix))))) == '3'){
-	                	PushChar(&stack,'E'); 
-					}
-				}
-				else if (*Info(infix)=='s' && *Info(Next(infix))=='i'){
-	                PushChar(&stack,'i'); 
-				}
-				else if (*Info(infix)=='c' && *Info(Next(infix))=='s' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&stack,'S'); 
-				}
-				else if (*Info(infix)=='c' && *Info(Next(infix))=='s'){
-	                PushChar(&stack,'s'); 
-				}
-				else if (*Info(infix)=='c' && *Info(Next(Next(infix)))=='s' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&stack,'O'); 
-				}
-				else if (*Info(infix)=='c' && *Info(Next(Next(infix)))=='s'){
-	                PushChar(&stack,'o'); 
-				}
-				else if (*Info(infix)=='s' && *Info(Next(infix))=='e' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&stack,'A'); 
-				}
-				else if (*Info(infix)=='s' && *Info(Next(infix))=='e'){
-	                PushChar(&stack,'a'); 
-				}
-				else if (*Info(infix)=='t' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&stack,'T'); 
-				}
-				else if (*Info(infix)=='t'){
-	                PushChar(&stack,'t'); 
-				}
-				else if (*Info(infix)=='c' && *Info(Next(Next(infix)))=='t' && *Info(Next(Next(Next(infix))))=='r'){
-	                PushChar(&stack,'G'); 
-				}
-				else if (*Info(infix)=='c' && *Info(Next(Next(infix)))=='t'){
-	                PushChar(&stack,'g'); 
-				}
-				else if (*Info(infix)=='l' && *Info(Next(infix))=='n'){
-	                PushChar(&stack,'n'); 
-		        }
-				else if (*Info(infix)=='l' && *Info(Next(infix))=='o' && (Prev(infix) == NULL || !isNumber(Prev(infix)))){
-	                PushChar(&stack,'L'); 
-				}
-				else if (*Info(infix)=='l' && isNumber(Prev(infix))){
-	                PushChar(&stack,'l'); 
-		    	}
-				else if (*Info(infix)=='m'){
-	                PushChar(&stack,'m'); 
-				}
-		    	while (*Info(infix) != '('){
-		    		infix = Next(infix);
-				}
+				*cek = 1;
+			}
+	    	while (infix != NULL && *Info(infix) != '('){
+	    		infix = Next(infix);
+			}
+			if (infix == NULL){
+				*cek = 1;
 			}
 		}
 		else if (*Info(infix)=='p' && *Info(Next(infix)) == 'i'){
