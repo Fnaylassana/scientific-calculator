@@ -630,7 +630,7 @@ double hitungIsiPostfix(List postfix, int *cek)
 	            		printf ("Nilai ln tidak boleh lebih kecil dari 0");
 	        			*cek = 1;
 					} else{
-						Push(&stack, hitungLog(a));
+						Push(&stack, LogNatural(a));
 					}
 					break;
 				case 'L' :																	//hitung logaritma 10
