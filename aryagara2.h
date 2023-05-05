@@ -1,10 +1,8 @@
 #ifndef aryagara_H
 #define aryagara_H
 #include <stdio.h>
-#include <math.h>
+#include <stdbool.h>
 
-//fungsi untuk menghitung logaritma natural
-double hitungLog(double angka); //referensi dari programiz
 
 //Fungsi untuk menghitung cosinus, nilai yang dihitung berupa radian
 double cosRad(double angka); //referensi dari programiz
@@ -31,42 +29,42 @@ double cotRad(double angka);
 double cotDerajat(double angka);
 
 //Fungsi untuk menghitung invers cosinus, nilai yang dihitung berupa radian
-double cosInvers(double angka); 
+//double cosInvers(double angka); 
 
 //Fungsi untuk menghitung invers cosinus, nilai yang dihitung berupa derajat
-double cosInversNilai(double angka); //konversi radian ke derajat mendapat referensi dari tutorialspoint
+//double cosInversNilai(double angka); //konversi radian ke derajat mendapat referensi dari tutorialspoint
 
 //Fungsi untuk menghitung invers tangent, nilai yang dihitung berupa radian
-double tanInvers(double angka); 
+//double tanInvers(double angka); 
 
 //Fungsi untuk menghitung invers tangent, nilai yang dihitung berupa derajat
-double tanInversNilai(double angka);
+//double tanInversNilai(double angka);
 
 //prosedur untuk menu tampilan invers trigonometri
-void inversTrigonometri(); //referensi dari Hasby
+//void inversTrigonometri(); //referensi dari Hasby
 
 //prosedur untuk mengecek nilai invers trigonometri dalam satuan radian
-void cekInversRad(double angka, double p, int *cek);
+//void cekInversRad(double angka, double p, int *cek);
 
 //prosedur untuk mengecek nilai invers trigonometri dalam satuan derajat
-void cekInversDerajat(double angka, double p);
+//void cekInversDerajat(double angka, double p);
 
-//prosedur untuk mengecek nilai trigonometri dalam satuan radian
-void cekTidakTerdefinisiR(double angka, double p, int *cek);
+//prosedur untuk mengecek nilai cosinus, tangent, dan secant dalam satuan radian
+bool cekTidakTerdefinisiCosTanSecR(double angka);
 
-//prosedur untuk mengecek nilai trigonometri dalam satuan derajat
-void cekTidakTerdefinisiD(double angka, double p);
+//prosedur untuk mengecek nilai cosinus dan tangent dalam satuan derajat
+bool cekTidakTerdefinisiCosTanD(double angka);
 
 //prosedur untuk mengecek nilai cotangent dalam satuan radian
-void cekTidakTerdefinisiCotR(double angka, double p, int *cek);
+bool cekTidakTerdefinisiCotR(double angka);
 
-//prosedur untuk mengecek nilai trigonometri dalam satuan derajat
-void cekTidakTerdefinisiCotD(double angka, double p);
+//prosedur untuk mengecek nilai cotangent dalam satuan derajat
+bool cekTidakTerdefinisiCotD(double angka);
 
 //prosedur untuk mengecek nilai csc dalam satuan radian
-void cekTidakTerdefinisiCscR(double angka, double p, int *cek);
+bool cekTidakTerdefinisiCscR(double angka);
 
 //prosedur untuk mengecek nilai csc dalam satuan derajat
-void cekTidakTerdefinisiCscD(double angka, double p);
+bool cekTidakTerdefinisiCscD(double angka);
 
 #endif
