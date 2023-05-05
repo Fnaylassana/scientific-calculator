@@ -87,7 +87,6 @@ double tanDerajat(double angka) {
 	double nilai /*, derajat*/;
 
 	nilai = sinDerajat(angka)/cosNilai(angka);
-//	derajat = tanf(angka * nilai);
 
 	return nilai;
 }
@@ -112,10 +111,10 @@ double tanDerajat(double angka) {
 //}
 
 double cotRad(double angka) {
-	double rad, cot;
+	double nilai, cot;
 
-	rad = tanf(angka);
-	cot = 1/rad;
+	nilai = tanRad(angka);
+	cot = 1/nilai;
 
 	return cot;
 }
