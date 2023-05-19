@@ -8,7 +8,7 @@
 
 double cosRad(double angka) {
 	int suku; //variable yang digunakan untuk menghitung deret maclaurin/taylor dengan sebanyak 'suku' kali.
-	suku = 34;
+	suku = 100;
 	double hasil = 1;
 	double tanda = -1;
 	int n;
@@ -23,7 +23,7 @@ double cosRad(double angka) {
 
 double cosNilai(double angka) {
 	int suku; //variable yang digunakan untuk menghitung deret maclaurin/taylor dengan sebanyak 'suku' kali.
-	suku = 10;
+	suku = 100;
 	double radian = angka * pi / 180;
 	double hasil = 1;
 	double tanda = -1;
@@ -124,6 +124,8 @@ double cotDerajat(double angka) {
 
 	nilai = tanDerajat(angka);
 	derajat = 1/nilai;
+	
+	return derajat;
 }
 
 //void inversTrigonometri()
