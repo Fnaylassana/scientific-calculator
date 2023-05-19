@@ -27,7 +27,7 @@ int main()
 			scanf (" %[^\n]s", input);
 			printf ("\n");
 			
-			if (input[0] == 'h' || input[0] == 'H'){
+			if ((input[0] == 'h' || input[0] == 'H') && input[1] == '\0'){
 				header();
 				help();
 			} else{
@@ -55,15 +55,15 @@ int main()
 			    	goto awal;
 				}
 				
-				printf ("PreOrder: ");
+				printf ("Prefix: ");
 				preOrder(Tree);
 				printf ("\n");
 				
-				printf ("InOrder: ");
+				printf ("Infix: ");
 				inOrder(Tree);
 				printf ("\n");
 				
-				printf ("PostOrder: ");
+				printf ("Postfix: ");
 				postOrder(Tree);
 				printf ("\n");
 				

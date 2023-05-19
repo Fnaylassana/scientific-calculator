@@ -1,6 +1,6 @@
 #ifndef Fauza_H
 #define Fauza_H
-#include <stdio.h>		
+#include <stdio.h>		//library agar dapat menggunakan printf(), scanf(), dll
 #include <stdlib.h>		//library agar dapat menggunakan atof()
 #include <string.h>		//library agar dapat menggunakan strlwr(), strcat(), strlen(), strcmp(), strcpy()
 #include <ctype.h>		//library agar dapat menggunakan isdigit()
@@ -15,12 +15,9 @@
 #define Parent(P) (P)->parent
 #define Top(L) (L).Top
 
-//Referensi logika Prioritas Scientific Kalkulator dari GitHub by:
-//MOHAMED FARID ABDELAZIZ SALAMA 6905
-//ADHAM MOHAMED ALY ABDELHAMID 6744
 
 //pembuatan tipe data baru bernama infotype bertipe char*
-typedef const char *infotype;
+typedef char *infotype;
 
 //pembuatan tipe data baru bernama address bertipe node*
 typedef struct node *address;
@@ -77,54 +74,75 @@ typedef struct {
 } List2;
 
 //function yang akan mengembalikan nilai mutlak dari nilai yang diparsing
+// IS: variabel nilai berisi bilangan baik <0, >0, ataupun =0
+// FS: variabel nilai berisi bilangan positif
 double Mutlak (double nilai);
 
 //function yang akan mengembalikan hasil /100 dari nilai yang diparsing
+// IS: variabel nilai berisi sebuah bilangan
+// FS: variabel nilai berisi bilangan dibagi 100
 double Persen (double nilai);
 
 //modul untuk meminta inputan bertipe float sebanyak 1 nilai
+// IS: variabel *angka berisi nilai random
+// FS: variabel *angka berisi inputan user
 void Input1Float(double *angka);
 
 // Menu Utama Scientific Calculator---------------------------------------------------------------------------------------------------
 
 //modul untuk menampilkan header kalkulator kelompok 5
+//https://textkool.com/en/ascii-art-generator
 void header();
 
+//Referensi logika Prioritas Scientific Kalkulator dari GitHub by:
+//MOHAMED FARID ABDELAZIZ SALAMA 6905
+//ADHAM MOHAMED ALY ABDELHAMID 6744
+//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+
 //function yang akan mengembalikan angka sesuai dengan prioritas dari sebuah operasi
+//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+// IS: variabel c berisi sebuah operasi yang akan dicek urutan prioritasnya
+// FS: mengembalikan angka prioritas dari operasi pada variabel c
 int prioritas(char c);
 
-//function yang akan mengembalikan nilai 1 apabila Info(token) yang diparsing merupakan sebuah operan
-//dan mengembalikan nilai 0 apabila Info(token) bukan berupa angka
+//function yang akan mengembalikan nilai 1 apabila Info(token) yang diparsing merupakan sebuah angka dan mengembalikan nilai 0 apabila Info(token) bukan berupa angka
+//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+// IS: variabel token berisi alamat dari sebuah node yang akan dicek apakah isi dari subvar info nodenya angka atau bukan
+// FS: mengembalikan angka 1 apabila isi subvar info node teresebut adalah angka, bila bukan mengembalikan angka 0
 int isNumber(address token);
 
-//function yang akan mengembalikan nilai 1 apabila string yang diparsing merupakan sebuah operan
-//dan mengembalikan nilai 0 apabila string bukan berupa angka
+//function yang akan mengembalikan nilai 1 apabila string yang diparsing merupakan sebuah angka dan mengembalikan nilai 0 apabila string bukan berupa angka
+//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+// IS: variabel token berisi sebuah char* yang akan dicek apakah isi variabel tersebut angka atau bukan
+// FS: mengembalikan angka 1 apabila isi variabel teresebut adalah angka, bila bukan mengembalikan angka 0
 int isNumber1(const char *token);
 
-//function yang akan mengembalikan nilai 1 apabila char yang diparsing merupakan sebuah operator
-//dan mengembalikan nilai 0 apabila char bukan berupa angka
+//function yang akan mengembalikan nilai 1 apabila char yang diparsing merupakan sebuah operator dan mengembalikan nilai 0 apabila char bukan berupa angka
+//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+// IS: variabel c berisi sebuah char yang akan dicek apakah isi variabel tersebut operator atau bukan
+// FS: mengembalikan angka 1 apabila isi variabel teresebut adalah operator, bila bukan mengembalikan angka 0
 int isOperator(char c);	//operator-operator dengan 2 operan
 int isOperator2(char c); //operator-operator dengan 1 operan
 int isOperator3(char c); //simbol selain angka, operator 1, dan operator 2
 
 
-//function yang akan mengembalikan nilai 1 apabila Info(infix) yang di parsing merupakan sebuah operan negatif
-//dan mengembalikan nilai 0 apabila Info(infix) bukan berupa operan negatif
+//function yang akan mengembalikan nilai 1 apabila Info(infix) yang di parsing merupakan sebuah operan negatif dan mengembalikan nilai 0 apabila Info(infix) bukan berupa operan negatif
+//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+// IS: variabel infix berisi alamat dari sebuah node yang akan di cek apakah isi dari subvar info nodenya adalah bilangan negatif
+// FS: mengembalikan angka 1 apabila isi variabel teresebut adalah bilangan negatif, bila bukan mengembalikan angka 0
 int negativeInteger(address infix);
 
 
-//function yang akan mengembalikan nilai 1 apabila char merupakan sebuah operator yang berada di dalam tanda kurung
-//dan mengembalikan nilai 0 apabila char bukan merupakan sebuah operator yang berada di dalam tanda kurung
+//function yang akan mengembalikan nilai 1 apabila char merupakan sebuah operator yang berada di dalam tanda kurung dan mengembalikan nilai 0 apabila char bukan merupakan sebuah 
+//operator yang berada di dalam tanda kurung
+//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+// IS: variabel c berisi sebuah operator yang akan dicek apakah operator tersebut merupakan operator di dalam tanda kurung atau bukan
+// FS: mengembalikan angka 1 apabila operator teresebut adalah terdapat setelah tanda kurung, bila tidak mengembalikan angka 0
 int isAfter(char c);
 
-//function yang akan mengembalikan sebuah pointer penunjuk node pertama dari linked list
-//dalam function terdapat operasi perubahan bentuk inputan yang berupa infix, menjadi bentuk 
-//postfix yang sudah diurutkan berdasarkan prioritas dari operasi" yang terdapat di dalamnya
+//function yang akan mengembalikan sebuah pointer penunjuk node pertama dari linked list dalam function terdapat operasi perubahan bentuk inputan yang berupa infix, menjadi bentuk postfix yang sudah 
+//diurutkan berdasarkan prioritas dari operasi" yang terdapat di dalamnya
 address infixToPostfix(List input, int *cek);
-
-//function yang akan mengembalikan hasil dari perhitungan dari operasi yang diinputkan
-//perhitungan dievaluate dari bentuk postfix
-double hitungIsiPostfix(List postfix, int *cek);
 
 //function yang akan mengembalikan alamat dari root dari tree yang sudah terbentuk
 //dalam function ini terdapat operasi pembuatan tree (mengubah postfix menjadi tree)

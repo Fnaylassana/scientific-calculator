@@ -7,17 +7,16 @@
 void header()
 {
 	system("cls");
-	puts	("=====================================================================================================================================");
-	puts	("=====================================================================================================================================");
-	puts	("==                 ==    ==  =======  ==       ========   ==     ==   ======   ========   ==    ==       ========                  ==");
-	puts	("==                 ==   ==   ==       ==       ==    ==   ===   ===   ==    =  ==    ==   ==   ==        ==                        ==");
-	puts	("==                 == ==     ======   ==       ==    ==   == = = ==   ==    =  ==    ==   == ==          =====                     ==");
-	puts	("==                 ====      ======   ==       ==    ==   ==  =  ==   ======   ==    ==   ====                ==                   ==");
-	puts	("==                 ==  ==    ==       ==       ==    ==   ==     ==   ==       ==    ==   ==  ==               ==                  ==");
-	puts	("==                 ==   ==   =======  =======  ========   ==     ==   ==       ========   ==   ==        =======                   ==");
-	puts	("=====================================================================================================================================");
-	puts	("==                                       CALCULATOR PROGRAM (Right Associative)                                                    ==");
-	puts	("=====================================================================================================================================\n\n");
+	printf	("========================================================================================================================\n");
+	printf	("========================================================================================================================\n");
+	printf	("==                          _  ________ _      ____  __  __ _____   ____  _  __    _____                              ==\n");
+	printf	("==                         | |/ /  ____| |    / __ \\|  \\/  |  __ \\ / __ \\| |/ /   | ____|                             ==\n");
+	printf	("==                         | ' /| |__  | |   | |  | | \\  / | |__) | |  | | ' /    | |__                               ==\n");
+	printf	("==                         |  < |  __| | |   | |  | | |\\/| | ___/ | |  | |  <     |___ \\                              ==\n");
+	printf	("==                         | . \\| |____| |___| |__| | |  | | |    | |__| | . \\     ___) |                             ==\n");
+	printf	("==                         |_|\\_\\______|______\\____/|_|  |_|_|     \\____/|_|\\_\\   |____/                              ==\n");
+	printf	("========================================================================================================================\n");
+	printf	("==                                     CALCULATOR PROGRAM (Right Associative)                                         ==\n");
 }
 
 double Mutlak (double nilai){
@@ -162,7 +161,7 @@ address infixToPostfix(List input, int *cek)
 
     while(infix != NULL && *cek != 1)
     {
-    	if(*Info(infix) == 'v' && (Prev(infix) == NULL || (Prev(infix) != NULL && !isNumber(Prev(infix))))){
+    	if(*Info(infix) == 'v' && (Prev(infix) == NULL || (Prev(infix) != NULL && !isNumber(Prev(infix)) && !(*Info(Prev(infix)) == 'i')))) {
     		InsVLast (&postfix, "2");
 		}
     	if(*Info(infix)=='c' && (isNumber(Next(infix)) || *Info(Next(infix))=='-')){
@@ -171,7 +170,7 @@ address infixToPostfix(List input, int *cek)
 		if(*Info(infix)=='p' && (isNumber(Next(infix)) || *Info(Next(infix))=='-')){
     		Info(infix) = "P";
 		}
-    	if(*Info(infix) == 's'|| *Info(infix)=='c'|| *Info(infix)=='t'|| *Info(infix)=='m' || (*Info(infix)=='l' )){
+    	if(((*Info(infix) == 's'|| *Info(infix)=='c'|| *Info(infix)=='t') && (Next(infix) != NULL && Next(Next(infix)) != NULL && Next(Next(Next(infix))) != NULL && Next(Next(Next(Next(infix)))) != NULL) && (Prev(infix) == NULL || (Prev(infix) != NULL && !isNumber(Prev(infix)) && !(*Info(Prev(infix)) == 'i') && *Info(Prev(infix)) != '!' && *Info(Prev(infix)) != '%') || *Info(Prev(infix)) == '|')) || *Info(infix)=='m' || (*Info(infix)=='l' )){
         	if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(infix)))=='n' && *Info(Next(Next(Next(infix))))=='r'){
                 PushChar(&stack,'I'); 
 			}
@@ -246,7 +245,7 @@ address infixToPostfix(List input, int *cek)
 			infix = Next(Next(infix));
 		}
 		else if(*Info(infix)=='|' && mutlak==1)
-        {
+        { 
         	
             while(Info(Top(stack)) != '|')
             {
@@ -274,7 +273,7 @@ address infixToPostfix(List input, int *cek)
             infix = Next(infix);
             mutlak = 1;
         }
-        else if(isOperator(*Info(infix)) && !negativeInteger(infix))
+        else if(isOperator(*Info(infix)) && !negativeInteger(infix) && ((Prev(infix) != NULL && !isOperator(*Info(Prev(infix)))) || *Info(infix) == '(' || *Info(infix) == 'v'))
         {
             if(*Info(infix) == '(' )
             {
@@ -323,9 +322,11 @@ address infixToPostfix(List input, int *cek)
 					temp[1]  = '\0';
 					InsVLast (&postfix, temp);
                 }
-            }
+            } else {
+            	*cek = 1;
+			}
         }
-        else if(*Info(infix)==')')
+        else if(*Info(infix)==')' && (Next(infix) == NULL || (Next(infix) != NULL && isOperator(*Info(Next(infix))))))
         {
         	cari = Top(stack);
         	while (cari != NULL && Info(cari) != '('){
@@ -355,7 +356,7 @@ address infixToPostfix(List input, int *cek)
 				
 	            if (!isEmpty(stack) && (isOperator2(Info(Top(stack))) || Info(Top(stack)) == 'l'))
 				{
-					temp = (char *) malloc (2*sizeof (char));
+					temp = (infotype) malloc (2*sizeof (char));
 					temp[0] = PopChar(&stack);
 					temp[1]  = '\0';
 					InsVLast (&postfix, temp);
@@ -430,241 +431,6 @@ address infixToPostfix(List input, int *cek)
 	}
 	
     return Top(postfix);
-}
-
-double hitungIsiPostfix(List postfix, int *cek)
-{
-    double a, b;
-    address token;
-    List2 stack;
-	infotype hapus;
-    
-    
-    token = Top(postfix);
-    CreateList2 (&stack);
-    
-
-    while(token != NULL)
-    {
-        if(isNumber(token))
-        {
-            Push(&stack, atof(Info(token)));
-        }
-        else if(isOperator(*Info(token)))
-        {
-            a = Pop (&stack);
-            b = Pop (&stack);
-            
-            switch(*Info(token)){
-	            case '+':
-	                Push(&stack, pertambahan(b, a));
-	                break;
-	            case '-':
-	                Push(&stack, pengurangan(b, a));
-	                break;
-	            case '*':
-	            	if ( a < 0 ){
-	            		Push(&stack, -1*perkalian(b, Mutlak(a)));
-					} else{
-						Push(&stack, perkalian(b, a));
-					}
-	                break;
-	            case '/':
-	            	if (a == 0){
-	            		printf ("Penyebut = 0, nilai tidak terdefinisi, masukkan input kembali");
-	        			*cek = 1;
-					} else{
-						Push(&stack, pembagian(b, a));
-					}
-	                break;
-	            case '^':
-	                Push(&stack, eksponen (b, a));
-	                break;
-	            case 'v':
-	            	if (a < 0){
-	            		if (modulus(b,2) == 0){
-	            			printf ("Nilai di dalam akar tidak boleh minus, masukkan input kembali");
-	        				*cek = 1;
-						} else{
-							Push(&stack, (-1*akar(Mutlak(a), b)));
-						}
-					} else{
-						Push(&stack, akar(a, b));
-					}
-	                break;
-	            case 'm':
-	                Push(&stack, modulus(b, a));
-	                break;
-	            case 'l':
-	            	if (b < 0 || a < 0){
-	            		printf ("Nilai x atau y tidak boleh lebih kecil dari 0");
-	        			*cek = 1;
-					} else{
-						Push(&stack, Logaritma(a,b));
-					}
-	                break;
-	            case 'C':
-	            	if (b<a){
-	            		printf ("Nilai x tidak boleh lebih kecil dari y");
-	        			*cek = 1;
-					} else if (b < 0 || a < 0){
-	            		printf ("Nilai x atau y tidak boleh lebih kecil dari 0");
-	        			*cek = 1;
-					} else{
-						Push(&stack, kombinasi(b,a));
-					}
-	                break;
-	            case 'P':
-	            	if (b<a){
-	            		printf ("Nilai x tidak boleh lebih kecil dari y");
-	        			*cek = 1;
-					} else{
-						Push(&stack, permutasi(b,a));
-					}
-	                break;
-	            case 'e':
-	                Push(&stack, Eurel(b, a));
-	                break;
-	            default:
-	                break;
-            }
-        }
-		else if (*Info(token) == 'p'){
-			Push(&stack, pi);
-		} 
-		else if(isOperator2(*Info(token))){
-            a = Pop (&stack);
-            switch (*Info(token)){
-            	case '!' :
-            		if (a < 0){
-	            		printf ("Input faktorial tidak boleh kurang dari 0");
-	        			*cek = 1;
-					} else{
-            			Push(&stack, faktorial(a));
-					}
-					break;
-				case '%' :																	
-					Push(&stack, Persen(a));
-					break;
-            	case '|' :
-            		Push(&stack, Mutlak(a));
-					break;
-				case 'i' :																	//sin dengan input derajat
-					Push(&stack, sinDerajat(a));
-					break;
-				case 'I' :																	//sin dengan input radian
-					Push(&stack, sinRad(a));
-					break;
-            	case 's' :																	//cosecan dengan input derajat
-	        		if (a == 0 || a == 180 || a == 360 || a == 540){
-	        			printf ("Nilai csc(%g) tidak terdefinisi", a);
-	        			*cek = 1;
-					} else{
-            			Push(&stack, cosecDerajat(a));
-					}
-					break;
-				case 'S' :																	//cosecan dengan input radian
-	        		if (a == 0 || a == 180 || a == 360 || a == 540){
-	        			printf ("Nilai csc(%g) tidak terdefinisi", a);
-	        			*cek = 1;
-					} else{
-						Push(&stack, cosecRad(a));
-					}
-					break;
-				case 'o' :																	//cos dengan input derajat
-					Push(&stack, cosNilai(a));
-					break;
-				case 'O' :																	//cos dengan input radian
-					Push(&stack, cosRad(a));
-					break;
-				case 'a' :																	//secan dengan input derajat
-	        		if (a == 90 || a == 270 || a == 450){
-	        			printf ("Nilai sec(%g) tidak terdefinisi", a);
-	        			*cek = 1;
-					} else{
-						Push(&stack, secDerajat(a));
-					}
-					break;
-            	case 'A' :																	//secan dengan input radian
-	        		if (a == 90 || a == 270 || a == 450){
-	        			printf ("Nilai sec(%g) tidak terdefinisi", a);
-	        			*cek = 1;
-					} else{
-						Push(&stack, secRad(a));
-					}
-					break;
-				case 't' :																	//tan dengan input derajat
-	        		if (a == 90 || a == 270 || a == 450){
-	        			printf ("Nilai tan(%g) tidak terdefinisi", a);
-	        			*cek = 1;
-					} else{
-						Push(&stack, tanDerajat(a));
-					}
-					break;
-				case 'T' :																	//tan dengan input radian
-	        		if (a == 90 || a == 270 || a == 450){
-	        			printf ("Nilai tan(%g) tidak terdefinisi", a);
-	        			*cek = 1;
-					} else{
-						Push(&stack, tanRad(a));
-					}
-					break;
-				case 'g' :																	//cotangen dengan input derajat
-	        		if (a == 0 || a == 90 || a == 180 || a == 360 || a == 540){
-	        			printf ("Nilai cot(%g) tidak terdefinisi", a);
-	        			*cek = 1;
-					} else {
-						Push(&stack, cotDerajat(a));
-					}
-					break;
-				case 'G' :																	//cotangen dengan input radian
-	        		if (a == 0 || a == 90 || a == 180 || a == 360 || a == 540){
-	        			printf ("Nilai cot(%g) tidak terdefinisi", a);
-	        			*cek = 1;
-					} else {
-						Push(&stack, cotRad(a));
-					}
-					break;	
-				case 'n' :																	//hitung logaritma natural
-					if (a < 0){
-	            		printf ("Nilai ln tidak boleh lebih kecil dari 0");
-	        			*cek = 1;
-					} else{
-						Push(&stack, LogNatural(a));
-					}
-					break;
-				case 'L' :																	//hitung logaritma 10
-					if (a < 0){
-	            		printf ("Nilai log tidak boleh lebih kecil dari 0");
-	        			*cek = 1;
-					} else{
-						Push(&stack, Log(a));
-					}
-					break;
-				case 'z' :																	//sigma i
-	        		Push(&stack, Sigmai(a));
-					break;	
-				case 'Z' :																	//sigma i kuadrat
-					Push(&stack, Sigmaidua(a));
-					break;
-				case 'E' :																	//sigma i kubik
-					Push(&stack, Sigmaitiga(a));
-					break;
-	            default:
-	                break;
-			}
-		} else {
-			printf ("masuk ke else");
-			getche();
-		} 
-		token = Next(token);
-    }
-    
-    if (Top(stack) == NULL){
-    	return 0;
-	} else{
-		return Info(Top(stack));
-	}
 }
 
 link CreateTree(List L)
