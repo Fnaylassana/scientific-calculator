@@ -73,115 +73,157 @@ typedef struct {
 	address2 Top;
 } List2;
 
-//function yang akan mengembalikan nilai mutlak dari nilai yang diparsing
-// IS: variabel nilai berisi bilangan baik <0, >0, ataupun =0
-// FS: variabel nilai berisi bilangan positif
+/**
+ * fungsi modul	: function yang akan menghitung nilai mutlak dari sebuah nilai
+ * IS			: variabel nilai berisi bilangan baik <0, >0, ataupun =0
+ * FS			: variabel nilai berisi bilangan positif
+ */
 double Mutlak (double nilai);
 
-//function yang akan mengembalikan hasil /100 dari nilai yang diparsing
-// IS: variabel nilai berisi sebuah bilangan
-// FS: variabel nilai berisi bilangan dibagi 100
+/**
+ * fungsi modul	: function yang akan menghitung % dari sebuah nilai
+ * IS			: variabel nilai berisi sebuah bilangan
+ * FS			: variabel nilai berisi bilangan dibagi 100
+ */
 double Persen (double nilai);
 
-//modul untuk meminta inputan bertipe float sebanyak 1 nilai
-// IS: variabel *angka berisi nilai random
-// FS: variabel *angka berisi inputan user
+/**
+ * fungsi modul	: procedure untuk meminta inputan bertipe float sebanyak 1 nilai
+ * IS			: variabel *angka berisi nilai random
+ * FS			: variabel *angka berisi inputan user
+ */
 void Input1Float(double *angka);
 
-// Menu Utama Scientific Calculator---------------------------------------------------------------------------------------------------
-
-//modul untuk menampilkan header kalkulator kelompok 5
-//https://textkool.com/en/ascii-art-generator
+/**
+ * fungsi modul	: procedure untuk menampilkan header kalkulator kelompok 5
+ * referensi	: https://textkool.com/en/ascii-art-generator
+ */
 void header();
 
-//Referensi logika Prioritas Scientific Kalkulator dari GitHub by:
-//MOHAMED FARID ABDELAZIZ SALAMA 6905
-//ADHAM MOHAMED ALY ABDELHAMID 6744
-//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
-
-//function yang akan mengembalikan angka sesuai dengan prioritas dari sebuah operasi
-//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
-// IS: variabel c berisi sebuah operasi yang akan dicek urutan prioritasnya
-// FS: mengembalikan angka prioritas dari operasi pada variabel c
+/**
+ * fungsi modul	: function yang akan mengecek prioritas suatu operasi
+ * referensi	: https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+ * IS			: variabel c berisi sebuah operasi yang akan dicek urutan prioritasnya
+ * FS			: mengembalikan angka prioritas dari operasi pada variabel c
+ */
 int prioritas(char c);
 
-//function yang akan mengembalikan nilai 1 apabila Info(token) yang diparsing merupakan sebuah angka dan mengembalikan nilai 0 apabila Info(token) bukan berupa angka
-//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
-// IS: variabel token berisi alamat dari sebuah node yang akan dicek apakah isi dari subvar info nodenya angka atau bukan
-// FS: mengembalikan angka 1 apabila isi subvar info node teresebut adalah angka, bila bukan mengembalikan angka 0
+/**
+ * fungsi modul	: function yang akan mengecek apakah Info(token) berisi angka atau bukan
+ * referensi	: https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+ * IS			: variabel token berisi alamat dari sebuah node yang akan dicek apakah isi dari subvar info nodenya angka atau bukan
+ * FS			: mengembalikan angka 1 apabila isi subvar info node teresebut adalah angka, bila bukan mengembalikan angka 0
+ */
 int isNumber(address token);
 
-//function yang akan mengembalikan nilai 1 apabila string yang diparsing merupakan sebuah angka dan mengembalikan nilai 0 apabila string bukan berupa angka
-//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
-// IS: variabel token berisi sebuah char* yang akan dicek apakah isi variabel tersebut angka atau bukan
-// FS: mengembalikan angka 1 apabila isi variabel teresebut adalah angka, bila bukan mengembalikan angka 0
+/**
+ * fungsi modul	: function yang akan mengecek apakah variabel token berisi angka atau bukan
+ * IS			: variabel token berisi sebuah char* yang akan dicek apakah isi variabel tersebut angka atau bukan
+ * FS			: mengembalikan angka 1 apabila isi variabel teresebut adalah angka, bila bukan mengembalikan angka 0
+ */
 int isNumber1(const char *token);
 
-//function yang akan mengembalikan nilai 1 apabila char yang diparsing merupakan sebuah operator dan mengembalikan nilai 0 apabila char bukan berupa angka
-//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
-// IS: variabel c berisi sebuah char yang akan dicek apakah isi variabel tersebut operator atau bukan
-// FS: mengembalikan angka 1 apabila isi variabel teresebut adalah operator, bila bukan mengembalikan angka 0
-int isOperator(char c);	//operator-operator dengan 2 operan
-int isOperator2(char c); //operator-operator dengan 1 operan
-int isOperator3(char c); //simbol selain angka, operator 1, dan operator 2
+/**
+ * fungsi modul	: function yang akan mengecek apakah variabel c berisi operator atau bukan
+ * referensi	: https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+ * IS			: variabel c berisi sebuah char yang akan dicek apakah isi variabel tersebut operator atau bukan
+ * FS			: mengembalikan angka 1 apabila isi variabel teresebut adalah operator, bila bukan mengembalikan angka 0
+ */
+int isOperator(char c);		//operator-operator dengan 2 operan
+int isOperator2(char c);	//operator-operator dengan 1 operan
+int isOperator3(char c);	//simbol selain angka, operator 1, dan operator 2
 
-
-//function yang akan mengembalikan nilai 1 apabila Info(infix) yang di parsing merupakan sebuah operan negatif dan mengembalikan nilai 0 apabila Info(infix) bukan berupa operan negatif
-//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
-// IS: variabel infix berisi alamat dari sebuah node yang akan di cek apakah isi dari subvar info nodenya adalah bilangan negatif
-// FS: mengembalikan angka 1 apabila isi variabel teresebut adalah bilangan negatif, bila bukan mengembalikan angka 0
+/**
+ * fungsi modul	: function yang akan mengecek apakah variabel infix berisi negatif integer atau bukan
+ * referensi	: https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+ * IS			: variabel infix berisi alamat dari sebuah node yang akan di cek apakah isi dari subvar info nodenya adalah bilangan negatif
+ * FS			: mengembalikan angka 1 apabila isi variabel teresebut adalah bilangan negatif, bila bukan mengembalikan angka 0
+ */
 int negativeInteger(address infix);
 
-
-//function yang akan mengembalikan nilai 1 apabila char merupakan sebuah operator yang berada di dalam tanda kurung dan mengembalikan nilai 0 apabila char bukan merupakan sebuah 
-//operator yang berada di dalam tanda kurung
-//https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
-// IS: variabel c berisi sebuah operator yang akan dicek apakah operator tersebut merupakan operator di dalam tanda kurung atau bukan
-// FS: mengembalikan angka 1 apabila operator teresebut adalah terdapat setelah tanda kurung, bila tidak mengembalikan angka 0
+/**
+ * fungsi modul	: function yang akan mengecek apakah variabel c adalah operator yang berada di dalam tanda kurung atau bukan
+ * referensi	: https://github.com/MohamedFarid612/Calculator-infix-to-postfix-/blob/main/main.c
+ * IS			: variabel c berisi sebuah operator yang akan dicek apakah operator tersebut merupakan operator di dalam tanda kurung atau bukan
+ * FS			: mengembalikan angka 1 apabila operator teresebut adalah terdapat setelah tanda kurung, bila tidak mengembalikan angka 0
+ */
 int isAfter(char c);
 
-//function yang akan mengembalikan sebuah pointer penunjuk node pertama dari linked list dalam function terdapat operasi perubahan bentuk inputan yang berupa infix, menjadi bentuk postfix yang sudah 
-//diurutkan berdasarkan prioritas dari operasi" yang terdapat di dalamnya
+/**
+ * fungsi modul	: function yang akan mengubah urutan dari operasi dari infix menjadi postfix dan juga mengecek validasi inputan
+ * IS			: sebuah linked list yang berisi serangkaian operasi dengan penulisan notasi secara infix dan info dari linked list berisi 1 karakter saja
+ * FS			: sebuah linked list yang berisi serangkaian operasi dengan penulisan notasi secara postfix
+ */
 address infixToPostfix(List input, int *cek);
 
-//function yang akan mengembalikan alamat dari root dari tree yang sudah terbentuk
-//dalam function ini terdapat operasi pembuatan tree (mengubah postfix menjadi tree)
+/**
+ * fungsi modul	: function yang akan membuat sebuah tree
+ * IS			: sebuah linked list yang berisi serangkaian operasi dengan penulisan notasi secara postfix
+ * FS			: sebuah tree yang berisi rangakian operasi
+ */
 link CreateTree(List L);
 
-//modul untuk menampilkan tranversal preorder dari tree yang sudah terbentuk
+/**
+ * fungsi modul	: procedure untuk menampilkan tranversal preorder dari tree
+ * referensi	: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+ */
 void preOrder(link root);
 
-//modul untuk menampilkan tranversal inorder dari tree yang sudah terbentuk
+/**
+ * fungsi modul	: procedure untuk menampilkan tranversal inorder dari tree
+ * referensi	: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+ */
 void inOrder(link root);
 
-//modul untuk menampilkan tranversal postorder dari tree yang sudah terbentuk
+/**
+ * fungsi modul	: procedure untuk menampilkan tranversal postorder dari tree
+ * referensi	: https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/
+ */
 void postOrder(link root);
 
-//function yang akan mengembalikan alamat dari node yang baru dibuat
-link AlokasiTree(infotype X); //node tree
-address AlokasiNode (infotype X); //node double linked list
-address1 AlokasiStackChar (char X); //node stack dengan info bertipe char
-address2 AlokasiStackDouble (double X); //node stack dengan info bertipe double
+/**
+ * fungsi modul	: function yang akan membentuk sebuah node baru
+ * IS			: sebuah infotype/char/angka yang akan menjadi info dari sebuah linked list/tree
+ * FS			: sebuah node baru yang akan direturnkan alamatnya
+ */
+link AlokasiTree(infotype X);          		//node tree
+address AlokasiNode (infotype X);       	//node double linked list
+address1 AlokasiStackChar (char X);     	//node stack dengan info bertipe char
+address2 AlokasiStackDouble (double X);		//node stack dengan info bertipe double
 
-//modul untuk mengosongkan list
-void CreateList (List * L); //list penunjuk node double linked list
-void CreateList1 (List1 * L); //list penunjuk node stack dengan info bertipe char
-void CreateList2 (List2 * L); //list penunjuk node stack dengan info bertipe double
+/**
+ * fungsi modul	: procedure untuk memastikan list kosong sebelum digunakan
+ * IS			: sebuah variabel pointer linked list yang isinya random
+ * FS			: sebuah variabel pointer linked list yang isinya NULL
+ */
+void CreateList (List * L);   	//list penunjuk node double linked list
+void CreateList1 (List1 * L); 	//list penunjuk node stack dengan info bertipe char
+void CreateList2 (List2 * L); 	//list penunjuk node stack dengan info bertipe double
 
-//modul untuk memasukkan node baru ke linked list
-void InsVLast (List * L, infotype X); 	//memasukkan node double linked list baru pada akhir linked list
+/**
+ * fungsi modul	: procedure untuk memasukkan node baru ke linked list
+  * IS			: sebuah linked list yang belum ditambahkan node baru
+  * FS			: sebuah linked list yang jumlah node nya bertambah 1
+ */
+void InsVLast (List * L, infotype X); 		//memasukkan node double linked list baru pada akhir linked list
 void InsertLast (List * L, address P); 
-void PushChar (List1 * L, char X);		//memasukkan node stack dengan info char baru pada bagian atas stack
+void PushChar (List1 * L, char X);			//memasukkan node stack dengan info char baru pada bagian atas stack
 void InsertChar (List1 * L, address1 P);
-void Push (List2 * L, double X);		//memasukkan node stack dengan info double baru pada bagian atas stack
+void Push (List2 * L, double X);			//memasukkan node stack dengan info double baru pada bagian atas stack
 void InsertDouble (List2 * L, address2 P);
 
-//modul untuk menampilkan info" dari linked list
+/**
+ * fungsi modul	: procedure untuk menampilkan info-info dari linked list
+ */
 void PrintNode (List L, infotype C, int *X);
 
-//modul untuk menghapus sebuah node dari linked list
-infotype Delete (List * L);	//menghapus node double linked list baru pada akhir linked list
-char PopChar (List1 * L); //menghapus node stack dengan info char baru pada bagian atas stack
-double Pop (List2 * L); //menghapus node stack dengan info double baru pada bagian atas stack
+/**
+ * fungsi modul	: procedure untuk menghapus sebuah node dari linked list
+ * IS			: sebuah linked list yang masih utuh
+ * FS			: sebuah linked list yang sudah terhapus satu node nya
+ */
+infotype Delete (List * L);		//menghapus node double linked list baru pada akhir linked list
+char PopChar (List1 * L);   	//menghapus node stack dengan info char baru pada bagian atas stack
+double Pop (List2 * L);     	//menghapus node stack dengan info double baru pada bagian atas stack
 
 #endif
