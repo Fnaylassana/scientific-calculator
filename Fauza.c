@@ -326,7 +326,7 @@ address infixToPostfix(List input, int *cek)
             	*cek = 1;
 			}
         }
-        else if(*Info(infix)==')' && (Next(infix) == NULL || (Next(infix) != NULL && isOperator(*Info(Next(infix))))))
+        else if(*Info(infix)==')' && (Next(infix) == NULL || (Next(infix) != NULL && isOperator(*Info(Next(infix)))) || *Info(Next(infix)) == '%' || *Info(Next(infix)) == '!'))
         {
         	cari = Top(stack);
         	while (cari != NULL && Info(cari) != '('){
@@ -403,11 +403,11 @@ address infixToPostfix(List input, int *cek)
 				InsVLast (&postfix, temp);
             }
         }
-        else if (*Info(infix) == '!'){
+        else if (*Info(infix) == '!' && (Prev(infix) != NULL && !isOperator(*Info(Prev(infix))))){
 			InsVLast (&postfix, "!");
 			infix = Next(infix);
 		}
-		else if (*Info(infix) == '%'){
+		else if (*Info(infix) == '%' && (Prev(infix) != NULL && !isOperator(*Info(Prev(infix))))){
 			InsVLast (&postfix, "%");
 			infix = Next(infix);
 		}
