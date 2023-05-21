@@ -5,7 +5,7 @@
 
 /*
  * fungsi modul	: Menghitung coninus, nilai yang dihitung berupa radian
- * referensi	:
+ * referensi	: https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions
  * IS 			: variable suku diassign dengan angka 100
  * FS			: variable hasil akan direturn sebagai output setelah angka pada variable hasil dihitung
 */
@@ -13,7 +13,7 @@ double cosRad(double angka);
 
 /*
  * fungsi modul	: Menghitung cosinus, nilai yang dihitung berupa derajat
- * referensi	: 
+ * referensi	: https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions
  * IS 			: variable suku diassign dengan angka 100
  * FS			: variable hasil akan direturn sebagai output setelah angka pada variable hasil dihitung
 */
@@ -21,7 +21,7 @@ double cosNilai(double angka);
 
 /*
  * fungsi modul	: Menghitung secant, nilai yang dihitung berupa radian
- * referensi	:
+ * referensi	: https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions
  * IS 			: variable nilai diassign dengan hasil dari fungsi cosRad
  * FS			: variable rad direturn sebagai output
 */
@@ -29,7 +29,7 @@ double secRad(double angka);
 
 /*
  * fungsi modul	: Menghitung secant, nilai yang dihitung berupa derajat
- * referensi	:
+ * referensi	: -
  * IS 			: variable nilai diassign dengan hasil angka dari fungsi cosRad
  * FS			: variable derajat direturn sebagai output
 */
@@ -37,7 +37,7 @@ double secDerajat(double angka);
 
 /*
  * fungsi modul	: Menghitung tangent, nilai yang dihitung berupa derajat
- * referensi	:
+ * referensi	: -
  * IS 			: variable rad diassign dengan hasil dari pembagian sinRad dan cosRad
  * FS			: variable rad direturn sebagai output
 */
@@ -45,7 +45,7 @@ double tanDerajat(double angka);
 
 /*
  * fungsi modul	: Menghitung tangent, nilai yang dihitung berupa radian
- * referensi	:
+ * referensi	: https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions
  * IS 			: variable nilai diassign dengan hasil dari pembagian sinDerajat dan cosNilai
  * FS			: variable nilai direturn sebagai output
 */
@@ -53,7 +53,7 @@ double tanRad(double angka);
 
 /*
  * fungsi modul	: Menghitung cotangent, nilai yang dihitung berupa radian
- * referensi	:
+ * referensi	: -
  * IS 			: variable nilai diassign dengan hasil angka dari fungsi tanRad
  * FS			: variable cot direturn sebagai output
 */
@@ -61,7 +61,7 @@ double cotRad(double angka);
 
 /*
  * fungsi modul	: Menghitung cotangent, nilai yang dihitung berupa derajat
- * referensi	:
+ * referensi	: -
  * IS 			: variable nilai diassign dengan hasil angka dari fungsi tanDerajat
  * FS			: variable derajat 
 */
