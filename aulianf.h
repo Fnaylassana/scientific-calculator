@@ -5,7 +5,7 @@
 #define max 10
 
 /**
- * Referensi	: 
+ * Referensi	: https://stackoverflow.com/questions/19611198/finding-square-root-without-using-sqrt-function
  * Deskripsi 	: Fungsi ini bertujuan untuk Menghitung akar dari suatu bilangan
  * IS 			: Variable bilangan dan pangkat diisi dengan nilai
  * FS 			: Variable hasil akan direturn setelah akarnya
@@ -13,8 +13,8 @@
 double akar(double bilangan, double pangkat);
 
 
-/**
- * Referensi	: 
+/*
+ * Referensi	: https://techstudy.org/clanguage/write-c-program-to-calculate-power-using-while-for-loop 
  * Deskripsi 	: Fungsi ini bertujuan untuk Menghitung pangkat dari suatu bilangan
  * IS 			: Variable bilangan dan pangkat diisi dengan nilai
  * FS 			: Variable Hasil akan direturn setelah dihitung eksponennya.
@@ -23,7 +23,7 @@ double eksponen(double bilangan, double pangkat);
 
 
 /**
- * Referensi	: 
+ * Referensi	: https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions
  * Deskripsi 	: Fungsi ini bertujuan untuk Menghitung sin dalam satuan radian
  * IS 			: Variable bilangan diisi dengan nilai
  * FS 			: Variable Hasil akan direturn setelah dihitung sin nya dalam satuan/bentuk radian.
@@ -32,7 +32,7 @@ double sinRad(double bilangan);
 
 
 /**
- * Referensi	: 
+ * Referensi	: https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions
  * Deskripsi 	: Fungsi ini bertujuan untuk Menghitung sin dalam satuan derajat
  * IS 			: Variable bilangan diisi dengan nilai
  * FS 			: Variable Hasil akan direturn setelah dihitung sin nya dalam satuan/bentuk derajat.
@@ -41,7 +41,7 @@ double sinDerajat(double bilangan);
 
 
 /**
- * Referensi	: 
+ * Referensi	: -
  * Deskripsi 	: Fungsi ini bertujuan untuk Menghitung cosec dalam satuan radian
  * IS 			: Variable bilangan diisi dengan nilai
  * FS 			: Variable Hasil akan direturn setelah dihitung cosec nya dalam satuan/bentuk radian.
@@ -50,7 +50,7 @@ double cosecRad(double bilangan);
 
 
 /**
- * Referensi	: 
+ * Referensi	: -
  * Deskripsi 	: Fungsi ini bertujuan untuk Menghitung cosec dalam satuan derajat
  * IS 			: Variable bilangan diisi dengan nilai
  * FS 			: Variable Hasil akan direturn setelah dihitung cosec nya dalam satuan/bentuk derajat.
