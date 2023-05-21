@@ -90,22 +90,22 @@ double cosecDerajat(double bilangan)
 	return cosec;
 }
 
-double sinInversRad(double angka)
-// Menghitung invers sin dalam radian
-{
-	double rad;
-	rad = asinf(angka);
-	return rad;
-} 
+//double sinInversRad(double angka)
+//// Menghitung invers sin dalam radian
+//{
+//	double rad;
+//	rad = asinf(angka);
+//	return rad;
+//} 
 
-double sinInversDerajat(double angka)
-// Menghitung invers sin dalam derajat
-{
-	double nilai, derajat;
-	nilai = 180/pi;
-	derajat = ((asinf(angka))*nilai);
-	return derajat;
-} 
+//double sinInversDerajat(double angka)
+//// Menghitung invers sin dalam derajat
+//{
+//	double nilai, derajat;
+//	nilai = 180/pi;
+//	derajat = ((asinf(angka))*nilai);
+//	return derajat;
+//} 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
