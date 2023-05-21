@@ -222,7 +222,7 @@ bool cekTidakTerdefinisiCotR(double angka) {
 }
 
 bool cekTidakTerdefinisiCotD(double angka) {
-	if(angka != 0 && angka != 90 && angka != 180 && angka != 360 && angka != 540) {
+	if(angka != 0 && angka != 90 && angka != 180 && angka != 270 && angka != 360 && angka != 540) {
 		return true;
 	} else {
 		return false;
