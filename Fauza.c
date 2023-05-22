@@ -127,7 +127,7 @@ int negativeInteger(address infix)
 		} else{
     		return 0;
 		}
-	}else if((isOperator(*Info(Prev(infix))) || *Info(Prev(infix)) == '|') && *Info(infix) == '-' ){
+	}else if((isOperator(*Info(Prev(infix))) || *Info(Prev(infix)) == '|') && *Info(infix) == '-' && Next(infix) != NULL){
 		return 1;
 	}else if ((Prev(Prev(infix)) == NULL || (isOperator(*Info(Prev(infix)))  )) && *Info(Prev(infix)) =='|' && *Info(infix) == '-'  ) {
 		return 1;
@@ -170,8 +170,8 @@ address infixToPostfix(List input, int *cek)
 		if(*Info(infix)=='p' && (isNumber(Next(infix)) || *Info(Next(infix))=='-')){
     		Info(infix) = "P";
 		}
-    	if(((*Info(infix) == 's'|| *Info(infix)=='c'|| *Info(infix)=='t') && (Next(infix) != NULL && Next(Next(infix)) != NULL && Next(Next(Next(infix))) != NULL && Next(Next(Next(Next(infix)))) != NULL) && (Prev(infix) == NULL || (Prev(infix) != NULL && !isNumber(Prev(infix)) && !(*Info(Prev(infix)) == 'i') && *Info(Prev(infix)) != '!' && *Info(Prev(infix)) != '%') || *Info(Prev(infix)) == '|')) || *Info(infix)=='m' || (*Info(infix)=='l' )){
-        	if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(infix)))=='n' && *Info(Next(Next(Next(infix))))=='r'){
+    	if(((*Info(infix) == 's'|| *Info(infix)=='c'|| *Info(infix)=='t') && (Next(infix) != NULL && Next(Next(infix)) != NULL && Next(Next(Next(infix))) != NULL && Next(Next(Next(Next(infix)))) != NULL) && (Prev(infix) == NULL || (Prev(infix) != NULL && ((!isNumber(Prev(infix)) && !(*Info(Prev(infix)) == 'i') && *Info(Prev(infix)) != '!' && *Info(Prev(infix)) != '%') || *Info(Prev(infix)) == ')')) || *Info(Prev(infix)) == '|')) || *Info(infix)=='m' || (*Info(infix)=='l' )){
+			if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(infix)))=='n' && *Info(Next(Next(Next(infix))))=='r'){
                 PushChar(&stack,'I'); 
 			}
 			else if (*Info(infix)=='s' && *Info(Next(infix))=='i' && *Info(Next(Next(infix)))=='n'){
@@ -227,7 +227,7 @@ address infixToPostfix(List input, int *cek)
 			else if (*Info(infix)=='l' && *Info(Next(infix))=='o' && *Info(Next(Next(infix)))=='g' && isNumber(Prev(infix))){
                 PushChar(&stack,'l'); 
 	    	}
-			else if (*Info(infix)=='m' && *Info(Next(infix))=='o' && *Info(Next(Next(infix)))=='d' && (Prev(infix) != NULL && isNumber(Prev(infix)))){
+			else if (*Info(infix)=='m' && *Info(Next(infix))=='o' && *Info(Next(Next(infix)))=='d' && (Prev(infix) != NULL && (isNumber(Prev(infix)) || *Info(Prev(infix)) == ')'))){
                 PushChar(&stack,'m'); 
 			}
 			else{
@@ -273,7 +273,7 @@ address infixToPostfix(List input, int *cek)
             infix = Next(infix);
             mutlak = 1;
         }
-        else if(isOperator(*Info(infix)) && !negativeInteger(infix) && ((Prev(infix) != NULL && !isOperator(*Info(Prev(infix)))) || *Info(infix) == '(' || *Info(infix) == 'v'))
+        else if(isOperator(*Info(infix)) && !negativeInteger(infix) && ((Prev(infix) != NULL && !isOperator(*Info(Prev(infix)))) || *Info(infix) == '(' || *Info(infix) == 'v') && Next(infix) != NULL)
         {
             if(*Info(infix) == '(' )
             {
@@ -326,7 +326,7 @@ address infixToPostfix(List input, int *cek)
             	*cek = 1;
 			}
         }
-        else if(*Info(infix)==')' && (Next(infix) == NULL || (Next(infix) != NULL && isOperator(*Info(Next(infix)))) || *Info(Next(infix)) == '%' || *Info(Next(infix)) == '!'))
+        else if(*Info(infix)==')' && (Next(infix) == NULL || (Next(infix) != NULL && isOperator(*Info(Next(infix)))) || *Info(Next(infix)) == '%' || *Info(Next(infix)) == '!' || *Info(Next(infix)) == 'm'))
         {
         	cari = Top(stack);
         	while (cari != NULL && Info(cari) != '('){

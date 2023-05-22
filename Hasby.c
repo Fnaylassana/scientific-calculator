@@ -71,13 +71,7 @@ double Eurel (double nilai, double e){   //eurel
 	double hasil;
 	hasil = 1;
         
-    if(e > 0){
-		while (e != 0)
-	    {
-	        hasil = perkalian(hasil,10);
-	        e = e - 1;
-	    } 
-    } 
+    hasil = eksponen (10, e);
     
     hasil = perkalian(nilai,hasil);
     
