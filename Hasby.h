@@ -7,30 +7,68 @@
 #include <stdio.h>
 #include <conio.h>
 
-// Fungsi untuk menghitung Logaritma berbasis 10
-// Referensi : https://www.utakatikotak.com/Rumus-Cara-Menghitung-Log-Dengan-Mudah-Beserta-Contohnya/kongkow/detail/15269
+
+/**
+ * Referensi	: https://www.utakatikotak.com/Rumus-Cara-Menghitung-Log-Dengan-Mudah-Beserta-Contohnya/kongkow/detail/15269
+ * Deskripsi 	: Fungsi ini bertujuan untuk menghitung Logaritma berbasis 10
+ * IS 			: Variable Angka diisi dengan nilai
+ * FS 			: Variable Hasil akan direturn setelah dihitung Logaritma basis 10 nya.
+*/
 double Log(int Angka1); 
 
-// Fungsi untuk menghitung Logaritma berbasis bebas yang menggunakan modul logaritma basis 10
-// Referensi : https://www.utakatikotak.com/Rumus-Cara-Menghitung-Log-Dengan-Mudah-Beserta-Contohnya/kongkow/detail/15269
+
+/**
+ * Referensi	: https://www.utakatikotak.com/Rumus-Cara-Menghitung-Log-Dengan-Mudah-Beserta-Contohnya/kongkow/detail/15269
+ * Deskripsi 	: Fungsi ini bertujuan untuk menghitung Logaritma bebas yang menggunakan modul fungsi logaritna berbasis 10
+ * IS 			: Variable X dan Y diisi dengan nilai
+ * FS 			: Variable Hasil akan direturn setelah dihitung Logaritmanya.
+*/
 double Logaritma (double X,double Y);
 
-// Fungsi untuk menghitung Logaritma Natural menggunakan perhitungan Deret Taylor
+
+/**
+ * Kontributor	: Aulia Azizah Fauziyah
+ * Deskripsi 	: Fungsi ini bertujuan untuk menghitung Logaritma Natural dengan perhitungan Deret Taylor
+ * IS 			: Variable X dan Y diisi dengan nilai
+ * FS 			: Variable Hasil akan direturn setelah dihitung Logaritma Naturalnya.
+*/
 double LogNatural (double Angka);
 
-// Fungsi untuk menghitung eurel atau banyaknya 0 dibelakang e
+
+/**
+ * Deskripsi 	: Fungsi ini bertujuan untuk menghitung Eurel
+ * IS 			: Variable nilai dan e diisi dengan nilai
+ * FS 			: Variable hasil akan direturn setelah dihitung eurelnya.
+*/
 double Eurel (double nilai, double e);
 
-// Fungsi untuk menghitung, mengakumulasikan atau menjumlahkan dari Tree yang sudah dibuat
+
+/**
+ * Referensi	: https://www.programmersought.com/article/95294413292/
+ * Deskripsi 	: Fungsi ini bertujuan untuk menghitung, mengakumulasikan atau menjumlahkan dari Tree yang sudah dibuat
+ * IS 			: Variable pointer yang memegang sebuah root dari tree yang sudah dibuat
+ * FS 			: Variable hasil akan direturn setelah menghitung, mengakumulasikan atau menjumlahkan dari Tree yang sudah dibuat
+*/
 double HitungTree(link pcur, int *cek);
 
-// Fungsi untuk menghitung Sigma
+
+/**
+ * Deskripsi 	: Fungsi ini bertujuan untuk menghitung Sigma
+ * IS 			: Variable en diisi dengan nilai
+ * FS 			: Variable sig akan direturn setelah dihitung sigmanya.
+*/
 double Sigmai(double en);
 
-// Fungsi untuk menghitung Sigma Kuadrat
+/**
+ * Deskripsi 	: Fungsi ini bertujuan untuk menghitung Sigma Kuadrat
+ * IS 			: Variable en diisi dengan nilai
+ * FS 			: Variable sig akan direturn setelah dihitung sigma kuadratnya.*/
 double Sigmaidua(double en);
 
-// Fungsi untuk menghitung Sigma Kubik
+/**
+ * Deskripsi 	: Fungsi ini bertujuan untuk menghitung Sigma Kubik
+ * IS 			: Variable en diisi dengan nilai
+ * FS 			: Variable sig akan direturn setelah dihitung sigma kubiknya.*/
 double Sigmaitiga(double en);
 
 

@@ -3,29 +3,68 @@
 #include <stdio.h>
 #include <stdbool.h>
 
+/*
+ * fungsi modul	: Menghitung coninus, nilai yang dihitung berupa radian
+ * referensi	: https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions
+ * IS 			: variable suku diassign dengan angka 100
+ * FS			: variable hasil akan direturn sebagai output setelah angka pada variable hasil dihitung
+*/
+double cosRad(double angka);
 
-//Fungsi untuk menghitung cosinus, nilai yang dihitung berupa radian
-double cosRad(double angka); //referensi dari programiz
+/*
+ * fungsi modul	: Menghitung cosinus, nilai yang dihitung berupa derajat
+ * referensi	: https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions
+ * IS 			: variable suku diassign dengan angka 100
+ * FS			: variable hasil akan direturn sebagai output setelah angka pada variable hasil dihitung
+*/
+double cosNilai(double angka);
 
-//Fungsi untuk menghitung cosinus, nilai yang dihitung berupa derajat
-double cosNilai(double angka); //referensi konversi radian ke derajat dari programiz
-
-////Fungsi untuk menghitung secant, nilai yang dihitung berupa radian
+/*
+ * fungsi modul	: Menghitung secant, nilai yang dihitung berupa radian
+ * referensi	: https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions
+ * IS 			: variable nilai diassign dengan hasil dari fungsi cosRad
+ * FS			: variable rad direturn sebagai output
+*/
 double secRad(double angka); 
 
-//Fungsi untuk menghitung secant, nilai yang dihitung berupa derajat
+/*
+ * fungsi modul	: Menghitung secant, nilai yang dihitung berupa derajat
+ * referensi	: -
+ * IS 			: variable nilai diassign dengan hasil angka dari fungsi cosRad
+ * FS			: variable derajat direturn sebagai output
+*/
 double secDerajat(double angka);
 
-//Fungsi untuk menghitung tangent, nilai yang dihitung berupa derajat
+/*
+ * fungsi modul	: Menghitung tangent, nilai yang dihitung berupa derajat
+ * referensi	: -
+ * IS 			: variable rad diassign dengan hasil dari pembagian sinRad dan cosRad
+ * FS			: variable rad direturn sebagai output
+*/
 double tanDerajat(double angka);
 
-//Fungsi untuk menghitung tangent, nilai yang dihitung berupa radian
+/*
+ * fungsi modul	: Menghitung tangent, nilai yang dihitung berupa radian
+ * referensi	: https://stackoverflow.com/questions/2284860/how-does-c-compute-sin-and-other-math-functions
+ * IS 			: variable nilai diassign dengan hasil dari pembagian sinDerajat dan cosNilai
+ * FS			: variable nilai direturn sebagai output
+*/
 double tanRad(double angka);
 
-//Fungsi untuk menghitung cotangent, nilai yang dihitung berupa radian
+/*
+ * fungsi modul	: Menghitung cotangent, nilai yang dihitung berupa radian
+ * referensi	: -
+ * IS 			: variable nilai diassign dengan hasil angka dari fungsi tanRad
+ * FS			: variable cot direturn sebagai output
+*/
 double cotRad(double angka);
 
-//Fungsi untuk menghitung cotangent, nilai yang dihitung berupa derajat
+/*
+ * fungsi modul	: Menghitung cotangent, nilai yang dihitung berupa derajat
+ * referensi	: -
+ * IS 			: variable nilai diassign dengan hasil angka dari fungsi tanDerajat
+ * FS			: variable derajat 
+*/
 double cotDerajat(double angka);
 
 //Fungsi untuk menghitung invers cosinus, nilai yang dihitung berupa radian
@@ -49,22 +88,52 @@ double cotDerajat(double angka);
 //prosedur untuk mengecek nilai invers trigonometri dalam satuan derajat
 //void cekInversDerajat(double angka, double p);
 
-//prosedur untuk mengecek nilai cosinus, tangent, dan secant dalam satuan radian
+/*
+ * fungsi modul	: mengecek nilai cosinus, tangent, dan secant dalam satuan radian
+ * referensi	:
+ * IS 			: 
+ * FS			: 
+*/
 bool cekTidakTerdefinisiCosTanSecR(double angka);
 
-//prosedur untuk mengecek nilai cosinus dan tangent dalam satuan derajat
+/*
+ * fungsi modul	: mengecek nilai cosinus dan tangent dalam satuan derajat
+ * referensi	:
+ * IS 			: pengecekan variable angka yang berisi sebuah nilai
+ * FS			: mengembalikan nilai true atau false
+*/
 bool cekTidakTerdefinisiCosTanD(double angka);
 
-//prosedur untuk mengecek nilai cotangent dalam satuan radian
+/*
+ * fungsi modul	: mengecek nilai cotangent dalam satuan radian
+ * referensi	:
+ * IS 			: pengecekan variable angka yang berisi sebuah nilai
+ * FS			: mengembalikan nilai true atau false 
+*/
 bool cekTidakTerdefinisiCotR(double angka);
 
-//prosedur untuk mengecek nilai cotangent dalam satuan derajat
+/*
+ * fungsi modul	: mengecek nilai cotangent dalam satuan derajat
+ * referensi	:
+ * IS 			: pengecekan variable angka yang berisi sebuah nilai
+ * FS			: mengembalikan nilai true atau false
+*/
 bool cekTidakTerdefinisiCotD(double angka);
 
-//prosedur untuk mengecek nilai csc dalam satuan radian
+/*
+ * fungsi modul	: mengecek nilai csc dalam satuan radian
+ * referensi	:
+ * IS 			: pengecekan variable angka yang berisi sebuah nilai
+ * FS			: mengembalikan nilai true atau false 
+*/
 bool cekTidakTerdefinisiCscR(double angka);
 
-//prosedur untuk mengecek nilai csc dalam satuan derajat
+/*
+ * fungsi modul	: mengecek nilai csc dalam satuan derajat
+ * referensi	:
+ * IS 			: pengecekan variable angka yang berisi sebuah nilai
+ * FS			: mengembalikan nilai true atau false
+*/
 bool cekTidakTerdefinisiCscD(double angka);
 
 #endif

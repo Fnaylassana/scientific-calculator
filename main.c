@@ -14,7 +14,7 @@ int main()
     int ulang, JmlNode;   
 	link Tree; 
     
-    while(lagi == 'y' || lagi == 'Y')
+    while(lagi != 't' && lagi != 'T')
     {
     	awal :{
     		system("cls");

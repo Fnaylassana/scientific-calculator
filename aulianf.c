@@ -9,16 +9,31 @@ double akar(double bilangan, double pangkat)
     
     hasil = bilangan;		// inisialisasi hasil dengan bilangan yang ingin dicari akarnya
     epsilon = 0.000001; 	// batas kesalahan yang diijinkan
+    
+    if (pangkat < 0){
+    	pangkat = pangkat*-1;
+    	while ((eksponen(hasil, pangkat) - bilangan) > epsilon)    	// menggunakan metode iterasi         
+		{
+	        hasileksponen = eksponen(hasil, pangkat - 1);
+	        bagian1 = (pangkat - 1) * hasil;						// mempresentasikan pembagi 
+	        bagian2 = bilangan / hasileksponen;  					// mempresentasikan pembilang 
+	        bagian3 = bagian1 + bagian2;							// merepresentasikan pembilang baru setelah pembagi dan pembilang dihitung
+	        pembagi = 1 / pangkat;
+	        hasil = pembagi * bagian3;
+	    }
+	    hasil = 1/hasil;
+	} else{
+		while ((eksponen(hasil, pangkat) - bilangan) > epsilon)    	// menggunakan metode iterasi         
+		{
+	        hasileksponen = eksponen(hasil, pangkat - 1);
+	        bagian1 = (pangkat - 1) * hasil;						// mempresentasikan pembagi 
+	        bagian2 = bilangan / hasileksponen;  					// mempresentasikan pembilang 
+	        bagian3 = bagian1 + bagian2;							// merepresentasikan pembilang baru setelah pembagi dan pembilang dihitung
+	        pembagi = 1 / pangkat;
+	        hasil = pembagi * bagian3;
+	    }
+	}
 
-    while ((eksponen(hasil, pangkat) - bilangan) > epsilon)    	// menggunakan metode iterasi         
-	{
-        hasileksponen = eksponen(hasil, pangkat - 1);
-        bagian1 = (pangkat - 1) * hasil;						// mempresentasikan pembagi 
-        bagian2 = bilangan / hasileksponen;  					// mempresentasikan pembilang 
-        bagian3 = bagian1 + bagian2;							// merepresentasikan pembilang baru setelah pembagi dan pembilang dihitung
-        pembagi = 1 / pangkat;
-        hasil = pembagi * bagian3;
-    }
     return hasil; 
 }
 
@@ -90,22 +105,22 @@ double cosecDerajat(double bilangan)
 	return cosec;
 }
 
-double sinInversRad(double angka)
-// Menghitung invers sin dalam radian
-{
-	double rad;
-	rad = asinf(angka);
-	return rad;
-} 
+//double sinInversRad(double angka)
+//// Menghitung invers sin dalam radian
+//{
+//	double rad;
+//	rad = asinf(angka);
+//	return rad;
+//} 
 
-double sinInversDerajat(double angka)
-// Menghitung invers sin dalam derajat
-{
-	double nilai, derajat;
-	nilai = 180/pi;
-	derajat = ((asinf(angka))*nilai);
-	return derajat;
-} 
+//double sinInversDerajat(double angka)
+//// Menghitung invers sin dalam derajat
+//{
+//	double nilai, derajat;
+//	nilai = 180/pi;
+//	derajat = ((asinf(angka))*nilai);
+//	return derajat;
+//} 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
