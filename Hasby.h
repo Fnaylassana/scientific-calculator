@@ -27,7 +27,8 @@ double Logaritma (double X,double Y);
 
 
 /**
- * Kontributor	: Aulia Azizah Fauziyah
+ * Referensi	: https://stackoverflow.com/questions/35968963/trying-to-calculate-logarithm-base-10-without-math-h-really-close-just-having
+ * Kontributor	: Aulia Aziizah Fauziyyah
  * Deskripsi 	: Fungsi ini bertujuan untuk menghitung Logaritma Natural dengan perhitungan Deret Taylor
  * IS 			: Variable X dan Y diisi dengan nilai
  * FS 			: Variable Hasil akan direturn setelah dihitung Logaritma Naturalnya.
